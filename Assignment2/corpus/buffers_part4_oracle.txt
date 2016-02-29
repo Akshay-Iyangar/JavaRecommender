@@ -1,0 +1,79 @@
+<p>The <code>StringDemo</code> program that was listed in the section titled "Strings" is an example of a program that would be more efficient if a <code>StringBuilder</code> were used instead of a <code>String</code>.</p> 
+<p><code>StringDemo</code> reversed a palindrome. Here, once again, is its listing:</p> 
+<div class="codeblock"> 
+ <pre>
+
+public class StringDemo {
+    public static void main(String[] args) {
+        String palindrome = "Dot saw I was Tod";
+        int len = palindrome.length();
+        char[] tempCharArray = new char[len];
+        char[] charArray = new char[len];
+        
+        // put original string in an 
+        // array of chars
+        for (int i = 0; i &lt; len; i++) {
+            tempCharArray[i] = 
+                palindrome.charAt(i);
+        } 
+        
+        // reverse array of chars
+        for (int j = 0; j &lt; len; j++) {
+            charArray[j] =
+                tempCharArray[len - 1 - j];
+        }
+        
+        String reversePalindrome =
+            new String(charArray);
+        System.out.println(reversePalindrome);
+    }
+}
+</pre> 
+</div> 
+<p>Running the program produces this output:</p> 
+<div class="codeblock"> 
+ <pre>
+doT saw I was toD
+</pre> 
+</div> 
+<p>To accomplish the string reversal, the program converts the string to an array of characters (first <code>for</code> loop), reverses the array into a second array (second <code>for</code> loop), and then converts back to a string.</p> 
+<p>If you convert the <code>palindrome</code> string to a string builder, you can use the <code>reverse()</code> method in the <code>StringBuilder</code> class. It makes the code simpler and easier to read:</p> 
+<div class="codeblock"> 
+ <pre>
+
+public class StringBuilderDemo {
+    public static void main(String[] args) {
+        String palindrome = "Dot saw I was Tod";
+         
+        StringBuilder sb = new StringBuilder(palindrome);
+        
+        sb.reverse();  // reverse it
+        
+        System.out.println(sb);
+    }
+}
+</pre> 
+</div> 
+<p>Running this program produces the same output:</p> 
+<div class="codeblock"> 
+ <pre>
+doT saw I was toD
+</pre> 
+</div> 
+<p>Note that <code>println()</code> prints a string builder, as in:</p> 
+<div class="codeblock"> 
+ <pre>
+System.out.println(sb);
+</pre> 
+</div> 
+<p>because <code>sb.toString()</code> is called implicitly, as it is with any other object in a <code>println()</code> invocation.</p> 
+<div class="note"> 
+ <hr> 
+  <strong>Note:</strong>&nbsp;There is also a 
+  <code>StringBuffer</code> class that is 
+  <i>exactly</i> the same as the 
+  <code>StringBuilder</code> class, except that it is thread-safe by virtue of having its methods synchronized. Threads will be discussed in the lesson on concurrency. 
+  <hr> 
+  </hr>
+ </hr>
+</div>

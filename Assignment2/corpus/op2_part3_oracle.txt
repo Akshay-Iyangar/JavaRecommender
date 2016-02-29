@@ -1,0 +1,44 @@
+<p>The <code>&amp;&amp;</code> and <code>||</code> operators perform <em>Conditional-AND</em> and <em>Conditional-OR</em> operations on two boolean expressions. These operators exhibit "short-circuiting" behavior, which means that the second operand is evaluated only if needed.</p> 
+<div class="codeblock"> 
+ <pre>
+&amp;&amp; Conditional-AND
+|| Conditional-OR
+</pre> 
+</div> 
+<p>The following program, <a class="SourceLink" target="_blank" href="examples/ConditionalDemo1.java" onclick="showCode('https://docs.oracle.com/javase/tutorial/displayCode.html', 'examples/ConditionalDemo1.java'); return false;"><code>ConditionalDemo1</code></a>, tests these operators:</p> 
+<div class="codeblock"> 
+ <pre>
+
+class ConditionalDemo1 {
+
+    public static void main(String[] args){
+        int value1 = 1;
+        int value2 = 2;
+        if((value1 == 1) &amp;&amp; (value2 == 2))
+            System.out.println("value1 is 1 AND value2 is 2");
+        if((value1 == 1) || (value2 == 1))
+            System.out.println("value1 is 1 OR value2 is 1");
+    }
+}
+</pre> 
+</div> 
+<p>Another conditional operator is <code>?:</code>, which can be thought of as shorthand for an <code>if-then-else</code> statement (discussed in the <a class="TutorialLink" target="_top" href="flow.html">Control Flow Statements</a> section of this lesson). This operator is also known as the <i>ternary operator</i> because it uses three operands. In the following example, this operator should be read as: "If <code>someCondition</code> is <code>true</code>, assign the value of <code>value1</code> to <code>result</code>. Otherwise, assign the value of <code>value2</code> to <code>result</code>."</p> 
+<p>The following program, <a class="SourceLink" target="_blank" href="examples/ConditionalDemo2.java" onclick="showCode('https://docs.oracle.com/javase/tutorial/displayCode.html', 'examples/ConditionalDemo2.java'); return false;"><code>ConditionalDemo2</code></a>, tests the <code>?:</code> operator:</p> 
+<div class="codeblock"> 
+ <pre>
+
+class ConditionalDemo2 {
+
+    public static void main(String[] args){
+        int value1 = 1;
+        int value2 = 2;
+        int result;
+        boolean someCondition = true;
+        result = someCondition ? value1 : value2;
+
+        System.out.println(result);
+    }
+}
+</pre> 
+</div> 
+<p>Because <code>someCondition</code> is true, this program prints "1" to the screen. Use the <code>?:</code> operator instead of an <code>if-then-else</code> statement if it makes your code more readable; for example, when the expressions are compact and without side-effects (such as assignments).</p>

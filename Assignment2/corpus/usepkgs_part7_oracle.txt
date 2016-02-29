@@ -1,0 +1,49 @@
+<p>There are situations where you need frequent access to static final fields (constants) and static methods from one or two classes. Prefixing the name of these classes over and over can result in cluttered code. The <i>static import</i> statement gives you a way to import the constants and static methods that you want to use so that you do not need to prefix the name of their class.</p> 
+<p>The <code>java.lang.Math</code> class defines the <code>PI</code> constant and many static methods, including methods for calculating sines, cosines, tangents, square roots, maxima, minima, exponents, and many more. For example,</p> 
+<div class="codeblock"> 
+ <pre>
+public static final double PI 
+    = 3.141592653589793;
+public static double cos(double a)
+{
+    ...
+}
+</pre> 
+</div> 
+<p>Ordinarily, to use these objects from another class, you prefix the class name, as follows.</p> 
+<div class="codeblock"> 
+ <pre>
+double r = Math.cos(Math.PI * theta);
+</pre> 
+</div> 
+<p>You can use the static import statement to import the static members of java.lang.Math so that you don't need to prefix the class name, <code>Math</code>. The static members of <code>Math</code> can be imported either individually:</p> 
+<div class="codeblock"> 
+ <pre>
+import <b>static</b> java.lang.Math.PI;
+</pre> 
+</div> 
+<p>or as a group:</p> 
+<div class="codeblock"> 
+ <pre>
+import <b>static</b> java.lang.Math.*;
+</pre> 
+</div> 
+<p>Once they have been imported, the static members can be used without qualification. For example, the previous code snippet would become:</p> 
+<div class="codeblock"> 
+ <pre>
+double r = cos(PI * theta);
+</pre> 
+</div> 
+<p>Obviously, you can write your own classes that contain constants and static methods that you use frequently, and then use the static import statement. For example,</p> 
+<div class="codeblock"> 
+ <pre>
+import <b>static</b> mypackage.MyConstants.*;
+</pre> 
+</div> 
+<div class="note"> 
+ <hr> 
+  <strong>Note:</strong>&nbsp;Use static import very sparingly. Overusing static import can result in code that is difficult to read and maintain, because readers of the code won't know which class defines a particular static object. Used properly, static import makes code more readable by removing class name repetition. 
+  <hr> 
+  </hr>
+ </hr>
+</div>

@@ -1,0 +1,43 @@
+<p><code><a href="/wiki/Java_Programming/Keywords/extends" title="Java Programming/Keywords/extends"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">extends</font></a></code> is a Java keyword.</p> 
+<p>Used in <code><a href="/wiki/Java_Programming/Keywords/class" title="Java Programming/Keywords/class"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">class</font></a></code> and <code><a href="/wiki/Java_Programming/Keywords/interface" title="Java Programming/Keywords/interface"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">interface</font></a></code> definition to declare the class or interface that is to be extended.</p> 
+<p>Syntax:</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Computer code" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/32px-Gnome-settings-accessibility-keyboard.svg.png" title="Computer code" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/48px-Gnome-settings-accessibility-keyboard.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/64px-Gnome-settings-accessibility-keyboard.svg.png 2x" data-file-width="60" data-file-height="60" /></td> 
+   <td style="background-color:#ffeee0; border-left: 4px solid orange; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyClass</span> <span class="kd">extends</span> <span class="n">SuperClass</span> 
+<span class="o">{</span>
+  <span class="c1">//...</span>
+<span class="o">}</span>
+ 
+<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">MyInterface</span> <span class="kd">extends</span> <span class="n">SuperInterface</span>
+<span class="o">{</span>
+  <span class="c1">//...</span>
+<span class="o">}</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p><br> In Java 1.5 and later, the "extends" keyword is also used to specify an upper bound on a type parameter in Generics.</br></p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Computer code" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/32px-Gnome-settings-accessibility-keyboard.svg.png" title="Computer code" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/48px-Gnome-settings-accessibility-keyboard.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/64px-Gnome-settings-accessibility-keyboard.svg.png 2x" data-file-width="60" data-file-height="60" /></td> 
+   <td style="background-color:#ffeee0; border-left: 4px solid orange; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="kd">class</span> <span class="nc">Foo</span><span class="o">&lt;</span><span class="n">T</span> <span class="kd">extends</span> <span class="n">Number</span><span class="o">&gt;</span> <span class="o">{</span> <span class="cm">/*...*/</span> <span class="o">}</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p><br> See also:</br></p> 
+<ul> 
+ <li><a href="/wiki/Java_Programming/Creating_Objects" title="Java Programming/Creating Objects" class="mw-redirect">Java Programming/Creating Objects</a></li> 
+ <li><a href="/wiki/Java_Programming/Keywords/class" title="Java Programming/Keywords/class">Java Programming/Keywords/class</a></li> 
+</ul>

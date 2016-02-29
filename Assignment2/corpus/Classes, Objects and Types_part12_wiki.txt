@@ -1,0 +1,8 @@
+<p>There are three overloaded versions of the <code>wait</code> method to support different ways to specify the timeout value: <code>java.lang.Object.wait()</code>, <code>java.lang.Object.wait(long)</code> and <code>java.lang.Object.wait(long, int)</code>. The first method uses a timeout value of zero (0), which means that the wait does not timeout; the second method takes the number of milliseconds as a timeout; the third method takes the number of nanoseconds as a timeout, calculated as <code>1000000 * timeout + nanos</code>.</p> 
+<p>The thread calling <code>wait</code> is blocked (removed from the set of executable threads) and added to the object's wait list. The thread remains in the object's wait list until one of three events occurs:</p> 
+<ol> 
+ <li>another thread calls the object's <code>notify</code> or <code>notifyAll</code> method;</li> 
+ <li>another thread calls the thread's <code>java.lang.Thread.interrupt</code> method; or</li> 
+ <li>a non-zero timeout that was specified in the call to <code>wait</code> expires.</li> 
+</ol> 
+<p>The <code>wait</code> method must be called inside of a block or method synchronized on the object. This insures that there are no race conditions between <code>wait</code> and <code>notify</code>. When the thread is placed in the wait list, the thread releases the object's mutex lock. After the thread is removed from the wait list and added to the set of executable threads, it must acquire the object's mutex lock before continuing execution.</p>

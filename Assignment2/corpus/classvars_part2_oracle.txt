@@ -1,0 +1,69 @@
+<p>When a number of objects are created from the same class blueprint, they each have their own distinct copies of <i>instance variables</i>. In the case of the <code>Bicycle</code> class, the instance variables are <code>cadence</code>, <code>gear</code>, and <code>speed</code>. Each <code>Bicycle</code> object has its own values for these variables, stored in different memory locations.</p> 
+<p>Sometimes, you want to have variables that are common to all objects. This is accomplished with the <code>static</code> modifier. Fields that have the <code>static</code> modifier in their declaration are called <i>static fields</i> or <i>class variables</i>. They are associated with the class, rather than with any object. Every instance of the class shares a class variable, which is in one fixed location in memory. Any object can change the value of a class variable, but class variables can also be manipulated without creating an instance of the class.</p> 
+<p>For example, suppose you want to create a number of <code>Bicycle</code> objects and assign each a serial number, beginning with 1 for the first object. This ID number is unique to each object and is therefore an instance variable. At the same time, you need a field to keep track of how many <code>Bicycle</code> objects have been created so that you know what ID to assign to the next one. Such a field is not related to any individual object, but to the class as a whole. For this you need a class variable, <code>numberOfBicycles</code>, as follows:</p> 
+<div class="codeblock"> 
+ <pre>
+public class Bicycle {
+        
+    private int cadence;
+    private int gear;
+    private int speed;
+        
+    // <b>add an instance variable for the object ID</b>
+    private int id;
+    
+    // <b>add a class variable for the</b>
+    // <b>number of Bicycle objects instantiated</b>
+    private <b>static</b> int numberOfBicycles = 0;
+        ...
+}
+</pre> 
+</div> 
+<p>Class variables are referenced by the class name itself, as in</p> 
+<div class="codeblock"> 
+ <pre>
+Bicycle.numberOfBicycles
+</pre> 
+</div> 
+<p>This makes it clear that they are class variables.</p> 
+<div class="note"> 
+ <hr> 
+  <strong>Note:</strong>&nbsp;You can also refer to static fields with an object reference like 
+  <div class="codeblock"> 
+   <pre>
+myBike.numberOfBicycles
+</pre> 
+  </div> but this is discouraged because it does not make it clear that they are class variables. 
+  <hr> 
+  </hr>
+ </hr>
+</div> 
+<p>You can use the <code>Bicycle</code> constructor to set the <code>id</code> instance variable and increment the <code>numberOfBicycles</code> class variable:</p> 
+<div class="codeblock"> 
+ <pre>
+public class Bicycle {
+        
+    private int cadence;
+    private int gear;
+    private int speed;
+    private int id;
+    private static int numberOfBicycles = 0;
+        
+    public Bicycle(int startCadence, int startSpeed, int startGear){
+        gear = startGear;
+        cadence = startCadence;
+        speed = startSpeed;
+
+        // <b>increment number of Bicycles</b>
+        // <b>and assign ID number</b>
+        <b>id = ++numberOfBicycles;</b>
+    }
+
+    // <b>new method to return the ID instance variable</b>
+    public int getID() {
+        return id;
+    }
+        ...
+}
+</pre> 
+</div>

@@ -1,0 +1,45 @@
+<p>Here are some other <code>String</code> methods for finding characters or substrings within a string. The <code>String</code> class provides accessor methods that return the position within the string of a specific character or substring: <code>indexOf()</code> and <code>lastIndexOf()</code>. The <code>indexOf()</code> methods search forward from the beginning of the string, and the <code>lastIndexOf()</code> methods search backward from the end of the string. If a character or substring is not found, <code>indexOf()</code> and <code>lastIndexOf()</code> return -1.</p> 
+<p>The <code>String</code> class also provides a search method, <code>contains</code>, that returns true if the string contains a particular character sequence. Use this method when you only need to know that the string contains a character sequence, but the precise location isn't important.</p> 
+<p>The following table describes the various string search methods.</p> 
+<table width="100%" border="1" cellpadding="4" cellspacing="3" summary="This table lists the search methods in the String class"> 
+ <caption style="font-weight: bold">
+   The Search Methods in the 
+  <code>String</code> Class 
+ </caption> 
+ <tbody> 
+  <tr> 
+   <th id="h201">Method</th> 
+   <th id="h202" width="50%">Description</th> 
+  </tr> 
+  <tr> 
+   <td headers="h201"><code>int indexOf(int ch)<br> int lastIndexOf(int ch)</br></code></td> 
+   <td headers="h202">Returns the index of the first (last) occurrence of the specified character.</td> 
+  </tr> 
+  <tr> 
+   <td headers="h201"><code>int indexOf(int ch, int fromIndex)<br> int lastIndexOf(int ch, int fromIndex)</br></code></td> 
+   <td headers="h202">Returns the index of the first (last) occurrence of the specified character, searching forward (backward) from the specified index.</td> 
+  </tr> 
+  <tr> 
+   <td headers="h201"><code>int indexOf(String str)<br> int lastIndexOf(String str)</br></code></td> 
+   <td headers="h202">Returns the index of the first (last) occurrence of the specified substring.</td> 
+  </tr> 
+  <tr> 
+   <td headers="h201"><code>int indexOf(String str, int fromIndex)<br> int lastIndexOf(String str, int fromIndex)</br></code></td> 
+   <td headers="h202">Returns the index of the first (last) occurrence of the specified substring, searching forward (backward) from the specified index.</td> 
+  </tr> 
+  <tr> 
+   <td headers="h201"><code>boolean contains(CharSequence s)</code></td> 
+   <td headers="h202">Returns true if the string contains the specified character sequence.</td> 
+  </tr> 
+ </tbody> 
+</table> 
+<div class="note"> 
+ <hr> 
+  <strong>Note:</strong>&nbsp; 
+  <code>CharSequence</code> is an interface that is implemented by the 
+  <code>String</code> class. Therefore, you can use a string as an argument for the 
+  <code>contains()</code> method. 
+  <hr> 
+  </hr>
+ </hr>
+</div>

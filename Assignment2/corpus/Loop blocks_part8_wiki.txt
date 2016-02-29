@@ -1,0 +1,124 @@
+<p>The <a href="#code-listing-7">code listing 3.7</a> recieves a number as parameter and print its binary representation.</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Computer code" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/32px-Gnome-settings-accessibility-keyboard.svg.png" title="Computer code" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/48px-Gnome-settings-accessibility-keyboard.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/64px-Gnome-settings-accessibility-keyboard.svg.png 2x" data-file-width="60" data-file-height="60" /></td> 
+   <td style="background-color:#ffeee0; border-left: 4px solid orange; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><span id="code-listing-7"><b>Code listing 3.7: GetBinary.java</b></span> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno"> 1 </span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">GetBinary</span> <span class="o">{</span>
+<span class="lineno"> 2 </span>    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno"> 3 </span>        <span class="k">if</span> <span class="o">(</span><span class="n">args</span><span class="o">.</span><span class="na">length</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno"> 4 </span>            <span class="c1">// Print usage</span>
+<span class="lineno"> 5 </span>            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Usage: java GetBinary &lt;decimal integer&gt;"</span><span class="o">);</span>
+<span class="lineno"> 6 </span>            <span class="n">System</span><span class="o">.</span><span class="na">exit</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
+<span class="lineno"> 7 </span>        <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+<span class="lineno"> 8 </span>            <span class="c1">// Print arguments</span>
+<span class="lineno"> 9 </span>            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Received "</span> <span class="o">+</span> <span class="n">args</span><span class="o">.</span><span class="na">length</span> <span class="o">+</span> <span class="s">" arguments."</span><span class="o">);</span>
+<span class="lineno">10 </span>            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"The arguments are:"</span><span class="o">);</span>
+<span class="lineno">11 </span>            <span class="k">for</span> <span class="o">(</span><span class="n">String</span> <span class="n">arg</span> <span class="o">:</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno">12 </span>                <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"\t"</span> <span class="o">+</span> <span class="n">arg</span><span class="o">);</span>
+<span class="lineno">13 </span>            <span class="o">}</span>
+<span class="lineno">14 </span>        <span class="o">}</span>
+<span class="lineno">15 </span>
+<span class="lineno">16 </span>        <span class="kt">int</span> <span class="n">number</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+<span class="lineno">17 </span>        <span class="n">String</span> <span class="n">binary</span> <span class="o">=</span> <span class="s">""</span><span class="o">;</span>
+<span class="lineno">18 </span>
+<span class="lineno">19 </span>        <span class="c1">// Get the input number</span>
+<span class="lineno">20 </span>        <span class="k">try</span> <span class="o">{</span>
+<span class="lineno">21 </span>            <span class="n">number</span> <span class="o">=</span> <span class="n">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">args</span><span class="o">[</span><span class="mi">0</span><span class="o">]);</span>
+<span class="lineno">22 </span>        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">NumberFormatException</span> <span class="n">ex</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno">23 </span>            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Error: argument must be a base-10 integer."</span><span class="o">);</span>
+<span class="lineno">24 </span>            <span class="n">System</span><span class="o">.</span><span class="na">exit</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
+<span class="lineno">25 </span>        <span class="o">}</span>
+<span class="lineno">26 </span>
+<span class="lineno">27 </span>        <span class="c1">// Convert to a binary string</span>
+<span class="lineno">28 </span>        <span class="k">do</span> <span class="o">{</span>
+<span class="lineno">29 </span>            <span class="k">switch</span> <span class="o">(</span><span class="n">number</span> <span class="o">%</span> <span class="mi">2</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno">30 </span>                <span class="k">case</span> <span class="mi">0</span><span class="o">:</span> <span class="n">binary</span> <span class="o">=</span> <span class="sc">'0'</span> <span class="o">+</span> <span class="n">binary</span><span class="o">;</span> <span class="k">break</span><span class="o">;</span>
+<span class="lineno">31 </span>                <span class="k">case</span> <span class="mi">1</span><span class="o">:</span> <span class="n">binary</span> <span class="o">=</span> <span class="sc">'1'</span> <span class="o">+</span> <span class="n">binary</span><span class="o">;</span> <span class="k">break</span><span class="o">;</span>
+<span class="lineno">32 </span>            <span class="o">}</span>
+<span class="lineno">33 </span>            <span class="n">number</span> <span class="o">&gt;&gt;=</span> <span class="mi">1</span><span class="o">;</span>
+<span class="lineno">34 </span>        <span class="o">}</span> <span class="k">while</span> <span class="o">(</span><span class="n">number</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">);</span>
+<span class="lineno">35 </span>
+<span class="lineno">36 </span>        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"The binary representation of "</span> <span class="o">+</span> <span class="n">args</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">+</span> <span class="s">" is "</span> <span class="o">+</span> <span class="n">binary</span><span class="o">);</span>
+<span class="lineno">37 </span>    <span class="o">}</span>
+<span class="lineno">38 </span><span class="o">}</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>The <a href="#code-listing-8">code listing 3.8</a> is a simulation of playing a game called Lucky Sevens. It is a dice game where the player rolls two dice. If the numbers on the dice add up to seven, he wins $4. If they do not, he loses $1. The game shows how to use control flow in a program as well as the fruitlessness of gambling.</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Computer code" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/32px-Gnome-settings-accessibility-keyboard.svg.png" title="Computer code" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/48px-Gnome-settings-accessibility-keyboard.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/64px-Gnome-settings-accessibility-keyboard.svg.png 2x" data-file-width="60" data-file-height="60" /></td> 
+   <td style="background-color:#ffeee0; border-left: 4px solid orange; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><span id="code-listing-8"><b>Code listing 3.8: LuckySevens.java</b></span> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno"> 1 </span><span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+<span class="lineno"> 2 </span>
+<span class="lineno"> 3 </span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">LuckySevens</span> <span class="o">{</span>
+<span class="lineno"> 4 </span>    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno"> 5 </span>        <span class="n">Scanner</span> <span class="n">in</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Scanner</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">in</span><span class="o">);</span>
+<span class="lineno"> 6 </span>        <span class="n">Random</span> <span class="n">random</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Random</span><span class="o">();</span>
+<span class="lineno"> 7 </span>        <span class="n">String</span> <span class="n">input</span><span class="o">;</span>
+<span class="lineno"> 8 </span>        <span class="kt">int</span> <span class="n">startingCash</span><span class="o">,</span> <span class="n">cash</span><span class="o">,</span> <span class="n">maxCash</span><span class="o">,</span> <span class="n">rolls</span><span class="o">,</span> <span class="n">roll</span><span class="o">;</span>
+<span class="lineno"> 9 </span>
+<span class="lineno">10 </span>        <span class="c1">// Loop until "quit" is input</span>
+<span class="lineno">11 </span>        <span class="k">while</span> <span class="o">(</span><span class="kc">true</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno">12 </span>            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"Enter the amount of cash to start with (or \"quit\" to quit): "</span><span class="o">);</span>
+<span class="lineno">13 </span>
+<span class="lineno">14 </span>            <span class="n">input</span> <span class="o">=</span> <span class="n">in</span><span class="o">.</span><span class="na">nextLine</span><span class="o">();</span>
+<span class="lineno">15 </span>
+<span class="lineno">16 </span>            <span class="c1">// Check if user wants to exit</span>
+<span class="lineno">17 </span>            <span class="k">if</span> <span class="o">(</span><span class="n">input</span><span class="o">.</span><span class="na">toLowerCase</span><span class="o">().</span><span class="na">equals</span><span class="o">(</span><span class="s">"quit"</span><span class="o">))</span> <span class="o">{</span>
+<span class="lineno">18 </span>                <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"\tGoodbye."</span><span class="o">);</span>
+<span class="lineno">19 </span>                <span class="n">System</span><span class="o">.</span><span class="na">exit</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
+<span class="lineno">20 </span>            <span class="o">}</span>
+<span class="lineno">21 </span>
+<span class="lineno">22 </span>            <span class="c1">// Get number</span>
+<span class="lineno">23 </span>            <span class="k">try</span> <span class="o">{</span>
+<span class="lineno">24 </span>                <span class="n">startingCash</span> <span class="o">=</span> <span class="n">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">input</span><span class="o">);</span>
+<span class="lineno">25 </span>            <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">NumberFormatException</span> <span class="n">ex</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno">26 </span>                <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"\tPlease enter a positive integer greater than 0."</span><span class="o">);</span>
+<span class="lineno">27 </span>                <span class="k">continue</span><span class="o">;</span>
+<span class="lineno">28 </span>            <span class="o">}</span>
+<span class="lineno">29 </span>
+<span class="lineno">30 </span>            <span class="c1">// You have to start with some money!</span>
+<span class="lineno">31 </span>            <span class="k">if</span> <span class="o">(</span><span class="n">startingCash</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno">32 </span>                <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"\tPlease enter a positive integer greater than 0."</span><span class="o">);</span>
+<span class="lineno">33 </span>                <span class="k">continue</span><span class="o">;</span>
+<span class="lineno">34 </span>            <span class="o">}</span>
+<span class="lineno">35 </span>
+<span class="lineno">36 </span>            <span class="n">cash</span> <span class="o">=</span> <span class="n">startingCash</span><span class="o">;</span>
+<span class="lineno">37 </span>            <span class="n">maxCash</span> <span class="o">=</span> <span class="n">cash</span><span class="o">;</span>
+<span class="lineno">38 </span>            <span class="n">rolls</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+<span class="lineno">39 </span>            <span class="n">roll</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+<span class="lineno">40 </span>
+<span class="lineno">41 </span>            <span class="c1">// Here is the game loop</span>
+<span class="lineno">42 </span>            <span class="k">for</span> <span class="o">(;</span> <span class="n">cash</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">;</span> <span class="n">rolls</span><span class="o">++)</span> <span class="o">{</span>
+<span class="lineno">43 </span>               <span class="n">roll</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="na">nextInt</span><span class="o">(</span><span class="mi">6</span><span class="o">)</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
+<span class="lineno">44 </span>               <span class="n">roll</span> <span class="o">+=</span> <span class="n">random</span><span class="o">.</span><span class="na">nextInt</span><span class="o">(</span><span class="mi">6</span><span class="o">)</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
+<span class="lineno">45 </span>
+<span class="lineno">46 </span>                <span class="k">if</span> <span class="o">(</span><span class="n">roll</span> <span class="o">==</span> <span class="mi">7</span><span class="o">)</span>
+<span class="lineno">47 </span>                    <span class="n">cash</span> <span class="o">+=</span> <span class="mi">4</span><span class="o">;</span>
+<span class="lineno">48 </span>                <span class="k">else</span>
+<span class="lineno">49 </span>                    <span class="n">cash</span> <span class="o">-=</span> <span class="mi">1</span><span class="o">;</span>
+<span class="lineno">50 </span>
+<span class="lineno">51 </span>                <span class="k">if</span> <span class="o">(</span><span class="n">cash</span> <span class="o">&gt;</span> <span class="n">maxCash</span><span class="o">)</span>
+<span class="lineno">52 </span>                    <span class="n">maxCash</span> <span class="o">=</span> <span class="n">cash</span><span class="o">;</span>
+<span class="lineno">53 </span>            <span class="o">}</span>
+<span class="lineno">54 </span>
+<span class="lineno">55 </span>            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"\tYou start with $"</span> <span class="o">+</span> <span class="n">startingCash</span> <span class="o">+</span> <span class="s">".\n"</span>
+<span class="lineno">56 </span>                    <span class="o">+</span> <span class="s">"\tYou peak at $"</span> <span class="o">+</span> <span class="n">maxCash</span> <span class="o">+</span> <span class="s">".\n"</span>
+<span class="lineno">57 </span>      <span class="o">+</span> <span class="s">"\tAfter "</span> <span class="o">+</span> <span class="n">rolls</span> <span class="o">+</span> <span class="s">" rolls, you run out of cash."</span><span class="o">);</span>
+<span class="lineno">58 </span>        <span class="o">}</span>
+<span class="lineno">59 </span>    <span class="o">}</span>
+<span class="lineno">60 </span><span class="o">}</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table>

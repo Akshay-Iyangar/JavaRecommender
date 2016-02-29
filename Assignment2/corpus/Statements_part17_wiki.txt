@@ -1,0 +1,55 @@
+<p>The foreach statement allows you to iterate through all the items in a collection, examining each item in turn while still preserving its type. The syntax for the foreach statement is:</p> 
+<pre>
+<code><a href="/wiki/Java_Programming/Keywords/for" title="Java Programming/Keywords/for"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">for</font></a></code> (<i>type</i> item : collection) statement;
+</pre> 
+<p>For an example, we'll take an array of <code>String</code>s denoting days in a week and traverse through the collection, examining one item at a time.</p> 
+<table style="width: 100%;"> 
+ <tbody> 
+  <tr> 
+   <td valign="top"> 
+    <table style="padding:2px; margin:2px;"> 
+     <tbody> 
+      <tr valign="top"> 
+       <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+       <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><span id="code-listing-18"><b>Code section 3.18: A foreach loop.</b></span> 
+        <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+         <pre>
+<span class="lineno">1 </span><span class="n">String</span><span class="o">[]</span> <span class="n">days</span> <span class="o">=</span> <span class="o">{</span><span class="s">"Monday"</span><span class="o">,</span> <span class="s">"Tuesday"</span><span class="o">,</span> <span class="s">"Wednesday"</span><span class="o">,</span> <span class="s">"Thursday"</span><span class="o">,</span> <span class="s">"Friday"</span><span class="o">,</span> <span class="s">"Saturday"</span><span class="o">,</span> <span class="s">"Sunday"</span><span class="o">};</span>
+<span class="lineno">2 </span>
+<span class="lineno">3 </span><span class="k">for</span> <span class="o">(</span><span class="n">String</span> <span class="n">day</span> <span class="o">:</span> <span class="n">days</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno">4 </span>  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">day</span><span class="o">);</span>
+<span class="lineno">5 </span><span class="o">}</span>
+</pre> 
+        </div> </td> 
+      </tr> 
+     </tbody> 
+    </table> </td> 
+   <td valign="top"> 
+    <table style="padding:2px; margin:2px; width:100%;"> 
+     <tbody> 
+      <tr valign="top"> 
+       <td style="width:32px;"><img alt="Standard input or output" src="//upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/32px-Nuvola_apps_display.png" title="Standard input or output" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/48px-Nuvola_apps_display.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/64px-Nuvola_apps_display.png 2x" data-file-width="128" data-file-height="128" /></td> 
+       <td style="background-color:#f0f0ff; border-left: 4px solid blue; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><b>Output for <a href="#code-listing-18">code listing 3.18</a></b> <pre style="background-color:#000; color:#fff;">
+Monday
+Tuesday
+Wednesday
+Thursday
+Friday
+Saturday
+Sunday
+</pre></td> 
+      </tr> 
+     </tbody> 
+    </table> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>Notice that the loop automatically exits after the last item in the collection has been examined in the statement block.</p> 
+<p>Although the enhanced for loop can make code much clearer, it can't be used in some common situations.</p> 
+<ul> 
+ <li><b>Only access.</b> Elements can not be assigned to, eg, not to increment each element in a collection.</li> 
+ <li><b>Only single structure.</b> It's not possible to traverse two structures at once, eg, to compare two arrays.</li> 
+ <li><b>Only single element.</b> Use only for single element access, eg, not to compare successive elements.</li> 
+ <li><b>Only forward.</b> It's possible to iterate only forward by single steps.</li> 
+ <li><b>At least Java 5.</b> Don't use it if you need compatibility with versions before Java 5.</li> 
+</ul>

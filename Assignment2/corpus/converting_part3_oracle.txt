@@ -1,0 +1,51 @@
+<p>Sometimes you need to convert a number to a string because you need to operate on the value in its string form. There are several easy ways to convert a number to a string:</p> 
+<div class="codeblock"> 
+ <pre>
+int i;
+// Concatenate "i" with an empty string; conversion is handled for you.
+String s1 = "" + i;
+</pre> 
+</div> 
+<p>or</p> 
+<div class="codeblock"> 
+ <pre>
+// The valueOf class method.
+String s2 = String.valueOf(i);
+</pre> 
+</div> 
+<p>Each of the <code>Number</code> subclasses includes a class method, <code>toString()</code>, that will convert its primitive type to a string. For example:</p> 
+<div class="codeblock"> 
+ <pre>
+int i;
+double d;
+String s3 = Integer.toString(i); 
+String s4 = Double.toString(d); 
+</pre> 
+</div> 
+<p>The <a class="SourceLink" target="_blank" href="examples/ToStringDemo.java" onclick="showCode('https://docs.oracle.com/javase/tutorial/displayCode.html', 'examples/ToStringDemo.java'); return false;"><code>ToStringDemo</code></a> example uses the <code>toString</code> method to convert a number to a string. The program then uses some string methods to compute the number of digits before and after the decimal point:</p> 
+<div class="codeblock"> 
+ <pre>
+
+public class ToStringDemo {
+    
+    public static void main(String[] args) {
+        double d = 858.48;
+        String s = Double.toString(d);
+        
+        int dot = s.indexOf('.');
+        
+        System.out.println(dot + " digits " +
+            "before decimal point.");
+        System.out.println( (s.length() - dot - 1) +
+            " digits after decimal point.");
+    }
+}
+</pre> 
+</div> 
+<p>The output of this program is:</p> 
+<div class="codeblock"> 
+ <pre>
+3 digits before decimal point.
+2 digits after decimal point.
+</pre> 
+</div>

@@ -1,0 +1,57 @@
+<p>Unicode characters can also be expressed through Unicode Escape Sequences. Unicode escape sequence may appear anywhere in a Java source file (including inside identifiers, comments, and <a href="/wiki/Java_Programming/Literals" title="Java Programming/Literals">string literals</a>).</p> 
+<p>Unicode escape sequences consist of</p> 
+<ol> 
+ <li>a backslash '<code>\</code>' (ASCII character 92, hex 0x5c),</li> 
+ <li>a '<code>u</code>' (ASCII 117, hex 0x75)</li> 
+ <li>optionally one or more additional '<code>u</code>' characters, and</li> 
+ <li>four hexadecimal digits (the characters '<code>0</code>' through '<code>9</code>' or '<code>a</code>' through '<code>f</code>' or '<code>A</code>' through '<code>F</code>').</li> 
+</ol> 
+<p>Such sequences represent the UTF-16 encoding of a Unicode character. For example, 'a' is equivalent to '\u0061'. This escape method does not support characters beyond U+FFFF or you have to make use of surrogate pairs.<sup id="cite_ref-1" class="reference"><a href="#cite_note-1">[1]</a></sup></p> 
+<p>Any and all characters in a program may be expressed in Unicode escape characters, but such programs are not very readable, except by the Java compiler - in addition, they are not very compact.</p> 
+<p>One can find a full list of the characters <a href="/wiki/Unicode/Character_reference" title="Unicode/Character reference">here</a>.</p> 
+<p>π may also be represented in Java as the <i>Unicode escape sequence</i> <code>\u03C0</code>. Thus, the following is a valid, but not very readable, declaration and assignment:</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><span id="code-section-102"><b>Code section 3.102: Unicode escape sequences for Pi.</b></span> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno">1 </span><span class="kt">double</span> <span class="err">\</span><span class="n">u03C0</span> <span class="o">=</span> <span class="n">Math</span><span class="o">.</span><span class="na">PI</span><span class="o">;</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>The following demonstrates the use of Unicode escape sequences in other Java syntax:</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><span id="code-section-103"><b>Code section 3.103: Unicode escape sequences in a string literal.</b></span> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno">1 </span><span class="c1">// Declare Strings pi and quote which contain \u03C0 and \u0027 respectively:</span>
+<span class="lineno">2 </span><span class="n">String</span> <span class="n">pi</span> <span class="o">=</span> <span class="s">"\u03C0"</span><span class="o">;</span>
+<span class="lineno">3 </span><span class="n">String</span> <span class="n">quote</span> <span class="o">=</span> <span class="s">"\u0027"</span><span class="o">;</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>Note that a Unicode escape sequence functions just like any other character in the source code. E.g., <code>\u0022</code> (double quote, ") needs to be quoted in a string just like ".</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><span id="code-section-104"><b>Code section 3.104: Double quote.</b></span> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno">1 </span><span class="c1">// Declare Strings doubleQuote1 and doubleQuote2 which both contain " (double quote):</span>
+<span class="lineno">2 </span><span class="n">String</span> <span class="n">doubleQuote1</span> <span class="o">=</span> <span class="s">"\""</span><span class="o">;</span>
+<span class="lineno">3 </span><span class="n">String</span> <span class="n">doubleQuote2</span> <span class="o">=</span> <span class="s">"\\u0022"</span><span class="o">;</span> <span class="c1">// "\u0022" doesn't work since """ doesn't work.</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table>

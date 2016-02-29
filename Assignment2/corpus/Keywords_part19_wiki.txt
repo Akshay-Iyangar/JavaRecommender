@@ -1,0 +1,97 @@
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Computer code" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/32px-Gnome-settings-accessibility-keyboard.svg.png" title="Computer code" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/48px-Gnome-settings-accessibility-keyboard.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/64px-Gnome-settings-accessibility-keyboard.svg.png 2x" data-file-width="60" data-file-height="60" /></td> 
+   <td style="background-color:#ffeee0; border-left: 4px solid orange; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="cm">/** Grades of courses */</span>
+  <span class="kd">enum</span> <span class="n">Grade</span> <span class="o">{</span> <span class="n">A</span><span class="o">,</span> <span class="n">B</span><span class="o">,</span> <span class="n">C</span><span class="o">,</span> <span class="n">D</span><span class="o">,</span> <span class="n">F</span> <span class="o">};</span>
+  <span class="c1">// ...</span>
+  <span class="kd">private</span> <span class="n">Grade</span> <span class="n">gradeA</span> <span class="o">=</span> <span class="n">Grade</span><span class="o">.</span><span class="na">A</span><span class="o">;</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p><br> This enumeration constant then can be passed in to methods:</br></p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Computer code" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/32px-Gnome-settings-accessibility-keyboard.svg.png" title="Computer code" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/48px-Gnome-settings-accessibility-keyboard.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/64px-Gnome-settings-accessibility-keyboard.svg.png 2x" data-file-width="60" data-file-height="60" /></td> 
+   <td style="background-color:#ffeee0; border-left: 4px solid orange; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="n">student</span><span class="o">.</span><span class="na">assignGrade</span><span class="o">(</span><span class="n">gradeA</span><span class="o">);</span>
+  <span class="cm">/**</span>
+<span class="cm">   * Assigns the grade for this course to the student</span>
+<span class="cm">   * @param GRADE  Grade to be assigned</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">assignGrade</span><span class="o">(</span><span class="kd">final</span> <span class="n">Grade</span> <span class="n">GRADE</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">grade</span> <span class="o">=</span> <span class="n">GRADE</span><span class="o">;</span>
+  <span class="o">}</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p><br> An enumeration may also have parameters:</br></p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Computer code" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/32px-Gnome-settings-accessibility-keyboard.svg.png" title="Computer code" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/48px-Gnome-settings-accessibility-keyboard.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/64px-Gnome-settings-accessibility-keyboard.svg.png 2x" data-file-width="60" data-file-height="60" /></td> 
+   <td style="background-color:#ffeee0; border-left: 4px solid orange; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="kd">public</span> <span class="kd">enum</span> <span class="n">DayOfWeek</span> <span class="o">{</span>
+  <span class="cm">/** Enumeration constants */</span>
+  <span class="n">MONDAY</span><span class="o">(</span><span class="mi">1</span><span class="o">),</span> <span class="n">TUESDAY</span><span class="o">(</span><span class="mi">2</span><span class="o">),</span> <span class="n">WEDNESDAY</span><span class="o">(</span><span class="mi">3</span><span class="o">),</span> <span class="n">THURSDAY</span><span class="o">(</span><span class="mi">4</span><span class="o">),</span> <span class="n">FRIDAY</span><span class="o">(</span><span class="mi">5</span><span class="o">),</span> <span class="n">SATURDAY</span><span class="o">(</span><span class="mi">6</span><span class="o">),</span> <span class="n">SUNDAY</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
+
+  <span class="cm">/** Code for the days of the week */</span>
+  <span class="kd">private</span> <span class="kt">byte</span> <span class="n">dayCode</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * Private constructor</span>
+<span class="cm">   * @param VALUE  Value that stands for a day of the week.</span>
+<span class="cm">   */</span>
+  <span class="kd">private</span> <span class="nf">DayOfWeek</span><span class="o">(</span><span class="kd">final</span> <span class="kt">byte</span> <span class="n">VALUE</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">dayCode</span> <span class="o">=</span> <span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">Math</span><span class="o">.</span><span class="na">abs</span><span class="o">(</span><span class="n">VALUE</span><span class="o">%</span><span class="mi">7</span><span class="o">);</span>
+  <span class="o">}</span>
+ 
+  <span class="cm">/**</span>
+<span class="cm">   * Gets the day code</span>
+<span class="cm">   * @return  The day code</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="kt">byte</span> <span class="nf">getDayCode</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="n">dayCode</span><span class="o">;</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p><br> It is also possible to let an enumeration implement interfaces other than <code lang="Java" xml:lang="Java">java.lang.Comparable</code> and <code>java.io.Serializable</code>, which are already implicitly implemented by each enumeration:</br></p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Computer code" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/32px-Gnome-settings-accessibility-keyboard.svg.png" title="Computer code" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/48px-Gnome-settings-accessibility-keyboard.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/64px-Gnome-settings-accessibility-keyboard.svg.png 2x" data-file-width="60" data-file-height="60" /></td> 
+   <td style="background-color:#ffeee0; border-left: 4px solid orange; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="kd">public</span> <span class="kd">enum</span> <span class="n">DayOfWeek</span> <span class="kd">implements</span> <span class="n">Runnable</span> <span class="o">{</span>
+  <span class="n">MONDAY</span><span class="o">,</span> <span class="n">TUESDAY</span><span class="o">,</span> <span class="n">WEDNESDAY</span><span class="o">,</span> <span class="n">THURSDAY</span><span class="o">,</span> <span class="n">FRIDAY</span><span class="o">,</span> <span class="n">SATURDAY</span><span class="o">,</span> <span class="n">SUNDAY</span><span class="o">;</span>
+ 
+  <span class="cm">/**</span>
+<span class="cm">   * Run method prints all elements</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"name() = "</span> <span class="o">+</span> <span class="n">name</span><span class="o">()</span> <span class="o">+</span>
+      <span class="s">", toString() = \""</span> <span class="o">+</span> <span class="n">toString</span><span class="o">()</span> <span class="o">+</span> <span class="s">"\""</span><span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table>

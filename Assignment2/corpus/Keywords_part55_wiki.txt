@@ -1,0 +1,42 @@
+<p><code><a href="/wiki/Java_Programming/Keywords/synchronized" title="Java Programming/Keywords/synchronized"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">synchronized</font></a></code> is a keyword.</p> 
+<p>It marks a <i>critical section</i>. A <i>critical section</i> is where one and only one thread is executing. So to enter into the marked code the threads are <i>synchronized</i>, only one can enter, the others have to wait. For more information see <a href="/wiki/Java_Programming/Basic_Synchronization" title="Java Programming/Basic Synchronization">Synchronizing Threads Methods</a> or <a rel="nofollow" class="external autonumber" href="http://java.sun.com/docs/books/tutorial/essential/concurrency/syncmeth.html">[3]</a>.</p> 
+<p>The <code><a href="/wiki/Java_Programming/Keywords/synchronized" title="Java Programming/Keywords/synchronized"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">synchronized</font></a></code> keyword can be used in two ways:</p> 
+<ul> 
+ <li>Create a <code><a href="/wiki/Java_Programming/Keywords/synchronized" title="Java Programming/Keywords/synchronized"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">synchronized</font></a></code> block</li> 
+ <li>Mark a method <code><a href="/wiki/Java_Programming/Keywords/synchronized" title="Java Programming/Keywords/synchronized"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">synchronized</font></a></code></li> 
+</ul> 
+<p>A <code><a href="/wiki/Java_Programming/Keywords/synchronized" title="Java Programming/Keywords/synchronized"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">synchronized</font></a></code> block is marked as:</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><b>Code section 1: Synchronized block.</b> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno">1 </span><span class="kd">synchronized</span><span class="o">(&lt;</span><span class="n">object_reference</span><span class="o">&gt;)</span> <span class="o">{</span>
+<span class="lineno">2 </span>   <span class="c1">// Thread.currentThread() has a lock on object_reference. All other threads trying to access it will</span>
+<span class="lineno">3 </span>   <span class="c1">// be blocked until the current thread releases the lock.</span>
+<span class="lineno">4 </span><span class="o">}</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>The syntax to mark a method <code><a href="/wiki/Java_Programming/Keywords/synchronized" title="Java Programming/Keywords/synchronized"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">synchronized</font></a></code> is:</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><b>Code section 2: Synchronized method.</b> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno">1 </span><span class="kd">public</span> <span class="kd">synchronized</span> <span class="kt">void</span> <span class="nf">method</span><span class="o">()</span> <span class="o">{</span>
+<span class="lineno">2 </span>   <span class="c1">// Thread.currentThread() has a lock on this object, i.e. a synchronized method is the same as</span>
+<span class="lineno">3 </span>   <span class="c1">// calling { synchronized(this) {…} }.</span>
+<span class="lineno">4 </span><span class="o">}</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>The synchronization is always associated to an object. If the method is static, the associated object is the class. If the method is non-static, the associated object is the instance. While it is allowed to declare an <code><a href="/wiki/Java_Programming/Keywords/abstract" title="Java Programming/Keywords/abstract"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">abstract</font></a></code> method as <code><a href="/wiki/Java_Programming/Keywords/synchronized" title="Java Programming/Keywords/synchronized"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">synchronized</font></a></code>, it is meaningless to do so since synchronization is an aspect of the implementation, not the declaration, and abstract methods do not have an implementation.</p>

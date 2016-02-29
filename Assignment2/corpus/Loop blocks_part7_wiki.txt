@@ -1,0 +1,109 @@
+<dl> 
+ <dd> 
+  <i>See also <a href="/wiki/Java_Programming/Throwing_and_Catching_Exceptions" title="Java Programming/Throwing and Catching Exceptions">Throwing and Catching Exceptions</a>.</i> 
+ </dd> 
+</dl> 
+<p>The <code><a href="/wiki/Java_Programming/Keywords/try" title="Java Programming/Keywords/try"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">try</font></a></code>-<code><a href="/wiki/Java_Programming/Keywords/catch" title="Java Programming/Keywords/catch"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">catch</font></a></code> blocks are used to catch any exceptions or other throwable objects within the code.</p> 
+<p>Here's what <code>try-catch</code> blocks looks like:</p> 
+<table style="margin: auto;"> 
+ <tbody> 
+  <tr> 
+   <td>try { 
+    <dl> 
+     <dd> 
+      <i><b>statement<sub>1.1</sub></b></i> 
+     </dd> 
+     <dd> 
+      <i><b>statement<sub>1.2</sub></b></i> 
+     </dd> 
+     <dd>
+       ... 
+     </dd> 
+     <dd> 
+      <i><b>statement<sub>1.n</sub></b></i> 
+     </dd> 
+    </dl> <p>} catch (<i><b>exception<sub>1</sub></b></i>) {</p> 
+    <dl> 
+     <dd> 
+      <i><b>statement<sub>2.1</sub></b></i> 
+     </dd> 
+     <dd>
+       ... 
+     </dd> 
+     <dd> 
+      <i><b>statement<sub>2.n</sub></b></i> 
+     </dd> 
+    </dl> <p>}</p> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>The <a href="#code-listing-6">code listing 3.6</a> tries to print all the arguments that have been passed to the program. However, if there not enough arguments, it will throw an exception.</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Computer code" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/32px-Gnome-settings-accessibility-keyboard.svg.png" title="Computer code" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/48px-Gnome-settings-accessibility-keyboard.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/64px-Gnome-settings-accessibility-keyboard.svg.png 2x" data-file-width="60" data-file-height="60" /></td> 
+   <td style="background-color:#ffeee0; border-left: 4px solid orange; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><span id="code-listing-6"><b>Code listing 3.6: Attempt.java</b></span> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno"> 1 </span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Attempt</span> <span class="o">{</span>
+<span class="lineno"> 2 </span>  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno"> 3 </span>    <span class="k">try</span> <span class="o">{</span>
+<span class="lineno"> 4 </span>      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">args</span><span class="o">[</span><span class="mi">0</span><span class="o">]);</span>
+<span class="lineno"> 5 </span>      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">args</span><span class="o">[</span><span class="mi">1</span><span class="o">]);</span>
+<span class="lineno"> 6 </span>      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">args</span><span class="o">[</span><span class="mi">2</span><span class="o">]);</span>
+<span class="lineno"> 7 </span>      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">args</span><span class="o">[</span><span class="mi">3</span><span class="o">]);</span>
+<span class="lineno"> 8 </span>    <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">ArrayIndexOutOfBoundsException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno"> 9 </span>      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"No enough arguments"</span><span class="o">);</span>
+<span class="lineno">10 </span>    <span class="o">}</span>
+<span class="lineno">11 </span>  <span class="o">}</span>
+<span class="lineno">12 </span><span class="o">}</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>In addition to the try and catch blocks, a <code><a href="/wiki/Java_Programming/Keywords/finally" title="Java Programming/Keywords/finally"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">finally</font></a></code> block may be present. The finally block is always executed, even if an exception is thrown. It may appear with or without a catch block, but always with a try block.</p> 
+<p>Here is what a finally block looks like:</p> 
+<table style="margin: auto;"> 
+ <tbody> 
+  <tr> 
+   <td>try { 
+    <dl> 
+     <dd> 
+      <i><b>statement<sub>1.1</sub></b></i> 
+     </dd> 
+     <dd> 
+      <i><b>statement<sub>1.2</sub></b></i> 
+     </dd> 
+     <dd>
+       ... 
+     </dd> 
+     <dd> 
+      <i><b>statement<sub>1.n</sub></b></i> 
+     </dd> 
+    </dl> <p>} catch (<i><b>exception<sub>1</sub></b></i>) {</p> 
+    <dl> 
+     <dd> 
+      <i><b>statement<sub>2.1</sub></b></i> 
+     </dd> 
+     <dd>
+       ... 
+     </dd> 
+     <dd> 
+      <i><b>statement<sub>2.n</sub></b></i> 
+     </dd> 
+    </dl> <p>} finally {</p> 
+    <dl> 
+     <dd> 
+      <i><b>statement<sub>3.1</sub></b></i> 
+     </dd> 
+     <dd>
+       ... 
+     </dd> 
+     <dd> 
+      <i><b>statement<sub>3.n</sub></b></i> 
+     </dd> 
+    </dl> <p>}</p> </td> 
+  </tr> 
+ </tbody> 
+</table>

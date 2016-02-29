@@ -1,0 +1,12 @@
+<p>In the JNI framework, native functions are implemented in separate .c or .cpp files. C++ provides a slightly simpler interface with JNI. When the JVM invokes the function, it passes a <code>JNIEnv</code> pointer, a <code>jobject</code> pointer, and any Java arguments declared by the Java method. A JNI function may look like this:</p> 
+<div class="mw-highlight mw-content-ltr" dir="ltr"> 
+ <pre>
+ <span class="n">JNIEXPORT</span> <span class="kt">void</span> <span class="n">JNICALL</span> <span class="nf">Java_ClassName_MethodName</span>
+   <span class="p">(</span><span class="n">JNIEnv</span> <span class="o">*</span><span class="n">env</span><span class="p">,</span> <span class="n">jobject</span> <span class="n">obj</span><span class="p">)</span>
+ <span class="p">{</span>
+     <span class="cm">/*Implement Native Method Here*/</span>
+ <span class="p">}</span>
+</pre> 
+</div> 
+<p>The <i><code>env</code></i> pointer is a structure that contains the interface to the JVM. It includes all of the functions necessary to interact with the JVM and to work with Java objects. Example JNI functions are converting native arrays to/from Java arrays, converting native strings to/from Java strings, instantiating objects, throwing exceptions, etc. Basically, anything that Java code can do can be done using <code>JNIEnv</code>, albeit with considerably less ease.</p> 
+<p>On Linux and Solaris platforms, if the native code registers itself as a signal handler, it could intercept signals intended for the JVM. Signal chaining should be used to allow native code to better interoperate with JVM. On Windows platforms, Structured Exception Handling (SEH) may be employed to wrap native code in SEH try/catch blocks so as to capture machine (CPU/FPU) generated software interrupts (such as NULL pointer access violations and divide-by-zero operations), and to handle these situations before the interrupt is propagated back up into the JVM (i.e. Java side code), in all likelihood resulting in an unhandled exception.</p>

@@ -1,0 +1,207 @@
+<p>In concatenation operations, the values in brackets are concatenated first. Then the values are concatenated from the left to the right. Be careful when mixing character literals and integers in String concatenation operations:</p> 
+<table style="width: 100%;"> 
+ <tbody> 
+  <tr> 
+   <td valign="top"> 
+    <table style="padding:2px; margin:2px;"> 
+     <tbody> 
+      <tr valign="top"> 
+       <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+       <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><span id="code-section-65"><b>Code section 3.65: Concatenation operations.</b></span> 
+        <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+         <pre>
+<span class="lineno">1 </span><span class="kt">int</span> <span class="n">one</span> <span class="o">=</span> <span class="sc">'1'</span><span class="o">;</span>
+<span class="lineno">2 </span><span class="kt">int</span> <span class="n">zero</span> <span class="o">=</span> <span class="sc">'0'</span><span class="o">;</span>
+<span class="lineno">3 </span>
+<span class="lineno">4 </span><span class="hll"><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"120? "</span> <span class="o">+</span> <span class="n">one</span> <span class="o">+</span> <span class="sc">'2'</span> <span class="o">+</span> <span class="n">zero</span><span class="o">);</span>
+</span>
+</pre> 
+        </div> </td> 
+      </tr> 
+     </tbody> 
+    </table> </td> 
+   <td valign="top"> 
+    <table style="padding:2px; margin:2px; width:100%;"> 
+     <tbody> 
+      <tr valign="top"> 
+       <td style="width:32px;"><img alt="Standard input or output" src="//upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/32px-Nuvola_apps_display.png" title="Standard input or output" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/48px-Nuvola_apps_display.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/64px-Nuvola_apps_display.png 2x" data-file-width="128" data-file-height="128" /></td> 
+       <td style="background-color:#f0f0ff; border-left: 4px solid blue; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><b>Console for Code section 3.66</b> <pre style="background-color:#000; color:#fff;">
+120? 49248
+</pre></td> 
+      </tr> 
+     </tbody> 
+    </table> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>The unexpected results arise because <code><font style="color:DarkBlue; text-decoration: none; font-weight: bold;">'1'</font></code> and <code><font style="color:DarkBlue; text-decoration: none; font-weight: bold;">'0'</font></code> are converted twice. The expression is concatenated as such:</p> 
+<table style="margin: auto; text-align: center;"> 
+ <tbody> 
+  <tr> 
+   <td><code>"120? " + one + '2' + zero</code></td> 
+  </tr> 
+  <tr> 
+   <td><code><u>"120? " + <b>49</b></u> + '2' + <b>48</b></code></td> 
+  </tr> 
+  <tr> 
+   <td><code><u><b>"120? 49"</b> + '2'</u> + 48</code></td> 
+  </tr> 
+  <tr> 
+   <td><code><u><b>"120? 492"</b> + 48</u></code></td> 
+  </tr> 
+  <tr> 
+   <td><code><b>"120? 49248"</b></code></td> 
+  </tr> 
+ </tbody> 
+</table> 
+<ol> 
+ <li><code>one</code> and <code>zero</code> are integers. So they store integer values. The integer value of <code><font style="color:DarkBlue; text-decoration: none; font-weight: bold;">'1'</font></code> is 49 and the integer value of <code><font style="color:DarkBlue; text-decoration: none; font-weight: bold;">'0'</font></code> is 48.</li> 
+ <li>So the first concatenation concatenates <code><font style="color:DarkGreen; text-decoration: none; font-weight: bold;">"120? "</font></code> and <code>49</code>. <code>49</code> is first converted into String, yielding <code><font style="color:DarkGreen; text-decoration: none; font-weight: bold;">"49"</font></code> and the concatenation returns the string <code><font style="color:DarkGreen; text-decoration: none; font-weight: bold;">"120? 49"</font></code>.</li> 
+ <li>The second concatenation concatenates <code><font style="color:DarkGreen; text-decoration: none; font-weight: bold;">"120? 49"</font></code> and <code><font style="color:DarkBlue; text-decoration: none; font-weight: bold;">'2'</font></code>. <code><font style="color:DarkBlue; text-decoration: none; font-weight: bold;">'2'</font></code> is converted into the String <code><font style="color:DarkGreen; text-decoration: none; font-weight: bold;">"2"</font></code> and the concatenation returns the string <code><font style="color:DarkGreen; text-decoration: none; font-weight: bold;">"120? 492"</font></code>.</li> 
+ <li>The concatenation between <code><font style="color:DarkGreen; text-decoration: none; font-weight: bold;">"120? 492"</font></code> and <code><font style="color:DarkBlue; text-decoration: none; font-weight: bold;">'0'</font></code> returns the string <code><font style="color:DarkGreen; text-decoration: none; font-weight: bold;">"120? 49248"</font></code>.</li> 
+</ol> 
+<p>The <a href="#code-section-66">code section 66</a> yields the desired result:</p> 
+<table style="width: 100%;"> 
+ <tbody> 
+  <tr> 
+   <td valign="top"> 
+    <table style="padding:2px; margin:2px;"> 
+     <tbody> 
+      <tr valign="top"> 
+       <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+       <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><span id="code-section-66"><b>Code section 3.66: Correct primitive type.</b></span> 
+        <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+         <pre>
+<span class="lineno">1 </span><span class="kt">char</span> <span class="n">one</span> <span class="o">=</span> <span class="sc">'1'</span><span class="o">;</span>
+<span class="lineno">2 </span><span class="kt">char</span> <span class="n">zero</span> <span class="o">=</span> <span class="sc">'0'</span><span class="o">;</span>
+<span class="lineno">3 </span>
+<span class="lineno">4 </span><span class="hll"><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"120? "</span> <span class="o">+</span> <span class="n">one</span> <span class="o">+</span> <span class="sc">'2'</span> <span class="o">+</span> <span class="n">zero</span><span class="o">);</span>
+</span>
+</pre> 
+        </div> </td> 
+      </tr> 
+     </tbody> 
+    </table> </td> 
+   <td valign="top"> 
+    <table style="padding:2px; margin:2px; width:100%;"> 
+     <tbody> 
+      <tr valign="top"> 
+       <td style="width:32px;"><img alt="Standard input or output" src="//upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/32px-Nuvola_apps_display.png" title="Standard input or output" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/48px-Nuvola_apps_display.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/64px-Nuvola_apps_display.png 2x" data-file-width="128" data-file-height="128" /></td> 
+       <td style="background-color:#f0f0ff; border-left: 4px solid blue; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><b>Console for Code section 3.66</b> <pre style="background-color:#000; color:#fff;">
+120? 120
+</pre></td> 
+      </tr> 
+     </tbody> 
+    </table> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<div class="collapsible" style="width:100%; clear:both; border:none;"> 
+ <div class="title" style="background:transparent; text-align:left; background:#cedff2;border:1px solid lightgrey;">
+   Test your knowledge 
+ </div> 
+ <div class="body" style="background:transparent; text-align:left; background:#e7eff9;border:solid 1px lightgrey;padding:8px;"> 
+  <p><b>Question 3.9</b>: Consider the following code:</p> 
+  <table style="width: 100%;"> 
+   <tbody> 
+    <tr> 
+     <td valign="top"> 
+      <table style="padding:2px; margin:2px;"> 
+       <tbody> 
+        <tr valign="top"> 
+         <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+         <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><span id="question-9"><b>Question 3.9: New concatenation operations.</b></span> 
+          <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+           <pre>
+<span class="lineno">1 </span><span class="kt">int</span> <span class="n">one</span> <span class="o">=</span> <span class="sc">'1'</span><span class="o">;</span>
+<span class="lineno">2 </span><span class="kt">int</span> <span class="n">zero</span> <span class="o">=</span> <span class="sc">'0'</span><span class="o">;</span>
+<span class="lineno">3 </span>
+<span class="lineno">4 </span><span class="hll"><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">" 3? "</span> <span class="o">+</span> <span class="o">(</span><span class="n">one</span> <span class="o">+</span> <span class="sc">'2'</span> <span class="o">+</span> <span class="n">zero</span><span class="o">));</span>
+</span><span class="lineno">5 </span><span class="hll"><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"102? "</span> <span class="o">+</span> <span class="mi">100</span> <span class="o">+</span> <span class="sc">'2'</span> <span class="o">+</span> <span class="mi">0</span><span class="o">);</span>
+</span><span class="lineno">6 </span><span class="hll"><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"102? "</span> <span class="o">+</span> <span class="o">(</span><span class="mi">100</span> <span class="o">+</span> <span class="sc">'2'</span> <span class="o">+</span> <span class="mi">0</span><span class="o">));</span>
+</span>
+</pre> 
+          </div> </td> 
+        </tr> 
+       </tbody> 
+      </table> </td> 
+     <td valign="top"> 
+      <table style="padding:2px; margin:2px; width:100%;"> 
+       <tbody> 
+        <tr valign="top"> 
+         <td style="width:32px;"><img alt="Standard input or output" src="//upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/32px-Nuvola_apps_display.png" title="Standard input or output" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/48px-Nuvola_apps_display.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/64px-Nuvola_apps_display.png 2x" data-file-width="128" data-file-height="128" /></td> 
+         <td style="background-color:#f0f0ff; border-left: 4px solid blue; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><b>Console for Question 3.9</b> <pre style="background-color:#000; color:#fff;">
+  3? 147
+102? 10020
+102? 150
+</pre></td> 
+        </tr> 
+       </tbody> 
+      </table> </td> 
+    </tr> 
+   </tbody> 
+  </table> 
+  <p>Explain the results seen.</p> 
+  <div class="collapsible" style="width:100%; clear:both; border:none;"> 
+   <div class="title" style="background:transparent; text-align:left; background:#cedff2;border:1px solid lightgrey;">
+     Answer 
+   </div> 
+   <div class="body" style="background:transparent; text-align:left; background:#e7eff9;border:solid 1px lightgrey;padding:8px;"> 
+    <p>For the first line:</p> 
+    <table style="margin: auto; text-align: center;"> 
+     <tbody> 
+      <tr> 
+       <td><code>" 3? " + (one + '2' + zero)</code></td> 
+      </tr> 
+      <tr> 
+       <td><code>" 3? " + (<u><b>49</b> + '2'</u> + <b>48</b>)</code></td> 
+      </tr> 
+      <tr> 
+       <td><code>" 3? " + (<u><b>99</b> + 48</u>)</code></td> 
+      </tr> 
+      <tr> 
+       <td><code><u>" 3? " + <b>147</b></u></code></td> 
+      </tr> 
+      <tr> 
+       <td><code><b>" 3? 147"</b></code></td> 
+      </tr> 
+     </tbody> 
+    </table> 
+    <p>For the second line:</p> 
+    <table style="margin: auto; text-align: center;"> 
+     <tbody> 
+      <tr> 
+       <td><code><u>"102? " + 100</u> + '2' + 0</code></td> 
+      </tr> 
+      <tr> 
+       <td><code><u><b>"102? 100"</b> + '2'</u> + 0</code></td> 
+      </tr> 
+      <tr> 
+       <td><code><u><b>"102? 1002"</b> + 0</u></code></td> 
+      </tr> 
+      <tr> 
+       <td><code><b>"102? 10020"</b></code></td> 
+      </tr> 
+     </tbody> 
+    </table> 
+    <p>For the last line:</p> 
+    <table style="margin: auto; text-align: center;"> 
+     <tbody> 
+      <tr> 
+       <td><code>"102? " + (<u>100 + '2'</u> + 0)</code></td> 
+      </tr> 
+      <tr> 
+       <td><code>"102? " + (<u><b>150</b> + 0</u>)</code></td> 
+      </tr> 
+      <tr> 
+       <td><code><u>"102? " + <b>150</b></u></code></td> 
+      </tr> 
+      <tr> 
+       <td><code><b>"102? 150"</b></code></td> 
+      </tr> 
+     </tbody> 
+    </table> 
+   </div> 
+  </div> 
+ </div> 
+</div>

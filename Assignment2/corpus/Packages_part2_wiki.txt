@@ -1,0 +1,37 @@
+<p>The simpliest way to use a class declared in a package is to prefix the class name with its package:</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><b>Code section 3.88: Package declaration.</b> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno">1 </span><span class="n">business</span><span class="o">.</span><span class="na">BusinessClass</span> <span class="n">myBusinessClass</span> <span class="o">=</span> <span class="k">new</span> <span class="n">business</span><span class="o">.</span><span class="na">BusinessClass</span><span class="o">();</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>If you are using the class from a class in the same package, you don't have to specify the package. If another class with the same name exists in another package, it will use the local class.</p> 
+<p>The syntax above is a bit verbose. You can import the class by using the <code><a href="/wiki/Java_Programming/Keywords/import" title="Java Programming/Keywords/import"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">import</font></a></code> Java keyword at the top of the file and then only specify its name:</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Computer code" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/32px-Gnome-settings-accessibility-keyboard.svg.png" title="Computer code" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/48px-Gnome-settings-accessibility-keyboard.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/64px-Gnome-settings-accessibility-keyboard.svg.png 2x" data-file-width="60" data-file-height="60" /></td> 
+   <td style="background-color:#ffeee0; border-left: 4px solid orange; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><span id="code-listing-15"><b>Code listing 3.15: MyClass.java</b></span> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno">1 </span><span class="hll"><span class="kn">import</span> <span class="nn">business.BusinessClass</span><span class="o">;</span>
+</span><span class="lineno">2 </span>
+<span class="lineno">3 </span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyClass</span> <span class="o">{</span>
+<span class="lineno">4 </span>  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno">5 </span>    <span class="n">BusinessClass</span> <span class="n">myBusinessClass</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BusinessClass</span><span class="o">();</span>
+<span class="lineno">6 </span>  <span class="o">}</span>
+<span class="lineno">7 </span><span class="o">}</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>Note that you can't import two classes with the same name in two different packages.</p> 
+<p>The classes <code>Integer</code> and <code>String</code> belongs to the package <code>java.lang</code> but they don't need to be imported as the <code>java.lang</code> package is implicitly imported in all classes.</p>

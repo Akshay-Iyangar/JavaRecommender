@@ -1,0 +1,23 @@
+<p>99% of new objects are created using the <code><a href="/wiki/Java_Programming/Keywords/new" title="Java Programming/Keywords/new"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">new</font></a></code> keyword.</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Computer code" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/32px-Gnome-settings-accessibility-keyboard.svg.png" title="Computer code" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/48px-Gnome-settings-accessibility-keyboard.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/64px-Gnome-settings-accessibility-keyboard.svg.png 2x" data-file-width="60" data-file-height="60" /></td> 
+   <td style="background-color:#ffeee0; border-left: 4px solid orange; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><span id="code-listing-13"><b>Code listing 4.13: MyProgram.java</b></span> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno">1 </span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyProgram</span> <span class="o">{</span>
+<span class="lineno">2 </span>
+<span class="lineno">3 </span>  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno">4 </span>    <span class="c1">// Create an 'MyObject' for the first time the application started</span>
+<span class="lineno">5 </span><span class="hll">    <span class="n">MyObject</span> <span class="n">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MyObject</span><span class="o">();</span>
+</span><span class="lineno">6 </span>  <span class="o">}</span>
+<span class="lineno">7 </span><span class="o">}</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>When an object from the <code>MyObject</code> class is created for the first time, the JVM searches the file system for the definition of the class, that is the Java byte code. The file has the extension of <code>*.class</code>. The <b>CLASSPATH</b> environment variable contains locations where Java classes are stored. The JVM is looking for the <code>MyObject.class</code> file. Depending on which package the class belongs to, the package name will be translated to a directory path.</p> 
+<p>When the <code>MyObject.class</code> file is found, the JVM's class loader loads the class in memory, and creates a <a href="/wiki/Java_Programming/API/java.lang.Class" title="Java Programming/API/java.lang.Class">java.lang.Class</a> object. The JVM stores the code in memory, allocates memory for the <code><a href="/wiki/Java_Programming/Keywords/static" title="Java Programming/Keywords/static"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">static</font></a></code> variables, and executes any static initialize block. Memory is not allocated for the object member variables at this point, memory will be allocated for them when an instance of the class, an object, is created.</p> 
+<p>There is no limit on how many objects from the same class can be created. Code and <code><a href="/wiki/Java_Programming/Keywords/static" title="Java Programming/Keywords/static"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">static</font></a></code> variables are stored only once, no matter how many objects are created. Memory is allocated for the object member variables when the object is created. Thus, the size of an object is determined not by its code's size but by the memory it needs for its member variables to be stored.</p>

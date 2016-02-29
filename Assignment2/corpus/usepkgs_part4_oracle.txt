@@ -1,0 +1,44 @@
+<p>To import all the types contained in a particular package, use the <code>import</code> statement with the asterisk <code>(*)</code> wildcard character.</p> 
+<div class="codeblock"> 
+ <pre>
+import graphics.*;
+</pre> 
+</div> 
+<p>Now you can refer to any class or interface in the <code>graphics</code> package by its simple name.</p> 
+<div class="codeblock"> 
+ <pre>
+Circle myCircle = new Circle();
+Rectangle myRectangle = new Rectangle();
+</pre> 
+</div> 
+<p>The asterisk in the <code>import</code> statement can be used only to specify all the classes within a package, as shown here. It cannot be used to match a subset of the classes in a package. For example, the following does not match all the classes in the <code>graphics</code> package that begin with <code>A</code>.</p> 
+<div class="codeblock"> 
+ <pre>
+// <em>does not work</em>
+import graphics.A*;
+</pre> 
+</div> 
+<p>Instead, it generates a compiler error. With the <code>import</code> statement, you generally import only a single package member or an entire package.</p> 
+<div class="note"> 
+ <hr> 
+  <strong>Note:</strong>&nbsp;Another, less common form of 
+  <code>import</code> allows you to import the public nested classes of an enclosing class. For example, if the 
+  <code>graphics.Rectangle</code> class contained useful nested classes, such as 
+  <code>Rectangle.DoubleWide</code> and 
+  <code>Rectangle.Square</code>, you could import 
+  <code>Rectangle</code> and its nested classes by using the following 
+  <i>two</i> statements. 
+  <div class="codeblock"> 
+   <pre>
+import graphics.Rectangle;
+import graphics.Rectangle.*;
+</pre> 
+  </div> Be aware that the second import statement will 
+  <i>not</i> import 
+  <code>Rectangle</code>. 
+  <br> <br> Another less common form of <code>import</code>, the <i>static import statement</i>, will be discussed at the end of this section. 
+    <hr> 
+    </hr></br></br>
+ </hr>
+</div> 
+<p>For convenience, the Java compiler automatically imports two entire packages for each source file: (1) the <code>java.lang</code> package and (2) the current package (the package for the current file).</p>

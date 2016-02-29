@@ -1,0 +1,86 @@
+<p><code><a href="/wiki/Java_Programming/Keywords/instanceof" title="Java Programming/Keywords/instanceof"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">instanceof</font></a></code> is a keyword.</p> 
+<p>It checks if an object reference is an instance of a type, and returns a boolean value;</p> 
+<p>The &lt;object-reference&gt; <code><a href="/wiki/Java_Programming/Keywords/instanceof" title="Java Programming/Keywords/instanceof"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">instanceof</font></a></code> <code><a href="/wiki/Java_Programming/API/java.lang.Object" title="Java Programming/API/java.lang.Object">Object</a></code> will return true for all non-null object references, since all Java objects are inherited from <code><a href="/wiki/Java_Programming/API/java.lang.Object" title="Java Programming/API/java.lang.Object">Object</a></code>. <code><a href="/wiki/Java_Programming/Keywords/instanceof" title="Java Programming/Keywords/instanceof"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">instanceof</font></a></code> will always return <code><a href="/wiki/Java_Programming/Literals/Boolean_Literals/false" title="Java Programming/Literals/Boolean Literals/false"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">false</font></a></code> if &lt;object-reference&gt; is <code><a href="/wiki/Java_Programming/Literals/null" title="Java Programming/Literals/null" class="mw-redirect"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">null</font></a></code>.</p> 
+<p>Syntax:</p> 
+<pre>
+&lt;object-reference&gt; <code><a href="/wiki/Java_Programming/Keywords/instanceof" title="Java Programming/Keywords/instanceof"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">instanceof</font></a></code> TypeName
+</pre> 
+<p>For example:</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Computer code" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/32px-Gnome-settings-accessibility-keyboard.svg.png" title="Computer code" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/48px-Gnome-settings-accessibility-keyboard.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/64px-Gnome-settings-accessibility-keyboard.svg.png 2x" data-file-width="60" data-file-height="60" /></td> 
+   <td style="background-color:#ffeee0; border-left: 4px solid orange; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="kd">class</span> <span class="nc">Fruit</span>
+ <span class="o">{</span>
+  <span class="c1">//...	</span>
+ <span class="o">}</span> 
+ <span class="kd">class</span> <span class="nc">Apple</span> <span class="kd">extends</span> <span class="n">Fruit</span>
+ <span class="o">{</span>
+  <span class="c1">//...</span>
+ <span class="o">}</span>
+ <span class="kd">class</span> <span class="nc">Orange</span> <span class="kd">extends</span> <span class="n">Fruit</span>
+ <span class="o">{</span>
+  <span class="c1">//...</span>
+ <span class="o">}</span>
+ <span class="kd">public</span> <span class="kd">class</span> <span class="nc">Test</span> 
+ <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> 
+    <span class="o">{</span>
+       <span class="n">Collection</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;</span> <span class="n">coll</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;();</span>
+ 
+       <span class="n">Apple</span> <span class="n">app1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Apple</span><span class="o">();</span>
+       <span class="n">Apple</span> <span class="n">app2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Apple</span><span class="o">();</span>
+       <span class="n">coll</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">app1</span><span class="o">);</span>
+       <span class="n">coll</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">app2</span><span class="o">);</span>
+ 
+       <span class="n">Orange</span> <span class="n">or1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Orange</span><span class="o">();</span>
+       <span class="n">Orange</span> <span class="n">or2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Orange</span><span class="o">();</span>
+       <span class="n">coll</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">or1</span><span class="o">);</span>
+       <span class="n">coll</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">or2</span><span class="o">);</span>
+ 
+       <span class="n">printColl</span><span class="o">(</span><span class="n">coll</span><span class="o">);</span>
+    <span class="o">}</span>
+ 
+    <span class="kd">private</span> <span class="kd">static</span> <span class="n">String</span> <span class="nf">printColl</span><span class="o">(</span> <span class="n">Collection</span><span class="o">&lt;?&gt;</span> <span class="n">coll</span> <span class="o">)</span>
+    <span class="o">{</span>
+       <span class="k">for</span> <span class="o">(</span><span class="n">Object</span> <span class="n">obj</span> <span class="o">:</span> <span class="n">coll</span><span class="o">)</span>
+       <span class="o">{</span>
+          <span class="k">if</span> <span class="o">(</span> <span class="n">obj</span> <span class="k">instanceof</span> <span class="n">Object</span> <span class="o">)</span>
+          <span class="o">{</span>
+             <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"It is a Java Object and"</span><span class="o">);</span>
+          <span class="o">}</span>
+          <span class="k">if</span> <span class="o">(</span> <span class="n">obj</span> <span class="k">instanceof</span> <span class="n">Fruit</span> <span class="o">)</span>
+          <span class="o">{</span>
+             <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"It is a Fruit and"</span><span class="o">);</span>
+          <span class="o">}</span>
+          <span class="k">if</span> <span class="o">(</span> <span class="n">obj</span> <span class="k">instanceof</span> <span class="n">Apple</span> <span class="o">)</span>
+          <span class="o">{</span>
+             <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"it is an Apple"</span><span class="o">);</span>
+          <span class="o">}</span> 
+          <span class="k">if</span> <span class="o">(</span> <span class="n">obj</span> <span class="k">instanceof</span> <span class="n">Orange</span> <span class="o">)</span>
+          <span class="o">{</span>
+             <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"it is an Orange"</span><span class="o">);</span>
+          <span class="o">}</span>
+       <span class="o">}</span>
+    <span class="o">}</span>
+ <span class="o">}</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>Run the program:</p> 
+<pre>
+java Test
+</pre> 
+<p>The output:</p> 
+<pre>
+<code><font style="color:DarkGreen; text-decoration: none; font-weight: bold;">"It is a Java Object and It is a Fruit and it is an Apple"</font></code>
+<code><font style="color:DarkGreen; text-decoration: none; font-weight: bold;">"It is a Java Object and It is a Fruit and it is an Apple"</font></code>
+<code><font style="color:DarkGreen; text-decoration: none; font-weight: bold;">"It is a Java Object and It is a Fruit and it is an Orange"</font></code>
+<code><font style="color:DarkGreen; text-decoration: none; font-weight: bold;">"It is a Java Object and It is a Fruit and it is an Orange"</font></code>
+</pre> 
+<p>Note that the <code><a href="/wiki/Java_Programming/Keywords/instanceof" title="Java Programming/Keywords/instanceof"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">instanceof</font></a></code> operator can also be applied to interfaces. For example, if the example above was enhanced with the interface</p>

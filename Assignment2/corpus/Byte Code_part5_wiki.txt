@@ -1,0 +1,73 @@
+<p>As an example we can write a simple Foo.java source:</p> 
+<div class="mw-highlight mw-content-ltr" dir="ltr"> 
+ <pre>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Foo</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="kd">final</span> <span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"This is a simple example of decompilation using javap"</span><span class="o">);</span>
+    <span class="n">a</span><span class="o">();</span>
+    <span class="n">b</span><span class="o">();</span>
+  <span class="o">}</span>
+	
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">a</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Now we are calling a function..."</span><span class="o">);</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">b</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"...and now we are calling b"</span><span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre> 
+</div> 
+<p>Compile it and then move Foo.java to another directory or delete it if you wish. What can we do with javap and Foo.class&nbsp;?</p> 
+<pre>
+$javap Foo
+</pre> 
+<p>produces this result:</p> 
+<pre>
+Compiled from "Foo.java"
+public class Foo extends java.lang.Object {
+    public Foo();
+    public static void main(java.lang.String[]);
+    public static void a();
+    public static void b();
+}
+</pre> 
+<p>As you can see the javac compiler doesn't strip any (public) variable name from the .class file. As a result the names of the functions, their parameters and types of return are exposed. (This is necessary in order for other classes to access them.)</p> 
+<p>Let's do a bit more, try:</p> 
+<pre>
+$javap -c Foo
+</pre> 
+<pre>
+Compiled from "Foo.java"
+public class Foo extends java.lang.Object{
+public Foo();
+  Code:
+   0:   aload_0
+   1:   invokespecial   #1; //Method java/lang/Object."&lt;init&gt;":()V
+   4:   return
+
+public static void main(java.lang.String[]);
+  Code:
+   0:   getstatic       #2; //Field java/lang/System.out:Ljava/io/PrintStream;
+   3:   ldc             #3; //String This is a simple example of decompilation using javap
+   5:   invokevirtual   #4; //Method java/io/PrintStream.println:(Ljava/lang/String;)V
+   8:   invokestatic    #5; //Method a:()V
+   11:  invokestatic    #6; //Method b:()V
+   14:  return
+
+public static void a();
+  Code:
+   0:   getstatic       #2; //Field java/lang/System.out:Ljava/io/PrintStream;
+   3:   ldc             #7; //String Now we are calling a function...
+   5:   invokevirtual   #4; //Method java/io/PrintStream.println:(Ljava/lang/String;)V
+   8:   return
+
+public static void b();
+  Code:
+   0:   getstatic       #2; //Field java/lang/System.out:Ljava/io/PrintStream;
+   3:   ldc             #8; //String ...and now we are calling b
+   5:   invokevirtual   #4; //Method java/io/PrintStream.println:(Ljava/lang/String;)V
+   8:   return
+
+}
+</pre>

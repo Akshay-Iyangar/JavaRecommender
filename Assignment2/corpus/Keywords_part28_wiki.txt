@@ -1,0 +1,32 @@
+<p><code><a href="/wiki/Java_Programming/Keywords/for" title="Java Programming/Keywords/for"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">for</font></a></code> is a Java keyword.</p> 
+<p>It starts a looping block.</p> 
+<p>The general syntax of a <code><a href="/wiki/Java_Programming/Keywords/for" title="Java Programming/Keywords/for"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">for</font></a></code>, using <a href="/wiki/Programming_Languages/Syntax_Specification" title="Programming Languages/Syntax Specification">Extended Backus-Naur Form</a>, is</p> 
+<pre>
+for-looping-statement ::= <code><a href="/wiki/Java_Programming/Keywords/for" title="Java Programming/Keywords/for"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">for</font></a></code> <i>condition-clause</i> 
+                                    <i>single-statement</i> | <i>block-statement</i>
+ 
+condition-clause    ::= <b><code>( before-statement; </code></b> Boolean Expression <b><code>; after-statement )</code></b>
+single-statement    ::= <a href="/w/index.php?title=Java_Programming/Statement&amp;action=edit&amp;redlink=1" class="new" title="Java Programming/Statement (does not exist)">Statement</a>
+block-statement     ::= <b><code>{</code></b> <a href="/w/index.php?title=Java_Programming/Statement&amp;action=edit&amp;redlink=1" class="new" title="Java Programming/Statement (does not exist)">Statement</a> [ <a href="/w/index.php?title=Java_Programming/Statement&amp;action=edit&amp;redlink=1" class="new" title="Java Programming/Statement (does not exist)">Statement</a> ] <b><code>}</code></b>
+</pre> 
+<p>For example:</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Computer code" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/32px-Gnome-settings-accessibility-keyboard.svg.png" title="Computer code" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/48px-Gnome-settings-accessibility-keyboard.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/64px-Gnome-settings-accessibility-keyboard.svg.png 2x" data-file-width="60" data-file-height="60" /></td> 
+   <td style="background-color:#ffeee0; border-left: 4px solid orange; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="k">for</span> <span class="o">(</span> <span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">maxLoopIter</span><span class="o">;</span> <span class="n">i</span><span class="o">++</span> <span class="o">)</span> <span class="o">{</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Iter: "</span> <span class="o">+</span><span class="n">i</span><span class="o">);</span>
+<span class="o">}</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p><br> See also:</br></p> 
+<ul> 
+ <li><a href="/wiki/Java_Programming/Keywords/while" title="Java Programming/Keywords/while">Java Programming/Keywords/while</a></li> 
+ <li><a href="/wiki/Java_Programming/Keywords/do" title="Java Programming/Keywords/do">Java Programming/Keywords/do</a></li> 
+</ul>

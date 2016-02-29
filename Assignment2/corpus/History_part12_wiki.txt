@@ -1,0 +1,30 @@
+<p>Released on 28 July 2011.</p> 
+<p>Feature additions for Java 7 include:<sup id="cite_ref-5" class="reference"><a href="#cite_note-5">[5]</a></sup></p> 
+<ul> 
+ <li>JVM support for dynamic languages, following the prototyping work currently done on the Multi Language Virtual Machine</li> 
+ <li>Compressed 64-bit pointers<sup id="cite_ref-6" class="reference"><a href="#cite_note-6">[6]</a></sup> Available in Java 6 with <a rel="nofollow" class="external text" href="http://www.oracle.com/technetwork/java/javase/tech/vmoptions-jsp-140102.html">-XX:+UseCompressedOops</a></li> 
+ <li>Small language changes (grouped under a project named Coin):<sup id="cite_ref-7" class="reference"><a href="#cite_note-7">[7]</a></sup></li> 
+</ul> 
+<dl> 
+ <dd> 
+  <ul> 
+   <li>Strings in switch<sup id="cite_ref-8" class="reference"><a href="#cite_note-8">[8]</a></sup></li> 
+   <li>Automatic resource management in try-statement<sup id="cite_ref-9" class="reference"><a href="#cite_note-9">[9]</a></sup></li> 
+   <li>Improved type inference for generic instance creation<sup id="cite_ref-10" class="reference"><a href="#cite_note-10">[10]</a></sup></li> 
+   <li>Simplified varargs method declaration<sup id="cite_ref-11" class="reference"><a href="#cite_note-11">[11]</a></sup></li> 
+   <li>Binary integer literals<sup id="cite_ref-12" class="reference"><a href="#cite_note-12">[12]</a></sup></li> 
+   <li>Allowing underscores in numeric literals<sup id="cite_ref-13" class="reference"><a href="#cite_note-13">[13]</a></sup></li> 
+   <li>Catching multiple exception types and rethrowing exceptions with improved type checking<sup id="cite_ref-14" class="reference"><a href="#cite_note-14">[14]</a></sup></li> 
+  </ul> 
+ </dd> 
+</dl> 
+<ul> 
+ <li>Concurrency utilities under JSR 166<sup id="cite_ref-15" class="reference"><a href="#cite_note-15">[15]</a></sup></li> 
+ <li>New file I/O library to enhance platform independence and add support for metadata and symbolic links. The new packages are java.nio.file and java.nio.file.attribute<sup id="cite_ref-16" class="reference"><a href="#cite_note-16">[16]</a></sup><sup id="cite_ref-17" class="reference"><a href="#cite_note-17">[17]</a></sup></li> 
+ <li>Library-level support for Elliptic curve cryptography algorithms</li> 
+ <li>An XRender pipeline for Java 2D, which improves handling of features specific to modern GPUs</li> 
+ <li>New platform APIs for the graphics features originally planned for release in Java version 6u10</li> 
+ <li>Enhanced library-level support for new network protocols, including SCTP and Sockets Direct Protocol</li> 
+ <li>Upstream updates to XML and Unicode</li> 
+</ul> 
+<p>Lambda (Java's implementation of lambda functions), Jigsaw (Java's implementation of modules), and part of Coin were dropped from Java 7. Java 8 will be released with the remaining features in summer 2013.<sup id="cite_ref-JavaOne2011Keynote_18-0" class="reference"><a href="#cite_note-JavaOne2011Keynote-18">[18]</a></sup></p>

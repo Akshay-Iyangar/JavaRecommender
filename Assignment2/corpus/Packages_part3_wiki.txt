@@ -1,0 +1,17 @@
+<p>It is possible to import an entire package, using an asterisk:</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><b>Code section 3.89: Wildcard imports.</b> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno">1 </span><span class="kn">import</span> <span class="nn">javax.swing.*</span><span class="o">;</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>While it may seem convenient, it may cause problems if you make a typographical error. For example, if you use the above import to use JFrame, but then type <code>JFraim frame = new JFraim();</code>, the Java compiler will report an error similar to "Cannot find symbol: JFraim". Even though it seems as if it was imported, the compiler is giving the error report at the first mention of JFraim, which is half-way through your code, instead of the point where you imported JFrame along with everything else in javax.swing.</p> 
+<p>If you change this to <code>import javax.swing.JFraim;</code> the error will be at the import instead of within your code.</p> 
+<p>Furthermore, if you <code>import javax.swing.*;</code> and <code>import java.util.*;</code>, and javax.swing.Queue is later added in a future version of Java, your code that uses Queue (java.util) will fail to compile. This particular example is fairly unlikely, but if you are working with non-Oracle libraries, it may be more likely to happen.</p>

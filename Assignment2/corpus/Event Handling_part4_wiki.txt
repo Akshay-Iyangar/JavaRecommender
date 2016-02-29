@@ -1,0 +1,32 @@
+<div class="thumb tright"> 
+ <div class="thumbinner" style="width:582px;"> 
+  <a href="/wiki/File:JavaEventModelBasicFramework.jpg" class="image"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/b/bc/JavaEventModelBasicFramework.jpg" width="580" height="224" class="thumbimage" data-file-width="580" data-file-height="224" /></a> 
+  <div class="thumbcaption">
+    The basic Event Model framework 
+  </div> 
+ </div> 
+</div> 
+<p>The Event Model framework is really very simple in and of itself, consisting of three classes (one abstract) and an interface. Most of all it consists of naming conventions that the programmer must obey. The framework is depicted in the image on the right.</p> 
+<p>Speaking in terms of classes and interfaces, the most important parts of the framework are the <code>java.util.EventObject</code> abstract class and the <code>java.util.EventListener</code> interface. These two types are the centerpieces of the rules and conventions of the Java Platform Event Model, which are:</p> 
+<ul> 
+ <li>A class that has to be notified when an event occurs, is called an <i>event listener</i>. An event listener has one distinct method for each type of event notification that it is interested in.</li> 
+ <li>Event notification method declarations are grouped together into categories. Each category is represented by an event listener interface, which must extend <code>java.util.EventListener</code>. By convention an event listener interface is named <i>&lt;Event category name&gt;Listener</i>. Any class that will be notified of events must implement at least one listener interface.</li> 
+ <li>Any and all state related to an event occurrence will be captured in a state object. The class of this object must be a subclass of <code>java.util.EventObject</code> and must record at least which object was the source of the event. Such a class is called an event class and by convention is named <i>&lt;Event category name&gt;Event</i>.</li> 
+ <li>Usually (but not necessarily!) an event listener interface will relate to a single event class. An event listener may have multiple event notification methods that take the same event class as an argument.</li> 
+ <li>An event notification method usually (but not necessarily!) has the conventional signature <i><a href="/wiki/Java_Programming/Keywords/public" title="Java Programming/Keywords/public">public</a> <a href="/wiki/Java_Programming/Keywords/void" title="Java Programming/Keywords/void">void</a> &lt;specific event&gt;(&lt;Event category name&gt;Event evt)</i>.</li> 
+ <li>A class that is the source of events must have a method that allows for the registration of listeners, one for each possible listener interface type. These methods must by convention have the signature <i><a href="/wiki/Java_Programming/Keywords/public" title="Java Programming/Keywords/public">public</a> <a href="/wiki/Java_Programming/Keywords/void" title="Java Programming/Keywords/void">void</a> add&lt;Event category name&gt;Listener(&lt;Event category name&gt;Listener listener)</i>.</li> 
+ <li>A class that is the source of events may have a method that allows for the deregistration of listeners, one for each possible listener interface type. These methods must by convention have the signature <i><a href="/wiki/Java_Programming/Keywords/public" title="Java Programming/Keywords/public">public</a> <a href="/wiki/Java_Programming/Keywords/void" title="Java Programming/Keywords/void">void</a> remove&lt;Event category name&gt;Listener(&lt;Event category name&gt;Listener listener)</i>.</li> 
+</ul> 
+<div class="thumb tleft"> 
+ <div class="thumbinner" style="width:525px;"> 
+  <a href="/wiki/File:JavaEventModelGenericFrameworkUse.jpg" class="image"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/3/35/JavaEventModelGenericFrameworkUse.jpg/523px-JavaEventModelGenericFrameworkUse.jpg" width="523" height="305" class="thumbimage" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/3/35/JavaEventModelGenericFrameworkUse.jpg/785px-JavaEventModelGenericFrameworkUse.jpg 1.5x, //upload.wikimedia.org/wikipedia/commons/3/35/JavaEventModelGenericFrameworkUse.jpg 2x" data-file-width="836" data-file-height="488" /></a> 
+  <div class="thumbcaption"> 
+   <div class="magnify"> 
+    <a href="/wiki/File:JavaEventModelGenericFrameworkUse.jpg" class="internal" title="Enlarge"></a> 
+   </div> A general example of how the framework is used 
+  </div> 
+ </div> 
+</div> 
+<p>That seems like a lot, but it's pretty simple once you get used to it. Take a look at the image on the left, which contains a general example of how you might use the framework. In this example we have a class called <code>EventSourceClass</code> that publishes interesting events. Following the rules of the Event Model, the events are represented by the <code>InterestingEvent</code> class which has a reference back to the <code>EventSourceClass</code> object (<code>source</code>, inherited from <code>java.util.EventObject</code>).</p> 
+<p>Whenever an interesting event occurs, the <code>EventSourceClass</code> must notify all of the listeners for that event that it knows about by calling the notification method that exist for that purpose. All of the notification methods (in this example there is only one, <code>interestingEventOccurred</code>) have been grouped together by topic in a listener interface: <code>InterestingEventListener</code>, which implements <code>java.util.EventListener</code> and is named according to the Event Model conventions. This interface must be implemented by all event listener classes (in this case only <code>InterestingEventListenerImpl</code>). Because <code>EventSourceClass</code> must be able to notify any interested listeners, it must be possible to register them. For this purpose the <code>EventSourceClass</code> has an <code>addInterestingEventListener</code> method. And since it is required, there is a <code>removeInterestingEventListener</code> method as well.</p> 
+<p>As you can clearly see from the example, using the Event Model is mostly about following naming conventions. This might seem a little cumbersome at first, but the point of having naming conventions is to allow automated tooling to access and use the event model. And there are indeed many tools, IDEs and frameworks that are based on these naming conventions.</p>

@@ -1,0 +1,39 @@
+<p>The most widely available text editor on GNOME desktops is <b>Gedit</b>, while on the KDE desktops, one can find <b>Kate</b>. Both these editors support syntax highlighting and code completion and therefore are sufficient for our purposes.</p> 
+<p>However, if you require a robust and standalone text-editor like the Notepad++ editor on Windows, you would require the use of the minimalistic editor loaded with features – <b>SciTE</b>. Follow the instructions below if you wish to install <b>SciTE</b>:</p> 
+<table style="padding-left:1.5em;"> 
+ <tbody> 
+  <tr> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td valign="top">1.</td> 
+   <td>Open the <b>Terminal</b> window.</td> 
+  </tr> 
+  <tr> 
+   <td valign="top">2.</td> 
+   <td>At the prompt, write the following: 
+    <table style="padding:2px; margin:2px; width:100%;"> 
+     <tbody> 
+      <tr valign="top"> 
+       <td style="width:32px;"><img alt="Standard input or output" src="//upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/32px-Nuvola_apps_display.png" title="Standard input or output" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/48px-Nuvola_apps_display.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/64px-Nuvola_apps_display.png 2x" data-file-width="128" data-file-height="128" /></td> 
+       <td style="background-color:#f0f0ff; border-left: 4px solid blue; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><b>Retrieving the java packages</b> <pre style="background-color:#000; color:#fff;">
+$ sudo apt-get install scite
+</pre></td> 
+      </tr> 
+     </tbody> 
+    </table> </td> 
+  </tr> 
+  <tr> 
+   <td valign="top">3.</td> 
+   <td>You should now be able to use SciTE for your programming needs. You may also want to try Geany. Installation instructions are similar to those for SciTE.</td> 
+  </tr> 
+ </tbody> 
+</table>   
+<div class="collapsible" style="width:100%; clear:both; border:none;"> 
+ <div class="title" style="background:transparent; text-align:left; background:#cedff2;border:1px solid lightgrey;">
+   Installation instructions for Mac OS 
+ </div> 
+ <div class="body" style="background:transparent; text-align:left; background:#e7eff9;border:solid 1px lightgrey;padding:8px;"> 
+  <p>On Mac OS, both the JRE and the JDK are already installed. However, the version installed was the latest version when the computer was purchased, so you may want to update it.</p> 
+ </div>
+</div>

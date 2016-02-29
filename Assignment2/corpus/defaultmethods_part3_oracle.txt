@@ -1,0 +1,23 @@
+<p>In addition to default methods, you can define <a class="TutorialLink" target="_top" href="https://docs.oracle.com/javase/tutorial/java/javaOO/classvars.html">static methods </a> in interfaces. (A static method is a method that is associated with the class in which it is defined rather than with any object. Every instance of the class shares its static methods.) This makes it easier for you to organize helper methods in your libraries; you can keep static methods specific to an interface in the same interface rather than in a separate class. The following example defines a static method that retrieves a <a class="APILink" target="_blank" href="https://docs.oracle.com/javase/8/docs/api/java/time/ZoneId.html"><code>ZoneId</code></a> object corresponding to a time zone identifier; it uses the system default time zone if there is no <code>ZoneId</code> object corresponding to the given identifier. (As a result, you can simplify the method <code>getZonedDateTime</code>):</p> 
+<div class="codeblock"> 
+ <pre>
+public interface TimeClient {
+    // ...
+    static public ZoneId getZoneId (String zoneString) {
+        try {
+            return ZoneId.of(zoneString);
+        } catch (DateTimeException e) {
+            System.err.println("Invalid time zone: " + zoneString +
+                "; using default time zone instead.");
+            return ZoneId.systemDefault();
+        }
+    }
+
+    default public ZonedDateTime getZonedDateTime(String zoneString) {
+        return ZonedDateTime.of(getLocalDateTime(), getZoneId(zoneString));
+    }    
+}
+</pre> 
+</div> 
+<p>Like static methods in classes, you specify that a method definition in an interface is a static method with the <code>static</code> keyword at the beginning of the method signature. All method declarations in an interface, including static methods, are implicitly <code>public</code>, so you can omit the <code>public</code> modifier.</p> 
+<!-- *********************************************************************** -->

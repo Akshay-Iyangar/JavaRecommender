@@ -1,0 +1,42 @@
+<p>In order for you to start using the JDK compiler utility with the Command Prompt, you would need to set the environment variables that points to the <b>bin</b> folder of your recently installed JDK. To set permanently your environment variables, follow the steps below.</p> 
+<table style="padding-left:1.5em;"> 
+ <tbody> 
+  <tr> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td valign="top">1.</td> 
+   <td>To open <b>System Properties</b> dialog box use, the Control Panel or type the following command in the command window: 
+    <table style="padding:2px; margin:2px; width:100%;"> 
+     <tbody> 
+      <tr valign="top"> 
+       <td style="width:32px;"><img alt="Standard input or output" src="//upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/32px-Nuvola_apps_display.png" title="Standard input or output" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/48px-Nuvola_apps_display.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/64px-Nuvola_apps_display.png 2x" data-file-width="128" data-file-height="128" /></td> 
+       <td style="background-color:#f0f0ff; border-left: 4px solid blue; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><b>System properties</b> <pre style="background-color:#000; color:#fff;">
+rundll32 shell32.dll,Control_RunDLL sysdm.cpl
+</pre></td> 
+      </tr> 
+     </tbody> 
+    </table> </td> 
+  </tr> 
+  <tr> 
+   <td valign="top">2.</td> 
+   <td>Navigate to the <b>Advanced</b> tab on the top, and select <b>Environment Variables...</b></td> 
+  </tr> 
+  <tr> 
+   <td valign="top">3.</td> 
+   <td>Under <b>System variables</b>, select the variable named <b>Path</b> and click <b>Edit...</b></td> 
+  </tr> 
+  <tr> 
+   <td valign="top">4.</td> 
+   <td>In the <b>Edit System Variable</b> dialog, go to the <b>Variable value</b> field. This field is a list of directory paths separated by semi-colons (;).</td> 
+  </tr> 
+  <tr> 
+   <td valign="top">5.</td> 
+   <td>To add a new path, append the location of your JDK <b>bin</b> folder separated by a semi-colon (;).</td> 
+  </tr> 
+  <tr> 
+   <td valign="top">6.</td> 
+   <td>Click <b>OK</b> on every opened dialog to save changes and get past to where you started.</td> 
+  </tr> 
+ </tbody> 
+</table>

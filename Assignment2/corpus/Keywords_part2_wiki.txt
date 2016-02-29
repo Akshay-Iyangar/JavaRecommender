@@ -1,0 +1,42 @@
+<p><code><a href="/wiki/Java_Programming/Keywords/abstract" title="Java Programming/Keywords/abstract"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">abstract</font></a></code> is a Java keyword. It can be applied to a class and methods. An <i>abstract</i> class cannot be directly instantiated. It must be placed before the variable type or the method return type. It is recommended to place it after the access modifier and after the <code><a href="/wiki/Java_Programming/Keywords/static" title="Java Programming/Keywords/static"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">static</font></a></code> keyword. A non-abstract class is a <i>concrete</i> class. An abstract class cannot be <code><a href="/wiki/Java_Programming/Keywords/final" title="Java Programming/Keywords/final"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">final</font></a></code>.</p> 
+<p>Only an abstract class can have abstract methods. An abstract method is only declared, not implemented:</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Computer code" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/32px-Gnome-settings-accessibility-keyboard.svg.png" title="Computer code" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/48px-Gnome-settings-accessibility-keyboard.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/64px-Gnome-settings-accessibility-keyboard.svg.png 2x" data-file-width="60" data-file-height="60" /></td> 
+   <td style="background-color:#ffeee0; border-left: 4px solid orange; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><span id="code-listing-1"><b>Code listing 1: AbstractClass.java</b></span> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno">1 </span><span class="kd">public</span> <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">AbstractClass</span> <span class="o">{</span>
+<span class="lineno">2 </span>    <span class="c1">// This method does not have a body; it is abstract.</span>
+<span class="lineno">3 </span>    <span class="kd">public</span> <span class="kd">abstract</span> <span class="kt">void</span> <span class="nf">abstractMethod</span><span class="o">();</span>
+<span class="lineno">4 </span> 
+<span class="lineno">5 </span>    <span class="c1">// This method does have a body; it is implemented in the abstract class and gives a default behavior.</span>
+<span class="lineno">6 </span>    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">concreteMethod</span><span class="o">()</span> <span class="o">{</span>
+<span class="lineno">7 </span>        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Already coded."</span><span class="o">);</span>
+<span class="lineno">8 </span>    <span class="o">}</span>
+<span class="lineno">9 </span><span class="o">}</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>An abstract method cannot be <code><a href="/wiki/Java_Programming/Keywords/final" title="Java Programming/Keywords/final"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">final</font></a></code>, <code><a href="/wiki/Java_Programming/Keywords/static" title="Java Programming/Keywords/static"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">static</font></a></code> nor <code><a href="/wiki/Java_Programming/Keywords/native" title="Java Programming/Keywords/native"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">native</font></a></code>. Either you instantiate a concrete sub-class, either you instantiate the abstract class by implementing its abstract methods alongside a new statement:</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><b>Code section 1: Abstract class use.</b> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno">1 </span><span class="n">AbstractClass</span> <span class="n">myInstance</span> <span class="o">=</span> <span class="k">new</span> <span class="n">AbstractClass</span><span class="o">()</span> <span class="o">{</span>
+<span class="lineno">2 </span>    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">abstractMethod</span><span class="o">()</span> <span class="o">{</span>
+<span class="lineno">3 </span>        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Implementation."</span><span class="o">);</span>
+<span class="lineno">4 </span>    <span class="o">}</span>
+<span class="lineno">5 </span><span class="o">};</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>A private method cannot be <code><a href="/wiki/Java_Programming/Keywords/abstract" title="Java Programming/Keywords/abstract"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">abstract</font></a></code>.</p>

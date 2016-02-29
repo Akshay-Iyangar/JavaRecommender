@@ -1,0 +1,52 @@
+<div> 
+ <p><span id="displaytitle" title=""></span></p> 
+ <table style="width:100%; border:solid 1px #71c837; background:#c6e9af; color:#2d5016;" class="noprint"> 
+  <tbody> 
+   <tr> 
+    <td style="text-align:left; width:33%; font-size:90%;"><img alt="" src="//upload.wikimedia.org/wikibooks/en/thumb/d/df/Navigation_Left_Arrow.svg/18px-Navigation_Left_Arrow.svg.png" width="18" height="14" srcset="//upload.wikimedia.org/wikibooks/en/thumb/d/df/Navigation_Left_Arrow.svg/27px-Navigation_Left_Arrow.svg.png 1.5x, //upload.wikimedia.org/wikibooks/en/thumb/d/df/Navigation_Left_Arrow.svg/36px-Navigation_Left_Arrow.svg.png 2x" data-file-width="165" data-file-height="130"> <a href="/wiki/Java_Programming/Unchecked_Exceptions" title="Java Programming/Unchecked Exceptions">Unchecked Exceptions</a></img></td> 
+    <td style="text-align:center; width:34%;"><a href="/wiki/Java_Programming" title="Java Programming">Java Programming</a><br> <b>Preventing NullPointerException</b></br></td> 
+    <td style="text-align:right; width:33%; font-size:90%;"><a href="/wiki/Java_Programming/Stack_trace" title="Java Programming/Stack trace">Stack trace</a> <img alt="" src="//upload.wikimedia.org/wikibooks/en/thumb/e/ea/Navigation_Right_Arrow.svg/18px-Navigation_Right_Arrow.svg.png" width="18" height="14" srcset="//upload.wikimedia.org/wikibooks/en/thumb/e/ea/Navigation_Right_Arrow.svg/27px-Navigation_Right_Arrow.svg.png 1.5x, //upload.wikimedia.org/wikibooks/en/thumb/e/ea/Navigation_Right_Arrow.svg/36px-Navigation_Right_Arrow.svg.png 2x" data-file-width="165" data-file-height="130" /></td> 
+   </tr> 
+  </tbody> 
+ </table> 
+ <table class="wikitable" style="float: right;"> 
+  <tbody> 
+   <tr> 
+    <td>Navigate <b><a href="/wiki/Java_Programming/Exceptions" title="Java Programming/Exceptions">Exceptions</a></b> topic:<span class="noprint">(&nbsp;<span class="noprint plainlinks navbar" style="background:none; padding:0; font-weight:normal;; font-size:xx-small;"><a href="/wiki/Template:Java_Programming/ExceptionsTopic" title="Template:Java Programming/ExceptionsTopic" class="mw-redirect"><span title="View this template" style="">v</span></a>&nbsp;<span style="font-size:80%;">•</span>&nbsp;<a href="/w/index.php?title=Template_talk:Java_Programming/ExceptionsTopic&amp;action=edit&amp;redlink=1" class="new" title="Template talk:Java Programming/ExceptionsTopic (does not exist)"><span title="Discuss this template" style="">d</span></a>&nbsp;<span style="font-size:80%;">•</span>&nbsp;<a class="external text" href="//en.wikibooks.org/w/index.php?title=Template:Java_Programming/ExceptionsTopic&amp;action=edit"><span title="Edit this template" style=";">e</span></a></span>&nbsp;)</span> 
+     <ul> 
+      <li><span class="noprint"><a href="/wiki/Help:Development_stages" title="75% developed&nbsp; as of 8 Aug, 2013"><img alt="75% developed&nbsp; as of 8 Aug, 2013" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/62/75_percent.svg/9px-75_percent.svg.png" width="9" height="9" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/62/75_percent.svg/14px-75_percent.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/62/75_percent.svg/18px-75_percent.svg.png 2x" data-file-width="9" data-file-height="9" /></a></span> <a href="/wiki/Java_Programming/Throwing_and_Catching_Exceptions" title="Java Programming/Throwing and Catching Exceptions">Throwing and catching exceptions</a></li> 
+      <li><span class="noprint"><a href="/wiki/Help:Development_stages" title="75% developed&nbsp; as of 8 Aug, 2013"><img alt="75% developed&nbsp; as of 8 Aug, 2013" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/62/75_percent.svg/9px-75_percent.svg.png" width="9" height="9" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/62/75_percent.svg/14px-75_percent.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/62/75_percent.svg/18px-75_percent.svg.png 2x" data-file-width="9" data-file-height="9" /></a></span> <a href="/wiki/Java_Programming/Checked_Exceptions" title="Java Programming/Checked Exceptions">Checked exceptions</a></li> 
+      <li><span class="noprint"><a href="/wiki/Help:Development_stages" title="75% developed&nbsp; as of 8 Aug, 2013"><img alt="75% developed&nbsp; as of 8 Aug, 2013" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/62/75_percent.svg/9px-75_percent.svg.png" width="9" height="9" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/62/75_percent.svg/14px-75_percent.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/62/75_percent.svg/18px-75_percent.svg.png 2x" data-file-width="9" data-file-height="9" /></a></span> <a href="/wiki/Java_Programming/Unchecked_Exceptions" title="Java Programming/Unchecked Exceptions">Unchecked exceptions</a></li> 
+      <li><span class="noprint"><a href="/wiki/Help:Development_stages" title="75% developed&nbsp; as of 8 Aug, 2013"><img alt="75% developed&nbsp; as of 8 Aug, 2013" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/62/75_percent.svg/9px-75_percent.svg.png" width="9" height="9" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/62/75_percent.svg/14px-75_percent.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/62/75_percent.svg/18px-75_percent.svg.png 2x" data-file-width="9" data-file-height="9" /></a></span> <strong class="selflink">Preventing <code>NullPointerException</code></strong></li> 
+      <li><span class="noprint"><a href="/wiki/Help:Development_stages" title="75% developed&nbsp; as of 8 Aug, 2013"><img alt="75% developed&nbsp; as of 8 Aug, 2013" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/62/75_percent.svg/9px-75_percent.svg.png" width="9" height="9" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/62/75_percent.svg/14px-75_percent.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/62/75_percent.svg/18px-75_percent.svg.png 2x" data-file-width="9" data-file-height="9" /></a></span> <a href="/wiki/Java_Programming/Stack_trace" title="Java Programming/Stack trace">Stack trace</a></li> 
+      <li><span class="noprint"><a href="/wiki/Help:Development_stages" title="75% developed&nbsp; as of 8 Aug, 2013"><img alt="75% developed&nbsp; as of 8 Aug, 2013" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/62/75_percent.svg/9px-75_percent.svg.png" width="9" height="9" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/62/75_percent.svg/14px-75_percent.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/62/75_percent.svg/18px-75_percent.svg.png 2x" data-file-width="9" data-file-height="9" /></a></span> <a href="/wiki/Java_Programming/Nesting_Exceptions" title="Java Programming/Nesting Exceptions">Nesting exceptions (chained exceptions)</a></li> 
+     </ul> </td> 
+   </tr> 
+  </tbody> 
+ </table> 
+ <p><br> <code>NullPointerException</code> is a <code>RuntimeException</code>. In Java, a special <code><a href="/wiki/Java_Programming/Literals/null" title="Java Programming/Literals/null" class="mw-redirect"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">null</font></a></code> can be assigned to an object reference. <code>NullPointerException</code> is thrown when an application attempts to use an object reference, having the <code><a href="/wiki/Java_Programming/Literals/null" title="Java Programming/Literals/null" class="mw-redirect"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">null</font></a></code> value. These include:</br></p> 
+ <ul> 
+  <li>Calling an instance method on the object referred by a null reference.</li> 
+  <li>Accessing or modifying an instance field of the object referred by a null reference.</li> 
+  <li>If the reference type is an array type, taking the length of a null reference.</li> 
+  <li>If the reference type is an array type, accessing or modifying the slots of a null reference.</li> 
+  <li>If the reference type is a subtype of <code>Throwable</code>, throwing a null reference.</li> 
+ </ul> 
+ <p>Applications should throw instances of this class to indicate other illegal uses of the null object.</p> 
+ <table style="padding:2px; margin:2px;"> 
+  <tbody> 
+   <tr valign="top"> 
+    <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+    <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><span id="code-section-13"><b>Code section 6.13: Null pointer.</b></span> 
+     <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+      <pre>
+<span class="lineno">1 </span><span class="n">Object</span> <span class="n">obj</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+<span class="lineno">2 </span><span class="hll"><span class="n">obj</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span>  <span class="c1">// This statement will throw a NullPointerException</span>
+</span>
+</pre> 
+     </div> </td> 
+   </tr> 
+  </tbody> 
+ </table> 
+ <p>The above code shows one of the pitfall of Java, and the most common source of bugs. No object is created and the compiler does not detect it. <code>NullPointerException</code> is one of the most common exceptions thrown in Java.</p> 
+</div>

@@ -1,0 +1,48 @@
+<div id="PageContent"> 
+ <p> A <em>raw type</em> is the name of a generic class or interface without any type arguments. For example, given the generic <tt>Box</tt> class:</p> 
+ <div class="codeblock"> 
+  <pre>
+public class Box&lt;T&gt; {
+    public void set(T t) { /* ... */ }
+    // ...
+}
+</pre> 
+ </div> 
+ <p> To create a parameterized type of <tt>Box&lt;T&gt;</tt>, you supply an actual type argument for the formal type parameter <tt>T</tt>:</p> 
+ <div class="codeblock"> 
+  <pre>
+Box&lt;Integer&gt; intBox = new Box&lt;&gt;();
+</pre> 
+ </div> 
+ <p> If the actual type argument is omitted, you create a raw type of <tt>Box&lt;T&gt;</tt>:</p> 
+ <div class="codeblock"> 
+  <pre>
+Box rawBox = new Box();
+</pre> 
+ </div> 
+ <p> Therefore, <tt>Box</tt> is the raw type of the generic type <tt>Box&lt;T&gt;</tt>. However, a non-generic class or interface type is <em>not</em> a raw type.</p> 
+ <p> Raw types show up in legacy code because lots of API classes (such as the <tt>Collections</tt> classes) were not generic prior to JDK 5.0. When using raw types, you essentially get pre-generics behavior — a <tt>Box</tt> gives you <tt>Object</tt>s. For backward compatibility, assigning a parameterized type to its raw type is allowed:</p> 
+ <div class="codeblock"> 
+  <pre>
+Box&lt;String&gt; stringBox = new Box&lt;&gt;();
+Box rawBox = stringBox;               // OK
+</pre> 
+ </div> 
+ <p> But if you assign a raw type to a parameterized type, you get a warning:</p> 
+ <div class="codeblock"> 
+  <pre>
+Box rawBox = new Box();           // rawBox is a raw type of Box&lt;T&gt;
+Box&lt;Integer&gt; intBox = rawBox;     // warning: unchecked conversion
+</pre> 
+ </div> 
+ <p> You also get a warning if you use a raw type to invoke generic methods defined in the corresponding generic type:</p> 
+ <div class="codeblock"> 
+  <pre>
+Box&lt;String&gt; stringBox = new Box&lt;&gt;();
+Box rawBox = stringBox;
+rawBox.set(8);  // warning: unchecked invocation to set(T)
+</pre> 
+ </div> 
+ <p> The warning shows that raw types bypass generic type checks, deferring the catch of unsafe code to runtime. Therefore, you should avoid using raw types.</p> 
+ <p> The <a class="TutorialLink" target="_top" href="erasure.html">Type Erasure</a> section has more information on how the Java compiler uses raw types.</p> 
+</div>

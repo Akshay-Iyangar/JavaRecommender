@@ -1,0 +1,37 @@
+<div class="thumb tright"> 
+ <div class="thumbinner" style="width:302px;"> 
+  <a href="/wiki/File:KP-UML-Generalization-20060325.svg" class="image"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/66/KP-UML-Generalization-20060325.svg/300px-KP-UML-Generalization-20060325.svg.png" width="300" height="123" class="thumbimage" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/66/KP-UML-Generalization-20060325.svg/450px-KP-UML-Generalization-20060325.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/66/KP-UML-Generalization-20060325.svg/600px-KP-UML-Generalization-20060325.svg.png 2x" data-file-width="372" data-file-height="152" /></a> 
+  <div class="thumbcaption"> 
+   <div class="magnify"> 
+    <a href="/wiki/File:KP-UML-Generalization-20060325.svg" class="internal" title="Enlarge"></a> 
+   </div> Object oriented programming can be represented with 
+   <a href="/wiki/Introduction_to_Software_Engineering/UML" title="Introduction to Software Engineering/UML">UML</a> diagrams. 
+  </div> 
+ </div> 
+</div> 
+<p>Object orientation ("OO"), refers to a method of programming and language technique. The main idea of OO is to design software around the "things" (i.e. objects) it manipulates, rather than the actions it performs.</p> 
+<p>As the hardware of the computer advanced, it brought about the need to create better software techniques to be able to create ever increasing complex applications. The intent is to make large software projects easier to manage, thus improving quality and reducing the number of failed projects. Object oriented solution is the latest software technique.</p> 
+<dl> 
+ <dt>
+   Assembly languages&nbsp; 
+ </dt> 
+ <dd>
+   Software techniques started with the assembly languages, that was close to machine instruction and was easy to convert into executable code. Each hardware had its own assembly language. Assembly language contains low level instructions like move data from memory to hardware registers, do arithmetic operations, and move data back to memory. Programmers had to know the detailed architecture of the computer in order to write programs. 
+ </dd> 
+</dl> 
+<dl> 
+ <dt>
+   Procedural languages&nbsp; 
+ </dt> 
+ <dd>
+   After the assembly languages, high level languages were developed. Here the language compiler is used to convert the high level program to machine instructions, freeing up the programmers the burden of knowing the computer hardware architecture. To promote the re-use of code, and to minimize the use of GOTO instruction, "procedural" techniques were introduced. This simplified the creation and maintenance of software control flow, but they left out the organization of data. It became a nightmare to debug and maintain programs having many global variables. Global variables contain data that can be modified anywhere in the application. 
+ </dd> 
+</dl> 
+<dl> 
+ <dt>
+   Object oriented languages&nbsp; 
+ </dt> 
+ <dd>
+   In OO languages, data is taken seriously with information hiding. Procedures were replaced by Objects. Objects contain data as well as control flow. Our thinking has to shift from procedures to interaction between objects. 
+ </dd> 
+</dl>

@@ -1,0 +1,53 @@
+<div id="PageContent"> 
+ <p> Sometimes type erasure causes a situation that you may not have anticipated. The following example shows how this can occur. The example (described in <a class="TutorialLink" target="_top" href="#bridgeMethods">Bridge Methods</a>) shows how a compiler sometimes creates a synthetic method, called a bridge method, as part of the type erasure process.</p> 
+ <p> Given the following two classes:</p> 
+ <div class="codeblock"> 
+  <pre>
+public class Node&lt;T&gt; {
+
+    public T data;
+
+    public Node(T data) { this.data = data; }
+
+    public void setData(T data) {
+        System.out.println("Node.setData");
+        this.data = data;
+    }
+}
+
+public class MyNode extends Node&lt;Integer&gt; {
+    public MyNode(Integer data) { super(data); }
+
+    public void setData(Integer data) {
+        System.out.println("MyNode.setData");
+        super.setData(data);
+    }
+}
+</pre> 
+ </div> 
+ <p> Consider the following code:</p> 
+ <div class="codeblock"> 
+  <pre>
+MyNode mn = new MyNode(5);
+Node n = mn;            // A raw type - compiler throws an unchecked warning
+n.setData("Hello");     
+Integer x = mn.data;    // Causes a ClassCastException to be thrown.
+</pre> 
+ </div> 
+ <p> After type erasure, this code becomes:</p> 
+ <div class="codeblock"> 
+  <pre>
+MyNode mn = new MyNode(5);
+Node n = (MyNode)mn;         // A raw type - compiler throws an unchecked warning
+n.setData("Hello");
+Integer x = (String)mn.data; // Causes a ClassCastException to be thrown.
+</pre> 
+ </div> 
+ <p> Here is what happens as the code is executed:</p> 
+ <ul> 
+  <li><tt>n.setData("Hello");</tt> causes the method <tt>setData(Object)</tt> to be executed on the object of class <tt>MyNode</tt>. (The <tt>MyNode</tt> class inherited <tt>setData(Object)</tt> from <tt>Node</tt>.)</li> 
+  <li>In the body of <tt>setData(Object)</tt>, the data field of the object referenced by <tt>n</tt> is assigned to a <tt>String</tt>.</li> 
+  <li>The data field of that same object, referenced via <tt>mn</tt>, can be accessed and is expected to be an integer (since <tt>mn</tt> is a <tt>MyNode</tt> which is a <tt>Node&lt;Integer&gt;</tt>.</li> 
+  <li>Trying to assign a <tt>String</tt> to an <tt>Integer</tt> causes a <tt>ClassCastException</tt> from a cast inserted at the assignment by a Java compiler.</li> 
+ </ul> 
+</div>

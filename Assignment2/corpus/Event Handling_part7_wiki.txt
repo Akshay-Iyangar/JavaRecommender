@@ -1,0 +1,32 @@
+<p>In the previous section we've explored the depths (such as there are) of the Java platform Event Model framework. If you're like most people, you've found the theoretical text more confusing than the actual use of the model. Certainly more confusing than should be necessary to explain what is, really, quite a simple framework.</p> 
+<p>In order to clear everything up a bit, let's examine a simple example based on the Event Model framework. Let's assume that we want to write a program that reads a stream of numbers input by the user at the command line and processes this stream somehow. Say, by keeping track of the running sum of numbers and producing that sum once the stream has been completely read.</p> 
+<p>Of course we could implement this program quite simply with a loop in a main() method. But instead let's be a little more creative. Let's say that we want to divide our program neatly into classes, each with a responsibility of its own (like we should in a proper, object-oriented design). And let's imagine that we want it to be possible not only to calculate the sum of all the numbers read, but to perform any number of calculations on the same number stream. In fact, it should be possible to add new calculations with relative ease and without having to affect any previously existing code.</p> 
+<p>If we analyze these requirements, we come to the conclusion that we have a number of different responsibilities in the program:</p> 
+<table class="messagebox"> 
+ <tbody> 
+  <tr> 
+   <td> 
+    <ul> 
+     <li>Reading the number stream from the command line</li> 
+     <li>Processing the number stream (possibly multiple of these)</li> 
+     <li>Starting the entire program</li> 
+    </ul> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>Using the Event Model framework allows us to separate the two main responsibilities cleanly and affords us the flexibility we are looking for. If we implement the logic for reading the number stream in a single class and treat the reading of a single number as an event, the Event Model allows us to broadcast that event (and the number) to as many stream processors as we like. The class for reading the number stream will act as the event source of the program and each stream processor will be a listener. Since each listener is a class of its own and can be registered with the stream reader (or not) this means our model allows us to have multiple, independent stream processing that we can add on to without affecting the code to read the stream or any pre-existing stream processor.</p> 
+<p>The Event Model says that any state associated with an event should be included in a class that represents the event. That's perfect for us; we can implement a simple event class that will record the number read from the command line. Each listener can then process this number as it sees fit.</p> 
+<p>For our interesting event set let's keep things simple: let's limit ourselves to having read a new number and having reached the end of the stream. With this choice we come to the following design for our example application:</p> 
+<div class="center"> 
+ <div class="thumb tnone"> 
+  <div class="thumbinner" style="width:602px;"> 
+   <a href="/wiki/File:JavaEventModelWikibooksJavaProgrammingBookExample.jpg" class="image"><img alt="JavaEventModelWikibooksJavaProgrammingBookExample.jpg" src="//upload.wikimedia.org/wikipedia/commons/thumb/d/d3/JavaEventModelWikibooksJavaProgrammingBookExample.jpg/600px-JavaEventModelWikibooksJavaProgrammingBookExample.jpg" width="600" height="529" class="thumbimage" srcset="//upload.wikimedia.org/wikipedia/commons/d/d3/JavaEventModelWikibooksJavaProgrammingBookExample.jpg 1.5x, //upload.wikimedia.org/wikipedia/commons/d/d3/JavaEventModelWikibooksJavaProgrammingBookExample.jpg 2x" data-file-width="844" data-file-height="744" /></a> 
+   <div class="thumbcaption"> 
+    <div class="magnify"> 
+     <a href="/wiki/File:JavaEventModelWikibooksJavaProgrammingBookExample.jpg" class="internal" title="Enlarge"></a> 
+    </div> 
+   </div> 
+  </div> 
+ </div> 
+</div> 
+<p>In the following sections we look at the implementation of this example.</p>

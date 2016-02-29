@@ -1,0 +1,43 @@
+<p>The <code>instanceof</code> operator compares an object to a specified type. You can use it to test if an object is an instance of a class, an instance of a subclass, or an instance of a class that implements a particular interface.</p> 
+<p>The following program, <a class="SourceLink" target="_blank" href="examples/InstanceofDemo.java" onclick="showCode('https://docs.oracle.com/javase/tutorial/displayCode.html', 'examples/InstanceofDemo.java'); return false;"><code>InstanceofDemo</code></a>, defines a parent class (named <code>Parent</code>), a simple interface (named <code>MyInterface</code>), and a child class (named <code>Child</code>) that inherits from the parent and implements the interface.</p> 
+<div class="codeblock"> 
+ <pre>
+
+class InstanceofDemo {
+    public static void main(String[] args) {
+
+        Parent obj1 = new Parent();
+        Parent obj2 = new Child();
+
+        System.out.println("obj1 instanceof Parent: "
+            + (obj1 instanceof Parent));
+        System.out.println("obj1 instanceof Child: "
+            + (obj1 instanceof Child));
+        System.out.println("obj1 instanceof MyInterface: "
+            + (obj1 instanceof MyInterface));
+        System.out.println("obj2 instanceof Parent: "
+            + (obj2 instanceof Parent));
+        System.out.println("obj2 instanceof Child: "
+            + (obj2 instanceof Child));
+        System.out.println("obj2 instanceof MyInterface: "
+            + (obj2 instanceof MyInterface));
+    }
+}
+
+class Parent {}
+class Child extends Parent implements MyInterface {}
+interface MyInterface {}
+</pre> 
+</div> 
+<p>Output:</p> 
+<div class="codeblock"> 
+ <pre>
+obj1 instanceof Parent: true
+obj1 instanceof Child: false
+obj1 instanceof MyInterface: false
+obj2 instanceof Parent: true
+obj2 instanceof Child: true
+obj2 instanceof MyInterface: true
+</pre> 
+</div> 
+<p>When using the <code>instanceof</code> operator, keep in mind that <code>null</code> is not an instance of anything.</p>

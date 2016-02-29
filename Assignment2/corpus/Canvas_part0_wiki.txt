@@ -1,0 +1,13 @@
+<p><span id="displaytitle" title=""></span></p> 
+<table style="width:100%; border:solid 1px #71c837; background:#c6e9af; color:#2d5016;" class="noprint"> 
+ <tbody> 
+  <tr> 
+   <td style="text-align:left; width:33%; font-size:90%;"><img alt="" src="//upload.wikimedia.org/wikibooks/en/thumb/d/df/Navigation_Left_Arrow.svg/18px-Navigation_Left_Arrow.svg.png" width="18" height="14" srcset="//upload.wikimedia.org/wikibooks/en/thumb/d/df/Navigation_Left_Arrow.svg/27px-Navigation_Left_Arrow.svg.png 1.5x, //upload.wikimedia.org/wikibooks/en/thumb/d/df/Navigation_Left_Arrow.svg/36px-Navigation_Left_Arrow.svg.png 2x" data-file-width="165" data-file-height="130"> <a href="/wiki/Java_Programming/JavaBeans" title="Java Programming/JavaBeans">JavaBeans</a></img></td> 
+   <td style="text-align:center; width:34%;"><a href="/wiki/Java_Programming" title="Java Programming">Java Programming</a><br> <b>Canvas</b></br></td> 
+   <td style="text-align:right; width:33%; font-size:90%;"><a href="/wiki/Java_Programming/Graphics" title="Java Programming/Graphics">Graphics</a> <img alt="" src="//upload.wikimedia.org/wikibooks/en/thumb/e/ea/Navigation_Right_Arrow.svg/18px-Navigation_Right_Arrow.svg.png" width="18" height="14" srcset="//upload.wikimedia.org/wikibooks/en/thumb/e/ea/Navigation_Right_Arrow.svg/27px-Navigation_Right_Arrow.svg.png 1.5x, //upload.wikimedia.org/wikibooks/en/thumb/e/ea/Navigation_Right_Arrow.svg/36px-Navigation_Right_Arrow.svg.png 2x" data-file-width="165" data-file-height="130" /></td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p><br> An essential part of programming in Java requires you to build exciting new user interfaces for yourselves. Components that come built into the Java framework are regular UI elements, however for a more rich experience, you need controls of your own. Take, for instance, a charting application. No charting tool comes built into a Java API. You need to manually draw the chart yourself.</br></p> 
+<p>Coding drawing, to begin with, is pretty daunting but once you know the basics of Graphics programming in Java, you can create elegant graphics and art in no time. But the question that arises in one's mind is what to draw on. The answer to this question is simpler than it seems. You can start drawing on any component in the Java framework. Whether it be a panel, window or even a button.</p> 
+<p>Let me break it down for you. A component in the Java language is a class that has been derived from the <code style="border-bottom:dashed red 1px;">Component</code> class. Each component has a method with a signature <code style="border-bottom:dashed green 1px;">paint(Graphics)</code> which can be overridden to manually draw something atop it.</p>

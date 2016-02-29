@@ -1,0 +1,137 @@
+<div id="PageContent"> 
+ <p> <em>Autoboxing</em> is the automatic conversion that the Java compiler makes between the primitive types and their corresponding object wrapper classes. For example, converting an <tt>int</tt> to an <tt>Integer</tt>, a <tt>double</tt> to a <tt>Double</tt>, and so on. If the conversion goes the other way, this is called <em>unboxing</em>.</p> 
+ <p> Here is the simplest example of autoboxing:</p> 
+ <div class="codeblock"> 
+  <pre>
+Character ch = 'a';
+</pre> 
+ </div> 
+ <p> The rest of the examples in this section use generics. If you are not yet familiar with the syntax of generics, see the <a class="TutorialLink" target="_top" href="../generics/index.html">Generics (Updated)</a> lesson.</p> 
+ <p> Consider the following code:</p> 
+ <div class="codeblock"> 
+  <pre>
+List&lt;Integer&gt; li = new ArrayList&lt;&gt;();
+for (int i = 1; i &lt; 50; i += 2)
+    li.add(i);
+</pre> 
+ </div> 
+ <p> Although you add the <tt>int</tt> values as primitive types, rather than <tt>Integer</tt> objects, to <tt>li</tt>, the code compiles. Because <tt>li</tt> is a list of <tt>Integer</tt> objects, not a list of <tt>int</tt> values, you may wonder why the Java compiler does not issue a compile-time error. The compiler does not generate an error because it creates an <tt>Integer</tt> object from <tt>i</tt> and adds the object to <tt>li</tt>. Thus, the compiler converts the previous code to the following at runtime:</p> 
+ <div class="codeblock"> 
+  <pre>
+List&lt;Integer&gt; li = new ArrayList&lt;&gt;();
+for (int i = 1; i &lt; 50; i += 2)
+    li.add(Integer.valueOf(i));
+</pre> 
+ </div> 
+ <p> Converting a primitive value (an <tt>int</tt>, for example) into an object of the corresponding wrapper class (<tt>Integer</tt>) is called autoboxing. The Java compiler applies autoboxing when a primitive value is:</p> 
+ <ul> 
+  <li>Passed as a parameter to a method that expects an object of the corresponding wrapper class.</li> 
+  <li>Assigned to a variable of the corresponding wrapper class.</li> 
+ </ul> 
+ <p> Consider the following method:</p> 
+ <div class="codeblock"> 
+  <pre>
+public static int sumEven(List&lt;Integer&gt; li) {
+    int sum = 0;
+    for (Integer i: li)
+        if (i % 2 == 0)
+            sum += i;
+        return sum;
+}
+</pre> 
+ </div> 
+ <p> Because the remainder (<tt>%</tt>) and unary plus (<tt>+=</tt>) operators do not apply to <tt>Integer</tt> objects, you may wonder why the Java compiler compiles the method without issuing any errors. The compiler does not generate an error because it invokes the <tt>intValue</tt> method to convert an <tt>Integer</tt> to an <tt>int</tt> at runtime:</p> 
+ <div class="codeblock"> 
+  <pre>
+public static int sumEven(List&lt;Integer&gt; li) {
+    int sum = 0;
+    for (Integer i : li)
+        if (i.intValue() % 2 == 0)
+            sum += i.intValue();
+        return sum;
+}
+</pre> 
+ </div> 
+ <p> Converting an object of a wrapper type (<tt>Integer</tt>) to its corresponding primitive (<tt>int</tt>) value is called unboxing. The Java compiler applies unboxing when an object of a wrapper class is:</p> 
+ <ul> 
+  <li>Passed as a parameter to a method that expects a value of the corresponding primitive type.</li> 
+  <li>Assigned to a variable of the corresponding primitive type.</li> 
+ </ul> 
+ <p>The <a class="SourceLink" target="_blank" href="examples/Unboxing.java" onclick="showCode('https://docs.oracle.com/javase/tutorial/displayCode.html', 'examples/Unboxing.java'); return false;"><code><tt>Unboxing</tt></code></a> example shows how this works:</p> 
+ <div class="codeblock"> 
+  <pre>
+import java.util.ArrayList;
+import java.util.List;
+
+public class Unboxing {
+
+    public static void main(String[] args) {
+        Integer i = new Integer(-8);
+
+        // 1. Unboxing through method invocation
+        int absVal = absoluteValue(i);
+        System.out.println("absolute value of " + i + " = " + absVal);
+
+        List&lt;Double&gt; ld = new ArrayList&lt;&gt;();
+        ld.add(3.1416);    // Π is autoboxed through method invocation.
+
+        // 2. Unboxing through assignment
+        double pi = ld.get(0);
+        System.out.println("pi = " + pi);
+    }
+
+    public static int absoluteValue(int i) {
+        return (i &lt; 0) ? -i : i;
+    }
+}
+</pre> 
+ </div> 
+ <p> The program prints the following:</p> 
+ <div class="codeblock"> 
+  <pre>
+absolute value of -8 = 8
+pi = 3.1416
+</pre> 
+ </div> 
+ <p> Autoboxing and unboxing lets developers write cleaner code, making it easier to read. The following table lists the primitive types and their corresponding wrapper classes, which are used by the Java compiler for autoboxing and unboxing:</p> 
+ <table border="1" summary="table listing primitive types and the corresponding wrapper classes"> 
+  <tbody> 
+   <tr> 
+    <th id="h1">Primitive type</th> 
+    <th id="h2">Wrapper class</th> 
+   </tr> 
+   <tr> 
+    <td headers="h1">boolean</td> 
+    <td headers="h2">Boolean</td> 
+   </tr> 
+   <tr> 
+    <td headers="h1">byte</td> 
+    <td headers="h2">Byte</td> 
+   </tr> 
+   <tr> 
+    <td headers="h1">char</td> 
+    <td headers="h2">Character</td> 
+   </tr> 
+   <tr> 
+    <td headers="h1">float</td> 
+    <td headers="h2">Float</td> 
+   </tr> 
+   <tr> 
+    <td headers="h1">int</td> 
+    <td headers="h2">Integer</td> 
+   </tr> 
+   <tr> 
+    <td headers="h1">long</td> 
+    <td headers="h2">Long</td> 
+   </tr> 
+   <tr> 
+    <td headers="h1">short</td> 
+    <td headers="h2">Short</td> 
+   </tr> 
+   <tr> 
+    <td headers="h1">double</td> 
+    <td headers="h2">Double</td> 
+   </tr> 
+  </tbody> 
+ </table> 
+</div>

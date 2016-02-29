@@ -1,0 +1,35 @@
+<div class="thumb tright"> 
+ <div class="thumbinner" style="width:352px;"> 
+  <a href="/wiki/File:Java_mvc_appl.gif" class="image"><img alt="" src="//upload.wikimedia.org/wikibooks/en/thumb/0/0d/Java_mvc_appl.gif/350px-Java_mvc_appl.gif" width="350" height="213" class="thumbimage" data-file-width="753" data-file-height="459" /></a> 
+  <div class="thumbcaption"> 
+   <div class="magnify"> 
+    <a href="/wiki/File:Java_mvc_appl.gif" class="internal" title="Enlarge"></a> 
+   </div> Figure 6: MVC Execution 
+  </div> 
+ </div> 
+</div> 
+<dl> 
+ <dt>
+   Combine J2EE components to create an MVC architecture&nbsp; 
+ </dt> 
+ <dd>
+   This leads us to the three layers/tiers as shown in (Figure 6). 
+ </dd> 
+ <dd>
+   In modern web applications, with lots of static data and nice graphics, how the data is presented to the user became very important and usually needs the help of a graphic artist. 
+ </dd> 
+ <dd>
+   To help programmers and graphic artists to work together, the separation between data, code, and how it is presented became crucial. 
+ </dd> 
+ <dd> 
+  <ul> 
+   <li>The <b>view</b> (User Interface Logic) contains the logic that is necessary to construct the presentation. This could be handled by JSP technology.</li> 
+   <li>The servlet acts as the <b>controller</b> and contains the logic that is necessary to process user events and to select an appropriate response.</li> 
+   <li>The business logic (<b>model</b>) actually accomplishes the goal of the interaction. This might be a query or an update to a database. This could be handled by EJB technology.</li> 
+  </ul> 
+ </dd> 
+ <dd>
+   For more information about MVC, please see 
+  <a href="//en.wikipedia.org/wiki/Model-view-controller" class="extiw" title="w:Model-view-controller">MVC</a>. 
+ </dd> 
+</dl>

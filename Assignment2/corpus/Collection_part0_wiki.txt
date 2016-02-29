@@ -1,0 +1,189 @@
+<p><span id="displaytitle" title=""></span></p> 
+<table style="width:100%; border:solid 1px #71c837; background:#c6e9af; color:#2d5016;" class="noprint"> 
+ <tbody> 
+  <tr> 
+   <td style="text-align:left; width:33%; font-size:90%;"><img alt="" src="//upload.wikimedia.org/wikibooks/en/thumb/d/df/Navigation_Left_Arrow.svg/18px-Navigation_Left_Arrow.svg.png" width="18" height="14" srcset="//upload.wikimedia.org/wikibooks/en/thumb/d/df/Navigation_Left_Arrow.svg/27px-Navigation_Left_Arrow.svg.png 1.5x, //upload.wikimedia.org/wikibooks/en/thumb/d/df/Navigation_Left_Arrow.svg/36px-Navigation_Left_Arrow.svg.png 2x" data-file-width="165" data-file-height="130"> <a href="/wiki/Java_Programming/Aggregate" title="Java Programming/Aggregate">Aggregate</a></img></td> 
+   <td style="text-align:center; width:34%;"><a href="/wiki/Java_Programming" title="Java Programming">Java Programming</a><br> <b>Collection</b></br></td> 
+   <td style="text-align:right; width:33%; font-size:90%;"><a href="/wiki/Java_Programming/ArrayList" title="Java Programming/ArrayList">ArrayList</a> <img alt="" src="//upload.wikimedia.org/wikibooks/en/thumb/e/ea/Navigation_Right_Arrow.svg/18px-Navigation_Right_Arrow.svg.png" width="18" height="14" srcset="//upload.wikimedia.org/wikibooks/en/thumb/e/ea/Navigation_Right_Arrow.svg/27px-Navigation_Right_Arrow.svg.png 1.5x, //upload.wikimedia.org/wikibooks/en/thumb/e/ea/Navigation_Right_Arrow.svg/36px-Navigation_Right_Arrow.svg.png 2x" data-file-width="165" data-file-height="130" /></td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>The most basic collection interface is called <code>Collection</code>. This interface gives the user a generic usage of a collection. All collections need to have the same basic operations. Those are:</p> 
+<ul> 
+ <li>Adding element(s) to the collection</li> 
+ <li>Removing element(s) from the collection</li> 
+ <li>Obtaining the number of elements in the collection</li> 
+ <li>Listing the contents of the collection, (Iterating through the collection)</li> 
+</ul> 
+<table style="width: 100%;"> 
+ <tbody> 
+  <tr> 
+   <td valign="top"> 
+    <table style="padding:2px; margin:2px;"> 
+     <tbody> 
+      <tr valign="top"> 
+       <td style="width:32px;"><img alt="Computer code" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/32px-Gnome-settings-accessibility-keyboard.svg.png" title="Computer code" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/48px-Gnome-settings-accessibility-keyboard.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/64px-Gnome-settings-accessibility-keyboard.svg.png 2x" data-file-width="60" data-file-height="60" /></td> 
+       <td style="background-color:#ffeee0; border-left: 4px solid orange; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><span id="code-listing-1"><b>Code listing 5.1: CollectionProgram.java</b></span> 
+        <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+         <pre>
+<span class="lineno"> 1 </span><span class="kn">import</span> <span class="nn">java.util.Collection</span><span class="o">;</span>   <span class="c1">// Interface</span>
+<span class="lineno"> 2 </span><span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>    <span class="c1">// Implementation</span>
+<span class="lineno"> 3 </span>
+<span class="lineno"> 4 </span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">CollectionProgram</span> <span class="o">{</span>
+<span class="lineno"> 5 </span>
+<span class="lineno"> 6 </span>  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno"> 7 </span><span class="hll">    <span class="n">Collection</span> <span class="n">myCollection</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">();</span>
+</span><span class="lineno"> 8 </span><span class="hll">    <span class="n">myCollection</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">"1"</span><span class="o">);</span>
+</span><span class="lineno"> 9 </span>    <span class="n">myCollection</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">"2"</span><span class="o">);</span>
+<span class="lineno">10 </span>    <span class="n">myCollection</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">"3"</span><span class="o">);</span>
+<span class="lineno">11 </span><span class="hll">    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"The collection contains "</span> <span class="o">+</span> <span class="n">myCollection</span><span class="o">.</span><span class="na">size</span><span class="o">()</span> <span class="o">+</span> <span class="s">" item(s)."</span><span class="o">);</span>
+</span><span class="lineno">12 </span>
+<span class="lineno">13 </span><span class="hll">    <span class="n">myCollection</span><span class="o">.</span><span class="na">clear</span><span class="o">();</span>
+</span><span class="lineno">14 </span><span class="hll">    <span class="k">if</span> <span class="o">(</span><span class="n">myCollection</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">())</span> <span class="o">{</span>
+</span><span class="lineno">15 </span>      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"The collection is empty."</span><span class="o">);</span>
+<span class="lineno">16 </span>    <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+<span class="lineno">17 </span>      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"The collection is not empty."</span><span class="o">);</span>
+<span class="lineno">18 </span>    <span class="o">}</span>
+<span class="lineno">19 </span>  <span class="o">}</span>
+<span class="lineno">20 </span><span class="o">}</span>
+</pre> 
+        </div> </td> 
+      </tr> 
+     </tbody> 
+    </table> </td> 
+   <td valign="top"> 
+    <table style="padding:2px; margin:2px;"> 
+     <tbody> 
+      <tr valign="top"> 
+       <td style="width:32px;"><img alt="Computer code" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/32px-Gnome-settings-accessibility-keyboard.svg.png" title="Computer code" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/48px-Gnome-settings-accessibility-keyboard.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/64px-Gnome-settings-accessibility-keyboard.svg.png 2x" data-file-width="60" data-file-height="60" /></td> 
+       <td style="background-color:#ffeee0; border-left: 4px solid orange; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><b>Console for Code listing 5.1</b> <pre style="background-color:#000; color:#fff;">
+The collection contains 3 item(s).
+The collection is empty.
+</pre></td> 
+      </tr> 
+     </tbody> 
+    </table> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>When you put an object in a collection, this object is not actually <i>in</i> the collection. Only its object reference is added to the collection. This means that if an object is changed after it was put in an collection, the object in the collection also changes. The <a href="#code-listing-2">code listing 5.2</a> computes the seven next days from tomorrow and store each date in a list to read it after. See what happens:</p> 
+<table style="width: 100%;"> 
+ <tbody> 
+  <tr> 
+   <td valign="top"> 
+    <table style="padding:2px; margin:2px;"> 
+     <tbody> 
+      <tr valign="top"> 
+       <td style="width:32px;"><img alt="Computer code" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/32px-Gnome-settings-accessibility-keyboard.svg.png" title="Computer code" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/48px-Gnome-settings-accessibility-keyboard.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/64px-Gnome-settings-accessibility-keyboard.svg.png 2x" data-file-width="60" data-file-height="60" /></td> 
+       <td style="background-color:#ffeee0; border-left: 4px solid orange; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><span id="code-listing-2"><b>Code listing 5.2: SevenNextDays.java</b></span> 
+        <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+         <pre>
+<span class="lineno"> 1 </span><span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
+<span class="lineno"> 2 </span><span class="kn">import</span> <span class="nn">java.util.Calendar</span><span class="o">;</span>
+<span class="lineno"> 3 </span><span class="kn">import</span> <span class="nn">java.util.Collection</span><span class="o">;</span>
+<span class="lineno"> 4 </span><span class="kn">import</span> <span class="nn">java.util.Date</span><span class="o">;</span>
+<span class="lineno"> 5 </span><span class="kn">import</span> <span class="nn">java.util.GregorianCalendar</span><span class="o">;</span>
+<span class="lineno"> 6 </span>
+<span class="lineno"> 7 </span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">SevenNextDays</span> <span class="o">{</span>
+<span class="lineno"> 8 </span>
+<span class="lineno"> 9 </span>  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno">10 </span>   
+<span class="lineno">11 </span>    <span class="c1">// The calendar is set at the current date: today</span>
+<span class="lineno">12 </span>    <span class="n">Calendar</span> <span class="n">calendar</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GregorianCalendar</span><span class="o">();</span>
+<span class="lineno">13 </span>
+<span class="lineno">14 </span>    <span class="n">Collection</span> <span class="n">collectionOfDays</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">();</span>
+<span class="lineno">15 </span><span class="hll">    <span class="n">Date</span> <span class="n">currentDate</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Date</span><span class="o">();</span>
+</span><span class="lineno">16 </span>    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">7</span><span class="o">;</span> <span class="o">++</span><span class="n">i</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno">17 </span>      <span class="c1">// The calendar is now set to the next day</span>
+<span class="lineno">18 </span>      <span class="n">calendar</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">Calendar</span><span class="o">.</span><span class="na">DATE</span><span class="o">,</span> <span class="mi">1</span><span class="o">);</span>
+<span class="lineno">19 </span>      <span class="n">currentDate</span><span class="o">.</span><span class="na">setTime</span><span class="o">(</span><span class="n">calendar</span><span class="o">.</span><span class="na">getTimeInMillis</span><span class="o">());</span>
+<span class="lineno">20 </span>
+<span class="lineno">21 </span><span class="hll">      <span class="n">collectionOfDays</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">currentDate</span><span class="o">);</span>
+</span><span class="lineno">22 </span>    <span class="o">}</span>
+<span class="lineno">23 </span>
+<span class="lineno">24 </span>    <span class="k">for</span> <span class="o">(</span><span class="n">Object</span> <span class="n">oneDay</span> <span class="o">:</span> <span class="n">collectionOfDays</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno">25 </span>      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"The next day is: "</span> <span class="o">+</span> <span class="n">oneDay</span><span class="o">);</span>
+<span class="lineno">26 </span>    <span class="o">}</span>
+<span class="lineno">27 </span>  <span class="o">}</span>
+<span class="lineno">28 </span><span class="o">}</span>
+</pre> 
+        </div> </td> 
+      </tr> 
+     </tbody> 
+    </table> </td> 
+   <td valign="top"> 
+    <table style="padding:2px; margin:2px;"> 
+     <tbody> 
+      <tr valign="top"> 
+       <td style="width:32px;"><img alt="Computer code" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/32px-Gnome-settings-accessibility-keyboard.svg.png" title="Computer code" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/48px-Gnome-settings-accessibility-keyboard.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/64px-Gnome-settings-accessibility-keyboard.svg.png 2x" data-file-width="60" data-file-height="60" /></td> 
+       <td style="background-color:#ffeee0; border-left: 4px solid orange; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><b>Console for Code listing 5.2</b> 
+        <div style="background-color:#000; color:#fff;"> 
+         <p><code style="background-color:#000; color:#fff;">&nbsp;The next day is: Thu Feb 4 17:03:47 UTC 2016</code><br> <code style="background-color:#000; color:#fff;">&nbsp;The next day is: Thu Feb 4 17:03:47 UTC 2016</code><br> <code style="background-color:#000; color:#fff;">&nbsp;The next day is: Thu Feb 4 17:03:47 UTC 2016</code><br> <code style="background-color:#000; color:#fff;">&nbsp;The next day is: Thu Feb 4 17:03:47 UTC 2016</code><br> <code style="background-color:#000; color:#fff;">&nbsp;The next day is: Thu Feb 4 17:03:47 UTC 2016</code><br> <code style="background-color:#000; color:#fff;">&nbsp;The next day is: Thu Feb 4 17:03:47 UTC 2016</code><br> <code style="background-color:#000; color:#fff;">&nbsp;The next day is: Thu Feb 4 17:03:47 UTC 2016</code></br></br></br></br></br></br></p> 
+        </div> </td> 
+      </tr> 
+     </tbody> 
+    </table> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>Each collection items were said to be updated to a different date but they all have been updated to the last one. It means that each update has updated all the collection items. And this is the case. The <code>currentDate</code> has been used to fill all the collection items. The collection didn't keep trace of the added values (one of the seven dates) but the added object references (<code>currentDate</code>). So the collection contains the same object seven times! To avoid this issue, we should have coded it this way:</p> 
+<table style="width: 100%;"> 
+ <tbody> 
+  <tr> 
+   <td valign="top"> 
+    <table style="padding:2px; margin:2px;"> 
+     <tbody> 
+      <tr valign="top"> 
+       <td style="width:32px;"><img alt="Computer code" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/32px-Gnome-settings-accessibility-keyboard.svg.png" title="Computer code" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/48px-Gnome-settings-accessibility-keyboard.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/64px-Gnome-settings-accessibility-keyboard.svg.png 2x" data-file-width="60" data-file-height="60" /></td> 
+       <td style="background-color:#ffeee0; border-left: 4px solid orange; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><span id="code-listing-3"><b>Code listing 5.3: ActualSevenNextDays.java</b></span> 
+        <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+         <pre>
+<span class="lineno"> 1 </span><span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
+<span class="lineno"> 2 </span><span class="kn">import</span> <span class="nn">java.util.Calendar</span><span class="o">;</span>
+<span class="lineno"> 3 </span><span class="kn">import</span> <span class="nn">java.util.Collection</span><span class="o">;</span>
+<span class="lineno"> 4 </span><span class="kn">import</span> <span class="nn">java.util.Date</span><span class="o">;</span>
+<span class="lineno"> 5 </span><span class="kn">import</span> <span class="nn">java.util.GregorianCalendar</span><span class="o">;</span>
+<span class="lineno"> 6 </span>
+<span class="lineno"> 7 </span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ActualSevenNextDays</span> <span class="o">{</span>
+<span class="lineno"> 8 </span>
+<span class="lineno"> 9 </span>  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno">10 </span>   
+<span class="lineno">11 </span>    <span class="c1">// The calendar is set at the current date: today</span>
+<span class="lineno">12 </span>    <span class="n">Calendar</span> <span class="n">calendar</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GregorianCalendar</span><span class="o">();</span>
+<span class="lineno">13 </span>
+<span class="lineno">14 </span>    <span class="n">Collection</span> <span class="n">collectionOfDays</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">();</span>
+<span class="lineno">15 </span>    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">7</span><span class="o">;</span> <span class="o">++</span><span class="n">i</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno">16 </span><span class="hll">      <span class="n">Date</span> <span class="n">currentDate</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Date</span><span class="o">();</span>
+</span><span class="lineno">17 </span>      <span class="c1">// The calendar is now set to the next day</span>
+<span class="lineno">18 </span>      <span class="n">calendar</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">Calendar</span><span class="o">.</span><span class="na">DATE</span><span class="o">,</span> <span class="mi">1</span><span class="o">);</span>
+<span class="lineno">19 </span>      <span class="n">currentDate</span><span class="o">.</span><span class="na">setTime</span><span class="o">(</span><span class="n">calendar</span><span class="o">.</span><span class="na">getTimeInMillis</span><span class="o">());</span>
+<span class="lineno">20 </span>
+<span class="lineno">21 </span>      <span class="n">collectionOfDays</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">currentDate</span><span class="o">);</span>
+<span class="lineno">22 </span>    <span class="o">}</span>
+<span class="lineno">23 </span>
+<span class="lineno">24 </span>    <span class="k">for</span> <span class="o">(</span><span class="n">Object</span> <span class="n">oneDay</span> <span class="o">:</span> <span class="n">collectionOfDays</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno">25 </span>      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"The next day is: "</span> <span class="o">+</span> <span class="n">oneDay</span><span class="o">);</span>
+<span class="lineno">26 </span>    <span class="o">}</span>
+<span class="lineno">27 </span>  <span class="o">}</span>
+<span class="lineno">28 </span><span class="o">}</span>
+</pre> 
+        </div> </td> 
+      </tr> 
+     </tbody> 
+    </table> </td> 
+   <td valign="top"> 
+    <table style="padding:2px; margin:2px;"> 
+     <tbody> 
+      <tr valign="top"> 
+       <td style="width:32px;"><img alt="Computer code" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/32px-Gnome-settings-accessibility-keyboard.svg.png" title="Computer code" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/48px-Gnome-settings-accessibility-keyboard.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/64px-Gnome-settings-accessibility-keyboard.svg.png 2x" data-file-width="60" data-file-height="60" /></td> 
+       <td style="background-color:#ffeee0; border-left: 4px solid orange; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><b>Console for Code listing 5.3</b> 
+        <div style="background-color:#000; color:#fff;"> 
+         <p><code style="background-color:#000; color:#fff;">&nbsp;The next day is: Fri Jan 29 17:03:47 UTC 2016</code><br> <code style="background-color:#000; color:#fff;">&nbsp;The next day is: Sat Jan 30 17:03:47 UTC 2016</code><br> <code style="background-color:#000; color:#fff;">&nbsp;The next day is: Sun Jan 31 17:03:47 UTC 2016</code><br> <code style="background-color:#000; color:#fff;">&nbsp;The next day is: Mon Feb 1 17:03:47 UTC 2016</code><br> <code style="background-color:#000; color:#fff;">&nbsp;The next day is: Tue Feb 2 17:03:47 UTC 2016</code><br> <code style="background-color:#000; color:#fff;">&nbsp;The next day is: Wed Feb 3 17:03:47 UTC 2016</code><br> <code style="background-color:#000; color:#fff;">&nbsp;The next day is: Thu Feb 4 17:03:47 UTC 2016</code></br></br></br></br></br></br></p> 
+        </div> </td> 
+      </tr> 
+     </tbody> 
+    </table> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>Now each time we add an item to the collection, it is a different instance. All the items evolve separately. To add an object in a collection and avoid this item to be changed each time the source object is changed, you have to copy or clone the object before you add it to the collection.</p>

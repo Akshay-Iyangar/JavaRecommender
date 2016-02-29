@@ -1,0 +1,56 @@
+<p>To be able to compare two Java objects of the same class the <code><code><a href="/wiki/Java_Programming/Keywords/boolean" title="Java Programming/Keywords/boolean"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">boolean</font></a></code> equals(<code><a href="/wiki/Java_Programming/API/java.lang.Object" title="Java Programming/API/java.lang.Object">Object</a></code> obj)</code> method must be overriden and implemented by the class.</p> 
+<p>The implementor decides which values must be equal to consider two objects to be equal. For example in the <a href="#code-listing-5">below class</a>, the <code>name</code> and the <code>address</code> must be equal but not the <code>description</code>.</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Computer code" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/32px-Gnome-settings-accessibility-keyboard.svg.png" title="Computer code" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/48px-Gnome-settings-accessibility-keyboard.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/64px-Gnome-settings-accessibility-keyboard.svg.png 2x" data-file-width="60" data-file-height="60" /></td> 
+   <td style="background-color:#ffeee0; border-left: 4px solid orange; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><span id="code-listing-5"><b>Code listing 5.5: Customer.java</b></span> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno"> 1 </span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Customer</span> <span class="o">{</span>
+<span class="lineno"> 2 </span>    <span class="kd">private</span> <span class="n">String</span> <span class="n">name</span><span class="o">;</span>
+<span class="lineno"> 3 </span>    <span class="kd">private</span> <span class="n">String</span> <span class="n">address</span><span class="o">;</span>
+<span class="lineno"> 4 </span>    <span class="kd">private</span> <span class="n">String</span> <span class="n">description</span><span class="o">;</span>
+<span class="lineno"> 5 </span>    <span class="c1">// ...</span>
+<span class="lineno"> 6 </span><span class="hll">    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">equals</span><span class="o">(</span><span class="n">Object</span> <span class="n">obj</span><span class="o">)</span> <span class="o">{</span>
+</span><span class="lineno"> 7 </span><span class="hll">        <span class="k">if</span> <span class="o">(</span><span class="k">this</span> <span class="o">==</span> <span class="n">obj</span><span class="o">)</span> <span class="o">{</span>
+</span><span class="lineno"> 8 </span><span class="hll">            <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+</span><span class="lineno"> 9 </span><span class="hll">        <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">obj</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+</span><span class="lineno">10 </span><span class="hll">            <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+</span><span class="lineno">11 </span><span class="hll">        <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">obj</span> <span class="k">instanceof</span> <span class="n">Customer</span><span class="o">)</span> <span class="o">{</span>
+</span><span class="lineno">12 </span><span class="hll">            <span class="n">Customer</span> <span class="n">cust</span> <span class="o">=</span> <span class="o">(</span><span class="n">Customer</span><span class="o">)</span> <span class="n">obj</span><span class="o">;</span>
+</span><span class="lineno">13 </span><span class="hll">            <span class="k">if</span> <span class="o">((</span><span class="n">cust</span><span class="o">.</span><span class="na">getName</span><span class="o">()</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="n">name</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">||</span>
+</span><span class="lineno">14 </span><span class="hll">                <span class="o">(</span><span class="n">cust</span><span class="o">.</span><span class="na">getName</span><span class="o">().</span><span class="na">equals</span><span class="o">(</span><span class="n">name</span><span class="o">)</span> <span class="o">&amp;&amp;</span> <span class="o">((</span><span class="n">cust</span><span class="o">.</span><span class="na">getAddress</span><span class="o">()</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="n">address</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span>
+</span><span class="lineno">15 </span><span class="hll">                <span class="o">||</span> <span class="n">cust</span><span class="o">.</span><span class="na">getAddress</span><span class="o">().</span><span class="na">equals</span><span class="o">(</span><span class="n">address</span><span class="o">)))</span> <span class="o">{</span>
+</span><span class="lineno">16 </span><span class="hll">                <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+</span><span class="lineno">17 </span><span class="hll">            <span class="o">}</span>
+</span><span class="lineno">18 </span><span class="hll">        <span class="o">}</span>
+</span><span class="lineno">19 </span><span class="hll">        <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+</span><span class="lineno">20 </span><span class="hll">    <span class="o">}</span>
+</span><span class="lineno">21 </span>
+<span class="lineno">22 </span><span class="o">}</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>After the <code>equals()</code> method is overriden, two objects from the same class can be compared like this:</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><b>Code section 5.20: Method usage.</b> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno">1 </span><span class="n">Customer</span> <span class="n">cust1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Customer</span><span class="o">();</span>
+<span class="lineno">2 </span><span class="n">Customer</span> <span class="n">cust2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Customer</span><span class="o">();</span>
+<span class="lineno">3 </span><span class="c1">//...</span>
+<span class="lineno">4 </span><span class="hll"><span class="k">if</span> <span class="o">(</span><span class="n">cust1</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">cust2</span><span class="o">))</span> <span class="o">{</span>
+</span><span class="lineno">5 </span>    <span class="c1">// Two Customers are equal, by name and address</span>
+<span class="lineno">6 </span><span class="o">}</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>Note that equal objects <b>must</b> have equal hash codes. Therefore, when overriding the <code>equals</code> method, you must also override the <code>hashCode</code> method. Failure to do so violates the general contract for the <code>hashCode</code> method, and any classes that use the hash code, such as <code>HashMap</code> will not function properly.</p>

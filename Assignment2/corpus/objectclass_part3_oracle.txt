@@ -1,0 +1,39 @@
+<p>The <code>equals()</code> method compares two objects for equality and returns <code>true</code> if they are equal. The <code>equals()</code> method provided in the <code>Object</code> class uses the identity operator (<code>==</code>) to determine whether two objects are equal. For primitive data types, this gives the correct result. For objects, however, it does not. The <code>equals()</code> method provided by <code>Object</code> tests whether the object <i>references</i> are equalthat is, if the objects compared are the exact same object.</p> 
+<p>To test whether two objects are equal in the sense of <i>equivalency</i> (containing the same information), you must override the <code>equals()</code> method. Here is an example of a <code>Book</code> class that overrides <code>equals()</code>:</p> 
+<div class="codeblock"> 
+ <pre>
+public class Book {
+    ...
+    public boolean equals(Object obj) {
+        if (obj instanceof Book)
+            return ISBN.equals((Book)obj.getISBN()); 
+        else
+            return false;
+    }
+}
+</pre> 
+</div> 
+<p>Consider this code that tests two instances of the <code>Book</code> class for equality:</p> 
+<div class="codeblock"> 
+ <pre>
+// Swing Tutorial, 2nd edition
+Book firstBook  = new Book("0201914670");
+Book secondBook = new Book("0201914670");
+if (firstBook.equals(secondBook)) {
+    System.out.println("objects are equal");
+} else {
+    System.out.println("objects are not equal");
+}
+</pre> 
+</div> 
+<p>This program displays <code>objects are equal</code> even though <code>firstBook</code> and <code>secondBook</code> reference two distinct objects. They are considered equal because the objects compared contain the same ISBN number.</p> 
+<p>You should always override the <code>equals()</code> method if the identity operator is not appropriate for your class.</p> 
+<div class="note"> 
+ <hr> 
+  <strong>Note:</strong>&nbsp;If you override 
+  <code>equals()</code>, you must override 
+  <code>hashCode()</code> as well. 
+  <hr> 
+  </hr>
+ </hr>
+</div>

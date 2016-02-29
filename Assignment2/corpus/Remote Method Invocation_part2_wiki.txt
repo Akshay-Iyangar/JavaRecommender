@@ -1,0 +1,42 @@
+<p>Remote objects can be listed in the RMI Registry. Clients can get a reference to the remote object by querying the Registry. After that, the client can call methods on the remote objects. (Remote object references can also be acquired by calling other remote methods. The Registry is really a 'bootstrap' that solves the problem of where to get the initial remote reference from.)</p> 
+<p>The RMI Registry can either be started within the server JVM, via the <i>LocateRegistry.createRegistry()</i> API, or a separate process called <i>rmiregistry</i> that has to be started before remote objects can be added to it, e.g. by the command line in Unix:</p> 
+<table style="padding:2px; margin:2px; width:100%;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Standard input or output" src="//upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/32px-Nuvola_apps_display.png" title="Standard input or output" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/48px-Nuvola_apps_display.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/64px-Nuvola_apps_display.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0f0ff; border-left: 4px solid blue; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><b>rmiregistry on Unix</b> <pre style="background-color:black; color:white;">
+rmiregistry &lt;port&gt; &amp;
+</pre></td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>or under Windows:</p> 
+<table style="padding:2px; margin:2px; width:100%;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Standard input or output" src="//upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/32px-Nuvola_apps_display.png" title="Standard input or output" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/48px-Nuvola_apps_display.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/64px-Nuvola_apps_display.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0f0ff; border-left: 4px solid blue; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><b>rmiregistry on Windows</b> <pre style="background-color:black; color:white;">
+start rmiregistry &lt;port&gt;
+</pre></td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>If <i>port</i> is not specified the default 1099 is used. The client will need to connect to this <i>port</i> to access the Registry.</p> 
+<p>The Registry can also be started from a program by calling the following code:</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><b>Code section 1: rmiregistry starting</b> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="kn">import</span> <span class="nn">java.rmi.registry.LocateRegistry</span><span class="o">;</span>
+<span class="o">...</span>
+<span class="n">Registry</span> <span class="n">reg</span> <span class="o">=</span> <span class="n">LocateRegistry</span><span class="o">.</span><span class="na">createRegistry</span><span class="o">(</span><span class="n">iPort</span><span class="o">);</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>Objects passed in as parameters to the remote objects's methods will be passed by value. If the remote object changes the passed-in object values, it won't be reflected on the client side, this is opposite what happens when a local object is called. Objects that used as parameters for remote methods invocation must implement the <code>java.io.Serializable</code> interface, as they are going to be serialized when passed through the network, and a new object will be created on the other side.</p> 
+<p>However, exported remote objects passed as parameters are passed by remote reference.</p>

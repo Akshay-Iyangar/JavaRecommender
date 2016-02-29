@@ -1,0 +1,85 @@
+<dl> 
+ <dt> 
+  <span style="color: grey;">java.util.</span>Vector 
+  <span style="color: grey;">&lt;E&gt;</span>&nbsp; 
+ </dt> 
+ <dd>
+   Synchronized, use in multiple thread access, otherwise use 
+  <a href="/wiki/Java_Programming/ArrayList" title="Java Programming/ArrayList">ArrayList</a>. 
+ </dd> 
+ <dt> 
+  <span style="color: grey;">java.util.</span>Stack 
+  <span style="color: grey;">&lt;E&gt;</span>&nbsp; 
+ </dt> 
+ <dd>
+   It extends class Vector with five operations that allow a vector to be treated as a stack. It represents a last-in-first-out (LIFO) stack of objects. 
+ </dd> 
+ <dt> 
+  <span style="color: grey;">java.util.</span>ArrayList 
+  <span style="color: grey;">&lt;E&gt;</span>&nbsp; 
+ </dt> 
+ <dd>
+   The basic implementation of the 
+  <code>List</code> interface is the 
+  <code>ArrayList</code>. The ArrayList is not synchronized, not thread safe. 
+  <code>Vector</code> is synchronized, and thread safe. 
+  <code>Vector</code> is slower, because of the extra overhead to make it thread safe. When only one thread is accessing the list, use the ArrayList. Whenever you insert or remove an element from the list, there are extra overhead to reindex the list. When you have a large list, and you have lots of insert and remove, consider using the 
+  <code>LinkedList</code>. 
+ </dd> 
+ <dt> 
+  <span style="color: grey;">java.util.</span>LinkedList 
+  <span style="color: grey;">&lt;E&gt;</span>&nbsp; 
+ </dt> 
+ <dd>
+   Non-synchronized, update operation is faster than other lists, easy to use for stacks, queues, double-ended queues. The name 
+  <code>LinkedList</code> implies a special data structure where the elements/nodes are connected by pointers. 
+ </dd> 
+</dl> 
+<pre>
+ Head               Node 1                   Node 2                     Node n
+  ______
+ | Size |          _________________        _______________            _____________
+ |______|         |      | point   |       |      | point  |          |      |      |  
+ | First|--------&gt;| Data | to next |------&gt;| Data | to next|-- ... --&gt;| Data | null |
+ | elem |         |______|_________|       |______|________|          |______|______|
+ |______|                                                                 ^
+ | Last |                                                                 |
+ | elem |-----------------------------------------------------------------
+ |______|
+</pre> 
+<p>Each node is related to an item of the linked list. To remove an element from the linked list the pointers need to be rearranged. After removing Node 2:</p> 
+<pre>
+ Head               Node 1                   Node 2                     Node n
+  ______                                 _____________________
+ | Size |          _________________    |   _______________   |       ______________
+ |_- 1__|         |      | point   |    |  |      | point  |  |       |      |      |  
+ | First|--------&gt;| Data | to next |----   | Data | to next|   -...--&gt;| Data | null |
+ | elem |         |______|_________|       |______|________|          |______|______|
+ |______|                                                                 ^
+ | Last |                                                                 |
+ | elem |-----------------------------------------------------------------
+ |______|
+</pre> 
+<dl> 
+ <dt> 
+  <span style="color: grey;">javax.management.</span>AtributeList 
+  <span style="color: grey;">&lt;E&gt;</span>&nbsp; 
+ </dt> 
+ <dd>
+   Represents a list of values for attributes of an MBean. The methods used for the insertion of Attribute objects in the AttributeList overrides the corresponding methods in the superclass ArrayList. This is needed in order to insure that the objects contained in the AttributeList are only Attribute objects. 
+ </dd> 
+ <dt> 
+  <span style="color: grey;">javax.management.relation.</span>RoleList 
+  <span style="color: grey;">&lt;E&gt;</span>&nbsp; 
+ </dt> 
+ <dd>
+   A RoleList represents a list of roles (Role objects). It is used as parameter when creating a relation, and when trying to set several roles in a relation (via 'setRoles()' method). It is returned as part of a RoleResult, to provide roles successfully retrieved. 
+ </dd> 
+ <dt> 
+  <span style="color: grey;">javax.management.relation.</span>RoleUnresolvedList 
+  <span style="color: grey;">&lt;E&gt;</span>&nbsp; 
+ </dt> 
+ <dd>
+   A RoleUnresolvedList represents a list of RoleUnresolved objects, representing roles not retrieved from a relation due to a problem encountered when trying to access (read or write to roles). 
+ </dd> 
+</dl>

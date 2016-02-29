@@ -1,0 +1,45 @@
+<p>The predefined annotation types defined in <code>java.lang</code> are <code>@Deprecated</code>, <code>@Override</code>, and <code>@SuppressWarnings</code>.</p> 
+<p><b>@Deprecated</b> <a class="APILink" target="_blank" href="https://docs.oracle.com/javase/8/docs/api/java/lang/Deprecated.html"><code>@Deprecated</code></a> annotation indicates that the marked element is <i>deprecated</i> and should no longer be used. The compiler generates a warning whenever a program uses a method, class, or field with the <code>@Deprecated</code> annotation. When an element is deprecated, it should also be documented using the Javadoc <code>@deprecated</code> tag, as shown in the following example. The use of the at sign (<code>@</code>) in both Javadoc comments and in annotations is not coincidental: they are related conceptually. Also, note that the Javadoc tag starts with a lowercase <em>d</em> and the annotation starts with an uppercase <em>D</em>.</p> 
+<div class="codeblock"> 
+ <pre>
+   // Javadoc comment follows
+    /**
+     * <i>@deprecated</i>
+     * <i>explanation of why it was deprecated</i>
+     */
+    <b>@Deprecated</b>
+    static void deprecatedMethod() { }
+}
+</pre> 
+</div> 
+<p><b>@Override</b> <a class="APILink" target="_blank" href="https://docs.oracle.com/javase/8/docs/api/java/lang/Override.html"><code>@Override</code></a> annotation informs the compiler that the element is meant to override an element declared in a superclass. Overriding methods will be discussed in <a class="TutorialLink" target="_top" href="../IandI/index.html">Interfaces and Inheritance</a>.</p> 
+<div class="codeblock"> 
+ <pre>
+   // <i>mark method as a superclass method</i>
+   // <i>that has been overridden</i>
+   <b>@Override</b> 
+   int overriddenMethod() { }
+</pre> 
+</div> 
+<p>While it is not required to use this annotation when overriding a method, it helps to prevent errors. If a method marked with <code>@Override</code> fails to correctly override a method in one of its superclasses, the compiler generates an error.</p> 
+<p><b>@SuppressWarnings</b> <a class="APILink" target="_blank" href="https://docs.oracle.com/javase/8/docs/api/java/lang/SuppressWarnings.html"><code>@SuppressWarnings</code></a> annotation tells the compiler to suppress specific warnings that it would otherwise generate. In the following example, a deprecated method is used, and the compiler usually generates a warning. In this case, however, the annotation causes the warning to be suppressed.</p> 
+<div class="codeblock"> 
+ <pre>
+   // <i>use a deprecated method and tell</i> 
+   // <i>compiler not to generate a warning</i>
+   <b>@SuppressWarnings("deprecation")</b>
+    void useDeprecatedMethod() {
+        // deprecation warning
+        // - suppressed
+        objectOne.deprecatedMethod();
+    }
+</pre> 
+</div> 
+<p>Every compiler warning belongs to a category. The Java Language Specification lists two categories: <code>deprecation</code> and <code>unchecked</code>. The <code>unchecked</code> warning can occur when interfacing with legacy code written before the advent of <a class="TutorialLink" target="_top" href="../generics/index.html">generics</a>. To suppress multiple categories of warnings, use the following syntax:</p> 
+<div class="codeblock"> 
+ <pre>
+@SuppressWarnings({"unchecked", "deprecation"})
+</pre> 
+</div> 
+<p><b>@SafeVarargs</b> <a class="APILink" target="_blank" href="https://docs.oracle.com/javase/8/docs/api/java/lang/SafeVarargs.html"><code>@SafeVarargs</code></a> annotation, when applied to a method or constructor, asserts that the code does not perform potentially unsafe operations on its <code>varargs</code> parameter. When this annotation type is used, unchecked warnings relating to <code>varargs</code> usage are suppressed.</p> 
+<p><b>@FunctionalInterface</b> <a class="APILink" target="_blank" href="https://docs.oracle.com/javase/8/docs/api/java/lang/FunctionalInterface.html"><code>@FunctionalInterface</code></a> annotation, introduced in Java SE 8, indicates that the type declaration is intended to be a functional interface, as defined by the Java Language Specification.</p>

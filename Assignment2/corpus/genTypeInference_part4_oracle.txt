@@ -1,0 +1,31 @@
+<p>Note that constructors can be generic (in other words, declare their own formal type parameters) in both generic and non-generic classes. Consider the following example:</p> 
+<div class="codeblock"> 
+ <pre>
+class MyClass&lt;X&gt; {
+  &lt;T&gt; MyClass(T t) {
+    // ...
+  }
+}
+</pre> 
+</div> 
+<p>Consider the following instantiation of the class <code>MyClass</code>:</p> 
+<div class="codeblock"> 
+ <pre>
+new MyClass&lt;Integer&gt;("")
+</pre> 
+</div> 
+<p>This statement creates an instance of the parameterized type <code>MyClass&lt;Integer&gt;</code>; the statement explicitly specifies the type <code>Integer</code> for the formal type parameter, <code>X</code>, of the generic class <code>MyClass&lt;X&gt;</code>. Note that the constructor for this generic class contains a formal type parameter, <code>T</code>. The compiler infers the type <code>String</code> for the formal type parameter, <code>T</code>, of the constructor of this generic class (because the actual parameter of this constructor is a <code>String</code> object).</p> 
+<p>Compilers from releases prior to Java SE 7 are able to infer the actual type parameters of generic constructors, similar to generic methods. However, compilers in Java SE 7 and later can infer the actual type parameters of the generic class being instantiated if you use the diamond (<code>&lt;&gt;</code>). Consider the following example:</p> 
+<div class="codeblock"> 
+ <pre>
+MyClass&lt;Integer&gt; myObject = new MyClass&lt;&gt;("");
+</pre> 
+</div> 
+<p>In this example, the compiler infers the type <code>Integer</code> for the formal type parameter, <code>X</code>, of the generic class <code>MyClass&lt;X&gt;</code>. It infers the type <code>String</code> for the formal type parameter, <code>T</code>, of the constructor of this generic class.</p> 
+<div class="note"> 
+ <hr> 
+  <strong>Note:</strong>&nbsp;It is important to note that the inference algorithm uses only invocation arguments, target types, and possibly an obvious expected return type to infer types. The inference algorithm does not use results from later in the program. 
+  <hr> 
+  </hr>
+ </hr>
+</div>

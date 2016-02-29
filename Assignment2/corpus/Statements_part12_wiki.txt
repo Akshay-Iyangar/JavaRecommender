@@ -1,0 +1,34 @@
+<p>The <code><a href="/wiki/Java_Programming/Keywords/switch" title="Java Programming/Keywords/switch"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">switch</font></a></code> conditional statement is basically a shorthand version of writing many <code><a href="/wiki/Java_Programming/Keywords/if" title="Java Programming/Keywords/if"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">if</font></a></code>...<code><a href="/wiki/Java_Programming/Keywords/else" title="Java Programming/Keywords/else"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">else</font></a></code> statements. The syntax for <code><a href="/wiki/Java_Programming/Keywords/switch" title="Java Programming/Keywords/switch"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">switch</font></a></code> statements is as follows:</p> 
+<pre>
+<code><a href="/wiki/Java_Programming/Keywords/switch" title="Java Programming/Keywords/switch"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">switch</font></a></code>(&lt;variable&gt;) {
+  case &lt;result&gt;: &lt;statements&gt;; break;
+  case &lt;result&gt;: &lt;statements&gt;; break;
+  default: &lt;statements&gt;; break;
+}
+</pre> 
+<p>This means that if the variable included equals one of the case results, the statements following that case, until the word <code>break</code> will run. The <code>default</code> case executes if none of the others are true. <b>Note:</b> the only types that can be analysed through <code><a href="/wiki/Java_Programming/Keywords/switch" title="Java Programming/Keywords/switch"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">switch</font></a></code> statements are <code><a href="/wiki/Java_Programming/Keywords/char" title="Java Programming/Keywords/char"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">char</font></a></code>, <code><a href="/wiki/Java_Programming/Keywords/byte" title="Java Programming/Keywords/byte"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">byte</font></a></code>, <code><a href="/wiki/Java_Programming/Keywords/short" title="Java Programming/Keywords/short"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">short</font></a></code>, or <code><a href="/wiki/Java_Programming/Keywords/int" title="Java Programming/Keywords/int"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">int</font></a></code> primitive types. This means that <code><a href="/wiki/Java_Programming/API/java.lang.Object" title="Java Programming/API/java.lang.Object">Object</a></code> variables can not by analyzed through <code><a href="/wiki/Java_Programming/Keywords/switch" title="Java Programming/Keywords/switch"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">switch</font></a></code> statements. However, as of the JDK 7 release, you can use a String object in the expression of a switch statement.</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><b>Code section 3.15: A switch.</b> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno"> 1 </span><span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">2</span><span class="o">,</span> <span class="n">x</span><span class="o">;</span>
+<span class="lineno"> 2 </span><span class="k">switch</span> <span class="o">(</span><span class="n">n</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno"> 3 </span>  <span class="k">case</span> <span class="mi">1</span><span class="o">:</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
+<span class="lineno"> 4 </span>    <span class="k">break</span><span class="o">;</span>
+<span class="lineno"> 5 </span>  <span class="k">case</span> <span class="mi">2</span><span class="o">:</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">4</span><span class="o">;</span>
+<span class="lineno"> 6 </span>    <span class="k">break</span><span class="o">;</span>
+<span class="lineno"> 7 </span>  <span class="k">case</span> <span class="mi">3</span><span class="o">:</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">6</span><span class="o">;</span>
+<span class="lineno"> 8 </span>    <span class="k">break</span><span class="o">;</span>
+<span class="lineno"> 9 </span>  <span class="k">case</span> <span class="mi">4</span><span class="o">:</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">8</span><span class="o">;</span>
+<span class="lineno">10 </span>    <span class="k">break</span><span class="o">;</span>
+<span class="lineno">11 </span><span class="o">}</span>
+<span class="lineno">12 </span><span class="k">return</span> <span class="n">x</span><span class="o">;</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>In this example, since the integer variable <code>n</code> is equal to 2, <code>case 2</code> will execute, make <code>x</code> equal to 4. Thus, 4 is returned by the method.</p>

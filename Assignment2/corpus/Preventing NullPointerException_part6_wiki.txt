@@ -1,0 +1,39 @@
+<div> 
+ <p>Beware if you loop on an array or a collection in a for each loop.</p> 
+ <table style="padding:2px; margin:2px;"> 
+  <tbody> 
+   <tr valign="top"> 
+    <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+    <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><span id="code-section-22"><b>Code section 6.22: Visit a collection.</b></span> 
+     <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+      <pre>
+<span class="lineno">1 </span><span class="n">Collection</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">myNumbers</span> <span class="o">=</span> <span class="n">buildNumbers</span><span class="o">();</span>
+<span class="lineno">2 </span><span class="hll"><span class="k">for</span> <span class="o">(</span><span class="n">Integer</span> <span class="n">myNumber</span> <span class="o">:</span> <span class="n">myNumbers</span><span class="o">)</span> <span class="o">{</span>
+</span><span class="lineno">3 </span>  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">myNumber</span><span class="o">);</span>
+<span class="lineno">4 </span><span class="o">}</span>
+</pre> 
+     </div> </td> 
+   </tr> 
+  </tbody> 
+ </table> 
+ <p>If the object is null, it does not just do zero loops, it throws a null pointer exception. So don't forget this case. Add an <code>if</code> statement or return empty collections:</p> 
+ <table style="padding:2px; margin:2px;"> 
+  <tbody> 
+   <tr valign="top"> 
+    <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+    <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><span id="code-section-23"><b>Code section 6.23: Visit a collection safety.</b></span> 
+     <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+      <pre>
+<span class="lineno">1 </span><span class="n">Collection</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">myNumbers</span> <span class="o">=</span> <span class="n">buildNumbers</span><span class="o">();</span>
+<span class="lineno">2 </span><span class="hll"><span class="k">if</span> <span class="o">(</span><span class="n">myNumbers</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+</span><span class="lineno">3 </span>  <span class="k">for</span> <span class="o">(</span><span class="n">Integer</span> <span class="n">myNumber</span> <span class="o">:</span> <span class="n">myNumbers</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno">4 </span>    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">myNumber</span><span class="o">);</span>
+<span class="lineno">5 </span>  <span class="o">}</span>
+<span class="lineno">6 </span><span class="hll"><span class="o">}</span>
+</span>
+</pre> 
+     </div> </td> 
+   </tr> 
+  </tbody> 
+ </table> 
+</div>

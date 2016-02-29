@@ -1,0 +1,39 @@
+<p> As mentioned previously, a generic class can have multiple type parameters. For example, the generic <tt>OrderedPair</tt> class, which implements the generic <tt>Pair</tt> interface:</p> 
+<div class="codeblock"> 
+ <pre>
+public interface Pair&lt;K, V&gt; {
+    public K getKey();
+    public V getValue();
+}
+
+public class OrderedPair&lt;K, V&gt; implements Pair&lt;K, V&gt; {
+
+    private K key;
+    private V value;
+
+    public OrderedPair(K key, V value) {
+	this.key = key;
+	this.value = value;
+    }
+
+    public K getKey()	{ return key; }
+    public V getValue() { return value; }
+}
+</pre> 
+</div> 
+<p> The following statements create two instantiations of the <tt>OrderedPair</tt> class:</p> 
+<div class="codeblock"> 
+ <pre>
+Pair&lt;String, Integer&gt; p1 = new OrderedPair&lt;String, Integer&gt;("Even", 8);
+Pair&lt;String, String&gt;  p2 = new OrderedPair&lt;String, String&gt;("hello", "world");
+</pre> 
+</div> 
+<p> The code, <tt>new OrderedPair&lt;String, Integer&gt;</tt>, instantiates <tt>K</tt> as a <tt>String</tt> and <tt>V</tt> as an <tt>Integer</tt>. Therefore, the parameter types of <tt>OrderedPair</tt>'s constructor are <tt>String</tt> and <tt>Integer</tt>, respectively. Due to <a class="TutorialLink" target="_top" href="../data/autoboxing.html">autoboxing</a>, it is valid to pass a <tt>String</tt> and an <tt>int</tt> to the class.</p> 
+<p> As mentioned in <a href="#diamond">The Diamond</a>, because a Java compiler can infer the <tt>K</tt> and <tt>V</tt> types from the declaration <tt>OrderedPair&lt;String, Integer&gt;</tt>, these statements can be shortened using diamond notation:</p> 
+<div class="codeblock"> 
+ <pre>
+OrderedPair&lt;String, Integer&gt; p1 = new OrderedPair<strong>&lt;&gt;</strong>("Even", 8);
+OrderedPair&lt;String, String&gt;  p2 = new OrderedPair<strong>&lt;&gt;</strong>("hello", "world");
+</pre> 
+</div> 
+<p> To create a generic interface, follow the same conventions as for creating a generic class.</p>

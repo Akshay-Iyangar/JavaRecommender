@@ -1,0 +1,36 @@
+<p>The following example illustrates how to use the <code>super</code> keyword to invoke a superclass's constructor. Recall from the <a class="TutorialLink" target="_top" href="subclasses.html"><code>Bicycle</code> </a> example that <code>MountainBike</code> is a subclass of <code>Bicycle</code>. Here is the <code>MountainBike</code> (subclass) constructor that calls the superclass constructor and then adds initialization code of its own:</p> 
+<div class="codeblock"> 
+ <pre>
+public MountainBike(int startHeight, 
+                    int startCadence,
+                    int startSpeed,
+                    int startGear) {
+    super(startCadence, startSpeed, startGear);
+    seatHeight = startHeight;
+}   
+</pre> 
+</div> 
+<p>Invocation of a superclass constructor must be the first line in the subclass constructor.</p> 
+<p>The syntax for calling a superclass constructor is</p> 
+<div class="codeblock"> 
+ <pre>
+super();  
+</pre> 
+</div> or: 
+<div class="codeblock"> 
+ <pre>
+super(parameter list);
+</pre> 
+</div> 
+<p>With <code>super()</code>, the superclass no-argument constructor is called. With <code>super(parameter list)</code>, the superclass constructor with a matching parameter list is called.</p> 
+<div class="note"> 
+ <hr> 
+  <strong>Note:</strong>&nbsp;If a constructor does not explicitly invoke a superclass constructor, the Java compiler automatically inserts a call to the no-argument constructor of the superclass. If the super class does not have a no-argument constructor, you will get a compile-time error. 
+  <code>Object</code> 
+  <i>does</i> have such a constructor, so if 
+  <code>Object</code> is the only superclass, there is no problem. 
+  <hr> 
+  </hr>
+ </hr>
+</div> 
+<p>If a subclass constructor invokes a constructor of its superclass, either explicitly or implicitly, you might think that there will be a whole chain of constructors called, all the way back to the constructor of <code>Object</code>. In fact, this is the case. It is called <i>constructor chaining</i>, and you need to be aware of it when there is a long line of class descent.</p>

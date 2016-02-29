@@ -1,0 +1,39 @@
+<p>In an object-oriented drawing application, you can draw circles, rectangles, lines, Bezier curves, and many other graphic objects. These objects all have certain states (for example: position, orientation, line color, fill color) and behaviors (for example: moveTo, rotate, resize, draw) in common. Some of these states and behaviors are the same for all graphic objects (for example: position, fill color, and moveTo). Others require different implementations (for example, resize or draw). All <code>GraphicObject</code>s must be able to draw or resize themselves; they just differ in how they do it. This is a perfect situation for an abstract superclass. You can take advantage of the similarities and declare all the graphic objects to inherit from the same abstract parent object (for example, <code>GraphicObject</code>) as shown in <span id="figure:classes-graphicObject.gif">the following figure.</span></p> 
+<center> 
+ <img src="https://docs.oracle.com/javase/tutorial/figures/java/classes-graphicObject.gif" width="372" height="80" align="bottom" alt="Classes Rectangle, Line, Bezier, and Circle Inherit from GraphicObject "> <p></p> <p class="FigureCaption">Classes Rectangle, Line, Bezier, and Circle Inherit from GraphicObject</p> </img>
+</center> 
+<p>First, you declare an abstract class, <code>GraphicObject</code>, to provide member variables and methods that are wholly shared by all subclasses, such as the current position and the <code>moveTo</code> method. <code>GraphicObject</code> also declares abstract methods for methods, such as <code>draw</code> or <code>resize</code>, that need to be implemented by all subclasses but must be implemented in different ways. The <code>GraphicObject</code> class can look something like this:</p> 
+<div class="codeblock"> 
+ <pre>
+abstract class GraphicObject {
+    int x, y;
+    ...
+    void moveTo(int newX, int newY) {
+        ...
+    }
+    abstract void draw();
+    abstract void resize();
+}
+</pre> 
+</div> 
+<p>Each nonabstract subclass of <code>GraphicObject</code>, such as <code>Circle</code> and <code>Rectangle</code>, must provide implementations for the <code>draw</code> and <code>resize</code> methods:</p> 
+<div class="codeblock"> 
+ <pre>
+class Circle extends GraphicObject {
+    void draw() {
+        ...
+    }
+    void resize() {
+        ...
+    }
+}
+class Rectangle extends GraphicObject {
+    void draw() {
+        ...
+    }
+    void resize() {
+        ...
+    }
+}
+</pre> 
+</div>

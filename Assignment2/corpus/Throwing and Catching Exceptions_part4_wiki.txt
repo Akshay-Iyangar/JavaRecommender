@@ -1,0 +1,57 @@
+<p>A <code>try</code>/<code>catch</code> statement can contain several <code>catch</code> blocks, to handle different exceptions in different ways. Each <code>catch</code> block must take a parameter of a different throwable class. A thrown object may match several <code>catch</code> block but only the first <code>catch</code> block that matches the object will be executed. A catch-block will catch a thrown exception if and only if:</p> 
+<ul> 
+ <li>the thrown exception object is the same as the exception object specified by the catch-block.</li> 
+ <li>the thrown exception object is the subtype of the exception object specified by the catch-block.</li> 
+</ul> 
+<p>This means that the <code>catch</code> block order is important. As a consequence, you can't put a <code>catch</code> block that catches all the exception (which take a <code>java.lang.Exception</code> as parameter) before a <code>catch</code> block that catches a more specific exception as the second block could never be executed.</p> 
+<table style="width: 100%;"> 
+ <tbody> 
+  <tr> 
+   <td valign="top"> 
+    <table style="padding:2px; margin:2px;"> 
+     <tbody> 
+      <tr valign="top"> 
+       <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+       <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><span id="code-section-6"><b>Code section 6.6: Exception handling with catch blocks.</b></span> 
+        <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+         <pre>
+<span class="lineno"> 1 </span><span class="k">try</span> <span class="o">{</span>
+<span class="lineno"> 2 </span>  <span class="c1">// Suppose the code here throws any exceptions,</span>
+<span class="lineno"> 3 </span>  <span class="c1">// then each is handled in a separate catch block.</span>
+<span class="lineno"> 4 </span>
+<span class="lineno"> 5 </span>  <span class="kt">int</span><span class="o">[]</span> <span class="n">tooSmallArray</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">2</span><span class="o">];</span>
+<span class="lineno"> 6 </span>  <span class="kt">int</span> <span class="n">outOfBoundsIndex</span> <span class="o">=</span> <span class="mi">10000</span><span class="o">;</span>
+<span class="lineno"> 7 </span><span class="hll">  <span class="n">tooSmallArray</span><span class="o">[</span><span class="n">outOfBoundsIndex</span><span class="o">]</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+</span><span class="lineno"> 8 </span>
+<span class="lineno"> 9 </span>  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"No exception thrown."</span><span class="o">);</span>
+<span class="lineno">10 </span><span class="o">}</span> <span class="k">catch</span><span class="o">(</span><span class="n">NullPointerException</span> <span class="n">ex</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno">11 </span>  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Exception handling code for the NullPointerException."</span><span class="o">);</span>
+<span class="lineno">12 </span><span class="o">}</span> <span class="k">catch</span><span class="o">(</span><span class="n">NumberFormatException</span> <span class="n">ex</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno">13 </span>  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Exception handling code for the NumberFormatException."</span><span class="o">);</span>
+<span class="lineno">14 </span><span class="hll"><span class="o">}</span> <span class="k">catch</span><span class="o">(</span><span class="n">ArithmeticException</span> <span class="o">|</span> <span class="n">IndexOutOfBoundsException</span> <span class="n">ex</span><span class="o">)</span> <span class="o">{</span>
+</span><span class="lineno">15 </span><span class="hll">  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Exception handling code for ArithmeticException"</span>
+</span><span class="lineno">16 </span><span class="hll">    <span class="o">+</span> <span class="s">" or IndexOutOfBoundsException."</span><span class="o">);</span>
+</span><span class="lineno">17 </span><span class="o">}</span> <span class="k">catch</span><span class="o">(</span><span class="n">Exception</span> <span class="n">ex</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno">18 </span>  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Exception handling code for any other Exception."</span><span class="o">);</span>
+<span class="lineno">19 </span><span class="o">}</span>
+</pre> 
+        </div> </td> 
+      </tr> 
+     </tbody> 
+    </table> </td> 
+   <td valign="top"> 
+    <table style="padding:2px; margin:2px; width:100%;"> 
+     <tbody> 
+      <tr valign="top"> 
+       <td style="width:32px;"><img alt="Standard input or output" src="//upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/32px-Nuvola_apps_display.png" title="Standard input or output" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/48px-Nuvola_apps_display.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/64px-Nuvola_apps_display.png 2x" data-file-width="128" data-file-height="128" /></td> 
+       <td style="background-color:#f0f0ff; border-left: 4px solid blue; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><b>Output for Code section 6.6</b> <pre style="background-color:black; color:white;">
+Exception handling code for ArithmeticException or IndexOutOfBoundsException.
+</pre></td> 
+      </tr> 
+     </tbody> 
+    </table> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>At line 14, we use a <b>multi-catch</b> clause. It is available since the JDK 7. This is a combination of several <b>catch</b> clauses and let's you handle exceptions in a single handler while also maintaining their types. So, instead of being boxed into a parent Exception super-class, they retain their individual types.</p> 
+<p>You can also use the <code>java.lang.Throwable</code> class here, since <b>Throwable</b> is the parent class for the <i>application-specific</i> <b>Exception</b> classes. However, this is discouraged in Java programming circles. This is because <b>Throwable</b> happens to also be the parent class for the <i>non-application specific</i> <b>Error</b> classes which are not meant to be handled explicitly as they are catered for by the JVM itself.</p>

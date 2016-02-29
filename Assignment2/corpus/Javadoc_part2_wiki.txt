@@ -1,0 +1,99 @@
+<p>The JDK provides a tool named javadoc which allows to generate the documentation of the well commented classes. The javadoc command without argument give the complete syntax of the command.</p> 
+<p>Example&nbsp;: for a class named <code>Example</code> defined in a package named <code>org.wikibooks.en</code> dans le fichier <code>C:\ProgJava\org\wikibooks\en\Example.java</code>&nbsp;:</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Computer code" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/32px-Gnome-settings-accessibility-keyboard.svg.png" title="Computer code" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/48px-Gnome-settings-accessibility-keyboard.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/64px-Gnome-settings-accessibility-keyboard.svg.png 2x" data-file-width="60" data-file-height="60" /></td> 
+   <td style="background-color:#ffeee0; border-left: 4px solid orange; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><span id="code-listing-2"><b>Code listing 8.2: Example.java</b></span> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno"> 1 </span><span class="kn">package</span> <span class="nn">org.wikibooks.en</span><span class="o">;</span>
+<span class="lineno"> 2 </span>
+<span class="lineno"> 3 </span><span class="cm">/**</span>
+<span class="lineno"> 4 </span><span class="cm"> *  An example class.</span>
+<span class="lineno"> 5 </span><span class="cm"> */</span>
+<span class="lineno"> 6 </span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Example</span> <span class="o">{</span>
+<span class="lineno"> 7 </span>    <span class="cm">/**</span>
+<span class="lineno"> 8 </span><span class="cm">    Get the sum of two integers.</span>
+<span class="lineno"> 9 </span><span class="cm">    @param a The first integer number.</span>
+<span class="lineno">10 </span><span class="cm">    @param b The second integer number.</span>
+<span class="lineno">11 </span><span class="cm">    @return The value of the sum of the two given integers.</span>
+<span class="lineno">12 </span><span class="cm">    */</span>
+<span class="lineno">13 </span>    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">sum</span><span class="o">(</span><span class="kt">int</span> <span class="n">a</span><span class="o">,</span> <span class="kt">int</span> <span class="n">b</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno">14 </span>        <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="o">;</span>
+<span class="lineno">15 </span>    <span class="o">}</span>
+<span class="lineno">16 </span><span class="o">}</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>The documentation can be generated in a specific folder (C:\ProgDoc for example) with the following command:</p> 
+<table style="padding:2px; margin:2px; width:100%;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Standard input or output" src="//upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/32px-Nuvola_apps_display.png" title="Standard input or output" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/48px-Nuvola_apps_display.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/64px-Nuvola_apps_display.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0f0ff; border-left: 4px solid blue; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><span id="command-1"><b>Command 8.1: Documentation generation</b></span> <pre style="background-color:#000; color:#fff;">
+$ javadoc -locale en_US -use -classpath C:\ProgJava -sourcepath C:\ProgJava -d C:\ProgDoc org.wikibooks.en
+</pre></td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>The options of this command are described below:</p> 
+<dl> 
+ <dt> 
+  <code>-locale en_US</code> 
+ </dt> 
+ <dd>
+   The documentation in US English. 
+ </dd> 
+ <dt> 
+  <code>-use</code> 
+ </dt> 
+ <dd>
+   Create the pages about the use of the classes and the packages. 
+ </dd> 
+ <dt> 
+  <code>-classpath C:\ProgJava</code> 
+ </dt> 
+ <dd>
+   The path of the compiled classes (*.class). 
+ </dd> 
+ <dt> 
+  <code>-sourcepath C:\ProgJava</code> 
+ </dt> 
+ <dd>
+   The path of the source classes (*.java). 
+ </dd> 
+ <dt> 
+  <code>-d C:\ProgDoc</code> 
+ </dt> 
+ <dd>
+   The path where the documentation must be generated. 
+ </dd> 
+ <dt> 
+  <code>org.wikibooks.en</code> 
+ </dt> 
+ <dd>
+   The name of the package to document. It is possible to specify several packages, or one or several class names to document only those ones. 
+ </dd> 
+</dl> 
+<p>The description page of a package copy the description text from the file named <code>package.html</code> which should be placed in the given folder. In our example, we should document the package in the file <code>C:\ProgJava\org\wikibooks\en\package.html</code>.</p> 
+<p>Since Java 5<sup id="cite_ref-1" class="reference"><a href="#cite_note-1">[1]</a></sup>, the <code>package.html</code> file can be replaced by a special Java file named <code>package-info.java</code> containing only the package declaration preceding by a documentation comment.</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Computer code" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/32px-Gnome-settings-accessibility-keyboard.svg.png" title="Computer code" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/48px-Gnome-settings-accessibility-keyboard.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/64px-Gnome-settings-accessibility-keyboard.svg.png 2x" data-file-width="60" data-file-height="60" /></td> 
+   <td style="background-color:#ffeee0; border-left: 4px solid orange; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><span id="code-listing-3"><b>Code listing 8.3: C:\ProgJava\org\wikibooks\en\package-info.java</b></span> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno">1 </span><span class="hll"><span class="cm">/**</span>
+</span><span class="lineno">2 </span><span class="hll"><span class="cm"> * This fake package is used to illustrate the Java wikibook.</span>
+</span><span class="lineno">3 </span><span class="hll"><span class="cm"> * at &lt;i&gt;en.wikibooks.org&lt;/i&gt;.</span>
+</span><span class="lineno">4 </span><span class="hll"><span class="cm"> */</span>
+</span><span class="lineno">5 </span><span class="kn">package</span> <span class="nn">org.wikibooks.en</span><span class="o">;</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table>

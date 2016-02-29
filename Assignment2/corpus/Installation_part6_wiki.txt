@@ -1,0 +1,37 @@
+<p>Once you have successfully installed the JDK on your system, you are ready to program code in the Java programming language. However, to write code, you would need a decent text editor. Windows comes with a default text editor by default — <b>Notepad</b>. In order to use notepad to write code in Java, you need to follow the steps below:</p> 
+<table style="padding-left:1.5em;"> 
+ <tbody> 
+  <tr> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td valign="top">1.</td> 
+   <td>Click <b>Start</b> › <b>All Programs</b> › <b>Accessories</b> › <b>Notepad</b> to invoke the application.</td> 
+  </tr> 
+  <tr> 
+   <td></td> 
+   <td>Alternatively, you can also press <span class="keyboard-key" style="border: 0.2em outset #cecbc7; background: #f0ece8; padding: 0 0.4em 0.1em 0.3em; font-size: 0.85em; white-space: nowrap;"><span class="Unicode">⊞</span> Win</span>+<span class="keyboard-key" style="border: 0.2em outset #cecbc7; background: #f0ece8; padding: 0 0.4em 0.1em 0.3em; font-size: 0.85em; white-space: nowrap;">R</span> to open the <b>Run</b> dialog. With the dialog open, type the following command at the prompt: 
+    <table style="padding:2px; margin:2px; width:100%;"> 
+     <tbody> 
+      <tr valign="top"> 
+       <td style="width:32px;"><img alt="Standard input or output" src="//upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/32px-Nuvola_apps_display.png" title="Standard input or output" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/48px-Nuvola_apps_display.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/64px-Nuvola_apps_display.png 2x" data-file-width="128" data-file-height="128" /></td> 
+       <td style="background-color:#f0f0ff; border-left: 4px solid blue; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><b>Notepad launching</b> <pre style="background-color:#000; color:#fff;">
+notepad
+</pre></td> 
+      </tr> 
+     </tbody> 
+    </table> </td> 
+  </tr> 
+  <tr> 
+   <td valign="top">2.</td> 
+   <td>Once the <b>Notepad</b> application has fired up, you can use the editor to write code for the Java programming language.</td> 
+  </tr> 
+ </tbody> 
+</table>   
+<div class="collapsible" style="width:100%; clear:both; border:none;"> 
+ <div class="title" style="background:transparent; text-align:left; background:#cedff2;border:1px solid lightgrey;">
+   Installation instructions for GNU/Linux 
+ </div> 
+ <div class="body" style="background:transparent; text-align:left; background:#e7eff9;border:solid 1px lightgrey;padding:8px;"> 
+ </div>
+</div>

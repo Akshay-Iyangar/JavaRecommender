@@ -1,0 +1,96 @@
+<p>As the focus was shifting from reaching GUI clients to thin client applications, with Java version 2, Sun introduced J2EE (Java 2 Extended Edition). J2EE added&nbsp;:</p> 
+<ul> 
+ <li><a href="//en.wikipedia.org/wiki/Software_componentry" class="extiw" title="w:Software componentry">Components Base Architecture</a>, (Servlet, JSP, EJB Containers)</li> 
+</ul> 
+<p>With J2EE the following Java component executions are possible:</p> 
+<div class="thumb tright"> 
+ <div class="thumbinner" style="width:252px;"> 
+  <a href="/wiki/File:Java_servlet_appl.jpg" class="image"><img alt="" src="//upload.wikimedia.org/wikibooks/en/thumb/7/73/Java_servlet_appl.jpg/250px-Java_servlet_appl.jpg" width="250" height="120" class="thumbimage" data-file-width="447" data-file-height="214" /></a> 
+  <div class="thumbcaption"> 
+   <div class="magnify"> 
+    <a href="/wiki/File:Java_servlet_appl.jpg" class="internal" title="Enlarge"></a> 
+   </div> Figure 3: Servlet Execution 
+  </div> 
+ </div> 
+</div> 
+<dl> 
+ <dt>
+   Java Servlet code&nbsp; 
+ </dt> 
+ <dd>
+   (Figure 3) Java got its popularity with server side programming, more specifically with 
+  <a href="//en.wikipedia.org/wiki/Java_EE" class="extiw" title="w:Java EE">J2EE</a> servlets. Servlets are running in a simple J2EE framework to handle client 
+  <a href="//en.wikipedia.org/wiki/Hypertext_Transfer_Protocol" class="extiw" title="w:Hypertext Transfer Protocol">HTTP</a> requests. They are meant to replace 
+  <a href="//en.wikipedia.org/wiki/Common_Gateway_Interface" class="extiw" title="w:Common Gateway Interface">CGI programming</a> for web pages rendering dynamic content. 
+ </dd> 
+ <dd>
+   The servlet is running in a so called 
+  <a href="//en.wikipedia.org/wiki/Web_container" class="extiw" title="w:Web container">servlet-container/web container</a>. The servlet's responsibility is to: 
+  <ul> 
+   <li>Handle the request by doing the business logic computation,</li> 
+   <li>Connecting to a database if needed,</li> 
+   <li>Create HTML to present to the user through the browser</li> 
+  </ul> 
+ </dd> 
+ <dd>
+   The HTML output represents both the presention logic and the results of the business computations. This represents a huge problem, and there is no real application relying only on servlets to handle the presention part of the responsibility. There are two main solutions to this: 
+  <ul> 
+   <li>Use a template tool (Store the presentation part in an HTML file, marking the areas that need to be replaced after business logic computations).</li> 
+   <li>Use JSP (See next section)</li> 
+  </ul> 
+ </dd> 
+ <dd>
+   Wikipedia also has an article about 
+  <a href="//en.wikipedia.org/wiki/Java_Servlet" class="extiw" title="w:Java Servlet">Servlets</a>. 
+ </dd> 
+</dl> 
+<div class="thumb tright"> 
+ <div class="thumbinner" style="width:252px;"> 
+  <a href="/wiki/File:Java_jsp_appl.jpg" class="image"><img alt="" src="//upload.wikimedia.org/wikibooks/en/thumb/5/52/Java_jsp_appl.jpg/250px-Java_jsp_appl.jpg" width="250" height="107" class="thumbimage" data-file-width="612" data-file-height="262" /></a> 
+  <div class="thumbcaption"> 
+   <div class="magnify"> 
+    <a href="/wiki/File:Java_jsp_appl.jpg" class="internal" title="Enlarge"></a> 
+   </div> Figure 4: Jsp Execution 
+  </div> 
+ </div> 
+</div> 
+<dl> 
+ <dt>
+   Java Server Pages (JSP) code&nbsp; 
+ </dt> 
+ <dd>
+   (Figure 4) JSP is an HTML file with embedded Java code inside. The first time the JSP is accessed, the JSP is converted to a Java Servlet. This servlet outputs HTML which has inside the result of the business logic computation. There are special JSP tags that helps to add data dynamically to the HTML. Also JSP technology allows to create custom tags. 
+ </dd> 
+ <dd>
+   Using the JSP technology correctly, business logic computations should not be in the embedded Java part of the JSP. JSP should be used to render the presentation of the static and dynamic data. Depending on the complexity of the data, 100% separation is not easy to achieve. Using custom tags, however may help to get closer to 100%. This is advocated also in 
+  <a href="//en.wikipedia.org/wiki/Model-view-controller" class="extiw" title="w:Model-view-controller">MVC</a> architecture (see below). 
+ </dd> 
+</dl> 
+<div class="thumb tright"> 
+ <div class="thumbinner" style="width:302px;"> 
+  <a href="/wiki/File:Java_ejb_appl.jpg" class="image"><img alt="" src="//upload.wikimedia.org/wikibooks/en/thumb/a/a2/Java_ejb_appl.jpg/300px-Java_ejb_appl.jpg" width="300" height="181" class="thumbimage" data-file-width="592" data-file-height="358" /></a> 
+  <div class="thumbcaption"> 
+   <div class="magnify"> 
+    <a href="/wiki/File:Java_ejb_appl.jpg" class="internal" title="Enlarge"></a> 
+   </div> Figure 5: EJB Execution 
+  </div> 
+ </div> 
+</div> 
+<dl> 
+ <dt>
+   EJB code&nbsp; 
+ </dt> 
+ <dd>
+   (Figure 5) In the 1990s, with the client server computing, a trend started, that is to move away from Mainframe computing. That resulted in many small separate applications in a Company/Enterprise. Many times the same data was used in different applications. A new philosophy, "Enterprise Computing", was created to address these issues. The idea was to create components that can be reused throughout the Enterprise. The Enterprise Java Beans (EJBs) were supposed to address this. 
+ </dd> 
+ <dd>
+   An 
+  <b>EJB</b> is an application component that runs in an EJB container. The client accesses the EJB modules through the container, never directly. The container manages the life cycle of the EJB modules, and handles all the issues that arise from network/enterpise computing. Some of those are 
+  <a href="//en.wikipedia.org/wiki/Access_control" class="extiw" title="w:Access control">security/access control</a>, 
+  <a href="//en.wikipedia.org/wiki/Object_pool" class="extiw" title="w:Object pool">object pooling</a>, 
+  <a href="//en.wikipedia.org/wiki/Transaction_processing" class="extiw" title="w:Transaction processing">transaction management</a>, ... . 
+ </dd> 
+ <dd>
+   EJBs have the same problems as any reusable code: they need to be generic enough to be able to be reused and the changes or maintenance of EJBs can affect existing clients. Many times EJBs are used unnecessarily when they are not really needed. An EJB should be designed as a separate application in the enterprise, fulfilling one function. 
+ </dd> 
+</dl>

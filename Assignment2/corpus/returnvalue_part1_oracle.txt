@@ -1,0 +1,49 @@
+<div id="PageContent"> 
+ <!-- Returning a Value from a Method --> 
+ <p>A method returns to the code that invoked it when it</p> 
+ <ul> 
+  <li>completes all the statements in the method,</li> 
+  <li>reaches a <code>return</code> statement, or</li> 
+  <li>throws an exception (covered later),</li> 
+ </ul> 
+ <p>whichever occurs first.</p> 
+ <p>You declare a method's return type in its method declaration. Within the body of the method, you use the <code>return</code> statement to return the value.</p> 
+ <p>Any method declared <code>void</code> doesn't return a value. It does not need to contain a <code>return</code> statement, but it may do so. In such a case, a <code>return</code> statement can be used to branch out of a control flow block and exit the method and is simply used like this:</p> 
+ <div class="codeblock"> 
+  <pre>
+return;
+</pre> 
+ </div> 
+ <p>If you try to return a value from a method that is declared <code>void</code>, you will get a compiler error.</p> 
+ <p>Any method that is not declared <code>void</code> must contain a <code>return</code> statement with a corresponding return value, like this:</p> 
+ <div class="codeblock"> 
+  <pre>
+return returnValue;
+</pre> 
+ </div> 
+ <p>The data type of the return value must match the method's declared return type; you can't return an integer value from a method declared to return a boolean.</p> 
+ <p>The <code>getArea()</code> method in the <code>Rectangle</code> <a class="SourceLink" target="_blank" href="examples/Rectangle.java" onclick="showCode('https://docs.oracle.com/javase/tutorial/displayCode.html', 'examples/Rectangle.java'); return false;"><code>Rectangle</code></a> class that was discussed in the sections on objects returns an integer:</p> 
+ <div class="codeblock"> 
+  <pre>
+    // a method for computing the area of the rectangle
+    public int getArea() {
+        return width * height;
+    }
+</pre> 
+ </div> 
+ <p>This method returns the integer that the expression <code>width*height</code> evaluates to.</p> 
+ <p>The <code>getArea</code> method returns a primitive type. A method can also return a reference type. For example, in a program to manipulate <code>Bicycle</code> objects, we might have a method like this:</p> 
+ <div class="codeblock"> 
+  <pre>
+public Bicycle seeWhosFastest(Bicycle myBike, Bicycle yourBike,
+                              Environment env) {
+    Bicycle fastest;
+    // code to calculate which bike is 
+    // faster, given each bike's gear 
+    // and cadence and given the 
+    // environment (terrain and wind)
+    return fastest;
+}
+</pre> 
+ </div> 
+</div>

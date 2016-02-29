@@ -1,0 +1,89 @@
+<p>The <code>Math</code> class includes two constants:</p> 
+<ul> 
+ <li><code>Math.E</code>, which is the base of natural logarithms, and</li> 
+ <li><code>Math.PI</code>, which is the ratio of the circumference of a circle to its diameter.</li> 
+</ul> 
+<p>The <code>Math</code> class also includes more than 40 static methods. The following table lists a number of the basic methods.</p> 
+<table width="100%" border="1" cellpadding="4" cellspacing="3" summary="This table lists the basic math methods"> 
+ <caption style="font-weight: bold">
+   Basic Math Methods 
+ </caption> 
+ <thead> 
+  <tr> 
+   <th id="h1">Method</th> 
+   <th id="h2" width="50%">Description</th> 
+  </tr> 
+ </thead> 
+ <tbody> 
+  <tr> 
+   <td headers="h1"><code>double abs(double d)<br> float abs(float f)<br> int abs(int i)<br> long abs(long lng)</br></br></br></code></td> 
+   <td headers="h2">Returns the absolute value of the argument.</td> 
+  </tr> 
+  <tr> 
+   <td headers="h1"><code>double ceil(double d)</code></td> 
+   <td headers="h2">Returns the smallest integer that is greater than or equal to the argument. Returned as a double.</td> 
+  </tr> 
+  <tr> 
+   <td headers="h1"><code>double floor(double d)</code></td> 
+   <td headers="h2">Returns the largest integer that is less than or equal to the argument. Returned as a double.</td> 
+  </tr> 
+  <tr> 
+   <td headers="h1"><code>double rint(double d)</code></td> 
+   <td headers="h2">Returns the integer that is closest in value to the argument. Returned as a double.</td> 
+  </tr> 
+  <tr> 
+   <td headers="h1"><code>long round(double d)<br> int round(float f)</br></code></td> 
+   <td headers="h2">Returns the closest long or int, as indicated by the method's return type, to the argument.</td> 
+  </tr> 
+  <tr> 
+   <td headers="h1"><code>double min(double arg1, double arg2)<br> float min(float arg1, float arg2)<br> int min(int arg1, int arg2)<br> long min(long arg1, long arg2)</br></br></br></code></td> 
+   <td headers="h2">Returns the smaller of the two arguments.</td> 
+  </tr> 
+  <tr> 
+   <td headers="h1"><code>double max(double arg1, double arg2)<br> float max(float arg1, float arg2)<br> int max(int arg1, int arg2)<br> long max(long arg1, long arg2)</br></br></br></code></td> 
+   <td headers="h2">Returns the larger of the two arguments.</td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>The following program, <a class="SourceLink" target="_blank" href="examples/BasicMathDemo.java" onclick="showCode('https://docs.oracle.com/javase/tutorial/displayCode.html', 'examples/BasicMathDemo.java'); return false;"><code>BasicMathDemo</code></a> , illustrates how to use some of these methods:</p> 
+<div class="codeblock"> 
+ <pre>
+
+public class BasicMathDemo {
+    public static void main(String[] args) {
+        double a = -191.635;
+        double b = 43.74;
+        int c = 16, d = 45;
+
+        System.out.printf("The absolute value " + "of %.3f is %.3f%n", 
+                          a, Math.abs(a));
+
+        System.out.printf("The ceiling of " + "%.2f is %.0f%n", 
+                          b, Math.ceil(b));
+
+        System.out.printf("The floor of " + "%.2f is %.0f%n", 
+                          b, Math.floor(b));
+
+        System.out.printf("The rint of %.2f " + "is %.0f%n", 
+                          b, Math.rint(b));
+
+        System.out.printf("The max of %d and " + "%d is %d%n",
+                          c, d, Math.max(c, d));
+
+        System.out.printf("The min of of %d " + "and %d is %d%n",
+                          c, d, Math.min(c, d));
+    }
+}
+</pre> 
+</div> 
+<p>Here's the output from this program:</p> 
+<div class="codeblock"> 
+ <pre>
+The absolute value of -191.635 is 191.635
+The ceiling of 43.74 is 44
+The floor of 43.74 is 43
+The rint of 43.74 is 44
+The max of 16 and 45 is 45
+The min of 16 and 45 is 16
+</pre> 
+</div>

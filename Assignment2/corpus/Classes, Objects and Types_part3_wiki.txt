@@ -1,0 +1,155 @@
+<p>Autoboxing and unboxing, language features since Java 1.5, make the programmer's life much easier when it comes to working with the primitive wrapper types. Consider this code fragment:</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><b>Code section 3.85: Traditional object creation.</b> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno">1 </span><span class="kt">int</span> <span class="n">age</span> <span class="o">=</span> <span class="mi">23</span><span class="o">;</span>
+<span class="lineno">2 </span><span class="n">Integer</span> <span class="n">ageObject</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Integer</span><span class="o">(</span><span class="n">age</span><span class="o">);</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>Primitive wrapper objects were Java's way of allowing one to treat primitive data types as though they were objects. Consequently, one was expected to <i>wrap</i> one's primitive data type with the corresponding primitive wrapper object, as shown above.</p> 
+<p>Since Java 1.5, one may write as below and the compiler will automatically create the wrap object. The extra step of wrapping the primitive is no longer required. It has been <i>automatically boxed up</i> on your behalf:</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><b>Code section 3.86: Autoboxing.</b> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno">1 </span><span class="kt">int</span> <span class="n">age</span> <span class="o">=</span> <span class="mi">23</span><span class="o">;</span>
+<span class="lineno">2 </span><span class="n">Integer</span> <span class="n">ageObject</span> <span class="o">=</span> <span class="n">age</span><span class="o">;</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td><a href="/wiki/File:Bombilla_amarilla_-_yellow_Edison_lamp.svg" class="image" title="Note"><img alt="Note" src="//upload.wikimedia.org/wikipedia/commons/thumb/1/15/Bombilla_amarilla_-_yellow_Edison_lamp.svg/30px-Bombilla_amarilla_-_yellow_Edison_lamp.svg.png" width="30" height="30" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/1/15/Bombilla_amarilla_-_yellow_Edison_lamp.svg/45px-Bombilla_amarilla_-_yellow_Edison_lamp.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/1/15/Bombilla_amarilla_-_yellow_Edison_lamp.svg/60px-Bombilla_amarilla_-_yellow_Edison_lamp.svg.png 2x" data-file-width="200" data-file-height="200" /></a></td> 
+   <td style="background-color:#fffff0; border-left: 4px solid yellow; padding-left: 6px;">Keep in mind that the compiler still creates the missing wrapper code, so one doesn't really gain anything performance-wise. Consider this feature a programmer convenience, not a performance booster.</td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>Each primitive type has a class wrapper:</p> 
+<table style="margin: auto;"> 
+ <tbody> 
+  <tr> 
+   <td>Primitive type</td> 
+   <td>Class wrapper</td> 
+  </tr> 
+  <tr> 
+   <td><code>byte</code></td> 
+   <td><code>java.lang.Byte</code></td> 
+  </tr> 
+  <tr> 
+   <td><code>char</code></td> 
+   <td><code>java.lang.Character</code></td> 
+  </tr> 
+  <tr> 
+   <td><code>short</code></td> 
+   <td><code>java.lang.Short</code></td> 
+  </tr> 
+  <tr> 
+   <td><code>int</code></td> 
+   <td><code>java.lang.Integer</code></td> 
+  </tr> 
+  <tr> 
+   <td><code>long</code></td> 
+   <td><code>java.lang.Long</code></td> 
+  </tr> 
+  <tr> 
+   <td><code>float</code></td> 
+   <td><code>java.lang.Float</code></td> 
+  </tr> 
+  <tr> 
+   <td><code>double</code></td> 
+   <td><code>java.lang.Double</code></td> 
+  </tr> 
+  <tr> 
+   <td><code>boolean</code></td> 
+   <td><code>java.lang.Boolean</code></td> 
+  </tr> 
+  <tr> 
+   <td><code>void</code></td> 
+   <td><code>java.lang.Void</code></td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>Unboxing uses the same process in reverse. Study the following code for a moment. The <code><a href="/wiki/Java_Programming/Keywords/if" title="Java Programming/Keywords/if"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">if</font></a></code> statement requires a <code><a href="/wiki/Java_Programming/Keywords/boolean" title="Java Programming/Keywords/boolean"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">boolean</font></a></code> primitive value, yet it was given a Boolean wrapper object. No problem! Java 1.5 will automatically <i>unbox</i> this.</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><b>Code section 3.87: Unboxing.</b> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno">1 </span><span class="n">Boolean</span> <span class="n">canMove</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Boolean</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+<span class="lineno">2 </span> 
+<span class="lineno">3 </span><span class="k">if</span> <span class="o">(</span><span class="n">canMove</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno">4 </span>  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"This code is legal in Java 1.5"</span><span class="o">);</span>
+<span class="lineno">5 </span><span class="o">}</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<div class="collapsible" style="width:100%; clear:both; border:none;"> 
+ <div class="title" style="background:transparent; text-align:left; background:#cedff2;border:1px solid lightgrey;">
+   Test your knowledge 
+ </div> 
+ <div class="body" style="background:transparent; text-align:left; background:#e7eff9;border:solid 1px lightgrey;padding:8px;"> 
+  <p><b>Question 3.11</b>: Consider the following code:</p> 
+  <table style="padding:2px; margin:2px;"> 
+   <tbody> 
+    <tr valign="top"> 
+     <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+     <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><span id="question-11"><b>Question 3.11: Autoboxing/unboxing.</b></span> 
+      <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+       <pre>
+<span class="lineno">5 </span><span class="n">Integer</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>
+<span class="lineno">6 </span><span class="n">Integer</span> <span class="n">b</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="mi">2</span><span class="o">;</span>
+<span class="lineno">7 </span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">b</span><span class="o">);</span>
+</pre> 
+      </div> </td> 
+    </tr> 
+   </tbody> 
+  </table> 
+  <p>How many autoboxings and unboxings are there in this code?</p> 
+  <div class="collapsible" style="width:100%; clear:both; border:none;"> 
+   <div class="title" style="background:transparent; text-align:left; background:#cedff2;border:1px solid lightgrey;">
+     Answer 
+   </div> 
+   <div class="body" style="background:transparent; text-align:left; background:#e7eff9;border:solid 1px lightgrey;padding:8px;"> 
+    <table style="padding:2px; margin:2px;"> 
+     <tbody> 
+      <tr valign="top"> 
+       <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+       <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><span id="question-11">Answer 3.11: Autoboxing/unboxing.</span> 
+        <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+         <pre>
+<span class="lineno">1 </span><span class="hll"><span class="n">Integer</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>
+</span><span class="lineno">2 </span><span class="hll"><span class="n">Integer</span> <span class="n">b</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="mi">2</span><span class="o">;</span>
+</span><span class="lineno">3 </span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">b</span><span class="o">);</span>
+</pre> 
+        </div> </td> 
+      </tr> 
+     </tbody> 
+    </table> 
+    <p>3</p> 
+    <ul> 
+     <li>1 autoboxing at line 1 to assign.</li> 
+     <li>1 unboxing at line 2 to do the addition.</li> 
+     <li>1 autoboxing at line 2 to assign.</li> 
+     <li>No autoboxing nor unboxing at line 3 as <code>println()</code> supports the <code>Integer</code> class as parameter.</li> 
+    </ul> 
+   </div> 
+  </div> 
+ </div> 
+</div>

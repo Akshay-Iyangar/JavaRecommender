@@ -1,0 +1,120 @@
+<p>To execute your first Java program, follow the instructions below:</p> 
+<table style="padding-left:1.5em;"> 
+ <tbody> 
+  <tr> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td valign="top">1.</td> 
+   <td>Proceed only if you have successfully installed and configured your system for Java as discussed <a href="/wiki/Java_Programming/Installation" title="Java Programming/Installation">here</a>.</td> 
+  </tr> 
+  <tr> 
+   <td valign="top">2.</td> 
+   <td>Open your preferred text editor — this is the editor you set while installing the Java platform.</td> 
+  </tr> 
+  <tr> 
+   <td></td> 
+   <td>For example, <b>Notepad</b> or <b>Notepad++</b> on Windows; <b>Gedit</b>, <b>Kate</b> or <b>SciTE</b> on Linux; or, <b>XCode</b> on Mac OS, etc.</td> 
+  </tr> 
+  <tr> 
+   <td valign="top">3.</td> 
+   <td>Write the following lines of code in a new text document: 
+    <table style="padding:2px; margin:2px;"> 
+     <tbody> 
+      <tr valign="top"> 
+       <td style="width:32px;"><img alt="Computer code" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/32px-Gnome-settings-accessibility-keyboard.svg.png" title="Computer code" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/48px-Gnome-settings-accessibility-keyboard.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/64px-Gnome-settings-accessibility-keyboard.svg.png 2x" data-file-width="60" data-file-height="60" /></td> 
+       <td style="background-color:#ffeee0; border-left: 4px solid orange; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><span id="code-listing-1"><b>Code listing 2.5: HelloWorld.java</b></span> 
+        <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+         <pre>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">HelloWorld</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Hello World!"</span><span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre> 
+        </div> </td> 
+      </tr> 
+     </tbody> 
+    </table> </td> 
+  </tr> 
+  <tr> 
+   <td valign="top">4.</td> 
+   <td>Save the file as <b>HelloWorld.java</b> — the name of your file should be the same as the name of your class definition and followed by the <code>.java</code> extension. This name is <i>case-sensitive</i>, which means you need to capitalize the precise letters that were capitalized in the name for the class definition.</td> 
+  </tr> 
+  <tr> 
+   <td valign="top">5.</td> 
+   <td>Next, open your preferred command-line application.</td> 
+  </tr> 
+  <tr> 
+   <td></td> 
+   <td>For example, <b>Command Prompt</b> on Windows; and, <b>Terminal</b> on Linux and Mac OS.</td> 
+  </tr> 
+  <tr> 
+   <td valign="top">6.</td> 
+   <td>In your command-line application, navigate to the directory where you just created your file. If you do not know how to do this, consider reading through our crash courses for command-line applications for <a href="/wiki/Windows_Batch_Scripting#CD" title="Windows Batch Scripting">Windows</a> or <a href="/wiki/Linux_Guide/Using_the_shell#Using_cd" title="Linux Guide/Using the shell">Linux</a>.</td> 
+  </tr> 
+  <tr> 
+   <td valign="top">7.</td> 
+   <td>Compile the Java source file using the following command which you can copy and paste in if you want: 
+    <table style="padding:2px; margin:2px;"> 
+     <tbody> 
+      <tr valign="top"> 
+       <td style="width:32px;"><img alt="Computer code" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/32px-Gnome-settings-accessibility-keyboard.svg.png" title="Computer code" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/48px-Gnome-settings-accessibility-keyboard.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/64px-Gnome-settings-accessibility-keyboard.svg.png 2x" data-file-width="60" data-file-height="60" /></td> 
+       <td style="background-color:#ffeee0; border-left: 4px solid orange; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><b>Compilation</b> <pre style="background-color:#000; color:#fff;">
+javac HelloWorld.java
+</pre></td> 
+      </tr> 
+     </tbody> 
+    </table> 
+    <table style="padding:2px; margin:2px;"> 
+     <tbody> 
+      <tr valign="top"> 
+       <td><a href="/wiki/File:Nuvola_apps_important.svg" class="image" title="Warning"><img alt="Warning" src="//upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Nuvola_apps_important.svg/32px-Nuvola_apps_important.svg.png" width="32" height="27" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Nuvola_apps_important.svg/48px-Nuvola_apps_important.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Nuvola_apps_important.svg/64px-Nuvola_apps_important.svg.png 2x" data-file-width="600" data-file-height="500" /></a></td> 
+       <td style="background-color:#fff0f0; border-left: 4px solid red; padding-left: 6px;">If you obtain an error message like <code>error: cannot read: HelloWorld.java 1 error</code>, your file is not in the current folder or it is badly spelled. Did you navigate to the program's location in the command prompt using the <a href="//en.wikipedia.org/wiki/cd_(command)" class="extiw" title="w:cd (command)">cd</a> (<i>c</i>hange <i>d</i>irectory) command? <p>If you obtain another message ending by <code>1 error</code> or <code>... errors</code>, there may be a mistake in your code. Are you sure all words are spelled correctly and with the exact case as shown? Are there semicolons and brackets in the appropriate spot? Are you missing a quote? Usually, modern IDEs would try coloring the entire source as a quote in this case.</p> <p>If your computer emits beeps, then you may have illegal characters in your <code>HelloWorld.java</code>.</p> <p>If no <code>HelloWorld.class</code> file has been created in the same folder, then you've got an error. Are you launching the <code>javac</code> program correctly?</p> </td> 
+      </tr> 
+     </tbody> 
+    </table> </td> 
+  </tr> 
+  <tr> 
+   <td valign="top">8.</td> 
+   <td>Once the compiler returns to the prompt, run the application using the following command: 
+    <table style="padding:2px; margin:2px;"> 
+     <tbody> 
+      <tr valign="top"> 
+       <td style="width:32px;"><img alt="Computer code" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/32px-Gnome-settings-accessibility-keyboard.svg.png" title="Computer code" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/48px-Gnome-settings-accessibility-keyboard.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/64px-Gnome-settings-accessibility-keyboard.svg.png 2x" data-file-width="60" data-file-height="60" /></td> 
+       <td style="background-color:#ffeee0; border-left: 4px solid orange; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><b>Execution</b> <pre style="background-color:#000; color:#fff;">
+java HelloWorld
+</pre></td> 
+      </tr> 
+     </tbody> 
+    </table> 
+    <table style="padding:2px; margin:2px;"> 
+     <tbody> 
+      <tr valign="top"> 
+       <td><a href="/wiki/File:Nuvola_apps_important.svg" class="image" title="Warning"><img alt="Warning" src="//upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Nuvola_apps_important.svg/32px-Nuvola_apps_important.svg.png" width="32" height="27" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Nuvola_apps_important.svg/48px-Nuvola_apps_important.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Nuvola_apps_important.svg/64px-Nuvola_apps_important.svg.png 2x" data-file-width="600" data-file-height="500" /></a></td> 
+       <td style="background-color:#fff0f0; border-left: 4px solid red; padding-left: 6px;">If you obtain an error message like <code>Exception in thread "main" java.lang.NoClassDefFoundError: HelloWorld</code>, the <code>HelloWorld.class</code> file is not in the current folder or it is badly spelled. <p>If you obtain an error message like <code>Exception in thread "main" java.lang.NoSuchMethodError: main</code>, your source file may have been badly written.</p> </td> 
+      </tr> 
+     </tbody> 
+    </table> </td> 
+  </tr> 
+  <tr> 
+   <td valign="top">9.</td> 
+   <td>The above command should result in your command-line application displaying the following result: 
+    <table style="padding:2px; margin:2px;"> 
+     <tbody> 
+      <tr valign="top"> 
+       <td style="width:32px;"><img alt="Computer code" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/32px-Gnome-settings-accessibility-keyboard.svg.png" title="Computer code" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/48px-Gnome-settings-accessibility-keyboard.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/64px-Gnome-settings-accessibility-keyboard.svg.png 2x" data-file-width="60" data-file-height="60" /></td> 
+       <td style="background-color:#ffeee0; border-left: 4px solid orange; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><b>Output</b> <pre style="background-color:#000; color:#fff;">
+Hello World!
+</pre></td> 
+      </tr> 
+     </tbody> 
+    </table> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<dl> 
+ <dd> 
+  <i>Ask for help if the program did not execute properly in the <a href="/wiki/Talk:Java_Programming/Getting_started" title="Talk:Java Programming/Getting started">Discussion page</a> for this chapter</i>. 
+ </dd> 
+</dl>

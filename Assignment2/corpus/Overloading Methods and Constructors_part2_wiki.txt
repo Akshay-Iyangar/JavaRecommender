@@ -1,0 +1,45 @@
+<p>Instead of overloading, you can use dynamic number of arguments. After the last parameter, you can pass optional unlimited parameters of the same type. These parameters are defined by adding a last parameter and adding <code>...</code> after its type. The dynamic arguments will be received as an array:</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><span id="code-section-27"><b>Code section 4.27: Variable argument.</b></span> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno"> 1 </span><span class="hll">  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">registrerPersonInAgenda</span><span class="o">(</span><span class="n">String</span> <span class="n">firstName</span><span class="o">,</span> <span class="n">String</span> <span class="n">lastName</span><span class="o">,</span> <span class="n">Date</span><span class="o">...</span> <span class="n">meeting</span><span class="o">)</span> <span class="o">{</span>
+</span><span class="lineno"> 2 </span>    <span class="n">String</span><span class="o">[]</span> <span class="n">person</span> <span class="o">=</span> <span class="o">{</span><span class="n">firstName</span><span class="o">,</span> <span class="n">lastName</span><span class="o">};</span>
+<span class="lineno"> 3 </span>    <span class="n">lastPosition</span> <span class="o">=</span> <span class="n">lastPosition</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
+<span class="lineno"> 4 </span>    <span class="n">contactArray</span><span class="o">[</span><span class="n">lastPosition</span><span class="o">]</span> <span class="o">=</span> <span class="n">person</span><span class="o">;</span>
+<span class="lineno"> 5 </span>
+<span class="lineno"> 6 </span><span class="hll">    <span class="k">if</span> <span class="o">(</span><span class="n">meeting</span><span class="o">.</span><span class="na">length</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+</span><span class="lineno"> 7 </span><span class="hll">      <span class="n">Date</span><span class="o">[]</span> <span class="n">temporaryMeetings</span> <span class="o">=</span> <span class="n">registreredMeetings</span><span class="o">.</span><span class="na">length</span> <span class="o">+</span> <span class="n">meeting</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
+</span><span class="lineno"> 8 </span><span class="hll">      <span class="k">for</span> <span class="o">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">registreredMeetings</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+</span><span class="lineno"> 9 </span><span class="hll">        <span class="n">temporaryMeetings</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">registreredMeetings</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
+</span><span class="lineno">10 </span><span class="hll">      <span class="o">}</span>
+</span><span class="lineno">11 </span><span class="hll">      <span class="k">for</span> <span class="o">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">meeting</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+</span><span class="lineno">12 </span><span class="hll">        <span class="n">temporaryMeetings</span><span class="o">[</span><span class="n">registreredMeetings</span><span class="o">.</span><span class="na">length</span> <span class="o">+</span> <span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">meeting</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
+</span><span class="lineno">13 </span><span class="hll">      <span class="o">}</span>
+</span><span class="lineno">14 </span><span class="hll">      <span class="n">registreredMeetings</span> <span class="o">=</span> <span class="n">temporaryMeetings</span><span class="o">;</span>
+</span><span class="lineno">15 </span><span class="hll">    <span class="o">}</span>
+</span><span class="lineno">16 </span>  <span class="o">}</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>The above method can be called with a dynamic number of arguments, for example:</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><span id="code-section-27"><b>Code section 4.27: Constructor calls.</b></span> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno">1 </span><span class="n">registrerPersonInAgenda</span><span class="o">(</span><span class="s">"John"</span><span class="o">,</span> <span class="s">"Doe"</span><span class="o">);</span>
+<span class="lineno">2 </span><span class="n">registrerPersonInAgenda</span><span class="o">(</span><span class="s">"Mark"</span><span class="o">,</span> <span class="s">"Lee"</span><span class="o">,</span> <span class="k">new</span> <span class="n">Date</span><span class="o">(),</span> <span class="k">new</span> <span class="n">Date</span><span class="o">());</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>This feature was not available before Java 1.5 .</p>

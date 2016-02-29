@@ -1,0 +1,67 @@
+<p>The Java Runtime Environment (JRE) is necessary to execute Java programs. To check which version of Java Runtime Environment (JRE) you have, follow the steps below.</p> 
+<table style="padding-left:1.5em;"> 
+ <tbody> 
+  <tr> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td valign="top">1.</td> 
+   <td>For Window Vista or Windows 7, click <b>Start</b> › <b>Control Panel</b> › <b>System and Maintenance</b> › <b>System</b>.</td> 
+  </tr> 
+  <tr> 
+   <td></td> 
+   <td>For Windows XP, click <b>Start</b> › <b>Control Panel</b> › <b>System</b>.</td> 
+  </tr> 
+  <tr> 
+   <td></td> 
+   <td>For Windows 2000, click <b>Start</b> › <b>Settings</b> › <b>Control Panel</b> › <b>System</b>.</td> 
+  </tr> 
+  <tr> 
+   <td></td> 
+   <td>Alternatively, you can also press <span class="keyboard-key" style="border: 0.2em outset #cecbc7; background: #f0ece8; padding: 0 0.4em 0.1em 0.3em; font-size: 0.85em; white-space: nowrap;"><span class="Unicode">⊞</span> Win</span>+<span class="keyboard-key" style="border: 0.2em outset #cecbc7; background: #f0ece8; padding: 0 0.4em 0.1em 0.3em; font-size: 0.85em; white-space: nowrap;">R</span> to open the <b>Run</b> dialog. With the dialog open, type <code>cmd</code> at the prompt: 
+    <div class="center"> 
+     <div class="thumb tnone"> 
+      <div class="thumbinner" style="width:349px;"> 
+       <a href="/wiki/File:Java_Programming_Run_dialog.png" class="image"><img alt="" src="//upload.wikimedia.org/wikibooks/en/e/eb/Java_Programming_Run_dialog.png" width="347" height="186" class="thumbimage" data-file-width="347" data-file-height="186" /></a> 
+       <div class="thumbcaption"> 
+        <span id="figure-1">Figure 1.1: Run dialog</span> 
+       </div> 
+      </div> 
+     </div> 
+    </div> </td> 
+  </tr> 
+  <tr> 
+   <td valign="top">2.</td> 
+   <td>In the command window with black background graced with white text, type the following command: 
+    <table style="padding:2px; margin:2px; width:100%;"> 
+     <tbody> 
+      <tr valign="top"> 
+       <td style="width:32px;"><img alt="Standard input or output" src="//upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/32px-Nuvola_apps_display.png" title="Standard input or output" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/48px-Nuvola_apps_display.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/64px-Nuvola_apps_display.png 2x" data-file-width="128" data-file-height="128" /></td> 
+       <td style="background-color:#f0f0ff; border-left: 4px solid blue; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><b>JRE availability check</b> <pre style="background-color:#000; color:#fff;">
+java -version
+</pre></td> 
+      </tr> 
+     </tbody> 
+    </table> <p>If you get an error, such as:</p> 
+    <table style="padding:2px; margin:2px; width:100%;"> 
+     <tbody> 
+      <tr valign="top"> 
+       <td style="width:32px;"><img alt="Standard input or output" src="//upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/32px-Nuvola_apps_display.png" title="Standard input or output" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/48px-Nuvola_apps_display.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/64px-Nuvola_apps_display.png 2x" data-file-width="128" data-file-height="128" /></td> 
+       <td style="background-color:#f0f0ff; border-left: 4px solid blue; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><b>Other output error</b> <pre style="background-color:#000; color:#fff;">
+Bad command or file name
+</pre></td> 
+      </tr> 
+     </tbody> 
+    </table> <p>..then the JDK may not be installed or it may not be in your path.</p> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<dl> 
+ <dd> 
+  <i>To learn more about the Command Prompt syntax, take a look at this <a rel="nofollow" class="external text" href="http://tnd.com/camosun/elex130/dostutor1.html">MS-DOS tutorial</a>.</i> 
+ </dd> 
+</dl> 
+<p>You may have other versions of Java installed; this command will only show the first in your PATH. You will be made familiar with the PATH environment variable later in this text. For now, if you have no idea what this is all about. Read through towards the end and we will provide you with a step-by-step guide on how to set your own environment variables.</p> 
+<p>You can use your system's file search utilities to see if there is a <code>javac.exe</code> executable installed. If it is, and it is a recent enough version (Java 1.4.2 or Java 1.5, for example), you should put the <code>bin</code> directory that contains <code>javac</code> in your system path. The Java runtime, <code>java</code>, is often in the same <code>bin</code> directory.</p> 
+<p>If the installed version is older (i.e. it is Java 1.3.1 or Java 1.4.2 and you wish to use the more recent Java 5 release), you should proceed below with downloading and installing a JDK.</p> 
+<p>It is possible that you have the Java runtime (JRE), but not the JDK. In that case the <code>javac</code> program won't be found, but the <code>java -version</code> will print the JRE version number.</p>

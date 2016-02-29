@@ -1,0 +1,52 @@
+<p>The declaration</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><b>Code section 2.1: Declaration.</b> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno">1 </span><span class="kd">private</span> <span class="n">java</span><span class="o">.</span><span class="na">awt</span><span class="o">.</span><span class="na">Point</span> <span class="n">point0</span><span class="o">,</span> <span class="n">point1</span><span class="o">;</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>...declares two <i>instance fields</i>. Instance fields represent named values that are allocated whenever an instance of the class is constructed. When a Java program creates a <code>Distance</code> instance, that instance will contain space for <code>point0</code> and <code>point1</code>. When another <code>Distance</code> object is created, it will contain space for its <i>own</i> <code>point0</code> and <code>point1</code> values. The value of <code>point0</code> in the first <code>Distance</code> object can vary independently of the value of <code>point0</code> in the second <code>Distance</code> object.</p> 
+<p>This declaration consists of:</p> 
+<ol> 
+ <li>The <code><a href="/wiki/Java_Programming/Keywords/private" title="Java Programming/Keywords/private">private</a></code> access modifier,<br> which means these instance fields are not visible to other classes.</br></li> 
+ <li>The type of the instance fields. In this case, the type is <code>java.awt.Point</code>.<br> This is the class <code>Point</code> in the <code>java.awt</code> package.</br></li> 
+ <li>The names of the instance fields in a comma separated list.</li> 
+</ol> 
+<p><br> These two fields could also have been declared with two separate but more verbose declarations,</br></p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><b>Code section 2.2: Verbose declarations.</b> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno">1 </span> <span class="kd">private</span> <span class="n">java</span><span class="o">.</span><span class="na">awt</span><span class="o">.</span><span class="na">Point</span> <span class="n">point0</span><span class="o">;</span>
+<span class="lineno">2 </span> <span class="kd">private</span> <span class="n">java</span><span class="o">.</span><span class="na">awt</span><span class="o">.</span><span class="na">Point</span> <span class="n">point1</span><span class="o">;</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>Since the type of these fields is a reference type (i.e. a field that <i>refers to</i> or can hold a <i>reference to</i> an object value), Java will implicitly initialize the values of <code>point0</code> and <code>point1</code> to null when a <code>Distance</code> instance is created. The null value means that a reference value does not refer to an object. The special Java literal <code><a href="/wiki/Java_Programming/Literals/null" title="Java Programming/Literals/null" class="mw-redirect"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">null</font></a></code> is used to represent the null value in a program. While you can explicitly assign null values in a declaration, as in</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><b>Code section 2.3: Declarations and assignments.</b> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno">1 </span> <span class="kd">private</span> <span class="n">java</span><span class="o">.</span><span class="na">awt</span><span class="o">.</span><span class="na">Point</span> <span class="n">point0</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+<span class="lineno">2 </span> <span class="kd">private</span> <span class="n">java</span><span class="o">.</span><span class="na">awt</span><span class="o">.</span><span class="na">Point</span> <span class="n">point1</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>It is not necessary and most programmers omit such default assignments.</p>

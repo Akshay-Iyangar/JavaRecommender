@@ -1,0 +1,98 @@
+<p>In Java, a class definition and its instantiation can be combined into a single step. By doing that the class does not require a name. Those classes are called anonymous classes. An anonymous class can be defined and instantiated in contexts where a reference can be used, and it is a nested class to an existing class. Anonymous class is a special case of a class local to a method; hence they also can access final local variables of the enclosing method.</p> 
+<p>Anonymous classes are most useful to create an instance of an interface or adapter class without needing a brand new class.</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Computer code" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/32px-Gnome-settings-accessibility-keyboard.svg.png" title="Computer code" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/48px-Gnome-settings-accessibility-keyboard.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/64px-Gnome-settings-accessibility-keyboard.svg.png 2x" data-file-width="60" data-file-height="60" /></td> 
+   <td style="background-color:#ffeee0; border-left: 4px solid orange; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><span id="code-listing-12"><b>Code listing 4.12: ActionListener.java</b></span> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno">1 </span><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">ActionListener</span> <span class="o">{</span>
+<span class="lineno">2 </span>    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">actionPerformed</span><span class="o">();</span>
+<span class="lineno">3 </span><span class="o">}</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><b>Code section 4.21: Anonymous class.</b> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno">1 </span><span class="n">ActionListener</span> <span class="n">listener</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ActionListener</span><span class="o">()</span> <span class="o">{</span>
+<span class="lineno">2 </span>        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">actionPerformed</span><span class="o">()</span> <span class="o">{</span>
+<span class="lineno">3 </span>            <span class="c1">// Implementation of the action event</span>
+<span class="lineno">4 </span>            <span class="o">...</span>
+<span class="lineno">5 </span>            <span class="k">return</span><span class="o">;</span>
+<span class="lineno">6 </span>        <span class="o">}</span>
+<span class="lineno">7 </span>    <span class="o">};</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>In the above example the class that implements the <code>ActionListener</code> is <b>anonymous</b>. The class is defined where it is instantiated.</p> 
+<p>The above code is harder to read than if the class is explicitly defined, so why use it? If many implementations are needed for an interface, those classes are used only in one particular place, and it would be hard to come up with names for them, using an <b>anonymous</b> inner class makes sense.</p> 
+<p>The following example uses an anonymous inner class to implement an action listener.</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Computer code" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/32px-Gnome-settings-accessibility-keyboard.svg.png" title="Computer code" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/48px-Gnome-settings-accessibility-keyboard.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/64px-Gnome-settings-accessibility-keyboard.svg.png 2x" data-file-width="60" data-file-height="60" /></td> 
+   <td style="background-color:#ffeee0; border-left: 4px solid orange; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><span id="code-listing-13"><b>Code listing 4.13: MyApp.java</b></span> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno"> 1 </span><span class="kn">import</span> <span class="nn">java.awt.Button</span><span class="o">;</span>
+<span class="lineno"> 2 </span><span class="kn">import</span> <span class="nn">java.awt.event.ActionEvent</span><span class="o">;</span>
+<span class="lineno"> 3 </span><span class="kn">import</span> <span class="nn">java.awt.event.ActionListener</span><span class="o">;</span>
+<span class="lineno"> 4 </span>
+<span class="lineno"> 5 </span><span class="kd">class</span> <span class="nc">MyApp</span> <span class="o">{</span>
+<span class="lineno"> 6 </span>   <span class="n">Button</span> <span class="n">aButton</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Button</span><span class="o">();</span>
+<span class="lineno"> 7 </span>
+<span class="lineno"> 8 </span>   <span class="n">MyApp</span><span class="o">()</span> <span class="o">{</span>
+<span class="lineno"> 9 </span>       <span class="n">aButton</span><span class="o">.</span><span class="na">addActionListener</span><span class="o">(</span><span class="k">new</span> <span class="n">ActionListener</span><span class="o">()</span> <span class="o">{</span>
+<span class="lineno">10 </span>               <span class="kd">public</span> <span class="kt">void</span> <span class="nf">actionPerformed</span><span class="o">(</span><span class="n">ActionEvent</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno">11 </span>                   <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Hello There"</span><span class="o">);</span>
+<span class="lineno">12 </span>               <span class="o">}</span>
+<span class="lineno">13 </span>           <span class="o">}</span>
+<span class="lineno">14 </span>       <span class="o">);</span>
+<span class="lineno">15 </span>   <span class="o">}</span>
+<span class="lineno">16 </span><span class="o">}</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>The following example does the same thing, but it names the class that implements the action listener.</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Computer code" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/32px-Gnome-settings-accessibility-keyboard.svg.png" title="Computer code" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/48px-Gnome-settings-accessibility-keyboard.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/64px-Gnome-settings-accessibility-keyboard.svg.png 2x" data-file-width="60" data-file-height="60" /></td> 
+   <td style="background-color:#ffeee0; border-left: 4px solid orange; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><span id="code-listing-14"><b>Code listing 4.14: MyApp.java</b></span> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno"> 1 </span><span class="kn">import</span> <span class="nn">java.awt.Button</span><span class="o">;</span>
+<span class="lineno"> 2 </span><span class="kn">import</span> <span class="nn">java.awt.event.ActionEvent</span><span class="o">;</span>
+<span class="lineno"> 3 </span><span class="kn">import</span> <span class="nn">java.awt.event.ActionListener</span><span class="o">;</span>
+<span class="lineno"> 4 </span>
+<span class="lineno"> 5 </span><span class="kd">class</span> <span class="nc">MyApp</span> <span class="o">{</span>
+<span class="lineno"> 6 </span>   <span class="n">Button</span> <span class="n">aButton</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Button</span><span class="o">();</span>
+<span class="lineno"> 7 </span>
+<span class="lineno"> 8 </span>   <span class="c1">// Nested class to implement the action listener</span>
+<span class="lineno"> 9 </span>   <span class="kd">class</span> <span class="nc">MyActionListener</span> <span class="kd">implements</span> <span class="n">ActionListener</span> <span class="o">{</span>
+<span class="lineno">10 </span>       <span class="kd">public</span> <span class="kt">void</span> <span class="nf">actionPerformed</span><span class="o">(</span><span class="n">ActionEvent</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno">11 </span>           <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Hello There"</span><span class="o">);</span>
+<span class="lineno">12 </span>       <span class="o">}</span>
+<span class="lineno">13 </span>   <span class="o">}</span>
+<span class="lineno">14 </span>   <span class="n">MyApp</span><span class="o">()</span> <span class="o">{</span>
+<span class="lineno">15 </span>       <span class="n">aButton</span><span class="o">.</span><span class="na">addActionListener</span><span class="o">(</span><span class="k">new</span> <span class="n">MyActionListener</span><span class="o">());</span>
+<span class="lineno">16 </span>   <span class="o">}</span>
+<span class="lineno">17 </span><span class="o">}</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>Using <b>anonymous</b> classes is especially preferable when you intend to use many different classes that each implement the same interface.</p>

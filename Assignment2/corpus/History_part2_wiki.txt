@@ -1,0 +1,13 @@
+<div class="thumb tright"> 
+ <div class="thumbinner" style="width:202px;"> 
+  <a href="/wiki/File:James_Gosling_2008.jpg" class="image"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/1/14/James_Gosling_2008.jpg/200px-James_Gosling_2008.jpg" width="200" height="201" class="thumbimage" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/1/14/James_Gosling_2008.jpg/300px-James_Gosling_2008.jpg 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/1/14/James_Gosling_2008.jpg/400px-James_Gosling_2008.jpg 2x" data-file-width="1460" data-file-height="1469" /></a> 
+  <div class="thumbcaption"> 
+   <div class="magnify"> 
+    <a href="/wiki/File:James_Gosling_2008.jpg" class="internal" title="Enlarge"></a> 
+   </div> James Gosling, architect and designer of the compiler for the Java technology 
+  </div> 
+ </div> 
+</div> 
+<p>Behind closed doors, a project was initiated in December of 1990, whose aim was to create a programming tool that could render obsolete the C and C++ programming languages. Engineer Patrick Naughton had become extremely frustrated with the state of Sun's C++ and C APIs (Application Programming Interfaces) and tools. While he was considering to move towards <a href="//en.wikipedia.org/wiki/NeXT" class="extiw" title="w:NeXT">NeXT</a>, he was offered a chance to work on new technology and the <i>Stealth Project</i> was started, a secret nobody but he knew.</p> 
+<p>This Stealth Project was later named the <i>Green Project</i> when James Gosling and Mike Sheridan joined Patrick.<sup id="cite_ref-CITEREFEarlyYearsSun1_1-2" class="reference"><a href="#cite_note-CITEREFEarlyYearsSun1-1">[1]</a></sup> Over the period of time that the Green Project teethed, the prospects of the project started becoming clearer to the engineers working on it. No longer was its aim to create a new language far superior to the present ones, but it aimed to target the language to devices other than the computer.</p> 
+<p>Staffed at 13 people, they began work in a small office on Sand Hill Road in Menlo Park, California. This team would be called <i>Green Team</i> henceforth in time. The project they underwent was chartered by Sun Microsystems to anticipate and plan for the "next-wave" in computing. For the team, this meant at least one significant trend, that of the convergence of digitally controlled consumer devices and computers.<sup id="cite_ref-CITEREFEarlyYearsSun1_1-3" class="reference"><a href="#cite_note-CITEREFEarlyYearsSun1-1">[1]</a></sup><br style="clear:both;" /></p>

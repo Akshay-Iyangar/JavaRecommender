@@ -1,0 +1,76 @@
+<p>The Java JDK collection implementations are quite powerful and good, so it is unlikely that you will need to write your own. The usage of the different collections are the same but the implementations are different. If the existing collection implementations do not meet your needs, you can write your version of the implementation. Your version of the implementation just needs to implement the same <code>java.util.Collection</code> interface, then you can switch to using your implementation and the code that is using the collection does not need to be changed.</p> 
+<p>Use the Collection interface if you need to keep related (usually the same type of) objects together in a collection where you can:</p> 
+<ul> 
+ <li>Search for a particular element</li> 
+ <li>List the elements</li> 
+ <li>Maintain and/or change the order of the elements by using the collection basic operations (Add, Remove, Update,..)</li> 
+ <li>Access the elements by an index number</li> 
+</ul> 
+<p>The advantages of using the <code>Collection</code> interface are:</p> 
+<ul> 
+ <li>Gives a generic usage, as we talked about above, it is easy to switch implementation</li> 
+ <li>It makes it easy to convert one type of collection to another.</li> 
+</ul> 
+<p>The <code>Collection</code> interface defines the following basic operations:</p> 
+<p>Note that in <code>addAll()</code> we can add any type of collection. This is the beauty of using the Collection interface. You can have a <code>LinkedList</code> and just call the <code>addAll(list)</code> method, passing in a list. You can pass in a <code>Vector</code>, an <code>ArrayList</code>, a <code>HashSet</code>, a <code>TreeSet</code>, a <code>YourImpOfCollection</code>, ... All those different types of collection will be <b>magically</b> converted to a <code>LinkedList</code>.</p> 
+<p>Let's have a closer look at this <i>magic</i>. The conversion is easy because the <code>Collection</code> interface defines a standard way of looping through the elements. The following code is a possible implementation of <code>addAll()</code> method of the <code>LinkedList</code>.</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><span id="code-section-6"><b>Code section 5.6: Collection transfer.</b></span> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno"> 1 </span><span class="kn">import</span> <span class="nn">java.util.Collection</span>
+<span class="lineno"> 2 </span><span class="kn">import</span> <span class="nn">java.util.Iterator</span>
+<span class="lineno"> 3 </span><span class="o">...</span>
+<span class="lineno"> 4 </span><span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">addAll</span><span class="o">(</span><span class="n">Collection</span> <span class="n">coll</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno"> 5 </span>   <span class="kt">int</span> <span class="n">sizeBefore</span> <span class="o">=</span> <span class="k">this</span><span class="o">.</span><span class="na">size</span><span class="o">();</span>
+<span class="lineno"> 6 </span>   <span class="n">Iterator</span> <span class="n">iter</span> <span class="o">=</span> <span class="n">coll</span><span class="o">.</span><span class="na">iterator</span><span class="o">();</span>
+<span class="lineno"> 7 </span>   <span class="k">while</span><span class="o">(</span><span class="n">iter</span><span class="o">.</span><span class="na">hasNext</span><span class="o">())</span> <span class="o">{</span>
+<span class="lineno"> 8 </span>      <span class="k">this</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">iter</span><span class="o">.</span><span class="na">next</span><span class="o">());</span>
+<span class="lineno"> 9 </span>   <span class="o">}</span>
+<span class="lineno">10 </span>   <span class="k">if</span> <span class="o">(</span><span class="n">sizeBefore</span> <span class="o">&gt;</span> <span class="k">this</span><span class="o">.</span><span class="na">size</span><span class="o">())</span> <span class="o">{</span>
+<span class="lineno">11 </span>      <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+<span class="lineno">12 </span>   <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+<span class="lineno">13 </span>      <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+<span class="lineno">14 </span>   <span class="o">}</span>
+<span class="lineno">15 </span><span class="o">}</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>The above code just iterates through the passed in collection and adds the elements to the linked list. You do not have to do that, since that is already defined. What you might need to code for is to loop through a <code>Customer</code> collection:</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><span id="code-section-7"><b>Code section 5.7: Iteration on a collection.</b></span> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno"> 1 </span><span class="kn">import</span> <span class="nn">java.util.Collection</span>
+<span class="lineno"> 2 </span><span class="kn">import</span> <span class="nn">java.util.Iterator</span>
+<span class="lineno"> 3 </span><span class="kn">import</span> <span class="nn">java.yourcompany.Customer</span>
+<span class="lineno"> 4 </span><span class="o">...</span>
+<span class="lineno"> 5 </span><span class="kd">public</span> <span class="n">String</span> <span class="nf">printCustomerNames</span><span class="o">(</span><span class="n">Collection</span> <span class="n">customerColl</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno"> 6 </span>   <span class="n">StringBuffer</span> <span class="n">buf</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringBuffer</span><span class="o">();</span>
+<span class="lineno"> 7 </span>
+<span class="lineno"> 8 </span>   <span class="n">Iterator</span> <span class="n">iter</span> <span class="o">=</span> <span class="n">customerColl</span><span class="o">.</span><span class="na">iterator</span><span class="o">();</span>
+<span class="lineno"> 9 </span>   <span class="k">while</span><span class="o">(</span><span class="n">iter</span><span class="o">.</span><span class="na">hasNext</span><span class="o">())</span> <span class="o">{</span>
+<span class="lineno">10 </span>      <span class="n">Customer</span> <span class="n">cust</span> <span class="o">=</span> <span class="o">(</span><span class="n">Customer</span><span class="o">)</span> <span class="n">iter</span><span class="o">.</span><span class="na">next</span><span class="o">();</span>
+<span class="lineno">11 </span>      <span class="n">buf</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">cust</span><span class="o">.</span><span class="na">getName</span><span class="o">());</span>
+<span class="lineno">12 </span>      <span class="n">buf</span><span class="o">.</span><span class="na">append</span><span class="o">(</span> <span class="s">"\n"</span> <span class="o">);</span>
+<span class="lineno">13 </span>   <span class="o">}</span>
+<span class="lineno">14 </span>  <span class="k">return</span> <span class="n">buf</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span>
+<span class="lineno">15 </span><span class="o">}</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>Notice two things:</p> 
+<ul> 
+ <li>The above code will work for all type of collections.</li> 
+ <li>We have to know the type of objects inside the collection, because we call a method on it.</li> 
+</ul>

@@ -1,0 +1,61 @@
+<p>A <code>try</code>/<code>catch</code> must at least contain the <code>try</code> block and the <code>catch</code> block:</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><b>Code section 3.21: try/catch block.</b> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno">1 </span><span class="k">try</span> <span class="o">{</span>
+<span class="lineno">2 </span>  <span class="c1">// Some code</span>
+<span class="lineno">3 </span><span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno">4 </span>  <span class="c1">// Optional exception handling</span>
+<span class="lineno">5 </span><span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>
+<span class="lineno">6 </span>  <span class="c1">// This code is executed no matter what</span>
+<span class="lineno">7 </span><span class="o">}</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<div class="collapsible" style="width:100%; clear:both; border:none;"> 
+ <div class="title" style="background:transparent; text-align:left; background:#cedff2;border:1px solid lightgrey;">
+   Test your knowledge 
+ </div> 
+ <div class="body" style="background:transparent; text-align:left; background:#e7eff9;border:solid 1px lightgrey;padding:8px;"> 
+  <p><b>Question 3.1: How many statements are there in this class?</b></p> 
+  <table style="padding:2px; margin:2px;"> 
+   <tbody> 
+    <tr valign="top"> 
+     <td style="width:32px;"><img alt="Computer code" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/32px-Gnome-settings-accessibility-keyboard.svg.png" title="Computer code" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/48px-Gnome-settings-accessibility-keyboard.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/64px-Gnome-settings-accessibility-keyboard.svg.png 2x" data-file-width="60" data-file-height="60" /></td> 
+     <td style="background-color:#ffeee0; border-left: 4px solid orange; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><b>Code listing 3.2: AProgram.java</b> 
+      <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+       <pre>
+<span class="lineno"> 1 </span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">AProgram</span> <span class="o">{</span>
+<span class="lineno"> 2 </span>
+<span class="lineno"> 3 </span>    <span class="kd">private</span> <span class="kt">int</span> <span class="n">age</span> <span class="o">=</span> <span class="mi">24</span><span class="o">;</span>
+<span class="lineno"> 4 </span>
+<span class="lineno"> 5 </span>    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno"> 6 </span>        <span class="kt">int</span> <span class="n">daysInAYear</span> <span class="o">=</span> <span class="mi">365</span><span class="o">;</span><span class="kt">int</span> <span class="n">ageInDay</span> <span class="o">=</span> <span class="mi">100000</span><span class="o">;</span>
+<span class="lineno"> 7 </span>        <span class="kt">int</span> <span class="n">localAge</span> <span class="o">=</span> <span class="n">ageInDay</span> <span class="o">/</span> <span class="n">daysInAYear</span><span class="o">;</span>
+<span class="lineno"> 8 </span>    <span class="o">}</span>
+<span class="lineno"> 9 </span>
+<span class="lineno">10 </span>    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getAge</span><span class="o">()</span> <span class="o">{</span>
+<span class="lineno">11 </span>        <span class="k">return</span> <span class="n">age</span><span class="o">;</span>
+<span class="lineno">12 </span>    <span class="o">}</span>
+<span class="lineno">13 </span><span class="o">}</span>
+</pre> 
+      </div> </td> 
+    </tr> 
+   </tbody> 
+  </table> 
+  <div class="collapsible" style="width:100%; clear:both; border:none;"> 
+   <div class="title" style="background:transparent; text-align:left; background:#cedff2;border:1px solid lightgrey;">
+     Answer 
+   </div> 
+   <div class="body" style="background:transparent; text-align:left; background:#e7eff9;border:solid 1px lightgrey;padding:8px;"> 
+    <p>5<br> One statement at line 3, two statements at line 6, one statement at line 7 and one statement at line 11.</br></p> 
+   </div> 
+  </div> 
+ </div> 
+</div>

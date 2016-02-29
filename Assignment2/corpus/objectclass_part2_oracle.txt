@@ -1,0 +1,22 @@
+<p>If a class, or one of its superclasses, implements the <code>Cloneable</code> interface, you can use the <code>clone()</code> method to create a copy from an existing object. To create a clone, you write:</p> 
+<div class="codeblock"> 
+ <pre>
+<i>aCloneableObject</i>.clone();
+</pre> 
+</div> 
+<p><code>Object</code>'s implementation of this method checks to see whether the object on which <code>clone()</code> was invoked implements the <code>Cloneable</code> interface. If the object does not, the method throws a <code>CloneNotSupportedException</code> exception. Exception handling will be covered in a later lesson. For the moment, you need to know that <code>clone()</code> must be declared as</p> 
+<div class="codeblock"> 
+ <pre>
+protected Object clone() throws CloneNotSupportedException
+</pre> 
+</div> 
+<p>or:</p> 
+<div class="codeblock"> 
+ <pre>
+public Object clone() throws CloneNotSupportedException
+</pre> 
+</div> 
+<p>if you are going to write a <code>clone()</code> method to override the one in <code>Object</code>.</p> 
+<p>If the object on which <code>clone()</code> was invoked does implement the <code>Cloneable</code> interface, <code>Object</code>'s implementation of the <code>clone()</code> method creates an object of the same class as the original object and initializes the new object's member variables to have the same values as the original object's corresponding member variables.</p> 
+<p>The simplest way to make your class cloneable is to add <code>implements Cloneable</code> to your class's declaration. then your objects can invoke the <code>clone()</code> method.</p> 
+<p>For some classes, the default behavior of <code>Object</code>'s <code>clone()</code> method works just fine. If, however, an object contains a reference to an external object, say <code>ObjExternal</code>, you may need to override <code>clone()</code> to get correct behavior. Otherwise, a change in <code>ObjExternal</code> made by one object will be visible in its clone also. This means that the original object and its clone are not independentto decouple them, you must override <code>clone()</code> so that it clones the object <i>and</i> <code>ObjExternal</code>. Then the original object references <code>ObjExternal</code> and the clone references a clone of <code>ObjExternal</code>, so that the object and its clone are truly independent.</p>

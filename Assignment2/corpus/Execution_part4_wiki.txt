@@ -1,0 +1,13 @@
+<p>After J2EE Sun had a vision about the next step of network computing. That is <a href="//en.wikipedia.org/wiki/Jini" class="extiw" title="w:Jini">Jini</a>. The main idea is that in a network environment, there would be many independent services and consumers. Jini would allow these services/consumers to interact dynamically with each other in a robust way. The basic features of Jini are:</p> 
+<ul> 
+ <li><b>No user intervention</b> is needed when services are brought on or offline. (In contrast to EJBs where the client program has to know the server and port number where the EJB is deployed, in Jini the client is <i>supposed to find</i>, to discover, the service in the network.)</li> 
+ <li><b>Self healing</b> by adapting when services (consumers of services) come and go. (Services periodically need to renew a lease to indicate that they are still available.)</li> 
+ <li>Consumers of JINI services do not need prior knowledge of the service's implementation. The <b>implementation is downloaded dynamically</b> and run on the consumer JVM, without configuration and user intervention. (For example, the end user may be presented with a slightly different user interface depending upon which service is being used at the time. The implementation of the user interface code would be provided by the service being used.)</li> 
+</ul> 
+<p>A minimal Jini network environment consists of:</p> 
+<ul> 
+ <li>One or more <b>services</b></li> 
+ <li>A <b>lookup-service</b> keeping a list of registered services</li> 
+ <li>One or more <b>consumers</b></li> 
+</ul> 
+<p>Jini is not widely used at the current writing (2006). There are two possible reasons for it. One is Jini a bit complicated to understand and to set it up. The other reason is that Microsoft pulled out from Java, which caused the industry to turn to the use of proprietary solutions.</p>

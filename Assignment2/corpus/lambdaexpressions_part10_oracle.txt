@@ -1,0 +1,31 @@
+<p>Reconsider the method <code>processPersonsWithFunction</code>. The following is a generic version of it that accepts, as a parameter, a collection that contains elements of any data type:</p> 
+<pre class="codeblock">public static &lt;X, Y&gt; void processElements(
+    Iterable&lt;X&gt; source,
+    Predicate&lt;X&gt; tester,
+    Function &lt;X, Y&gt; mapper,
+    Consumer&lt;Y&gt; block) {
+    for (X p : source) {
+        if (tester.test(p)) {
+            Y data = mapper.apply(p);
+            block.accept(data);
+        }
+    }
+}</pre> 
+<p>To print the e-mail address of members who are eligible for Selective Service, invoke the <code>processElements</code> method as follows:</p> 
+<pre class="codeblock">processElements(
+    roster,
+    p -&gt; p.getGender() == Person.Sex.MALE
+        &amp;&amp; p.getAge() &gt;= 18
+        &amp;&amp; p.getAge() &lt;= 25,
+    p -&gt; p.getEmailAddress(),
+    email -&gt; System.out.println(email)
+);</pre> 
+<p>This method invocation performs the following actions:</p> 
+<ol> 
+ <li>Obtains a source of objects from the collection <code>source</code>. In this example, it obtains a source of <code>Person</code> objects from the collection <code>roster</code>. Notice that the collection <code>roster</code>, which is a collection of type <code>List</code>, is also an object of type <code>Iterable</code>.</li> 
+ <li>Filters objects that match the <code>Predicate</code> object <code>tester</code>. In this example, the <code>Predicate</code> object is a lambda expression that specifies which members would be eligible for Selective Service.</li> 
+ <li>Maps each filtered object to a value as specified by the <code>Function</code> object <code>mapper</code>. In this example, the <code>Function</code> object is a lambda expression that returns the e-mail address of a member.</li> 
+ <li>Performs an action on each mapped object as specified by the <code>Consumer</code> object <code>block</code>. In this example, the <code>Consumer</code> object is a lambda expression that prints a string, which is the e-mail address returned by the <code>Function</code> object.</li> 
+</ol> 
+<p>You can replace each of these actions with an aggregate operation.</p> 
+<!-- ********************************************************************** -->

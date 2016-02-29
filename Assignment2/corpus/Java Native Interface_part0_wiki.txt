@@ -1,0 +1,22 @@
+<p><span id="displaytitle" title=""></span></p> 
+<table style="width:100%; border:solid 1px #71c837; background:#c6e9af; color:#2d5016;" class="noprint"> 
+ <tbody> 
+  <tr> 
+   <td style="text-align:left; width:33%; font-size:90%;"><img alt="" src="//upload.wikimedia.org/wikibooks/en/thumb/d/df/Navigation_Left_Arrow.svg/18px-Navigation_Left_Arrow.svg.png" width="18" height="14" srcset="//upload.wikimedia.org/wikibooks/en/thumb/d/df/Navigation_Left_Arrow.svg/27px-Navigation_Left_Arrow.svg.png 1.5x, //upload.wikimedia.org/wikibooks/en/thumb/d/df/Navigation_Left_Arrow.svg/36px-Navigation_Left_Arrow.svg.png 2x" data-file-width="165" data-file-height="130"> <a href="/wiki/Java_Programming/3D_Programming" title="Java Programming/3D Programming">3D Programming</a></img></td> 
+   <td style="text-align:center; width:34%;"><a href="/wiki/Java_Programming" title="Java Programming">Java Programming</a><br> <b>Java Native Interface</b></br></td> 
+   <td style="text-align:right; width:33%; font-size:90%;"><a href="/wiki/Java_Programming/Invoking_C" title="Java Programming/Invoking C">Invoking C</a> <img alt="" src="//upload.wikimedia.org/wikibooks/en/thumb/e/ea/Navigation_Right_Arrow.svg/18px-Navigation_Right_Arrow.svg.png" width="18" height="14" srcset="//upload.wikimedia.org/wikibooks/en/thumb/e/ea/Navigation_Right_Arrow.svg/27px-Navigation_Right_Arrow.svg.png 1.5x, //upload.wikimedia.org/wikibooks/en/thumb/e/ea/Navigation_Right_Arrow.svg/36px-Navigation_Right_Arrow.svg.png 2x" data-file-width="165" data-file-height="130" /></td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p><br> The Java Native Interface (JNI) enables Java code running in a Java Virtual Machine (JVM) to call and to be called by native applications (programs specific to a hardware and operating system platform) and libraries written in other languages, such as C, C++ and assembly.</br></p> 
+<p>JNI can be used:</p> 
+<ul> 
+ <li>To implement or use features that are platform-specific.</li> 
+ <li>To implement or use features that the standard Java class library does not support.</li> 
+ <li>To enable an existing application—written in another programming language—to be accessible to Java applications.</li> 
+ <li>To let a native method use Java objects in the same way that Java code uses these objects (a native method can create Java objects and then inspect and use these objects to perform its tasks).</li> 
+ <li>To let a native method inspect and use objects created by Java application code.</li> 
+ <li>For time-critical calculations or operations like solving complicated mathematical equations (native code may be faster than JVM code).</li> 
+</ul> 
+<p>On the other hand, an application that relies on JNI loses the platform portability Java offers. So you will have to write a separate implementation of JNI code for each platform and have Java detect the operating system and load the correct one at runtime. Many of the standard library classes depend on JNI to provide functionality to the developer and the user (file I/O, sound capabilities...). Including performance- and platform-sensitive API implementations in the standard library allows all Java applications to access this functionality in a safe and platform-independent manner. Only applications and signed applets can invoke JNI. JNI should be used with caution. Subtle errors in the use of JNI can destabilize the entire JVM in ways that are very difficult to reproduce and debug. Error checking is a must or it has the potential to crash the JNI side and the JVM.</p> 
+<p>This page will only explain how to call native code from JVM, not how to call JVM from native code.</p>

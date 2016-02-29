@@ -1,0 +1,146 @@
+<dl> 
+ <dt>
+   ComProtocol&nbsp; 
+ </dt> 
+ <dd>
+   This class implements, and encapsulates the communication logic (protocol). The protocol is the following: 
+  <ol> 
+   <li>The client initiate the connection.</li> 
+   <li>The server accepts it and sends an acknowledgment notifying that it's ready</li> 
+   <li>The client sends a request</li> 
+   <li>The server response based on the request</li> 
+  </ol> 
+ </dd> 
+ <dd>
+   ... 
+  <ol> 
+   <li>The client sends a <code>BYE</code> request</li> 
+   <li>The server acknowledge the <code>BYE</code> request and disconnects the socket connection</li> 
+   <li>The client gets the acknowledgment to the <code>BYE</code></li> 
+  </ol> 
+ </dd> 
+ <dd>
+   ... 
+  <ol> 
+   <li>The client sends a <code>SHUTDOWN</code> request</li> 
+   <li>The server acknowledge the <code>SHUTDOWN</code> request and disconnects and also stops listening of other clients.</li> 
+   <li>The client gets the acknowledgment to the <code>SHUTDOWN</code></li> 
+  </ol> 
+ </dd> 
+</dl> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Computer code" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/32px-Gnome-settings-accessibility-keyboard.svg.png" title="Computer code" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/48px-Gnome-settings-accessibility-keyboard.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/64px-Gnome-settings-accessibility-keyboard.svg.png 2x" data-file-width="60" data-file-height="60" /></td> 
+   <td style="background-color:#ffeee0; border-left: 4px solid orange; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><b>Code listing 1.3: ComProtocol</b> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+ <span class="kd">class</span> <span class="err">'''</span><span class="nc">ComProtocol</span><span class="sc">'''</span>
+ <span class="o">{</span>
+  <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">COM_STATUS_WAITING</span>    <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> 
+  <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">COM_STATUS_READY_SENT</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+  <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">COM_STATUS_DATA_SENT</span>  <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
+  <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">COM_STATUS_WAITING_FOR_TERMINALID</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>
+  <span class="kd">private</span> <span class="kt">int</span> <span class="n">state</span> <span class="o">=</span> <span class="n">COM_STATUS_WAITING</span><span class="o">;</span>
+  
+  <span class="c1">// --- Reference to 'BACK-END' module ---  </span>
+  <span class="kd">private</span> <span class="n">MqTeAccess</span> <span class="n">mqTe</span><span class="o">;</span>
+  <span class="o">...</span>
+    <span class="cm">/**</span>
+<span class="cm">     * Create a protokol object; CAll MQ INI function</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="nf">ComProtocol</span><span class="o">()</span>
+    <span class="o">{</span>
+     <span class="kt">int</span>    <span class="n">iRet</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="c1">// --- Initialize 'BACK-END' modules  ---</span>
+        <span class="n">mqTe</span><span class="o">.</span> <span class="o">...</span>
+ <span class="o">...</span>
+    <span class="o">}</span>
+    <span class="cm">/**</span>
+<span class="cm">     * --- Process the Input and Create the output to the Client ---</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="n">COM_DATA</span> <span class="nf">processInput</span><span class="o">(</span> <span class="n">COM_DATA</span> <span class="n">theInput</span> <span class="o">)</span>
+    <span class="o">{</span>
+     <span class="n">COM_DATA</span> <span class="n">theOutput</span><span class="o">;</span>
+        <span class="c1">// --- Initialize Variables ---</span>
+        <span class="n">theOutput</span> <span class="o">=</span> <span class="k">new</span> <span class="n">COM_DATA</span><span class="o">();</span>
+        <span class="c1">// --- Check if the Clients want to disconnect ---</span>
+        <span class="k">if</span> <span class="o">(</span> <span class="n">theInput</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">)</span> 
+        <span class="o">{</span>
+            <span class="k">if</span> <span class="o">(</span> <span class="n">theInput</span><span class="o">.</span><span class="na">comData</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="sc">'''</span><span class="s">"!BYE.@"</span><span class="sc">'''</span><span class="o">)</span> <span class="o">)</span>
+            <span class="o">{</span>
+                <span class="c1">// --- The Client wants to terminate; Echo data back to client</span>
+                <span class="n">theOutput</span><span class="o">.</span><span class="na">comData</span> <span class="o">=</span> <span class="s">"BYE."</span><span class="o">;</span>
+                <span class="c1">// --- Mark the comunication to be terminated ---</span>
+                <span class="n">theOutput</span><span class="o">.</span><span class="na">bExit</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+                <span class="c1">// --- Set the internal state to wait for a new client ---</span>
+                <span class="n">state</span> <span class="o">=</span> <span class="n">COM_STATUS_WAITING</span><span class="o">;</span>
+                <span class="c1">// --- Return Data object to be sent to the client ---</span>
+                <span class="k">return</span> <span class="n">theOutput</span><span class="o">;</span>
+            <span class="o">}</span>
+            <span class="k">if</span> <span class="o">(</span> <span class="n">theInput</span><span class="o">.</span><span class="na">comData</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="sc">'''</span><span class="s">"!SHUTDOWN.@"</span><span class="sc">'''</span><span class="o">)</span> <span class="o">)</span>
+            <span class="o">{</span>
+                <span class="c1">// --- The Client wants to terminate; Echo data back to client</span>
+                <span class="n">theOutput</span><span class="o">.</span><span class="na">comData</span> <span class="o">=</span> <span class="s">"BYE."</span><span class="o">;</span>
+                <span class="c1">// --- Mark the comunication to be terminated ---</span>
+                <span class="n">theOutput</span><span class="o">.</span><span class="na">bExit</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+                <span class="c1">// --- Tell the server to stop listening for new clients ---</span>
+                <span class="n">ComServer</span><span class="o">.</span><span class="na">GL_listening</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+                <span class="c1">// --- Set the internal state to wait for a new client ---</span>
+                <span class="n">state</span> <span class="o">=</span> <span class="n">COM_STATUS_WAITING</span><span class="o">;</span>
+                <span class="c1">// --- Return Data object to be sent to the client ---</span>
+                <span class="k">return</span> <span class="n">theOutput</span><span class="o">;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="k">if</span> <span class="o">(</span> <span class="n">state</span> <span class="o">==</span> <span class="n">COM_STATUS_WAITING</span> <span class="o">)</span>
+        <span class="o">{</span>
+            <span class="c1">// --- Send ready Message to the Client ---</span>
+            <span class="n">theOutput</span><span class="o">.</span><span class="na">comData</span> <span class="o">=</span> <span class="s">"Ready:"</span><span class="o">;</span>
+            <span class="c1">// --- Set the internal state ready; and wait for TerminalId ---</span>
+            <span class="n">state</span> <span class="o">=</span> <span class="n">COM_STATUS_WAITING_FOR_TERMINALID</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="k">else</span> <span class="k">if</span> <span class="o">(</span> <span class="n">state</span> <span class="o">==</span> <span class="n">COM_STATUS_WAITING_FOR_TERMINALID</span> <span class="o">)</span>
+        <span class="o">{</span>
+         <span class="kt">int</span> <span class="n">iRet</span><span class="o">;</span>
+            <span class="c1">// --- Get the Terminal ID ---</span>
+            <span class="n">sTermId</span> <span class="o">=</span> <span class="n">theInput</span><span class="o">.</span><span class="na">comData</span><span class="o">;</span> 
+            <span class="c1">// --- Call 'BACK-END' modules ...  ---</span>
+            <span class="n">mqTe</span><span class="o">.</span> <span class="o">...</span>
+ <span class="o">...</span>
+            <span class="c1">// --- Send ready Message with the Server Version to the Client ---</span>
+            <span class="n">theOutput</span><span class="o">.</span><span class="na">comData</span> <span class="o">=</span> <span class="s">"Ready;Server Version 1.0:"</span><span class="o">;</span>
+            <span class="c1">// --- Set the internal state raedy; and wait for TerminalId ---</span>
+            <span class="n">state</span> <span class="o">=</span> <span class="n">COM_STATUS_READY_SENT</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="k">else</span> <span class="k">if</span> <span class="o">(</span> <span class="n">state</span> <span class="o">==</span> <span class="n">COM_STATUS_READY_SENT</span> <span class="o">)</span>
+        <span class="o">{</span>
+         <span class="kt">int</span> <span class="n">iRet</span><span class="o">;</span>
+            <span class="n">String</span> <span class="n">sCommand</span> <span class="o">=</span> <span class="n">theInput</span><span class="o">.</span><span class="na">comData</span><span class="o">;</span>
+            <span class="c1">// --- Call 'BACK-END' modules ...</span>
+ <span class="o">...</span>
+            <span class="cm">/*</span>
+<span class="cm">            ** --- Check if we should get Response data ---</span>
+<span class="cm">            */</span>
+            <span class="k">if</span> <span class="o">(</span> <span class="n">theInput</span><span class="o">.</span><span class="na">iRet</span> <span class="o">==</span> <span class="n">COM_DATA</span><span class="o">.</span><span class="na">NOWAIT_FOR_RESPONSE</span> <span class="o">)</span> <span class="o">{</span>
+                <span class="c1">// -- Set the Output Value ---</span>
+                <span class="n">theOutput</span><span class="o">.</span><span class="na">iRet</span> <span class="o">=</span> <span class="n">iRet</span><span class="o">;</span>
+                <span class="n">theOutput</span><span class="o">.</span><span class="na">comData</span> <span class="o">=</span> <span class="s">""</span><span class="o">;</span>
+            <span class="o">}</span>
+            <span class="k">else</span> <span class="o">{</span>
+                <span class="c1">// --- Call 'BACK-END' modules ---</span>
+                <span class="n">mqTe</span><span class="o">.</span> <span class="o">...</span>
+                <span class="c1">// --- Set the Output Value ---</span>
+                <span class="n">theOutput</span><span class="o">.</span><span class="na">comData</span>    <span class="o">=</span> <span class="n">mqTe</span><span class="o">.</span><span class="na">sResponseBuffer</span><span class="o">;</span> 
+                <span class="n">theOutput</span><span class="o">.</span><span class="na">iRet</span>       <span class="o">=</span> <span class="n">iRet</span><span class="o">;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+     <span class="k">return</span> <span class="n">theOutput</span><span class="o">;</span>
+    <span class="o">}</span>  <span class="c1">// --- End of Method processInput() ---</span>
+ <span class="o">}</span> <span class="c1">// --- End of ComProtocol Class Definition ---</span>
+
+<span class="o">----</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table>

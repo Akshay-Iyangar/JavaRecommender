@@ -1,0 +1,60 @@
+<p>Also referred to as <i><code><a href="/wiki/Java_Programming/Keywords/if" title="Java Programming/Keywords/if"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">if</font></a></code> statements</i>, these allow a program to perform a test and then take action based on the result of that test.</p> 
+<p>The form of the <code><a href="/wiki/Java_Programming/Keywords/if" title="Java Programming/Keywords/if"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">if</font></a></code> statement:</p> 
+<pre>
+<code><a href="/wiki/Java_Programming/Keywords/if" title="Java Programming/Keywords/if"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">if</font></a></code> (<i>condition</i>) {
+  <i>do statements here if condition is true</i>
+} <code><a href="/wiki/Java_Programming/Keywords/else" title="Java Programming/Keywords/else"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">else</font></a></code> {
+  <i>do statements here if condition is false</i>
+}
+</pre> 
+<p>The <i>condition</i> is a boolean expression which can be either <code><a href="/wiki/Java_Programming/Literals/Boolean_Literals/true" title="Java Programming/Literals/Boolean Literals/true"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">true</font></a></code> or <code><a href="/wiki/Java_Programming/Literals/Boolean_Literals/false" title="Java Programming/Literals/Boolean Literals/false"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">false</font></a></code>. The actions performed will depend on the value of the condition.</p> 
+<p>Example:</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><b>Code section 3.10: An if statement.</b> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno">1 </span><span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno">2 </span>   <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"value stored in i is greater than zero"</span><span class="o">);</span>
+<span class="lineno">3 </span><span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+<span class="lineno">4 </span>   <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"value stored is not greater than zero"</span><span class="o">);</span>
+<span class="lineno">5 </span><span class="o">}</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>If statements can also be made more complex using the else if combination:</p> 
+<pre>
+<code><a href="/wiki/Java_Programming/Keywords/if" title="Java Programming/Keywords/if"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">if</font></a></code> (<i>condition 1</i>) {
+   <i>do statements here if condition 1 is true</i>
+} <code><a href="/wiki/Java_Programming/Keywords/else" title="Java Programming/Keywords/else"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">else</font></a></code> <code><a href="/wiki/Java_Programming/Keywords/if" title="Java Programming/Keywords/if"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">if</font></a></code> (<i>condition 2</i>) {
+   <i>do statements here if condition 1 is false and condition 2 is true</i>
+} <code><a href="/wiki/Java_Programming/Keywords/else" title="Java Programming/Keywords/else"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">else</font></a></code> {
+  <i>do statements here if neither condition 1 nor condition 2 is true</i>
+}
+</pre> 
+<p>Example:</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><b>Code section 3.11: An if/else if/else statement.</b> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno">1 </span><span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno">2 </span>   <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"value stored in i is greater than zero"</span><span class="o">);</span>
+<span class="lineno">3 </span><span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno">4 </span>   <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"value stored in i is less than zero"</span><span class="o">);</span>
+<span class="lineno">5 </span><span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+<span class="lineno">6 </span>   <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"value stored is equal to 0"</span><span class="o">);</span>
+<span class="lineno">7 </span><span class="o">}</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>If there is only one statement to be executed after the condition, as in the above example, it is possible to omit the curly braces, however Oracle's <a rel="nofollow" class="external text" href="http://www.oracle.com/technetwork/java/index.html#449">Java Code Conventions</a> explicitly state that the braces should always be used.</p> 
+<p>There is no looping involved in an if statement so once the condition has been evaluated the program will continue with the next instruction after the statement.</p>

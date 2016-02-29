@@ -1,0 +1,44 @@
+<p>A lambda expression consists of the following:</p> 
+<ul> 
+ <li><p>A comma-separated list of formal parameters enclosed in parentheses. The <code>CheckPerson.test</code> method contains one parameter, <code>p</code>, which represents an instance of the <code>Person</code> class.</p> <p><b>Note</b>: You can omit the data type of the parameters in a lambda expression. In addition, you can omit the parentheses if there is only one parameter. For example, the following lambda expression is also valid:</p> <pre class="codeblock">p -&gt; p.getGender() == Person.Sex.MALE 
+    &amp;&amp; p.getAge() &gt;= 18
+    &amp;&amp; p.getAge() &lt;= 25</pre></li> 
+ <li><p>The arrow token, <code>-&gt;</code></p></li> 
+ <li><p>A body, which consists of a single expression or a statement block. This example uses the following expression:</p> <pre class="codeblock">p.getGender() == Person.Sex.MALE 
+    &amp;&amp; p.getAge() &gt;= 18
+    &amp;&amp; p.getAge() &lt;= 25</pre> <p>If you specify a single expression, then the Java runtime evaluates the expression and then returns its value. Alternatively, you can use a return statement:</p> <pre class="codeblock">p -&gt; {
+    return p.getGender() == Person.Sex.MALE
+        &amp;&amp; p.getAge() &gt;= 18
+        &amp;&amp; p.getAge() &lt;= 25;
+}</pre> <p>A return statement is not an expression; in a lambda expression, you must enclose statements in braces (<code>{}</code>). However, you do not have to enclose a void method invocation in braces. For example, the following is a valid lambda expression:</p> <pre class="codeblock">email -&gt; System.out.println(email)</pre> </li> 
+</ul> 
+<p>Note that a lambda expression looks a lot like a method declaration; you can consider lambda expressions as anonymous methods—methods without a name.</p> 
+<p>The following example, <a class="SourceLink" target="_blank" href="examples/Calculator.java" onclick="showCode('https://docs.oracle.com/javase/tutorial/displayCode.html', 'examples/Calculator.java'); return false;"><code>Calculator</code></a>, is an example of lambda expressions that take more than one formal parameter:</p> 
+<pre class="codeblock">
+
+public class Calculator {
+  
+    interface IntegerMath {
+        int operation(int a, int b);   
+    }
+  
+    public int operateBinary(int a, int b, IntegerMath op) {
+        return op.operation(a, b);
+    }
+ 
+    public static void main(String... args) {
+    
+        Calculator myApp = new Calculator();
+        IntegerMath addition = (a, b) -&gt; a + b;
+        IntegerMath subtraction = (a, b) -&gt; a - b;
+        System.out.println("40 + 2 = " +
+            myApp.operateBinary(40, 2, addition));
+        System.out.println("20 - 10 = " +
+            myApp.operateBinary(20, 10, subtraction));    
+    }
+}
+
+</pre> 
+<p>The method <code>operateBinary</code> performs a mathematical operation on two integer operands. The operation itself is specified by an instance of <code>IntegerMath</code>. The example defines two operations with lambda expressions, <code>addition</code> and <code>subtraction</code>. The example prints the following:</p> 
+<pre class="codeblock">40 + 2 = 42
+20 - 10 = 10</pre>

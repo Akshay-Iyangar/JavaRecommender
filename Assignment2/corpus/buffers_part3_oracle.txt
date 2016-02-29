@@ -1,0 +1,50 @@
+<p>The principal operations on a <code>StringBuilder</code> that are not available in <code>String</code> are the <code>append()</code> and <code>insert()</code> methods, which are overloaded so as to accept data of any type. Each converts its argument to a string and then appends or inserts the characters of that string to the character sequence in the string builder. The append method always adds these characters at the end of the existing character sequence, while the insert method adds the characters at a specified point.</p> 
+<p>Here are a number of the methods of the <code>StringBuilder</code> class.</p> 
+<table width="100%" border="1" cellpadding="4" cellspacing="3" summary="This table lists miscellaneous StringBuilder methods"> 
+ <caption style="font-weight: bold">
+   Various 
+  <code>StringBuilder</code> Methods 
+ </caption> 
+ <tbody> 
+  <tr> 
+   <th id="h201">Method</th> 
+   <th id="h202" width="50%">Description</th> 
+  </tr> 
+  <tr> 
+   <td headers="h201"><code>StringBuilder append(boolean b)<br> StringBuilder append(char c)<br> StringBuilder append(char[] str)<br> StringBuilder append(char[] str, int offset, int len)<br> StringBuilder append(double d)<br> StringBuilder append(float f)<br> StringBuilder append(int i)<br> StringBuilder append(long lng)<br> StringBuilder append(Object obj)<br> StringBuilder append(String s)</br></br></br></br></br></br></br></br></br></code></td> 
+   <td headers="h202">Appends the argument to this string builder. The data is converted to a string before the append operation takes place.</td> 
+  </tr> 
+  <tr> 
+   <td headers="h201"><code>StringBuilder delete(int start, int end)<br> StringBuilder deleteCharAt(int index)</br></code></td> 
+   <td headers="h202">The first method deletes the subsequence from start to end-1 (inclusive) in the <code>StringBuilder</code>'s char sequence. The second method deletes the character located at <code>index</code>.</td> 
+  </tr> 
+  <tr> 
+   <td headers="h201"><code>StringBuilder insert(int offset, boolean b)<br> StringBuilder insert(int offset, char c)<br> StringBuilder insert(int offset, char[] str)<br> StringBuilder insert(int index, char[] str, int offset, int len)<br> StringBuilder insert(int offset, double d)<br> StringBuilder insert(int offset, float f)<br> StringBuilder insert(int offset, int i)<br> StringBuilder insert(int offset, long lng)<br> StringBuilder insert(int offset, Object obj)<br> StringBuilder insert(int offset, String s)</br></br></br></br></br></br></br></br></br></code></td> 
+   <td headers="h202">Inserts the second argument into the string builder. The first integer argument indicates the index before which the data is to be inserted. The data is converted to a string before the insert operation takes place.</td> 
+  </tr> 
+  <tr> 
+   <td headers="h201"><code>StringBuilder replace(int start, int end, String s)<br> void setCharAt(int index, char c)</br></code></td> 
+   <td headers="h202">Replaces the specified character(s) in this string builder.</td> 
+  </tr> 
+  <tr> 
+   <td headers="h201"><code>StringBuilder reverse()</code></td> 
+   <td headers="h202">Reverses the sequence of characters in this string builder.</td> 
+  </tr> 
+  <tr> 
+   <td headers="h201"><code>String toString()</code></td> 
+   <td headers="h202">Returns a string that contains the character sequence in the builder.</td> 
+  </tr> 
+ </tbody> 
+</table> 
+<div class="note"> 
+ <hr> 
+  <strong>Note:</strong>&nbsp;You can use any 
+  <code>String</code> method on a 
+  <code>StringBuilder</code> object by first converting the string builder to a string with the 
+  <code>toString()</code> method of the 
+  <code>StringBuilder</code> class. Then convert the string back into a string builder using the 
+  <code>StringBuilder(String str)</code> constructor. 
+  <hr> 
+  </hr>
+ </hr>
+</div>

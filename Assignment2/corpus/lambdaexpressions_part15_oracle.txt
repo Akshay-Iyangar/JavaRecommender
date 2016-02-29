@@ -1,0 +1,20 @@
+<p>How do you determine the type of a lambda expression? Recall the lambda expression that selected members who are male and between the ages 18 and 25 years:</p> 
+<pre class="codeblock">p -&gt; p.getGender() == Person.Sex.MALE
+    &amp;&amp; p.getAge() &gt;= 18
+    &amp;&amp; p.getAge() &lt;= 25</pre> 
+<p>This lambda expression was used in the following two methods:</p> 
+<ul> 
+ <li><p><code>public static void printPersons(List&lt;Person&gt; roster, CheckPerson tester)</code> in <a href="#approach3">Approach 3: Specify Search Criteria Code in a Local Class</a></p></li> 
+ <li><p><code>public void printPersonsWithPredicate(List&lt;Person&gt; roster, Predicate&lt;Person&gt; tester)</code> in <a href="#approach6">Approach 6: Use Standard Functional Interfaces with Lambda Expressions</a></p></li> 
+</ul> 
+<p>When the Java runtime invokes the method <code>printPersons</code>, it's expecting a data type of <code>CheckPerson</code>, so the lambda expression is of this type. However, when the Java runtime invokes the method <code>printPersonsWithPredicate</code>, it's expecting a data type of <code>Predicate&lt;Person&gt;</code>, so the lambda expression is of this type. The data type that these methods expect is called the <em>target type</em>. To determine the type of a lambda expression, the Java compiler uses the target type of the context or situation in which the lambda expression was found. It follows that you can only use lambda expressions in situations in which the Java compiler can determine a target type:</p> 
+<ul> 
+ <li><p>Variable declarations</p></li> 
+ <li><p>Assignments</p></li> 
+ <li><p>Return statements</p></li> 
+ <li><p>Array initializers</p></li> 
+ <li><p>Method or constructor arguments</p></li> 
+ <li><p>Lambda expression bodies</p></li> 
+ <li><p>Conditional expressions, <code>?:</code></p></li> 
+ <li><p>Cast expressions</p></li> 
+</ul>

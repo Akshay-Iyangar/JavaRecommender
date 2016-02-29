@@ -1,0 +1,68 @@
+<p>Sometimes we may want to change the ordering of a collection of objects from the same class. We may want to order descending or ascending order. We may want to sort by <code>name</code> or by <code>address</code>.</p> 
+<p>We need to create a class for each way of ordering. It has to implement the <code>Comparator</code> interface.</p> 
+<p>Since Java 5.0, the <code>Comparator</code> interface is generic; that means when you implement it, you can specify what type of objects your comparator can compare.</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Computer code" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/32px-Gnome-settings-accessibility-keyboard.svg.png" title="Computer code" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/48px-Gnome-settings-accessibility-keyboard.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/64px-Gnome-settings-accessibility-keyboard.svg.png 2x" data-file-width="60" data-file-height="60" /></td> 
+   <td style="background-color:#ffeee0; border-left: 4px solid orange; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><span id="code-listing-7"><b>Code listing 5.7: CustomerComparator.java</b></span> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno">1 </span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">CustomerComparator</span> <span class="kd">implements</span> <span class="n">Comparator</span><span class="o">&lt;</span><span class="n">Customer</span><span class="o">&gt;</span> <span class="o">{</span>
+<span class="lineno">2 </span><span class="hll">    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">compare</span><span class="o">(</span><span class="n">Customer</span> <span class="n">cust1</span><span class="o">,</span> <span class="n">Customer</span> <span class="n">cust2</span><span class="o">)</span> <span class="o">{</span>
+</span><span class="lineno">3 </span><span class="hll">        <span class="k">return</span> <span class="n">cust1</span><span class="o">.</span><span class="na">getName</span><span class="o">().</span><span class="na">compareTo</span><span class="o">(</span><span class="n">cust2</span><span class="o">.</span><span class="na">getName</span><span class="o">());</span>
+</span><span class="lineno">4 </span><span class="hll">    <span class="o">}</span>
+</span><span class="lineno">5 </span><span class="o">}</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>The above class then can be associated with a SortedSet or other collections that support sorting.</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><b>Code section 5.21: Comparator usage.</b> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno">1 </span><span class="n">Collection</span><span class="o">&lt;</span><span class="n">Customer</span><span class="o">&gt;</span> <span class="n">orderedCustomers</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TreeSet</span><span class="o">&lt;</span><span class="n">Customer</span><span class="o">&gt;(</span><span class="k">new</span> <span class="n">CustomerComparator</span><span class="o">());</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>Using the Iterator the <code>orderedCustomers</code> collection can be iterated in order of sorted by <code>name</code>.</p> 
+<p>A List can be sorted by the <code>Collections</code>' <code>sort</code> method.</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><b>Code section 5.22: Customized comparison.</b> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno">1 </span><span class="n">java</span><span class="o">.</span><span class="na">util</span><span class="o">.</span><span class="na">Collections</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">custList</span><span class="o">,</span> <span class="k">new</span> <span class="n">CustomerComparator</span><span class="o">());</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>Sorts the specified list according to the order induced by the specified comparator. All elements in the list must be mutually comparable using the specified comparator.</p> 
+<p>An array of objects can also be sorted with the help of a <code>Comparator</code>.</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><b>Code section 5.23: Array sorting.</b> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno">1 </span><span class="n">SortableCustomer</span><span class="o">[]</span> <span class="n">customerArray</span><span class="o">;</span>
+<span class="lineno">2 </span><span class="c1">//...</span>
+<span class="lineno">3 </span><span class="hll"><span class="n">java</span><span class="o">.</span><span class="na">util</span><span class="o">.</span><span class="na">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">customerArray</span><span class="o">,</span> <span class="k">new</span> <span class="n">CustomerComparator</span><span class="o">());</span>
+</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>Sorts the specified array of <code>Customer</code> objects (customerArray) according to the order induced by the specified comparator. All elements in the array must be mutually comparable by the specified comparator.</p>

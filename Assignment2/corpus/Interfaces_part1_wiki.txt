@@ -1,0 +1,82 @@
+<p>If you have objects from different classes that do not have common superclasses, you can't call a same method on them, even if the two classes implement a method with the same signature.</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Computer code" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/32px-Gnome-settings-accessibility-keyboard.svg.png" title="Computer code" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/48px-Gnome-settings-accessibility-keyboard.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/64px-Gnome-settings-accessibility-keyboard.svg.png 2x" data-file-width="60" data-file-height="60" /></td> 
+   <td style="background-color:#ffeee0; border-left: 4px solid orange; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><span id="code-listing-16"><b>Code listing 4.16: OneClass.java</b></span> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno">1 </span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">OneClass</span> <span class="o">{</span>
+<span class="lineno">2 </span><span class="hll">    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">method1</span><span class="o">(</span><span class="n">String</span> <span class="n">parameter</span><span class="o">)</span> <span class="o">{</span>
+</span><span class="lineno">3 </span><span class="hll">        <span class="k">return</span> <span class="mi">1</span><span class="o">;</span>
+</span><span class="lineno">4 </span><span class="hll">    <span class="o">}</span>
+</span><span class="lineno">5 </span><span class="o">}</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Computer code" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/32px-Gnome-settings-accessibility-keyboard.svg.png" title="Computer code" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/48px-Gnome-settings-accessibility-keyboard.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/64px-Gnome-settings-accessibility-keyboard.svg.png 2x" data-file-width="60" data-file-height="60" /></td> 
+   <td style="background-color:#ffeee0; border-left: 4px solid orange; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><span id="code-listing-17"><b>Code listing 4.17: AnotherClass.java</b></span> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno">1 </span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">AnotherClass</span> <span class="o">{</span>
+<span class="lineno">2 </span><span class="hll">    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">method1</span><span class="o">(</span><span class="n">String</span> <span class="n">parameter</span><span class="o">)</span> <span class="o">{</span>
+</span><span class="lineno">3 </span><span class="hll">        <span class="k">return</span> <span class="mi">2</span><span class="o">;</span>
+</span><span class="lineno">4 </span><span class="hll">    <span class="o">}</span>
+</span><span class="lineno">5 </span><span class="o">}</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td><a href="/wiki/File:Nuvola_apps_important.svg" class="image" title="Warning"><img alt="Warning" src="//upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Nuvola_apps_important.svg/32px-Nuvola_apps_important.svg.png" width="32" height="27" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Nuvola_apps_important.svg/48px-Nuvola_apps_important.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Nuvola_apps_important.svg/64px-Nuvola_apps_important.svg.png 2x" data-file-width="600" data-file-height="500" /></a></td> 
+   <td style="background-color:#fff0f0; border-left: 4px solid red; padding-left: 6px;"><span id="code-section-16" style="color: red;"><b>Code section 4.16: Impossible call.</b></span> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno">1 </span><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno">2 </span>    <span class="n">doAction</span><span class="o">(</span><span class="k">new</span> <span class="n">OneClass</span><span class="o">());</span>
+<span class="lineno">3 </span>    <span class="n">doAction</span><span class="o">(</span><span class="k">new</span> <span class="n">AnotherClass</span><span class="o">());</span>
+<span class="lineno">4 </span><span class="o">}</span>
+<span class="lineno">5 </span>
+<span class="lineno">6 </span><span class="kd">public</span> <span class="kt">void</span> <span class="nf">doAction</span><span class="o">(</span><span class="n">Object</span> <span class="n">anObject</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno">7 </span><span class="hll">    <span class="n">anObject</span><span class="o">.</span><span class="na">method1</span><span class="o">(</span><span class="s">"Hello!"</span><span class="o">);</span>
+</span><span class="lineno">8 </span><span class="o">}</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>The solution is to write an interface that defines the method that should be implemented in the two classes as the <code>SimpleInterface</code> in the <a href="#code-listing-14">Code listing 4.14</a> and then the both class implement the interface as in the <a href="#code-listing-15">Code listing 4.15</a>.</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><b>Code section 4.17: Interface use.</b> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno">1 </span><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno">2 </span>    <span class="n">doAction</span><span class="o">(</span><span class="k">new</span> <span class="n">ClassWithInterface</span><span class="o">());</span>
+<span class="lineno">3 </span>    <span class="n">doAction</span><span class="o">(</span><span class="k">new</span> <span class="n">AnotherClassWithInterface</span><span class="o">());</span>
+<span class="lineno">4 </span><span class="o">}</span>
+<span class="lineno">5 </span>
+<span class="lineno">6 </span><span class="kd">public</span> <span class="kt">void</span> <span class="nf">doAction</span><span class="o">(</span><span class="n">SimpleInterface</span> <span class="n">anObject</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno">7 </span><span class="hll">    <span class="n">anObject</span><span class="o">.</span><span class="na">method1</span><span class="o">(</span><span class="s">"Hello!"</span><span class="o">);</span>
+</span><span class="lineno">8 </span><span class="o">}</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>You can also have this interest using a common super class but a class can only inherit from one super class whereas it can implement several interfaces. Java does not support full orthogonal multiple inheritance. Java does not allow you to create a subclass from two classes. Multiple inheritance in <a href="/wiki/C%2B%2B" title="C++" class="mw-redirect">C++</a> has complicated rules to disambiguate fields and methods inherited from multiple superclasses and types inherited multiple times. By separating interface from implementation, interfaces offer much of the benefit of multiple inheritance with less complexity and ambiguity. The price of no multiple inheritance is some code redundancy; since interfaces only define the signature of a class but cannot contain any implementation, every class inheriting an interface must provide the implementation of the defined methods, unlike in pure multiple inheritance, where the implementation is also inherited. The major benefit of that is that all Java objects can have a common ancestor. That class is called <code><a href="/wiki/Java_Programming/API/java.lang.Object" title="Java Programming/API/java.lang.Object">Object</a></code>. When overriding methods defined in interfaces there are several rules to be followed:</p> 
+<ul> 
+ <li>Checked exceptions should not be declared on implementation methods other than the ones declared by the interface method or subclasses of those declared by the interface method.</li> 
+ <li>The signature of the interface method and the same return type or subtype should be maintained when implementing the methods.</li> 
+ <li>All the methods of the interface need to be defined in the class, unless the class that implements the interface is abstract.</li> 
+</ul>

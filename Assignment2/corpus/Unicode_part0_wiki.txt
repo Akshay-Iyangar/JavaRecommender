@@ -1,0 +1,38 @@
+<p><span id="displaytitle" title=""></span></p> 
+<table style="width:100%; border:solid 1px #71c837; background:#c6e9af; color:#2d5016;" class="noprint"> 
+ <tbody> 
+  <tr> 
+   <td style="text-align:left; width:33%; font-size:90%;"><img alt="" src="//upload.wikimedia.org/wikibooks/en/thumb/d/df/Navigation_Left_Arrow.svg/18px-Navigation_Left_Arrow.svg.png" width="18" height="14" srcset="//upload.wikimedia.org/wikibooks/en/thumb/d/df/Navigation_Left_Arrow.svg/27px-Navigation_Left_Arrow.svg.png 1.5x, //upload.wikimedia.org/wikibooks/en/thumb/d/df/Navigation_Left_Arrow.svg/36px-Navigation_Left_Arrow.svg.png 2x" data-file-width="165" data-file-height="130"> <a href="/wiki/Java_Programming/Random_numbers" title="Java Programming/Random numbers">Random numbers</a></img></td> 
+   <td style="text-align:center; width:34%;"><a href="/wiki/Java_Programming" title="Java Programming">Java Programming</a><br> <b>Unicode</b></br></td> 
+   <td style="text-align:right; width:33%; font-size:90%;"><a href="/wiki/Java_Programming/Classes_and_Objects" title="Java Programming/Classes and Objects">Classes and Objects</a> <img alt="" src="//upload.wikimedia.org/wikibooks/en/thumb/e/ea/Navigation_Right_Arrow.svg/18px-Navigation_Right_Arrow.svg.png" width="18" height="14" srcset="//upload.wikimedia.org/wikibooks/en/thumb/e/ea/Navigation_Right_Arrow.svg/27px-Navigation_Right_Arrow.svg.png 1.5x, //upload.wikimedia.org/wikibooks/en/thumb/e/ea/Navigation_Right_Arrow.svg/36px-Navigation_Right_Arrow.svg.png 2x" data-file-width="165" data-file-height="130" /></td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p><br> Most Java program text consists of <a href="//en.wikipedia.org/wiki/ASCII" class="extiw" title="wikipedia:ASCII">ASCII</a> characters, but any Unicode character can be used as part of identifier names, in comments, and in character and string literals. For example, π (which is the Greek Lowercase Letter <b>pi</b>) is a valid Java identifier:</br></p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><span id="code-section-100"><b>Code section 3.100: Pi.</b></span> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno">1 </span><span class="kt">double</span> <span class="n">π</span> <span class="o">=</span> <span class="n">Math</span><span class="o">.</span><span class="na">PI</span><span class="o">;</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>and in a string literal:</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><span id="code-section-101"><b>Code section 3.101: Pi literal.</b></span> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno">1 </span><span class="n">String</span> <span class="n">pi</span> <span class="o">=</span> <span class="s">"π"</span><span class="o">;</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table>

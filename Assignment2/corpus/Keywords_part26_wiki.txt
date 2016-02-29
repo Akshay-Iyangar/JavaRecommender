@@ -1,0 +1,184 @@
+<p><code><a href="/wiki/Java_Programming/Keywords/finally" title="Java Programming/Keywords/finally"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">finally</font></a></code> is a keyword which is an optional part of the <code><a href="/wiki/Java_Programming/Keywords/try" title="Java Programming/Keywords/try"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">try</font></a></code> block.</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><span id="code-section-1"><b>Code section 1: <code><a href="/wiki/Java_Programming/Keywords/try" title="Java Programming/Keywords/try"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">try</font></a></code> block.</b></span> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno">1 </span><span class="k">try</span> <span class="o">{</span>
+<span class="lineno">2 </span>  <span class="c1">// ...</span>
+<span class="lineno">3 </span><span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">MyException1</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno">4 </span>  <span class="c1">// Handle the Exception1 here</span>
+<span class="lineno">5 </span><span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">MyException2</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno">6 </span>  <span class="c1">// Handle the Exception2 here</span>
+<span class="lineno">7 </span><span class="hll"><span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>
+</span><span class="lineno">8 </span>  <span class="c1">// This will always be executed no matter what happens</span>
+<span class="lineno">9 </span><span class="o">}</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>The code inside the finally block will always be executed. This is also true for cases when there is an exception or even executed <code><a href="/wiki/Java_Programming/Keywords/return" title="Java Programming/Keywords/return"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">return</font></a></code> statement in the try block.</p> 
+<p>Three things can happen in a try block. First, no exception is thrown:</p> 
+<table style="width: 100%;"> 
+ <tbody> 
+  <tr> 
+   <td valign="top"> 
+    <table style="padding:2px; margin:2px;"> 
+     <tbody> 
+      <tr valign="top"> 
+       <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+       <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><span id="code-section-2"><b>Code section 2: No exception is thrown.</b></span> 
+        <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+         <pre>
+<span class="lineno"> 1 </span><span class="hll"><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Before the try block"</span><span class="o">);</span>
+</span><span class="lineno"> 2 </span><span class="hll"><span class="k">try</span> <span class="o">{</span>
+</span><span class="lineno"> 3 </span><span class="hll">  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Inside the try block"</span><span class="o">);</span>
+</span><span class="lineno"> 4 </span><span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">MyException1</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno"> 5 </span>  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Handle the Exception1"</span><span class="o">);</span>
+<span class="lineno"> 6 </span><span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">MyException2</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno"> 7 </span>  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Handle the Exception2"</span><span class="o">);</span>
+<span class="lineno"> 8 </span><span class="hll"><span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>
+</span><span class="lineno"> 9 </span><span class="hll">  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Execute the finally block"</span><span class="o">);</span>
+</span><span class="lineno">10 </span><span class="hll"><span class="o">}</span>
+</span><span class="lineno">11 </span><span class="hll"><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Continue"</span><span class="o">);</span>
+</span>
+</pre> 
+        </div> </td> 
+      </tr> 
+     </tbody> 
+    </table> </td> 
+   <td valign="top"> 
+    <table style="padding:2px; margin:2px; width:100%;"> 
+     <tbody> 
+      <tr valign="top"> 
+       <td style="width:32px;"><img alt="Standard input or output" src="//upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/32px-Nuvola_apps_display.png" title="Standard input or output" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/48px-Nuvola_apps_display.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/64px-Nuvola_apps_display.png 2x" data-file-width="128" data-file-height="128" /></td> 
+       <td style="background-color:#f0f0ff; border-left: 4px solid blue; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><b>Console for Code section 2</b> <pre style="background-color:black; color:white;">
+Before the try block
+Inside the try block
+Execute the finally block
+Continue
+</pre></td> 
+      </tr> 
+     </tbody> 
+    </table> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>You can see that we have passed in the <code><a href="/wiki/Java_Programming/Keywords/try" title="Java Programming/Keywords/try"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">try</font></a></code> block, then we have executed the <code><a href="/wiki/Java_Programming/Keywords/finally" title="Java Programming/Keywords/finally"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">finally</font></a></code> block and we have continued the execution. Now, a caught exception is thrown:</p> 
+<table style="width: 100%;"> 
+ <tbody> 
+  <tr> 
+   <td valign="top"> 
+    <table style="padding:2px; margin:2px;"> 
+     <tbody> 
+      <tr valign="top"> 
+       <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+       <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><span id="code-section-3"><b>Code section 3: A caught exception is thrown.</b></span> 
+        <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+         <pre>
+<span class="lineno"> 1 </span><span class="hll"><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Before the try block"</span><span class="o">);</span>
+</span><span class="lineno"> 2 </span><span class="hll"><span class="k">try</span> <span class="o">{</span>
+</span><span class="lineno"> 3 </span><span class="hll">  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Enter inside the try block"</span><span class="o">);</span>
+</span><span class="lineno"> 4 </span><span class="hll">  <span class="k">throw</span> <span class="k">new</span> <span class="n">MyException1</span><span class="o">();</span>
+</span><span class="lineno"> 5 </span>  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Terminate the try block"</span><span class="o">);</span>
+<span class="lineno"> 6 </span><span class="hll"><span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">MyException1</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+</span><span class="lineno"> 7 </span><span class="hll">  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Handle the Exception1"</span><span class="o">);</span>
+</span><span class="lineno"> 8 </span><span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">MyException2</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno"> 9 </span>  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Handle the Exception2"</span><span class="o">);</span>
+<span class="lineno">10 </span><span class="hll"><span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>
+</span><span class="lineno">11 </span><span class="hll">  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Execute the finally block"</span><span class="o">);</span>
+</span><span class="lineno">12 </span><span class="hll"><span class="o">}</span>
+</span><span class="lineno">13 </span><span class="hll"><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Continue"</span><span class="o">);</span>
+</span>
+</pre> 
+        </div> </td> 
+      </tr> 
+     </tbody> 
+    </table> </td> 
+   <td valign="top"> 
+    <table style="padding:2px; margin:2px; width:100%;"> 
+     <tbody> 
+      <tr valign="top"> 
+       <td style="width:32px;"><img alt="Standard input or output" src="//upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/32px-Nuvola_apps_display.png" title="Standard input or output" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/48px-Nuvola_apps_display.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/64px-Nuvola_apps_display.png 2x" data-file-width="128" data-file-height="128" /></td> 
+       <td style="background-color:#f0f0ff; border-left: 4px solid blue; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><b>Console for Code section 3</b> <pre style="background-color:black; color:white;">
+Before the try block
+Enter inside the try block
+Handle the Exception1
+Execute the finally block
+Continue
+</pre></td> 
+      </tr> 
+     </tbody> 
+    </table> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>We have passed in the <code><a href="/wiki/Java_Programming/Keywords/try" title="Java Programming/Keywords/try"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">try</font></a></code> block until where the exception occurred, then we have executed the matching <code><a href="/wiki/Java_Programming/Keywords/catch" title="Java Programming/Keywords/catch"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">catch</font></a></code> block, the <code><a href="/wiki/Java_Programming/Keywords/finally" title="Java Programming/Keywords/finally"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">finally</font></a></code> block and we have continued the execution. Now, an uncaught exception is thrown:</p> 
+<table style="width: 100%;"> 
+ <tbody> 
+  <tr> 
+   <td valign="top"> 
+    <table style="padding:2px; margin:2px;"> 
+     <tbody> 
+      <tr valign="top"> 
+       <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+       <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><span id="code-section-4"><b>Code section 4: An uncaught exception is thrown.</b></span> 
+        <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+         <pre>
+<span class="lineno"> 1 </span><span class="hll"><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Before the try block"</span><span class="o">);</span>
+</span><span class="lineno"> 2 </span><span class="hll"><span class="k">try</span> <span class="o">{</span>
+</span><span class="lineno"> 3 </span><span class="hll">  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Enter inside the try block"</span><span class="o">);</span>
+</span><span class="lineno"> 4 </span><span class="hll">  <span class="k">throw</span> <span class="k">new</span> <span class="n">Exception</span><span class="o">();</span>
+</span><span class="lineno"> 5 </span>  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Terminate the try block"</span><span class="o">);</span>
+<span class="lineno"> 6 </span><span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">MyException1</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno"> 7 </span>  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Handle the Exception1"</span><span class="o">);</span>
+<span class="lineno"> 8 </span><span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">MyException2</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno"> 9 </span>  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Handle the Exception2"</span><span class="o">);</span>
+<span class="lineno">10 </span><span class="hll"><span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>
+</span><span class="lineno">11 </span><span class="hll">  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Execute the finally block"</span><span class="o">);</span>
+</span><span class="lineno">12 </span><span class="hll"><span class="o">}</span>
+</span><span class="lineno">13 </span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Continue"</span><span class="o">);</span>
+</pre> 
+        </div> </td> 
+      </tr> 
+     </tbody> 
+    </table> </td> 
+   <td valign="top"> 
+    <table style="padding:2px; margin:2px; width:100%;"> 
+     <tbody> 
+      <tr valign="top"> 
+       <td style="width:32px;"><img alt="Standard input or output" src="//upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/32px-Nuvola_apps_display.png" title="Standard input or output" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/48px-Nuvola_apps_display.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/64px-Nuvola_apps_display.png 2x" data-file-width="128" data-file-height="128" /></td> 
+       <td style="background-color:#f0f0ff; border-left: 4px solid blue; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><b>Console for Code section 4</b> <pre style="background-color:black; color:white;">
+Before the try block
+Enter inside the try block
+Execute the finally block
+</pre></td> 
+      </tr> 
+     </tbody> 
+    </table> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>We have passed in the <code><a href="/wiki/Java_Programming/Keywords/try" title="Java Programming/Keywords/try"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">try</font></a></code> block until where the exception occurred and we have executed the <code><a href="/wiki/Java_Programming/Keywords/finally" title="Java Programming/Keywords/finally"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">finally</font></a></code> block. <b>NO CODE</b> after the try-catch block has been executed. If there is an exception that happens before the try-catch block, the <code><a href="/wiki/Java_Programming/Keywords/finally" title="Java Programming/Keywords/finally"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">finally</font></a></code> block is not executed.</p> 
+<p>If <code><a href="/wiki/Java_Programming/Keywords/return" title="Java Programming/Keywords/return"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">return</font></a></code> statement is used inside finally, it overrides the return statement in the try-catch block. For instance, the construct</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><span id="code-section-5"><b>Code section 5: Return statement.</b></span> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno">1 </span> <span class="k">try</span> <span class="o">{</span>
+<span class="lineno">2 </span><span class="hll">   <span class="k">return</span> <span class="mi">11</span><span class="o">;</span>
+</span><span class="lineno">3 </span><span class="hll"> <span class="o">}</span>  <span class="k">finally</span> <span class="o">{</span>
+</span><span class="lineno">4 </span><span class="hll">   <span class="k">return</span> <span class="mi">12</span><span class="o">;</span>
+</span><span class="lineno">5 </span> <span class="o">}</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>will return 12, not 11. Professional code almost never contains statements that alter execution order (like <code><a href="/wiki/Java_Programming/Keywords/return" title="Java Programming/Keywords/return"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">return</font></a></code>, <code><a href="/wiki/Java_Programming/Keywords/break" title="Java Programming/Keywords/break"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">break</font></a></code>, <code><a href="/wiki/Java_Programming/Keywords/continue" title="Java Programming/Keywords/continue"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">continue</font></a></code>) inside the finally block, as such code is more difficult to read and maintain.</p>

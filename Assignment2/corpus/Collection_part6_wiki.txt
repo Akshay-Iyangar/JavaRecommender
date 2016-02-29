@@ -1,0 +1,55 @@
+<p><code>Set</code> cannot have duplicates in it. You may wonder how duplicates are detected when we are adding an object to the <code>Set</code>. We have to see if that object exists in the Set or not. It is not enough to check the object references, the objects' values have to be checked as well.</p> 
+<p>To do that, fortunately, each java object has the <a href="/wiki/Java_Programming/API/java.lang.Object#equals.28.29_Method" title="Java Programming/API/java.lang.Object"><code>boolean equals(Object obj)</code></a>, method available inherited from <code><a href="/wiki/Java_Programming/API/java.lang.Object" title="Java Programming/API/java.lang.Object">Object</a></code>. You need to override it. That method will be called by the Set implementation to compare the two objects to see if they are equal or not.</p> 
+<p>There is a problem, though. What if I put two different type of objects to the Set. I put an Apple and an Orange. They can not be compared. Calling the <a href="/wiki/Java_Programming/API/java.lang.Object#equals.28.29_Method" title="Java Programming/API/java.lang.Object"><code>equals()</code></a> method would cause a <code>ClassCastException</code>. There are two solutions to this:</p> 
+<ul> 
+ <li><b>Solution one</b>&nbsp;: Override the <a href="/wiki/Java_Programming/API/java.lang.Object#hashCode.28.29_Method" title="Java Programming/API/java.lang.Object"><code>int hashCode()</code></a> method and return the same values for the same type of objects and return different values for different type of objects. The <a href="/wiki/Java_Programming/API/java.lang.Object#equals.28.29_Method" title="Java Programming/API/java.lang.Object"><code>equals()</code></a> method is used to compare objects only with the same value of hashCode. So before an object is added, the Set implementation needs to: 
+  <ul> 
+   <li>find all the objects in the Set that have the same hashCode as the candidate object hashCode</li> 
+   <li>and for those, call the <a href="/wiki/Java_Programming/API/java.lang.Object#equals.28.29_Method" title="Java Programming/API/java.lang.Object"><code>equals()</code></a> methods passing in the candidate object</li> 
+   <li>if any of them returns true, the object is not added to the Set.</li> 
+  </ul> </li> 
+</ul> 
+<ul> 
+ <li><b>Solution two</b>&nbsp;: Create a super class for the Apple and Orange, let's call it Fruit class. Put Fruits in the Set. You need to do the following: 
+  <ul> 
+   <li>Do not override the <code>equals()</code> and <code>hashCode()</code> methods in the Apple and Orange classes</li> 
+   <li>Create <code>appleEquals()</code> method in the Apple class, and create <code>orangeEquals()</code> method in the Orange class</li> 
+   <li>Override the <code>hashCode()</code> method in the Fruit class and return the same value, so the <code>equals()</code> is called by the Set implementation</li> 
+   <li>Override the <code>equals()</code> method in the Fruit class for something like this.</li> 
+  </ul> </li> 
+</ul> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><span id="code-section-5"><b>Code section 5.5: <code>equals</code> method implementation.</b></span> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno"> 1 </span><span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">equals</span><span class="o">(</span><span class="n">Object</span> <span class="n">obj</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno"> 2 </span>    <span class="kt">boolean</span> <span class="n">ret</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+<span class="lineno"> 3 </span>    <span class="k">if</span> <span class="o">(</span><span class="k">this</span> <span class="k">instanceof</span> <span class="n">Apple</span> <span class="o">&amp;&amp;</span>
+<span class="lineno"> 4 </span>          <span class="n">obj</span> <span class="k">instanceof</span> <span class="n">Apple</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno"> 5 </span>        <span class="n">ret</span> <span class="o">=</span> <span class="k">this</span><span class="o">.</span><span class="na">appleEquals</span><span class="o">(</span><span class="n">obj</span><span class="o">);</span>
+<span class="lineno"> 6 </span>    <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="k">this</span> <span class="k">instanceof</span> <span class="n">Orange</span> <span class="o">&amp;&amp;</span>
+<span class="lineno"> 7 </span>              <span class="n">obj</span>  <span class="k">instanceof</span> <span class="n">Orange</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno"> 8 </span>        <span class="n">ret</span> <span class="o">=</span> <span class="k">this</span><span class="o">.</span><span class="na">orangeEquals</span><span class="o">(</span><span class="n">obj</span><span class="o">);</span>  
+<span class="lineno"> 9 </span>    <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+<span class="lineno">10 </span>        <span class="c1">// Can not compare Orange to Apple</span>
+<span class="lineno">11 </span>       <span class="n">ret</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+<span class="lineno">12 </span>    <span class="o">}</span>
+<span class="lineno">13 </span>    <span class="k">return</span> <span class="n">ret</span><span class="o">;</span>
+<span class="lineno">14 </span><span class="o">}</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p><b>Note:</b></p> 
+<ul> 
+ <li>Only the objects that have the same hashCode will be compared.</li> 
+ <li>You are responsible to override the <code>equals()</code> and <code>hashCode()</code> methods. The default implementations in Object won't work.</li> 
+ <li>Only override the <a href="/wiki/Java_Programming/API/java.lang.Object#hashCode.28.29_Method" title="Java Programming/API/java.lang.Object"><code>hashCode()</code></a> method if you want to eliminate value duplicates.</li> 
+ <li>Do not override the <a href="/wiki/Java_Programming/API/java.lang.Object#hashCode.28.29_Method" title="Java Programming/API/java.lang.Object"><code>hashCode()</code></a> method if you know that the values of your objects are different, or if you only want to prevent adding the exactly same object.</li> 
+ <li>Beware that the <a href="/wiki/Java_Programming/API/java.lang.Object#hashCode.28.29_Method" title="Java Programming/API/java.lang.Object"><code>hashCode()</code></a> may be used in other collection implementations, like in a Hashtable to find an object fast. Overriding the default <code>hashCode()</code> method may affect performance there.</li> 
+ <li>The default hashCodes are unique for each object created, so if you decide not to override the <code>hashCode()</code> method, there is no point overriding the <code>equals()</code> method, as it won't be called.</li> 
+</ul>

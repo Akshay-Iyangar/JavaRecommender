@@ -1,0 +1,47 @@
+<div> 
+ <p>This means not doing things like:</p> 
+ <table style="padding:2px; margin:2px;"> 
+  <tbody> 
+   <tr valign="top"> 
+    <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+    <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><span id="code-section-17"><b>Code section 6.17: Declaring an exception.</b></span> 
+     <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+      <pre>
+<span class="lineno"> 1 </span><span class="hll"><span class="n">String</span> <span class="n">s</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+</span><span class="lineno"> 2 </span><span class="k">while</span> <span class="o">(</span><span class="n">something</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno"> 3 </span>    <span class="k">if</span> <span class="o">(</span><span class="n">something2</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno"> 4 </span>        <span class="n">s</span> <span class="o">=</span> <span class="s">"yep"</span><span class="o">;</span>
+<span class="lineno"> 5 </span>    <span class="o">}</span>
+<span class="lineno"> 6 </span><span class="o">}</span>
+<span class="lineno"> 7 </span>
+<span class="lineno"> 8 </span><span class="k">if</span> <span class="o">(</span><span class="n">s</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno"> 9 </span>    <span class="n">something3</span><span class="o">(</span><span class="n">s</span><span class="o">);</span>
+<span class="lineno">10 </span><span class="o">}</span>
+</pre> 
+     </div> </td> 
+   </tr> 
+  </tbody> 
+ </table> 
+ <p>You can replace this with:</p> 
+ <table style="padding:2px; margin:2px;"> 
+  <tbody> 
+   <tr valign="top"> 
+    <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+    <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><span id="code-section-18"><b>Code section 6.18: Declaring an exception.</b></span> 
+     <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+      <pre>
+<span class="lineno">1 </span><span class="hll"><span class="kt">boolean</span> <span class="n">done</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+</span><span class="lineno">2 </span>
+<span class="lineno">3 </span><span class="k">while</span> <span class="o">(!</span><span class="n">done</span> <span class="o">&amp;&amp;</span> <span class="n">something</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno">4 </span>    <span class="k">if</span> <span class="o">(</span><span class="n">something2</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno">5 </span>       <span class="n">done</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+<span class="lineno">6 </span>       <span class="n">something3</span><span class="o">(</span><span class="s">"yep"</span><span class="o">);</span>
+<span class="lineno">7 </span>    <span class="o">}</span>
+<span class="lineno">8 </span><span class="o">}</span>
+</pre> 
+     </div> </td> 
+   </tr> 
+  </tbody> 
+ </table> 
+ <p>You might also consider replacing null with "" in the first example, but default values bring about bugs caused by default values being left in place. A <code>NullPointerException</code> is actually better, as it allows the runtime to tell you about the bug, rather than just continue with a default value.</p> 
+</div>

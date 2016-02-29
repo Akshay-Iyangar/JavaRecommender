@@ -1,0 +1,57 @@
+<p>Up until now, we've assumed the creation of variables as a single statement. In essence, we assign a value to those variables, and that's just what it is called. When you assign a value to a variable in a statement, that statement is called an <b>assignment statement</b> (also called an <a href="//en.wikipedia.org/wiki/Initialization_(programming)" class="extiw" title="w:Initialization (programming)">initialization statement</a>). Did you notice one more thing? It's the semicolon (<code>;</code>), which is at the end of each statement. A clear indicator that a line of code is a statement is its termination with an ending semicolon. If one was to write multiple statements, it is usually done on each separate line ending with a semicolon. Consider the example below:</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><span id="section-3"><b>Code section 3.3: Multiple assignment statements.</b></span> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno">1 </span><span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>
+<span class="lineno">2 </span><span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">20</span><span class="o">;</span>
+<span class="lineno">3 </span><span class="kt">int</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">30</span><span class="o">;</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>You do not necessarily have to use a new line to write each statement. Just like English, you can begin writing the next statement where you ended the first one as depicted below:</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><b>Code section 3.4: Multiple assignment statements on the same line.</b> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno">1 </span><span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span> <span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">20</span><span class="o">;</span> <span class="kt">int</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">30</span><span class="o">;</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>However, the only problem with putting multiple statements on one line is, it's very difficult to read it. It doesn't look that intimidating at first, but once you've got a significant amount of code, it's usually better to organize it in a way that makes sense. It would look more complex and incomprehensible written as it is in Listing 3.4.</p> 
+<p>Now that we have looked into the anatomy of a simple assignment statement, we can look back at what we've achieved. We know that...</p> 
+<ul> 
+ <li>A statement is a unit of code in programming.</li> 
+ <li>If we are assigning a variable a value, the statement is called an assignment statement.</li> 
+ <li>An assignment statement includes three parts: a data type, the variable name (also called the identifier) and the value of a variable. We will look more into the nature of identifiers and values in the section <i><a href="/wiki/Java_Programming/Variables" title="Java Programming/Variables">Variables</a></i> later.</li> 
+</ul> 
+<p>Now, before we move on to the next topic, you need to try and understand what the code below does.</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><b>Code section 3.5: Multiple assignment statements with expressions.</b> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno">1 </span><span class="kt">int</span> <span class="n">firstNumber</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>
+<span class="lineno">2 </span><span class="kt">int</span> <span class="n">secondNumber</span> <span class="o">=</span> <span class="mi">20</span><span class="o">;</span>
+<span class="lineno">3 </span><span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="n">firstNumber</span> <span class="o">+</span> <span class="n">secondNumber</span><span class="o">;</span>
+<span class="lineno">4 </span><span class="n">secondNumber</span> <span class="o">=</span> <span class="mi">30</span><span class="o">;</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>The first two statements are pretty much similar to those in <a href="#section-3">Section 3.3</a> but with different variable names. The third however is a bit interesting. We've already talked of variables as being similar to gift boxes. Think of your computer's memory as a shelf where you put all those boxes. Whenever you need a box (or variable), you call its identifier (that's the name of the variable). So calling the variable identifier <code>firstNumber</code> gives you the number <code>10</code>, calling <code>secondNumber</code> would give you <code>20</code> hence when you add the two up, the answer should be <code>30</code>. That's what the value of the last variable <code>result</code> would be. The part of the third statement where you add the numbers, i.e., <code>firstNumber + secondNumber</code> is called an <b>expression</b> and the expression is what decides what the value is to be. If it's just a plain value, like in the first two statements, then it's called a <b>literal</b> (the value is <i>literally</i> the value, hence the name <i>literal</i>).</p> 
+<p>Note that after the assignment to <code>result</code> its value will not be changed if we assign different values to <code>firstNumber</code> or <code>secondNumber</code>, like in line 4.</p> 
+<p>With the information you have just attained, you can actually write a decent Java program that can sum up values.</p>

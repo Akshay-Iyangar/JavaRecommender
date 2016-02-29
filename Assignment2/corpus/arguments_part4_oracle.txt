@@ -1,0 +1,14 @@
+<p>When you declare a parameter to a method or a constructor, you provide a name for that parameter. This name is used within the method body to refer to the passed-in argument.</p> 
+<p>The name of a parameter must be unique in its scope. It cannot be the same as the name of another parameter for the same method or constructor, and it cannot be the name of a local variable within the method or constructor.</p> 
+<p>A parameter can have the same name as one of the class's fields. If this is the case, the parameter is said to <i>shadow</i> the field. Shadowing fields can make your code difficult to read and is conventionally used only within constructors and methods that set a particular field. For example, consider the following <code>Circle</code> class and its <code>setOrigin</code> method:</p> 
+<div class="codeblock"> 
+ <pre>
+public class Circle {
+    private int x, y, radius;
+    public void setOrigin(int x, int y) {
+        ...
+    }
+}
+</pre> 
+</div> 
+<p>The <code>Circle</code> class has three fields: <code>x</code>, <code>y</code>, and <code>radius</code>. The <code>setOrigin</code> method has two parameters, each of which has the same name as one of the fields. Each method parameter shadows the field that shares its name. So using the simple names <code>x</code> or <code>y</code> within the body of the method refers to the parameter, <i>not</i> to the field. To access the field, you must use a qualified name. This will be discussed later in this lesson in the section titled "Using the <code>this</code> Keyword."</p>

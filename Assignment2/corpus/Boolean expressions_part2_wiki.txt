@@ -1,0 +1,126 @@
+<p>The Java boolean operators are based on the operations of the <a href="//en.wikipedia.org/wiki/Boolean_algebra" class="extiw" title="wikipedia:Boolean algebra">boolean algebra</a>. The boolean operators operate directly on boolean values.</p> 
+<p>Here is a list of four common boolean operators in Java:</p> 
+<ul> 
+ <li><code>!</code>&nbsp;: Boolean NOT</li> 
+ <li><code>&amp;&amp;</code>&nbsp;: Boolean AND</li> 
+ <li><code>||</code>&nbsp;: Boolean inclusive OR</li> 
+ <li><code>^</code>&nbsp;: Boolean exclusive XOR</li> 
+</ul> 
+<p>The boolean NOT operator ("!") inverts the value of a boolean expression. The boolean AND operator ("&amp;&amp;") will result in true if and only if the values on both sides of the operator are true. The boolean inclusive OR operator ("||") will result in true if either or both of the values on the sides of the operator is true. The boolean exclusive XOR operator ("^") will result in true if one and only of the values on the sides of the operator is true.</p> 
+<p>To show how these operators are used, here is an example:</p> 
+<table style="width: 100%;"> 
+ <tbody> 
+  <tr> 
+   <td valign="top"> 
+    <table style="padding:2px; margin:2px;"> 
+     <tbody> 
+      <tr valign="top"> 
+       <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+       <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><span id="code-section-38"><b>Code section 3.38: Operands.</b></span> 
+        <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+         <pre>
+<span class="lineno"> 1 </span><span class="kt">boolean</span> <span class="n">iMTrue</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+<span class="lineno"> 2 </span><span class="kt">boolean</span> <span class="n">iMTrueToo</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+<span class="lineno"> 3 </span><span class="kt">boolean</span> <span class="n">iMFalse</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+<span class="lineno"> 4 </span><span class="kt">boolean</span> <span class="n">iMFalseToo</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+<span class="lineno"> 5 </span>
+<span class="lineno"> 6 </span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"NOT operand:"</span><span class="o">);</span>
+<span class="lineno"> 7 </span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(!</span><span class="n">iMTrue</span><span class="o">);</span>
+<span class="lineno"> 8 </span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(!</span><span class="n">iMFalse</span><span class="o">);</span>
+<span class="lineno"> 9 </span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(!(</span><span class="mi">4</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="o">));</span>
+<span class="lineno">10 </span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"AND operand:"</span><span class="o">);</span>
+<span class="lineno">11 </span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">iMTrue</span> <span class="o">&amp;&amp;</span> <span class="n">iMTrueToo</span><span class="o">);</span>
+<span class="lineno">12 </span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">iMFalse</span> <span class="o">&amp;&amp;</span> <span class="n">iMFalseToo</span><span class="o">);</span>
+<span class="lineno">13 </span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">iMTrue</span> <span class="o">&amp;&amp;</span> <span class="n">iMFalse</span><span class="o">);</span>
+<span class="lineno">14 </span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">iMTrue</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">iMFalse</span><span class="o">);</span>
+<span class="lineno">15 </span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"OR operand:"</span><span class="o">);</span>
+<span class="lineno">16 </span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">iMTrue</span> <span class="o">||</span> <span class="n">iMTrueToo</span><span class="o">);</span>
+<span class="lineno">17 </span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">iMFalse</span> <span class="o">||</span> <span class="n">iMFalseToo</span><span class="o">);</span>
+<span class="lineno">18 </span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">iMTrue</span> <span class="o">||</span> <span class="n">iMFalse</span><span class="o">);</span>
+<span class="lineno">19 </span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">iMFalse</span> <span class="o">||</span> <span class="o">!</span><span class="n">iMTrue</span><span class="o">);</span>
+<span class="lineno">20 </span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"XOR operand:"</span><span class="o">);</span>
+<span class="lineno">21 </span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">iMTrue</span> <span class="o">^</span> <span class="n">iMTrueToo</span><span class="o">);</span>
+<span class="lineno">22 </span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">iMFalse</span> <span class="o">^</span> <span class="n">iMFalseToo</span><span class="o">);</span>
+<span class="lineno">23 </span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">iMTrue</span> <span class="o">^</span> <span class="n">iMFalse</span><span class="o">);</span>
+<span class="lineno">24 </span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">iMFalse</span> <span class="o">^</span> <span class="o">!</span><span class="n">iMTrue</span><span class="o">);</span>
+</pre> 
+        </div> </td> 
+      </tr> 
+     </tbody> 
+    </table> </td> 
+   <td valign="top"> 
+    <table style="padding:2px; margin:2px;"> 
+     <tbody> 
+      <tr valign="top"> 
+       <td style="width:32px;"><img alt="Computer code" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/32px-Gnome-settings-accessibility-keyboard.svg.png" title="Computer code" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/48px-Gnome-settings-accessibility-keyboard.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/64px-Gnome-settings-accessibility-keyboard.svg.png 2x" data-file-width="60" data-file-height="60" /></td> 
+       <td style="background-color:#ffeee0; border-left: 4px solid orange; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><b>Output for code section 3.38</b> <pre style="background-color:#000; color:#fff;">
+NOT operand:
+false
+true
+false
+AND operand:
+true
+false
+false
+true
+OR operand:
+true
+false
+true
+false
+XOR operand:
+false
+false
+true
+false
+</pre></td> 
+      </tr> 
+     </tbody> 
+    </table> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>Here are the truth tables for the boolean operators:</p> 
+<dl> 
+ <dd> 
+  <i>For help on simplifying complex logic, see <a href="//en.wikipedia.org/wiki/De_Morgan%27s_laws" class="extiw" title="wikipedia:De Morgan's laws">De Morgan's laws</a>.</i> 
+ </dd> 
+</dl> 
+<p>In Java, boolean logic has a useful property called <i>short circuiting</i>. This means that expressions will only be evaluated as far as necessary. In the expression <code>(a &amp;&amp; b)</code>, if a is false, then b will not be evaluated because the expression will be false no matter what. Here is an example that shows that the second expression is not automatically checked:</p> 
+<table style="width: 100%;"> 
+ <tbody> 
+  <tr> 
+   <td valign="top"> 
+    <table style="padding:2px; margin:2px;"> 
+     <tbody> 
+      <tr valign="top"> 
+       <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+       <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><span id="code-section-39"><b>Code section 3.39: Short circuiting.</b></span> 
+        <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+         <pre>
+<span class="lineno">1 </span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">((</span><span class="mi">4</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="o">)</span> <span class="o">||</span> <span class="o">((</span><span class="mi">10</span> <span class="o">/</span> <span class="mi">0</span><span class="o">)</span> <span class="o">==</span> <span class="mi">2</span><span class="o">));</span>
+</pre> 
+        </div> </td> 
+      </tr> 
+     </tbody> 
+    </table> </td> 
+   <td valign="top"> 
+    <table style="padding:2px; margin:2px;"> 
+     <tbody> 
+      <tr valign="top"> 
+       <td style="width:32px;"><img alt="Computer code" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/32px-Gnome-settings-accessibility-keyboard.svg.png" title="Computer code" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/48px-Gnome-settings-accessibility-keyboard.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/64px-Gnome-settings-accessibility-keyboard.svg.png 2x" data-file-width="60" data-file-height="60" /></td> 
+       <td style="background-color:#ffeee0; border-left: 4px solid orange; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><b>Output for code section 3.39</b> <pre style="background-color:#000; color:#fff;">
+true
+</pre></td> 
+      </tr> 
+     </tbody> 
+    </table> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>To disable this property, you can use <code>&amp;</code> instead of <code>&amp;&amp;</code> and <code>|</code> instead of <code>||</code> but it's not recommended.</p> 
+<dl> 
+ <dd> 
+  <i>For the bitwise operations on <code>&amp;</code> and <code>|</code>, see <a href="/wiki/Java_Programming/Basic_arithmetic#Using_bitwise_operators_within_Java" title="Java Programming/Basic arithmetic" class="mw-redirect">Arithmetic expressions</a>.</i> 
+ </dd> 
+</dl>

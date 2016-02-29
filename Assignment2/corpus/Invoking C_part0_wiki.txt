@@ -1,0 +1,144 @@
+<p><span id="displaytitle" title=""></span></p> 
+<table style="width:100%; border:solid 1px #71c837; background:#c6e9af; color:#2d5016;" class="noprint"> 
+ <tbody> 
+  <tr> 
+   <td style="text-align:left; width:33%; font-size:90%;"><img alt="" src="//upload.wikimedia.org/wikibooks/en/thumb/d/df/Navigation_Left_Arrow.svg/18px-Navigation_Left_Arrow.svg.png" width="18" height="14" srcset="//upload.wikimedia.org/wikibooks/en/thumb/d/df/Navigation_Left_Arrow.svg/27px-Navigation_Left_Arrow.svg.png 1.5x, //upload.wikimedia.org/wikibooks/en/thumb/d/df/Navigation_Left_Arrow.svg/36px-Navigation_Left_Arrow.svg.png 2x" data-file-width="165" data-file-height="130"> <a href="/wiki/Java_Programming/Java_Native_Interface" title="Java Programming/Java Native Interface">Java Native Interface</a></img></td> 
+   <td style="text-align:center; width:34%;"><a href="/wiki/Java_Programming" title="Java Programming">Java Programming</a><br> <b>Invoking C</b></br></td> 
+   <td style="text-align:right; width:33%; font-size:90%;"><a href="/wiki/Java_Programming/Byte_Code" title="Java Programming/Byte Code">Byte Code</a> <img alt="" src="//upload.wikimedia.org/wikibooks/en/thumb/e/ea/Navigation_Right_Arrow.svg/18px-Navigation_Right_Arrow.svg.png" width="18" height="14" srcset="//upload.wikimedia.org/wikibooks/en/thumb/e/ea/Navigation_Right_Arrow.svg/27px-Navigation_Right_Arrow.svg.png 1.5x, //upload.wikimedia.org/wikibooks/en/thumb/e/ea/Navigation_Right_Arrow.svg/36px-Navigation_Right_Arrow.svg.png 2x" data-file-width="165" data-file-height="130" /></td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p><br> You can use <code>Runtime.exec()</code> method to invoke a program from within a running Java application. <code>Runtime.exec()</code> also allows you to perform operations related to the program, such as control the program's standard input and output, wait until it completes execution, and get its exit status.</br></p> 
+<p>Here's a simple C application that illustrates these features. This C program will be called from Java:</p> 
+<div class="mw-highlight mw-content-ltr" dir="ltr"> 
+ <pre>
+<span class="cp">#include &lt;stdio.h&gt;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"testing</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre> 
+</div> 
+<p>This application writes a string "testing" to standard output, and then terminates with an exit status of 0. To execute this simple program within a Java application, compile the C application:</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Computer code" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/32px-Gnome-settings-accessibility-keyboard.svg.png" title="Computer code" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/48px-Gnome-settings-accessibility-keyboard.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/64px-Gnome-settings-accessibility-keyboard.svg.png 2x" data-file-width="60" data-file-height="60" /></td> 
+   <td style="background-color:#ffeee0; border-left: 4px solid orange; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><b>Compilation</b> <pre style="background-color:#000; color:#fff;">
+$ cc test.c -o test
+</pre></td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>Then invoke the C program using this Java code:</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Computer code" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/32px-Gnome-settings-accessibility-keyboard.svg.png" title="Computer code" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/48px-Gnome-settings-accessibility-keyboard.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/64px-Gnome-settings-accessibility-keyboard.svg.png 2x" data-file-width="60" data-file-height="60" /></td> 
+   <td style="background-color:#ffeee0; border-left: 4px solid orange; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><span id="code-listing-2"><b>Code listing 10.2: Invoking C programs.</b></span> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno"> 1 </span><span class="kn">import</span> <span class="nn">java.io.InputStream</span><span class="o">;</span>
+<span class="lineno"> 2 </span><span class="kn">import</span> <span class="nn">java.io.BufferedReader</span><span class="o">;</span>
+<span class="lineno"> 3 </span><span class="kn">import</span> <span class="nn">java.io.InputStreamReader</span><span class="o">;</span>
+<span class="lineno"> 4 </span><span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+<span class="lineno"> 5 </span><span class="kn">import</span> <span class="nn">java.io.InterruptedException</span><span class="o">;</span>
+<span class="lineno"> 6 </span><span class="kn">import</span> <span class="nn">java.io.Process</span><span class="o">;</span>
+<span class="lineno"> 7 </span><span class="kn">import</span> <span class="nn">java.io.Runtime</span><span class="o">;</span>
+<span class="lineno"> 8 </span>
+<span class="lineno"> 9 </span><span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
+<span class="lineno">10 </span>
+<span class="lineno">11 </span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ExecDemo</span> <span class="o">{</span>
+<span class="lineno">12 </span>    <span class="kd">public</span> <span class="kd">static</span> <span class="n">String</span><span class="o">[]</span> <span class="nf">runCommand</span><span class="o">(</span><span class="n">String</span> <span class="n">cmd</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+<span class="lineno">13 </span>        <span class="c1">// --- set up list to capture command output lines ---</span>
+<span class="lineno">14 </span>        <span class="n">ArrayList</span> <span class="n">list</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">();</span>
+<span class="lineno">15 </span>
+<span class="lineno">16 </span>        <span class="c1">// --- start command running</span>
+<span class="lineno">17 </span><span class="hll">        <span class="n">Process</span> <span class="n">proc</span> <span class="o">=</span> <span class="n">Runtime</span><span class="o">.</span><span class="na">getRuntime</span><span class="o">().</span><span class="na">exec</span><span class="o">(</span><span class="n">cmd</span><span class="o">);</span>
+</span><span class="lineno">18 </span>
+<span class="lineno">19 </span>        <span class="c1">// --- get command's output stream and</span>
+<span class="lineno">20 </span>        <span class="c1">// put a buffered reader input stream on it ---</span>
+<span class="lineno">21 </span>        <span class="n">InputStream</span> <span class="n">istr</span> <span class="o">=</span> <span class="n">proc</span><span class="o">.</span><span class="na">getInputStream</span><span class="o">();</span>
+<span class="lineno">22 </span>        <span class="n">BufferedReader</span> <span class="n">br</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BufferedReader</span><span class="o">(</span><span class="k">new</span> <span class="n">InputStreamReader</span><span class="o">(</span><span class="n">istr</span><span class="o">));</span>
+<span class="lineno">23 </span>
+<span class="lineno">24 </span>        <span class="c1">// --- read output lines from command</span>
+<span class="lineno">25 </span>        <span class="n">String</span> <span class="n">str</span><span class="o">;</span>
+<span class="lineno">26 </span>        <span class="k">while</span> <span class="o">((</span><span class="n">str</span> <span class="o">=</span> <span class="n">br</span><span class="o">.</span><span class="na">readLine</span><span class="o">())</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno">27 </span>            <span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">str</span><span class="o">);</span>
+<span class="lineno">28 </span>        <span class="o">}</span>
+<span class="lineno">29 </span>
+<span class="lineno">30 </span>        <span class="c1">// wait for command to terminate</span>
+<span class="lineno">31 </span>        <span class="k">try</span> <span class="o">{</span>
+<span class="lineno">32 </span>            <span class="n">proc</span><span class="o">.</span><span class="na">waitFor</span><span class="o">();</span>
+<span class="lineno">33 </span>        <span class="o">}</span>
+<span class="lineno">34 </span>        <span class="k">catch</span> <span class="o">(</span><span class="n">InterruptedException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno">35 </span>            <span class="n">System</span><span class="o">.</span><span class="na">err</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"process was interrupted"</span><span class="o">);</span>
+<span class="lineno">36 </span>        <span class="o">}</span>
+<span class="lineno">37 </span>
+<span class="lineno">38 </span>        <span class="c1">// check its exit value</span>
+<span class="lineno">39 </span>        <span class="k">if</span> <span class="o">(</span><span class="n">proc</span><span class="o">.</span><span class="na">exitValue</span><span class="o">()</span> <span class="o">!=</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno">40 </span>            <span class="n">System</span><span class="o">.</span><span class="na">err</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"exit value was non-zero"</span><span class="o">);</span>
+<span class="lineno">41 </span>        <span class="o">}</span>
+<span class="lineno">42 </span>
+<span class="lineno">43 </span>        <span class="c1">// close stream</span>
+<span class="lineno">44 </span>        <span class="n">br</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+<span class="lineno">45 </span>
+<span class="lineno">46 </span>        <span class="c1">// return list of strings to caller</span>
+<span class="lineno">47 </span>        <span class="k">return</span> <span class="o">(</span><span class="n">String</span><span class="o">[])</span><span class="n">list</span><span class="o">.</span><span class="na">toArray</span><span class="o">(</span><span class="k">new</span> <span class="n">String</span><span class="o">[</span><span class="mi">0</span><span class="o">]);</span>
+<span class="lineno">48 </span>    <span class="o">}</span>
+<span class="lineno">49 </span>
+<span class="lineno">50 </span>    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span> <span class="n">args</span><span class="o">[])</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+<span class="lineno">51 </span>        <span class="k">try</span> <span class="o">{</span>
+<span class="lineno">52 </span>
+<span class="lineno">53 </span>            <span class="c1">// run a command</span>
+<span class="lineno">54 </span>            <span class="n">String</span> <span class="n">outlist</span><span class="o">[]</span> <span class="o">=</span> <span class="n">runCommand</span><span class="o">(</span><span class="s">"test"</span><span class="o">);</span>
+<span class="lineno">55 </span>
+<span class="lineno">56 </span>            <span class="c1">// display its output</span>
+<span class="lineno">57 </span>            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">outlist</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span>
+<span class="lineno">58 </span>                <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">outlist</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
+<span class="lineno">59 </span>        <span class="o">}</span>
+<span class="lineno">60 </span>        <span class="k">catch</span> <span class="o">(</span><span class="n">IOException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno">61 </span>            <span class="n">System</span><span class="o">.</span><span class="na">err</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">e</span><span class="o">);</span>
+<span class="lineno">62 </span>        <span class="o">}</span>
+<span class="lineno">63 </span>    <span class="o">}</span>
+<span class="lineno">64 </span><span class="o">}</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>The demo calls a method <code>runCommand</code> to actually run the program.</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><span id="code-section-1"><b>Code section 10.1: Running a command.</b></span> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno">1 </span><span class="n">String</span> <span class="n">outlist</span><span class="o">[]</span> <span class="o">=</span> <span class="n">runCommand</span><span class="o">(</span><span class="s">"test"</span><span class="o">);</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>This method hooks an input stream to the program's output stream, so that it can read the program's output, and save it into a list of strings.</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><span id="code-section-2"><b>Code section 10.2: Reading the program's output.</b></span> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno">1 </span><span class="n">InputStream</span> <span class="n">istr</span> <span class="o">=</span> <span class="n">proc</span><span class="o">.</span><span class="na">getInputStream</span><span class="o">();</span>
+<span class="lineno">2 </span><span class="n">BufferedReader</span> <span class="n">br</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BufferedReader</span><span class="o">(</span><span class="k">new</span> <span class="n">InputStreamReader</span><span class="o">(</span><span class="n">istr</span><span class="o">));</span>
+<span class="lineno">3 </span>             
+<span class="lineno">4 </span><span class="n">String</span> <span class="n">str</span><span class="o">;</span>
+<span class="lineno">5 </span><span class="k">while</span> <span class="o">((</span><span class="n">str</span> <span class="o">=</span> <span class="n">br</span><span class="o">.</span><span class="na">readLine</span><span class="o">())</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno">6 </span>    <span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">str</span><span class="o">);</span>
+<span class="lineno">7 </span><span class="o">}</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table>

@@ -1,0 +1,31 @@
+<div id="PageContent"> 
+ <!-- Passing Information to a Method or a Constructor --> 
+ <p>The declaration for a method or a constructor declares the number and the type of the arguments for that method or constructor. For example, the following is a method that computes the monthly payments for a home loan, based on the amount of the loan, the interest rate, the length of the loan (the number of periods), and the future value of the loan:</p> 
+ <div class="codeblock"> 
+  <pre>
+public double computePayment(
+                  double <b>loanAmt</b>,
+                  double <b>rate</b>,
+                  double <b>futureValue</b>,
+                  int <b>numPeriods</b>) {
+    double interest = <b>rate</b> / 100.0;
+    double partial1 = Math.pow((1 + interest), 
+                    - <b>numPeriods</b>);
+    double denominator = (1 - partial1) / interest;
+    double answer = (-<b>loanAmt</b> / denominator)
+                    - ((<b>futureValue</b> * partial1) / denominator);
+    return answer;
+}
+</pre> 
+ </div> 
+ <p>This method has four parameters: the loan amount, the interest rate, the future value and the number of periods. The first three are double-precision floating point numbers, and the fourth is an integer. The parameters are used in the method body and at runtime will take on the values of the arguments that are passed in.</p> 
+ <div class="note"> 
+  <hr> 
+   <strong>Note:</strong>&nbsp; 
+   <i>Parameters</i> refers to the list of variables in a method declaration. 
+   <i>Arguments</i> are the actual values that are passed in when the method is invoked. When you invoke a method, the arguments used must match the declaration's parameters in type and order. 
+   <hr> 
+   </hr>
+  </hr>
+ </div> 
+</div>

@@ -1,0 +1,27 @@
+<div id="PageContent"> 
+ <p>One issue with anonymous classes is that if the implementation of your anonymous class is very simple, such as an interface that contains only one method, then the syntax of anonymous classes may seem unwieldy and unclear. In these cases, you're usually trying to pass functionality as an argument to another method, such as what action should be taken when someone clicks a button. Lambda expressions enable you to do this, to treat functionality as method argument, or code as data.</p> 
+ <p>The previous section, <a class="TutorialLink" target="_top" href="anonymousclasses.html">Anonymous Classes</a>, shows you how to implement a base class without giving it a name. Although this is often more concise than a named class, for classes with only one method, even an anonymous class seems a bit excessive and cumbersome. Lambda expressions let you express instances of single-method classes more compactly.</p> 
+ <p>This section covers the following topics:</p> 
+ <ul> 
+  <li><a href="#use-case">Ideal Use Case for Lambda Expressions</a> 
+   <ul> 
+    <li><a href="#approach1">Approach 1: Create Methods That Search for Members That Match One Characteristic</a></li> 
+    <li><a href="#approach2">Approach 2: Create More Generalized Search Methods</a></li> 
+    <li><a href="#approach3">Approach 3: Specify Search Criteria Code in a Local Class</a></li> 
+    <li><a href="#approach4">Approach 4: Specify Search Criteria Code in an Anonymous Class</a></li> 
+    <li><a href="#approach5">Approach 5: Specify Search Criteria Code with a Lambda Expression</a></li> 
+    <li><a href="#approach6">Approach 6: Use Standard Functional Interfaces with Lambda Expressions</a></li> 
+    <li><a href="#approach7">Approach 7: Use Lambda Expressions Throughout Your Application</a></li> 
+    <li><a href="#approach8">Approach 8: Use Generics More Extensively</a></li> 
+    <li><a href="#approach9">Approach 9: Use Aggregate Operations That Accept Lambda Expressions as Parameters</a></li> 
+   </ul> </li> 
+  <li><a href="#lambda-expressions-in-gui-applications">Lambda Expressions in GUI Applications</a></li> 
+  <li><a href="#syntax">Syntax of Lambda Expressions</a></li> 
+  <li><a href="#accessing-local-variables">Accessing Local Variables of the Enclosing Scope</a></li> 
+  <li><a href="#target-typing">Target Typing</a> 
+   <ul> 
+    <li><a href="#target-types-and-method-arguments">Target Types and Method Arguments</a></li> 
+   </ul> </li> 
+  <li><a href="#serialization">Serialization</a></li> 
+ </ul> 
+</div>

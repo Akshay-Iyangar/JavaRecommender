@@ -1,0 +1,67 @@
+<p><code><a href="/wiki/Java_Programming/Keywords/char" title="Java Programming/Keywords/char"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">char</font></a></code> is a keyword. It defines a character <a href="/wiki/Java_Programming/Primitive_Types" title="Java Programming/Primitive Types">primitive type</a>. <code><a href="/wiki/Java_Programming/Keywords/char" title="Java Programming/Keywords/char"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">char</font></a></code> can be created from character literals and numeric representation. Character literals consist of a single quote character (<code>'</code>) (ASCII 39, hex 0x27), a single character, and a close quote (<code>'</code>), such as <code>'w'</code>. Instead of a character, you can also use <a href="/wiki/Java_Programming/Syntax/Unicode_Escape_Sequences" title="Java Programming/Syntax/Unicode Escape Sequences" class="mw-redirect">unicode escape sequences</a>, but there must be exactly one.</p> 
+<p>Syntax:</p> 
+<table style="margin: auto;"> 
+ <tbody> 
+  <tr> 
+   <td>char <i><b>variable name<sub>1</sub></b></i> = '<i><b>character<sub>1</sub></b></i>';</td> 
+  </tr> 
+ </tbody> 
+</table> 
+<table style="width: 100%;"> 
+ <tbody> 
+  <tr> 
+   <td valign="top"> 
+    <table style="padding:2px; margin:2px;"> 
+     <tbody> 
+      <tr valign="top"> 
+       <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+       <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><b>Code section 1: Three examples.</b> 
+        <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+         <pre>
+<span class="lineno">1 </span><span class="kt">char</span> <span class="n">oneChar1</span> <span class="o">=</span> <span class="sc">'A'</span><span class="o">;</span>
+<span class="lineno">2 </span><span class="kt">char</span> <span class="n">oneChar2</span> <span class="o">=</span> <span class="mi">65</span><span class="o">;</span>
+<span class="lineno">3 </span><span class="kt">char</span> <span class="n">oneChar3</span> <span class="o">=</span> <span class="sc">'\u0041'</span><span class="o">;</span>
+<span class="lineno">4 </span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">oneChar1</span><span class="o">);</span>
+<span class="lineno">5 </span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">oneChar2</span><span class="o">);</span>
+<span class="lineno">6 </span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">oneChar3</span><span class="o">);</span>
+</pre> 
+        </div> </td> 
+      </tr> 
+     </tbody> 
+    </table> </td> 
+   <td valign="top"> 
+    <table style="padding:2px; margin:2px;"> 
+     <tbody> 
+      <tr valign="top"> 
+       <td style="width:32px;"><img alt="Computer code" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/32px-Gnome-settings-accessibility-keyboard.svg.png" title="Computer code" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/48px-Gnome-settings-accessibility-keyboard.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/64px-Gnome-settings-accessibility-keyboard.svg.png 2x" data-file-width="60" data-file-height="60" /></td> 
+       <td style="background-color:#ffeee0; border-left: 4px solid orange; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><b>Output for Code section 1</b> <pre style="background-color:#000; color:#fff;">
+A
+A
+A
+</pre></td> 
+      </tr> 
+     </tbody> 
+    </table> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>65 is the numeric representation of character 'A' , or its <a href="//en.wikipedia.org/wiki/ASCII" class="extiw" title="w:ASCII">ASCII</a> code.</p> 
+<p>The nominal wrapper class is the <code>java.lang.Character</code> class when you need to store a <code><a href="/wiki/Java_Programming/Keywords/char" title="Java Programming/Keywords/char"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">char</font></a></code> value but an object reference is required.</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><b>Code section 2: <code><a href="/wiki/Java_Programming/Keywords/char" title="Java Programming/Keywords/char"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">char</font></a></code> wrapping.</b> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno">1 </span><span class="kt">char</span> <span class="n">aCharPrimitiveType</span> <span class="o">=</span> <span class="sc">'A'</span><span class="o">;</span>
+<span class="lineno">2 </span><span class="n">Character</span> <span class="n">aCharacterObject</span> <span class="o">=</span> <span class="n">aCharPrimitiveType</span><span class="o">;</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>See also:</p> 
+<ul> 
+ <li><a href="/wiki/Java_Programming/Primitive_Types" title="Java Programming/Primitive Types">Java Programming/Primitive Types</a></li> 
+</ul>

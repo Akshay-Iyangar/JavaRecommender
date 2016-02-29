@@ -1,0 +1,42 @@
+<p>Conditional expressions use the compound <code>?:</code> operator. Syntax:</p> 
+<table style="margin: auto"> 
+ <tbody> 
+  <tr> 
+   <td><i><b>boolean expression<sub>1</sub></b></i>&nbsp;? <i><b>expression<sub>1</sub></b></i>&nbsp;: <i><b>expression<sub>2</sub></b></i></td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>This evaluates <code>boolean expression<sub>1</sub></code>, and if it is <code>true</code> then the conditional expression has the value of <code>expression<sub>1</sub></code>; otherwise the conditional expression has the value of <code>expression<sub>2</sub></code>.</p> 
+<p>Example:</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><b>Code section 3.24: Conditional expressions.</b> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno">1 </span><span class="n">String</span> <span class="n">answer</span> <span class="o">=</span> <span class="o">(</span><span class="n">p</span> <span class="o">&lt;</span> <span class="mf">0.05</span><span class="o">)?</span> <span class="s">"reject"</span> <span class="o">:</span> <span class="s">"keep"</span><span class="o">;</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>This is equivalent to the following code fragment:</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><b>Code section 3.25: Equivalent code.</b> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno">1 </span><span class="n">String</span> <span class="n">answer</span><span class="o">;</span>
+<span class="lineno">2 </span><span class="k">if</span> <span class="o">(</span><span class="n">p</span> <span class="o">&lt;</span> <span class="mf">0.05</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno">3 </span>    <span class="n">answer</span> <span class="o">=</span> <span class="s">"reject"</span><span class="o">;</span>
+<span class="lineno">4 </span><span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+<span class="lineno">5 </span>    <span class="n">answer</span> <span class="o">=</span> <span class="s">"keep"</span><span class="o">;</span>
+<span class="lineno">6 </span><span class="o">}</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table>

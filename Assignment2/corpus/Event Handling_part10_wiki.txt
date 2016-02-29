@@ -1,0 +1,163 @@
+<p>This is where things get interesting: the event source class. This is the interesting place because this is where we must put code to read the number stream, code to send events to all the listeners and code to <i>manage</i> listeners (add and remove them and keep track of them).</p> 
+<p>Let's start by thinking about keeping track of listeners. Normally this is a tricky business, since you have to take all sorts of multithreading concerns into account. But we're being simple in this example, so let's just stick with a simple <code>java.util.Set</code> of listeners. Which we can initialize in the constructor:</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><b>Code section 1.1: The constructor</b> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="kd">private</span> <span class="n">Set</span><span class="o">&lt;</span><span class="n">NumberReadListener</span><span class="o">&gt;</span> <span class="n">listeners</span><span class="o">;</span>
+   
+<span class="kd">public</span> <span class="nf">NumberReader</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">listeners</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashSet</span><span class="o">&lt;</span><span class="n">NumberReadListener</span><span class="o">&gt;();</span>
+<span class="o">}</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>That choice makes it really easy to implement adding and removing of listeners:</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><b>Code section 1.2: The register/deregister</b> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">addNumberReadListener</span><span class="o">(</span><span class="n">NumberReadListener</span> <span class="n">listener</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">listeners</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">listener</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">removeNumberReadListener</span><span class="o">(</span><span class="n">NumberReadListener</span> <span class="n">listener</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">listeners</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="n">listener</span><span class="o">);</span>
+<span class="o">}</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>We won't actually use the remove method in this example — but recall that the Model says it must be present.</p> 
+<p>Another advantage of this simple choice is that notification of all the listeners is easy as well. We can just assume any listeners will be in the set and iterate over them. And since the notification methods are synchronous (rule of the model) we can just call them directly:</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><b>Code section 1.3: The notifiers</b> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="kd">private</span> <span class="kt">void</span> <span class="nf">notifyListenersOfEndOfStream</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">for</span> <span class="o">(</span><span class="n">NumberReadListener</span> <span class="n">numberReadListener</span> <span class="o">:</span> <span class="n">listeners</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">numberReadListener</span><span class="o">.</span><span class="na">numberStreamTerminated</span><span class="o">(</span><span class="k">new</span> <span class="n">NumberReadEvent</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="mf">0D</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">private</span> <span class="kt">void</span> <span class="nf">notifyListeners</span><span class="o">(</span><span class="n">Double</span> <span class="n">d</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">for</span> <span class="o">(</span><span class="n">NumberReadListener</span> <span class="n">numberReadListener</span><span class="o">:</span> <span class="n">listeners</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">numberReadListener</span><span class="o">.</span><span class="na">numberRead</span><span class="o">(</span><span class="k">new</span> <span class="n">NumberReadEvent</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="n">d</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>Note that we've made some assumptions here. For starters, we've assumed that we'll get the Double value d from somewhere. Also, we've assumed that no listener will ever care about the number value in the end-of-stream notification and have passed in the fixed value 0 for that event.</p> 
+<p>Finally we must deal with reading the number stream. We'll use the Console class for that and just keep on reading numbers until there are no more:</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><b>Code section 1.4: The main method</b> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">start</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">Console</span> <span class="n">console</span> <span class="o">=</span> <span class="n">System</span><span class="o">.</span><span class="na">console</span><span class="o">();</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">console</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">Double</span> <span class="n">d</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+        <span class="k">do</span> <span class="o">{</span>
+            <span class="n">String</span> <span class="n">readLine</span> <span class="o">=</span> <span class="n">console</span><span class="o">.</span><span class="na">readLine</span><span class="o">(</span><span class="s">"Enter a number: "</span><span class="o">,</span> <span class="o">(</span><span class="n">Object</span><span class="o">[])</span><span class="kc">null</span><span class="o">);</span>
+            <span class="n">d</span> <span class="o">=</span> <span class="n">getDoubleValue</span><span class="o">(</span><span class="n">readLine</span><span class="o">);</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">d</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">notifyListeners</span><span class="o">(</span><span class="n">d</span><span class="o">);</span>
+            <span class="o">}</span>
+        <span class="o">}</span> <span class="k">while</span> <span class="o">(</span><span class="n">d</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">);</span>
+        <span class="n">notifyListenersOfEndOfStream</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>Note how we've hooked the number-reading loop into the event handling mechanism by calling the notify methods? The entire class looks like this:</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Computer code" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/32px-Gnome-settings-accessibility-keyboard.svg.png" title="Computer code" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/48px-Gnome-settings-accessibility-keyboard.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/64px-Gnome-settings-accessibility-keyboard.svg.png 2x" data-file-width="60" data-file-height="60" /></td> 
+   <td style="background-color:#ffeee0; border-left: 4px solid orange; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><b>Code listing 1.4: NumberReader.</b> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="kn">package</span> <span class="nn">org.wikibooks.en.javaprogramming.example</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.io.Console</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.HashSet</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Set</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">NumberReader</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="n">Set</span><span class="o">&lt;</span><span class="n">NumberReadListener</span><span class="o">&gt;</span> <span class="n">listeners</span><span class="o">;</span>
+   
+    <span class="kd">public</span> <span class="nf">NumberReader</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">listeners</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashSet</span><span class="o">&lt;</span><span class="n">NumberReadListener</span><span class="o">&gt;();</span>
+    <span class="o">}</span>
+   
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">addNumberReadListener</span><span class="o">(</span><span class="n">NumberReadListener</span> <span class="n">listener</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">listeners</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">listener</span><span class="o">);</span>
+    <span class="o">}</span>
+   
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">removeNumberReadListener</span><span class="o">(</span><span class="n">NumberReadListener</span> <span class="n">listener</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">listeners</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="n">listener</span><span class="o">);</span>
+    <span class="o">}</span>
+   
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">start</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">Console</span> <span class="n">console</span> <span class="o">=</span> <span class="n">System</span><span class="o">.</span><span class="na">console</span><span class="o">();</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">console</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">Double</span> <span class="n">d</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+            <span class="k">do</span> <span class="o">{</span>
+                <span class="n">String</span> <span class="n">readLine</span> <span class="o">=</span> <span class="n">console</span><span class="o">.</span><span class="na">readLine</span><span class="o">(</span><span class="s">"Enter a number: "</span><span class="o">,</span> <span class="o">(</span><span class="n">Object</span><span class="o">[])</span><span class="kc">null</span><span class="o">);</span>
+                <span class="n">d</span> <span class="o">=</span> <span class="n">getDoubleValue</span><span class="o">(</span><span class="n">readLine</span><span class="o">);</span>
+                <span class="k">if</span> <span class="o">(</span><span class="n">d</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="n">notifyListeners</span><span class="o">(</span><span class="n">d</span><span class="o">);</span>
+                <span class="o">}</span>
+            <span class="o">}</span> <span class="k">while</span> <span class="o">(</span><span class="n">d</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">);</span>
+            <span class="n">notifyListenersOfEndOfStream</span><span class="o">();</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="kd">private</span> <span class="kt">void</span> <span class="nf">notifyListenersOfEndOfStream</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">for</span> <span class="o">(</span><span class="n">NumberReadListener</span> <span class="n">numberReadListener</span><span class="o">:</span> <span class="n">listeners</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">numberReadListener</span><span class="o">.</span><span class="na">numberStreamTerminated</span><span class="o">(</span><span class="k">new</span> <span class="n">NumberReadEvent</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="mf">0D</span><span class="o">));</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="kd">private</span> <span class="kt">void</span> <span class="nf">notifyListeners</span><span class="o">(</span><span class="n">Double</span> <span class="n">d</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">for</span> <span class="o">(</span><span class="n">NumberReadListener</span> <span class="n">numberReadListener</span><span class="o">:</span> <span class="n">listeners</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">numberReadListener</span><span class="o">.</span><span class="na">numberRead</span><span class="o">(</span><span class="k">new</span> <span class="n">NumberReadEvent</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="n">d</span><span class="o">));</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="kd">private</span> <span class="n">Double</span> <span class="nf">getDoubleValue</span><span class="o">(</span><span class="n">String</span> <span class="n">readLine</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">Double</span> <span class="n">result</span><span class="o">;</span>
+        <span class="k">try</span> <span class="o">{</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">Double</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">readLine</span><span class="o">);</span>
+        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">result</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table>

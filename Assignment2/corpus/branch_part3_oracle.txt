@@ -1,0 +1,69 @@
+<p>The <code>continue</code> statement skips the current iteration of a <code>for</code>, <code>while</code> , or <code>do-while</code> loop. The unlabeled form skips to the end of the innermost loop's body and evaluates the <code>boolean</code> expression that controls the loop. The following program, <a class="SourceLink" target="_blank" href="examples/ContinueDemo.java" onclick="showCode('https://docs.oracle.com/javase/tutorial/displayCode.html', 'examples/ContinueDemo.java'); return false;"><code>ContinueDemo</code></a> , steps through a <code>String</code>, counting the occurences of the letter "p". If the current character is not a p, the <code>continue</code> statement skips the rest of the loop and proceeds to the next character. If it <i>is</i> a "p", the program increments the letter count.</p> 
+<div class="codeblock"> 
+ <pre>
+
+class ContinueDemo {
+    public static void main(String[] args) {
+
+        String searchMe = "peter piper picked a " + "peck of pickled peppers";
+        int max = searchMe.length();
+        int numPs = 0;
+
+        for (int i = 0; i &lt; max; i++) {
+            // interested only in p's
+            if (searchMe.charAt(i) != 'p')
+                continue;
+
+            // process p's
+            numPs++;
+        }
+        System.out.println("Found " + numPs + " p's in the string.");
+    }
+}
+</pre> 
+</div> 
+<p>Here is the output of this program:</p> 
+<div class="codeblock"> 
+ <pre>
+Found 9 p's in the string.
+</pre> 
+</div> 
+<p>To see this effect more clearly, try removing the <code>continue</code> statement and recompiling. When you run the program again, the count will be wrong, saying that it found 35 p's instead of 9.</p> 
+<p>A labeled <code>continue</code> statement skips the current iteration of an outer loop marked with the given label. The following example program, <code>ContinueWithLabelDemo</code>, uses nested loops to search for a substring within another string. Two nested loops are required: one to iterate over the substring and one to iterate over the string being searched. The following program, <a class="SourceLink" target="_blank" href="examples/ContinueWithLabelDemo.java" onclick="showCode('https://docs.oracle.com/javase/tutorial/displayCode.html', 'examples/ContinueWithLabelDemo.java'); return false;"><code>ContinueWithLabelDemo</code></a>, uses the labeled form of continue to skip an iteration in the outer loop.</p> 
+<div class="codeblock"> 
+ <pre>
+
+class ContinueWithLabelDemo {
+    public static void main(String[] args) {
+
+        String searchMe = "Look for a substring in me";
+        String substring = "sub";
+        boolean foundIt = false;
+
+        int max = searchMe.length() - 
+                  substring.length();
+
+    test:
+        for (int i = 0; i &lt;= max; i++) {
+            int n = substring.length();
+            int j = i;
+            int k = 0;
+            while (n-- != 0) {
+                if (searchMe.charAt(j++) != substring.charAt(k++)) {
+                    continue test;
+                }
+            }
+            foundIt = true;
+                break test;
+        }
+        System.out.println(foundIt ? "Found it" : "Didn't find it");
+    }
+}
+</pre> 
+</div> 
+<p>Here is the output from this program.</p> 
+<div class="codeblock"> 
+ <pre>
+Found it
+</pre> 
+</div>

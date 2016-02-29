@@ -1,0 +1,40 @@
+<p>When you extend an interface that contains a default method, you can do the following:</p> 
+<ul> 
+ <li>Not mention the default method at all, which lets your extended interface inherit the default method.</li> 
+ <li>Redeclare the default method, which makes it <code>abstract</code>.</li> 
+ <li>Redefine the default method, which overrides it.</li> 
+</ul> 
+<p>Suppose that you extend the interface <code>TimeClient</code> as follows:</p> 
+<div class="codeblock"> 
+ <pre>
+public interface AnotherTimeClient extends TimeClient { }
+</pre> 
+</div> 
+<p>Any class that implements the interface <code>AnotherTimeClient</code> will have the implementation specified by the default method <code>TimeClient.getZonedDateTime</code>.</p> 
+<p>Suppose that you extend the interface <code>TimeClient</code> as follows:</p> 
+<div class="codeblock"> 
+ <pre>
+public interface AbstractZoneTimeClient extends TimeClient {
+    public ZonedDateTime getZonedDateTime(String zoneString);
+}
+</pre> 
+</div> 
+<p>Any class that implements the interface <code>AbstractZoneTimeClient</code> will have to implement the method <code>getZonedDateTime</code>; this method is an <code>abstract</code> method like all other nondefault (and nonstatic) methods in an interface.</p> 
+<p>Suppose that you extend the interface <code>TimeClient</code> as follows:</p> 
+<div class="codeblock"> 
+ <pre>
+public interface HandleInvalidTimeZoneClient extends TimeClient {
+    default public ZonedDateTime getZonedDateTime(String zoneString) {
+        try {
+            return ZonedDateTime.of(getLocalDateTime(),ZoneId.of(zoneString)); 
+        } catch (DateTimeException e) {
+            System.err.println("Invalid zone ID: " + zoneString +
+                "; using the default time zone instead.");
+            return ZonedDateTime.of(getLocalDateTime(),ZoneId.systemDefault());
+        }
+    }
+}
+</pre> 
+</div> 
+<p>Any class that implements the interface <code>HandleInvalidTimeZoneClient</code> will use the implementation of <code>getZonedDateTime</code> specified by this interface instead of the one specified by the interface <code>TimeClient</code>.</p> 
+<!-- *********************************************************************** -->

@@ -1,0 +1,140 @@
+<p>An <code>else-if</code> block may be used when multiple conditions need to be checked. <code>else-if</code> statements come after the <code>if</code> block, but before the <code>else</code> block. The structure of an <code>if</code> block is as follows:</p> 
+<table style="margin: auto;"> 
+ <tbody> 
+  <tr> 
+   <td>if (<i><b>boolean expression<sub>1</sub></b></i>) { 
+    <dl> 
+     <dd> 
+      <i><b>statement<sub>1.1</sub></b></i> 
+     </dd> 
+     <dd> 
+      <i><b>statement<sub>1.2</sub></b></i> 
+     </dd> 
+     <dd>
+       ... 
+     </dd> 
+     <dd> 
+      <i><b>statement<sub>n</sub></b></i> 
+     </dd> 
+    </dl> <p>} else if (<i><b>boolean expression<sub>2</sub></b></i>) {</p> 
+    <dl> 
+     <dd> 
+      <i><b>statement<sub>2.1</sub></b></i> 
+     </dd> 
+     <dd> 
+      <i><b>statement<sub>2.2</sub></b></i> 
+     </dd> 
+     <dd>
+       ... 
+     </dd> 
+     <dd> 
+      <i><b>statement<sub>2.n</sub></b></i> 
+     </dd> 
+    </dl> <p>} else {</p> 
+    <dl> 
+     <dd> 
+      <i><b>statement<sub>3.1</sub></b></i> 
+     </dd> 
+     <dd> 
+      <i><b>statement<sub>3.2</sub></b></i> 
+     </dd> 
+     <dd>
+       ... 
+     </dd> 
+     <dd> 
+      <i><b>statement<sub>3.n</sub></b></i> 
+     </dd> 
+    </dl> <p>}</p> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>Here is an example to illustrate:</p> 
+<table style="width: 100%;"> 
+ <tbody> 
+  <tr> 
+   <td valign="top"> 
+    <table style="padding:2px; margin:2px;"> 
+     <tbody> 
+      <tr valign="top"> 
+       <td style="width:32px;"><img alt="Computer code" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/32px-Gnome-settings-accessibility-keyboard.svg.png" title="Computer code" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/48px-Gnome-settings-accessibility-keyboard.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/64px-Gnome-settings-accessibility-keyboard.svg.png 2x" data-file-width="60" data-file-height="60" /></td> 
+       <td style="background-color:#ffeee0; border-left: 4px solid orange; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><b>Code listing 3.3: MyConditionalProgram.java</b> 
+        <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+         <pre>
+<span class="lineno"> 1 </span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyConditionalProgram</span> <span class="o">{</span>
+<span class="lineno"> 2 </span>    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span> <span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno"> 3 </span><span class="hll">      <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">5</span><span class="o">;</span>
+</span><span class="lineno"> 4 </span><span class="hll">      <span class="k">if</span> <span class="o">(</span><span class="n">a</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+</span><span class="lineno"> 5 </span>          <span class="c1">// a is greater than 0, so this statement will execute</span>
+<span class="lineno"> 6 </span><span class="hll">          <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"a is positive"</span><span class="o">);</span>
+</span><span class="lineno"> 7 </span>      <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">a</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno"> 8 </span>          <span class="c1">// a case has already executed, so this statement will NOT execute</span>
+<span class="lineno"> 9 </span>          <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"a is positive or zero"</span><span class="o">);</span>
+<span class="lineno">10 </span>      <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+<span class="lineno">11 </span>          <span class="c1">// a case has already executed, so this statement will NOT execute</span>
+<span class="lineno">12 </span>          <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"a is negative"</span><span class="o">);</span>
+<span class="lineno">13 </span>      <span class="o">}</span>
+<span class="lineno">14 </span>    <span class="o">}</span>
+<span class="lineno">15 </span><span class="o">}</span>
+</pre> 
+        </div> </td> 
+      </tr> 
+     </tbody> 
+    </table> </td> 
+   <td valign="top"> 
+    <table style="padding:2px; margin:2px;"> 
+     <tbody> 
+      <tr valign="top"> 
+       <td style="width:32px;"><img alt="Computer code" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/32px-Gnome-settings-accessibility-keyboard.svg.png" title="Computer code" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/48px-Gnome-settings-accessibility-keyboard.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/64px-Gnome-settings-accessibility-keyboard.svg.png 2x" data-file-width="60" data-file-height="60" /></td> 
+       <td style="background-color:#ffeee0; border-left: 4px solid orange; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><b>Output for code listing 3.3</b> <pre style="background-color:#000; color:#fff;">
+a is positive
+</pre></td> 
+      </tr> 
+     </tbody> 
+    </table> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>Keep in mind that <i>only a single block</i> will execute, and it will be the first true condition.</p> 
+<p>All the conditions are evaluated when <code>if</code> is reached, no matter what the result of the condition is, after the execution of the <code>if</code> block:</p> 
+<table style="width: 100%;"> 
+ <tbody> 
+  <tr> 
+   <td valign="top"> 
+    <table style="padding:2px; margin:2px;"> 
+     <tbody> 
+      <tr valign="top"> 
+       <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+       <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><b>Code section 3.23: A new value for the variable a.</b> 
+        <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+         <pre>
+<span class="lineno"> 1 </span><span class="hll"><span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">5</span><span class="o">;</span>
+</span><span class="lineno"> 2 </span><span class="hll"><span class="k">if</span> <span class="o">(</span><span class="n">a</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+</span><span class="lineno"> 3 </span>    <span class="c1">// a is greater than 0, so this statement will execute</span>
+<span class="lineno"> 4 </span><span class="hll">    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"a is positive"</span><span class="o">);</span>
+</span><span class="lineno"> 5 </span><span class="hll">    <span class="n">a</span> <span class="o">=</span> <span class="o">-</span><span class="mi">5</span><span class="o">;</span>
+</span><span class="lineno"> 6 </span><span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">a</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno"> 7 </span>    <span class="c1">// a WAS greater than 0, so this statement will not execute</span>
+<span class="lineno"> 8 </span>    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"a is negative"</span><span class="o">);</span>
+<span class="lineno"> 9 </span><span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+<span class="lineno">10 </span>    <span class="c1">// a does not equal 0, so this statement will not execute</span>
+<span class="lineno">11 </span>    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"a is zero"</span><span class="o">);</span>
+<span class="lineno">12 </span><span class="o">}</span>
+</pre> 
+        </div> </td> 
+      </tr> 
+     </tbody> 
+    </table> </td> 
+   <td valign="top"> 
+    <table style="padding:2px; margin:2px;"> 
+     <tbody> 
+      <tr valign="top"> 
+       <td style="width:32px;"><img alt="Computer code" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/32px-Gnome-settings-accessibility-keyboard.svg.png" title="Computer code" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/48px-Gnome-settings-accessibility-keyboard.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/64px-Gnome-settings-accessibility-keyboard.svg.png 2x" data-file-width="60" data-file-height="60" /></td> 
+       <td style="background-color:#ffeee0; border-left: 4px solid orange; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><b>Output for code section 3.23</b> <pre style="background-color:#000; color:#fff;">
+a is positive
+</pre></td> 
+      </tr> 
+     </tbody> 
+    </table> </td> 
+  </tr> 
+ </tbody> 
+</table>

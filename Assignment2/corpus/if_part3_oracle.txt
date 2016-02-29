@@ -1,0 +1,45 @@
+<p>The <code>if-then-else</code> statement provides a secondary path of execution when an "if" clause evaluates to <code>false</code>. You could use an <code>if-then-else</code> statement in the <code>applyBrakes</code> method to take some action if the brakes are applied when the bicycle is not in motion. In this case, the action is to simply print an error message stating that the bicycle has already stopped.</p> 
+<div class="codeblock"> 
+ <pre>
+void applyBrakes() {
+    if (isMoving) {
+        currentSpeed--;
+    } else {
+        System.err.println("The bicycle has already stopped!");
+    } 
+}
+</pre> 
+</div> 
+<p>The following program, <a class="SourceLink" target="_blank" href="examples/IfElseDemo.java" onclick="showCode('https://docs.oracle.com/javase/tutorial/displayCode.html', 'examples/IfElseDemo.java'); return false;"><code>IfElseDemo</code></a>, assigns a grade based on the value of a test score: an A for a score of 90% or above, a B for a score of 80% or above, and so on.</p> 
+<div class="codeblock"> 
+ <pre>
+
+class IfElseDemo {
+    public static void main(String[] args) {
+
+        int testscore = 76;
+        char grade;
+
+        if (testscore &gt;= 90) {
+            grade = 'A';
+        } else if (testscore &gt;= 80) {
+            grade = 'B';
+        } else if (testscore &gt;= 70) {
+            grade = 'C';
+        } else if (testscore &gt;= 60) {
+            grade = 'D';
+        } else {
+            grade = 'F';
+        }
+        System.out.println("Grade = " + grade);
+    }
+}
+</pre> 
+</div> 
+<p>The output from the program is:</p> 
+<div class="codeblock"> 
+ <pre>
+    Grade = C
+</pre> 
+</div> 
+<p>You may have noticed that the value of <code>testscore</code> can satisfy more than one expression in the compound statement: <code>76 &gt;= 70</code> and <code>76 &gt;= 60</code>. However, once a condition is satisfied, the appropriate statements are executed <code>(grade = 'C';)</code> and the remaining conditions are not evaluated.</p>

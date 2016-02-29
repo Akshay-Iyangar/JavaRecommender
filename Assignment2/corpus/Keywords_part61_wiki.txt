@@ -1,0 +1,59 @@
+<p><code><a href="/wiki/Java_Programming/Keywords/try" title="Java Programming/Keywords/try"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">try</font></a></code> is a keyword.</p> 
+<p>It starts a try block. If an Exception is thrown inside a try block, the Exception will be compared any of the catch part of the block. If the Exception match with one of the Exception in the catch part, the exception will be handled there.</p> 
+<p>Three things can happen in a try block:</p> 
+<ul> 
+ <li>No exception is thrown: 
+  <ul> 
+   <li>the code in the try block</li> 
+   <li>plus the code in the finally block will be executed</li> 
+   <li>plus the code after the try-catch block is executed</li> 
+  </ul> </li> 
+ <li>An exception is thrown and a match is found among the catch blocks: 
+  <ul> 
+   <li>the code in the try block until the exception occurred is executed</li> 
+   <li>plus the matched catch block is executed</li> 
+   <li>plus the finally block is executed</li> 
+   <li>plus the code after the try-catch block is executed</li> 
+  </ul> </li> 
+ <li>An exception is thrown and no match found among the catch blocks: 
+  <ul> 
+   <li>the code in the try block until the exception occurred is executed</li> 
+   <li>plus the finally block is executed</li> 
+   <li><b>NO CODE</b> after the try-catch block is executed</li> 
+  </ul> </li> 
+</ul> 
+<p>For example:</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Computer code" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/32px-Gnome-settings-accessibility-keyboard.svg.png" title="Computer code" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/48px-Gnome-settings-accessibility-keyboard.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/64px-Gnome-settings-accessibility-keyboard.svg.png 2x" data-file-width="60" data-file-height="60" /></td> 
+   <td style="background-color:#ffeee0; border-left: 4px solid orange; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">method</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">NoMatchedException</span>
+ <span class="o">{</span>
+   <span class="k">try</span> <span class="o">{</span>
+     <span class="c1">//...</span>
+     <span class="k">throw</span> <span class="k">new</span> <span class="sc">'''</span><span class="n">MyException_1</span><span class="sc">'''</span><span class="o">();</span>
+     <span class="c1">//...</span>
+   <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span> <span class="n">MyException_1</span> <span class="n">e</span> <span class="o">)</span> <span class="o">{</span>
+     <span class="c1">// --- '''Handle the Exception_1 here''' --</span>
+   <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span> <span class="n">MyException_2</span> <span class="n">e</span> <span class="o">)</span> <span class="o">{</span>
+     <span class="c1">// --- Handle the Exception_2 here --</span>
+   <span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>
+     <span class="c1">// --- This will always be executed no matter what --</span>
+   <span class="o">}</span>
+   <span class="c1">// --- Code after the try-catch block</span>
+ <span class="o">}</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>How the catch-blocks are evaluated see <a href="/wiki/Java_Programming/Throwing_and_Catching_Exceptions#Catching_Rule" title="Java Programming/Throwing and Catching Exceptions">Catching Rule</a></p> 
+<p>See also:</p> 
+<ul> 
+ <li><a href="/wiki/Java_Programming/Keywords/catch" title="Java Programming/Keywords/catch">Java Programming/Keywords/catch</a></li> 
+ <li><a href="/wiki/Java_Programming/Keywords/finally" title="Java Programming/Keywords/finally">Java Programming/Keywords/finally</a></li> 
+ <li><a href="/wiki/Java_Programming/Throwing_and_Catching_Exceptions#Catching_Rule" title="Java Programming/Throwing and Catching Exceptions">Java Programming/Throwing and Catching Exceptions#Catching Rule</a></li> 
+</ul>

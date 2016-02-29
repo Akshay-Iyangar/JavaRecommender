@@ -1,0 +1,52 @@
+<p>Reconsider the method <code>printPersonsWithPredicate</code> to see where else you could use lambda expressions:</p> 
+<pre class="codeblock">public static void printPersonsWithPredicate(
+    List&lt;Person&gt; roster, Predicate&lt;Person&gt; tester) {
+    for (Person p : roster) {
+        if (tester.test(p)) {
+            p.printPerson();
+        }
+    }
+}</pre> 
+<p>This method checks each <code>Person</code> instance contained in the <code>List</code> parameter <code>roster</code> whether it satisfies the criteria specified in the <code>Predicate</code> parameter <code>tester</code>. If the <code>Person</code> instance does satisfy the criteria specified by <code>tester</code>, the method <code>printPersron</code> is invoked on the <code>Person</code> instance.</p> 
+<p>Instead of invoking the method <code>printPerson</code>, you can specify a different action to perform on those <code>Person</code> instances that satisfy the criteria specified by <code>tester</code>. You can specify this action with a lambda expression. Suppose you want a lambda expression similar to <code>printPerson</code>, one that takes one argument (an object of type <code>Person</code>) and returns void. Remember, to use a lambda expression, you need to implement a functional interface. In this case, you need a functional interface that contains an abstract method that can take one argument of type <code>Person</code> and returns void. The <code>Consumer&lt;T&gt;</code> interface contains the method <code>void accept(T t)</code>, which has these characteristics. The following method replaces the invocation <code>p.printPerson()</code> with an instance of <code>Consumer&lt;Person&gt;</code> that invokes the method <code>accept</code>:</p> 
+<pre class="codeblock">public static void processPersons(
+    List&lt;Person&gt; roster,
+    Predicate&lt;Person&gt; tester,
+    <strong>Consumer&lt;Person&gt; block</strong>) {
+        for (Person p : roster) {
+            if (tester.test(p)) {
+                <strong>block.accept(p);</strong>
+            }
+        }
+}</pre> 
+<p>As a result, the following method invocation is the same as when you invoked <code>printPersons</code> in <a href="#approach3">Approach 3: Specify Search Criteria Code in a Local Class</a> to obtain members who are eligible for Selective Service. The lambda expression used to print members is highlighted:</p> 
+<pre class="codeblock">processPersons(
+     roster,
+     p -&gt; p.getGender() == Person.Sex.MALE
+         &amp;&amp; p.getAge() &gt;= 18
+         &amp;&amp; p.getAge() &lt;= 25,
+     <strong>p -&gt; p.printPerson()</strong>
+);</pre> 
+<p>What if you want to do more with your members' profiles than printing them out. Suppose that you want to validate the members' profiles or retrieve their contact information? In this case, you need a functional interface that contains an abstract method that returns a value. The <code>Function&lt;T,R&gt;</code> interface contains the method <code>R apply(T t)</code>. The following method retrieves the data specified by the parameter <code>mapper</code>, and then performs an action on it specified by the parameter <code>block</code>:</p> 
+<pre class="codeblock">public static void processPersonsWithFunction(
+    List&lt;Person&gt; roster,
+    Predicate&lt;Person&gt; tester,
+    Function&lt;Person, String&gt; mapper,
+    Consumer&lt;String&gt; block) {
+    for (Person p : roster) {
+        if (tester.test(p)) {
+            String data = mapper.apply(p);
+            block.accept(data);
+        }
+    }
+}</pre> 
+<p>The following method retrieves the email address from each member contained in <code>roster</code> who is eligible for Selective Service and then prints it:</p> 
+<pre class="codeblock">processPersonsWithFunction(
+    roster,
+    p -&gt; p.getGender() == Person.Sex.MALE
+        &amp;&amp; p.getAge() &gt;= 18
+        &amp;&amp; p.getAge() &lt;= 25,
+    p -&gt; p.getEmailAddress(),
+    email -&gt; System.out.println(email)
+);</pre> 
+<!-- ********************************************************************** -->

@@ -1,0 +1,32 @@
+<p>Released on 11 December 2006.<sup id="cite_ref-CITEREFSunJava61_4-0" class="reference"><a href="#cite_note-CITEREFSunJava61-4">[4]</a></sup></p> 
+<p>What's New in Java SE 6:</p> 
+<ul> 
+ <li>Web Services - First-class support for writing XML web service client applications.</li> 
+</ul> 
+<ul> 
+ <li>Scripting - You can now mix in JavaScript technology source code, useful for prototyping. Also useful when you have teams with a variety of skill sets. More advanced developers can plug in their own scripting engines and mix their favorite scripting language in with Java code as they see fit.</li> 
+</ul> 
+<ul> 
+ <li>Database - No more need to find and configure your own JDBC database when developing a database application. Developers will also get the updated JDBC 4.0, a well-used API with many important improvements, such as special support for XML as an SQL datatype and better integration of Binary Large OBjects (BLOBs) and Character Large OBjects (CLOBs) into the APIs.</li> 
+</ul> 
+<ul> 
+ <li>More Desktop APIs - GUI developers get a large number of new tricks to play like the ever popular yet newly incorporated SwingWorker utility to help you with threading in GUI apps, JTable sorting and filtering, and a new facility for quick splash screens to quiet impatient users.</li> 
+</ul> 
+<ul> 
+ <li>Monitoring and Management - The really big deal here is that you don't need to do anything special to the startup to be able to attach on demand with any of the monitoring and management tools in the Java SE platform.</li> 
+</ul> 
+<ul> 
+ <li>Compiler Access - Really aimed at people who create tools for Java development and for frameworks like JavaServer Pages (JSP) or Personal Home Page construction kit (PHP) engines that need to generate a bunch of classes on demand, the compiler API opens up programmatic access to javac for in-process compilation of dynamically generated Java code. The compiler API is not directly intended for the everyday developer, but for those of you deafened by your screaming inner geek, roll up your sleeves and give it a try. And the rest of us will happily benefit from the tools and the improved Java frameworks that use this.</li> 
+</ul> 
+<ul> 
+ <li>Pluggable Annotations allows programmer to write annotation processor so that it can analyse your code semantically before javac compiles. For example, you could write an annotation processor that verifies whether your program obeys naming conventions.</li> 
+</ul> 
+<ul> 
+ <li>Desktop Deployment - At long last, Java SE 6 unifies the Java Plug-in technology and Java WebStart engines, which just makes sense. Installation of the Java WebStart application got a much needed makeover.</li> 
+</ul> 
+<ul> 
+ <li>Security - Java SE 6 has simplified the job of its security administrators by providing various new ways to access platform-native security services, such as native Public Key Infrastructure (PKI) and cryptographic services on Microsoft Windows for secure authentication and communication, Java Generic Security Services (Java GSS) and Kerberos services for authentication, and access to LDAP servers for authenticating users.</li> 
+</ul> 
+<ul> 
+ <li>The -lities: Quality, Compatibility, Stability - Bug fixes ...</li> 
+</ul>

@@ -1,0 +1,87 @@
+<p> <a class="TutorialLink" target="_top" href="https://docs.oracle.com/javase/tutorial/java/IandI/defaultmethods.html">Default methods</a> and <a class="TutorialLink" target="_top" href="https://docs.oracle.com/javase/tutorial/java/IandI/abstract.html">abstract methods</a> in interfaces are inherited like instance methods. However, when the supertypes of a class or interface provide multiple default methods with the same signature, the Java compiler follows inheritance rules to resolve the name conflict. These rules are driven by the following two principles:</p> 
+<ul> 
+ <li> <p>Instance methods are preferred over interface default methods.</p> <p>Consider the following classes and interfaces:</p> <pre class="codeblock">public class Horse {
+    public String identifyMyself() {
+        return "I am a horse.";
+    }
+}</pre> <pre class="codeblock">public interface Flyer {
+    default public String identifyMyself() {
+        return "I am able to fly.";
+    }
+}</pre> <pre class="codeblock">public interface Mythical {
+    default public String identifyMyself() {
+        return "I am a mythical creature.";
+    }
+}</pre> <pre class="codeblock">public class Pegasus extends Horse implements Flyer, Mythical {
+    public static void main(String... args) {
+        Pegasus myApp = new Pegasus();
+        System.out.println(myApp.identifyMyself());
+    }
+}</pre> <p>The method <code>Pegasus.identifyMyself</code> returns the string <code>I am a horse.</code></p> </li> 
+ <li><p>Methods that are already overridden by other candidates are ignored. This circumstance can arise when supertypes share a common ancestor.</p> <p>Consider the following interfaces and classes:</p> <pre class="codeblock">public interface Animal {
+    default public String identifyMyself() {
+        return "I am an animal.";
+    }
+}</pre> <pre class="codeblock">public interface EggLayer extends Animal {
+    default public String identifyMyself() {
+        return "I am able to lay eggs.";
+    }
+}</pre> <pre class="codeblock">public interface FireBreather extends Animal { }</pre> <pre class="codeblock">public class Dragon implements EggLayer, FireBreather {
+    public static void main (String... args) {
+        Dragon myApp = new Dragon();
+        System.out.println(myApp.identifyMyself());
+    }
+}</pre> <p>The method <code>Dragon.identifyMyself</code> returns the string <code>I am able to lay eggs.</code></p> </li> 
+</ul> 
+<p>If two or more independently defined default methods conflict, or a default method conflicts with an abstract method, then the Java compiler produces a compiler error. You must explicitly override the supertype methods.</p> 
+<p>Consider the example about computer-controlled cars that can now fly. You have two interfaces (<code>OperateCar</code> and <code>FlyCar</code>) that provide default implementations for the same method, (<code>startEngine</code>):</p> 
+<pre class="codeblock">public interface OperateCar {
+    // ...
+    default public int startEngine(EncryptedKey key) {
+        // Implementation
+    }
+}</pre> 
+<pre class="codeblock">public interface FlyCar {
+    // ...
+    default public int startEngine(EncryptedKey key) {
+        // Implementation
+    }
+}</pre> 
+<p>A class that implements both <code>OperateCar</code> and <code>FlyCar</code> must override the method <code>startEngine</code>. You could invoke any of the of the default implementations with the <code>super</code> keyword.</p> 
+<pre class="codeblock">public class FlyingCar implements OperateCar, FlyCar {
+    // ...
+    public int startEngine(EncryptedKey key) {
+        FlyCar.super.startEngine(key);
+        OperateCar.super.startEngine(key);
+    }
+}</pre> 
+<p>The name preceding <code>super</code> (in this example, <code>FlyCar</code> or <code>OperateCar</code>) must refer to a direct superinterface that defines or inherits a default for the invoked method. This form of method invocation is not restricted to differentiating between multiple implemented interfaces that contain default methods with the same signature. You can use the <code>super</code> keyword to invoke a default method in both classes and interfaces.</p> 
+<p>Inherited instance methods from classes can override abstract interface methods. Consider the following interfaces and classes:</p> 
+<div class="codeblock"> 
+ <pre>
+public interface Mammal {
+    String identifyMyself();
+}
+</pre> 
+</div> 
+<div class="codeblock"> 
+ <pre>
+public class Horse {
+    public String identifyMyself() {
+        return "I am a horse.";
+    }
+}
+</pre> 
+</div> 
+<div class="codeblock"> 
+ <pre>
+public class Mustang extends Horse implements Mammal {
+    public static void main(String... args) {
+        Mustang myApp = new Mustang();
+        System.out.println(myApp.identifyMyself());
+    }
+}
+</pre> 
+</div> 
+<p>The method <code>Mustang.identifyMyself</code> returns the string <code>I am a horse.</code> The class <code>Mustang</code> inherits the method <code>identifyMyself</code> from the class <code>Horse</code>, which overrides the abstract method of the same name in the interface <code>Mammal</code>.</p> 
+<p><strong>Note</strong>: Static methods in interfaces are never inherited.</p>

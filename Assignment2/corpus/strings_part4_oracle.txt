@@ -1,0 +1,55 @@
+<p>The <code>String</code> class includes a method for concatenating two strings:</p> 
+<div class="codeblock"> 
+ <pre>
+string1.concat(string2); 
+</pre> 
+</div> 
+<p>This returns a new string that is string1 with string2 added to it at the end.</p> 
+<p>You can also use the <code>concat()</code> method with string literals, as in:</p> 
+<div class="codeblock"> 
+ <pre>
+"My name is ".concat("Rumplestiltskin");
+</pre> 
+</div> 
+<p>Strings are more commonly concatenated with the <code style="font-weight: bold">+</code> operator, as in</p> 
+<div class="codeblock"> 
+ <pre>
+"Hello," + " world" + "!"
+</pre> 
+</div> 
+<p>which results in</p> 
+<div class="codeblock"> 
+ <pre>
+"Hello, world!"
+</pre> 
+</div> 
+<p>The <code style="font-weight: bold">+</code> operator is widely used in <code>print</code> statements. For example:</p> 
+<div class="codeblock"> 
+ <pre>
+String string1 = "saw I was ";
+System.out.println("Dot " + string1 + "Tod");
+</pre> 
+</div> 
+<p>which prints</p> 
+<div class="codeblock"> 
+ <pre>
+Dot saw I was Tod
+</pre> 
+</div> 
+<p>Such a concatenation can be a mixture of any objects. For each object that is not a <code>String</code>, its <code>toString()</code> method is called to convert it to a <code>String</code>.</p> 
+<div class="note"> 
+ <hr> 
+  <strong>Note:</strong>&nbsp;The Java programming language does not permit literal strings to span lines in source files, so you must use the 
+  <code>+</code> concatenation operator at the end of each line in a multi-line string. For example: 
+  <div class="codeblock"> 
+   <pre>
+String quote = 
+    "Now is the time for all good " +
+    "men to come to the aid of their country.";
+</pre> 
+  </div> 
+  <p>Breaking strings between lines using the <code>+</code> concatenation operator is, once again, very common in <code>print</code> statements.</p> 
+  <hr> 
+  </hr>
+ </hr>
+</div>

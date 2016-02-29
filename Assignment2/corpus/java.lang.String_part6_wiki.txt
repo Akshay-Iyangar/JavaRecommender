@@ -1,0 +1,129 @@
+<p>It may also be sometimes useful to create <b>substrings</b>, or strings using the order of letters from an existing string. This can be done in two methods.</p> 
+<p>The first method involves creating a substring out of the characters of a string from a given index to the end:</p> 
+<table style="width: 100%;"> 
+ <tbody> 
+  <tr> 
+   <td valign="top"> 
+    <table style="padding:2px; margin:2px;"> 
+     <tbody> 
+      <tr valign="top"> 
+       <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+       <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><span id="code-section-94"><b>Code section 3.94: Truncating string.</b></span> 
+        <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+         <pre>
+<span class="lineno">1 </span><span class="n">String</span> <span class="n">str</span> <span class="o">=</span> <span class="s">"coffee"</span><span class="o">;</span>
+<span class="lineno">2 </span><span class="hll"><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">str</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="mi">3</span><span class="o">));</span>
+</span>
+</pre> 
+        </div> </td> 
+      </tr> 
+     </tbody> 
+    </table> </td> 
+   <td valign="top"> 
+    <table style="padding:2px; margin:2px; width:100%;"> 
+     <tbody> 
+      <tr valign="top"> 
+       <td style="width:32px;"><img alt="Standard input or output" src="//upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/32px-Nuvola_apps_display.png" title="Standard input or output" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/48px-Nuvola_apps_display.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/64px-Nuvola_apps_display.png 2x" data-file-width="128" data-file-height="128" /></td> 
+       <td style="background-color:#f0f0ff; border-left: 4px solid blue; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><b>Output for Code section 3.94</b> <pre style="background-color:#000; color:#fff;">
+fee
+</pre></td> 
+      </tr> 
+     </tbody> 
+    </table> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>The index of the first character in a string is 0.</p> 
+<table style="margin: auto;" cellspacing="0" cellpadding="2"> 
+ <tbody> 
+  <tr> 
+   <td style="color: blue;"><code>c</code></td> 
+   <td style="color: blue;"><code>o</code></td> 
+   <td style="color: blue;"><code>f</code></td> 
+   <td style="color: blue; background: grey;"><code>f</code></td> 
+   <td style="color: blue; background: grey;"><code>e</code></td> 
+   <td style="color: blue; background: grey;"><code>e</code></td> 
+  </tr> 
+  <tr> 
+   <td><i>0</i></td> 
+   <td><i>1</i></td> 
+   <td><i>2</i></td> 
+   <td><i><b>3</b></i></td> 
+   <td><i>4</i></td> 
+   <td><i>5</i></td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>By counting from there, it is apparent that the character in index 3 is the second "f" in "coffee". This is known as the <code>beginIndex</code>. All characters from the <code>beginIndex</code> until the end of the string will be copied into the new substring.</p> 
+<p>The second method involves a user-defined <code>beginIndex</code> and <code>endIndex</code>:</p> 
+<table style="width: 100%;"> 
+ <tbody> 
+  <tr> 
+   <td valign="top"> 
+    <table style="padding:2px; margin:2px;"> 
+     <tbody> 
+      <tr valign="top"> 
+       <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+       <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><span id="code-section-95"><b>Code section 3.95: Extraction of string.</b></span> 
+        <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+         <pre>
+<span class="lineno">1 </span><span class="n">String</span> <span class="n">str</span> <span class="o">=</span> <span class="s">"supporting"</span><span class="o">;</span>
+<span class="lineno">2 </span><span class="hll"><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">str</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="mi">3</span><span class="o">,</span> <span class="mi">7</span><span class="o">));</span>
+</span>
+</pre> 
+        </div> </td> 
+      </tr> 
+     </tbody> 
+    </table> </td> 
+   <td valign="top"> 
+    <table style="padding:2px; margin:2px; width:100%;"> 
+     <tbody> 
+      <tr valign="top"> 
+       <td style="width:32px;"><img alt="Standard input or output" src="//upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/32px-Nuvola_apps_display.png" title="Standard input or output" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/48px-Nuvola_apps_display.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/64px-Nuvola_apps_display.png 2x" data-file-width="128" data-file-height="128" /></td> 
+       <td style="background-color:#f0f0ff; border-left: 4px solid blue; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><b>Output for Code section 3.95</b> <pre style="background-color:#000; color:#fff;">
+port
+</pre></td> 
+      </tr> 
+     </tbody> 
+    </table> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>The string returned by <code>substring()</code> would be "port".</p> 
+<table style="margin: auto;" cellspacing="0" cellpadding="2"> 
+ <tbody> 
+  <tr> 
+   <td style="color: blue;"><code>s</code></td> 
+   <td style="color: blue;"><code>u</code></td> 
+   <td style="color: blue;"><code>p</code></td> 
+   <td style="color: blue; background: grey;"><code>p</code></td> 
+   <td style="color: blue; background: grey;"><code>o</code></td> 
+   <td style="color: blue; background: grey;"><code>r</code></td> 
+   <td style="color: blue; background: grey;"><code>t</code></td> 
+   <td style="color: blue;"><code>i</code></td> 
+   <td style="color: blue;"><code>n</code></td> 
+   <td style="color: blue;"><code>g</code></td> 
+  </tr> 
+  <tr> 
+   <td><i>0</i></td> 
+   <td><i>1</i></td> 
+   <td><i>2</i></td> 
+   <td><i><b>3</b></i></td> 
+   <td><i>4</i></td> 
+   <td><i>5</i></td> 
+   <td><i>6</i></td> 
+   <td><i><b>7</b></i></td> 
+   <td><i>8</i></td> 
+   <td><i>9</i></td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>Please note that the endIndex is <b>not</b> inclusive. This means that the last character will be of the index <code>endIndex-1</code>. Therefore, in this example, every character from index 3 to index 6, inclusive, was copied into the substring.</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td><a href="/wiki/File:Bombilla_amarilla_-_yellow_Edison_lamp.svg" class="image" title="Note"><img alt="Note" src="//upload.wikimedia.org/wikipedia/commons/thumb/1/15/Bombilla_amarilla_-_yellow_Edison_lamp.svg/30px-Bombilla_amarilla_-_yellow_Edison_lamp.svg.png" width="30" height="30" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/1/15/Bombilla_amarilla_-_yellow_Edison_lamp.svg/45px-Bombilla_amarilla_-_yellow_Edison_lamp.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/1/15/Bombilla_amarilla_-_yellow_Edison_lamp.svg/60px-Bombilla_amarilla_-_yellow_Edison_lamp.svg.png 2x" data-file-width="200" data-file-height="200" /></a></td> 
+   <td style="background-color:#fffff0; border-left: 4px solid yellow; padding-left: 6px;">It is easy to mistake the method <code>substring()</code> for <code><span style="border-bottom: red 1px dashed">subString</span>()</code> (which does not exist and would return with a syntax error on compilation). <i>Substring</i> is considered to be one word. This is why the method name does not seem to follow the common syntax of Java. Just remember that this style only applies to methods or other elements that are made up of more than one word.</td> 
+  </tr> 
+ </tbody> 
+</table>

@@ -1,0 +1,45 @@
+<div id="PageContent"> 
+ <p> The unbounded wildcard type is specified using the wildcard character (<tt>?</tt>), for example, <tt>List&lt;?&gt;</tt>. This is called a <em>list of unknown type</em>. There are two scenarios where an unbounded wildcard is a useful approach:</p> 
+ <ul> 
+  <li>If you are writing a method that can be implemented using functionality provided in the <tt>Object</tt> class.</li> 
+  <li>When the code is using methods in the generic class that don't depend on the type parameter. For example, <tt>List.size</tt> or <tt>List.clear</tt>. In fact, <tt>Class&lt;?&gt;</tt> is so often used because most of the methods in <tt>Class&lt;T&gt;</tt> do not depend on <tt>T</tt>.</li> 
+ </ul> 
+ <p> Consider the following method, <tt>printList</tt>:</p> 
+ <div class="codeblock"> 
+  <pre>
+public static void printList(List&lt;Object&gt; list) {
+    for (Object elem : list)
+        System.out.println(elem + " ");
+    System.out.println();
+}
+</pre> 
+ </div> 
+ <p> The goal of <tt>printList</tt> is to print a list of any type, but it fails to achieve that goal — it prints only a list of <tt>Object</tt> instances; it cannot print <tt>List&lt;Integer&gt;</tt>, <tt>List&lt;String&gt;</tt>, <tt>List&lt;Double&gt;</tt>, and so on, because they are not subtypes of <tt>List&lt;Object&gt;</tt>. To write a generic <tt>printList</tt> method, use <tt>List&lt;?&gt;</tt>:</p> 
+ <div class="codeblock"> 
+  <pre>
+public static void printList(List&lt;?&gt; list) {
+    for (Object elem: list)
+        System.out.print(elem + " ");
+    System.out.println();
+}
+</pre> 
+ </div> 
+ <p> Because for any concrete type <tt>A</tt>, <tt>List&lt;A&gt;</tt> is a subtype of <tt>List&lt;?&gt;</tt>, you can use <tt>printList</tt> to print a list of any type:</p> 
+ <div class="codeblock"> 
+  <pre>
+List&lt;Integer&gt; li = Arrays.asList(1, 2, 3);
+List&lt;String&gt;  ls = Arrays.asList("one", "two", "three");
+printList(li);
+printList(ls);
+</pre> 
+ </div> 
+ <div class="note"> 
+  <hr> 
+   <strong>Note:</strong>&nbsp;The 
+   <a class="APILink" target="_blank" href="https://docs.oracle.com/javase/8/docs/api/java/util/Arrays.html#asList-T...-"><tt>Arrays.asList</tt></a> method is used in examples throughout this lesson. This static factory method converts the specified array and returns a fixed-size list. 
+   <hr> 
+   </hr>
+  </hr>
+ </div> 
+ <p> It's important to note that <tt>List&lt;Object&gt;</tt> and <tt>List&lt;?&gt;</tt> are not the same. You can insert an <tt>Object</tt>, or any subtype of <tt>Object</tt>, into a <tt>List&lt;Object&gt;</tt>. But you can only insert <tt>null</tt> into a <tt>List&lt;?&gt;</tt>. The <a class="TutorialLink" target="_top" href="wildcardGuidelines.html">Guidelines for Wildcard Use</a> section has more information on how to determine what kind of wildcard, if any, should be used in a given situation.</p> 
+</div>

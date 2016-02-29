@@ -1,0 +1,32 @@
+<p><code><a href="/wiki/Java_Programming/Keywords/transient" title="Java Programming/Keywords/transient"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">transient</font></a></code> is a Java keyword which marks a member variable not to be serialized when it is persisted to streams of bytes. When an object is transferred through the network, the object needs to be 'serialized'. Serialization converts the object state to serial bytes. Those bytes are sent over the network and the object is recreated from those bytes. Member variables marked by the java <code><a href="/wiki/Java_Programming/Keywords/transient" title="Java Programming/Keywords/transient"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">transient</font></a></code> keyword are not transferred; they are lost intentionally.</p> 
+<p>Syntax:</p> 
+<pre>
+<code><a href="/wiki/Java_Programming/Keywords/private" title="Java Programming/Keywords/private"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">private</font></a></code> <code><a href="/wiki/Java_Programming/Keywords/transient" title="Java Programming/Keywords/transient"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">transient</font></a></code> &lt;member-variable&gt;;
+or 
+<code><a href="/wiki/Java_Programming/Keywords/transient" title="Java Programming/Keywords/transient"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">transient</font></a></code> <code><a href="/wiki/Java_Programming/Keywords/private" title="Java Programming/Keywords/private"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">private</font></a></code> &lt;member-variable&gt;;
+</pre> 
+<p><br> For example:</br></p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Computer code" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/32px-Gnome-settings-accessibility-keyboard.svg.png" title="Computer code" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/48px-Gnome-settings-accessibility-keyboard.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/64px-Gnome-settings-accessibility-keyboard.svg.png 2x" data-file-width="60" data-file-height="60" /></td> 
+   <td style="background-color:#ffeee0; border-left: 4px solid orange; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Foo</span> <span class="kd">implements</span> <span class="n">Serializable</span>
+ <span class="o">{</span>
+   <span class="kd">private</span> <span class="n">String</span> <span class="n">saveMe</span><span class="o">;</span>
+   <span class="kd">private</span> <span class="kd">transient</span> <span class="n">String</span> <span class="n">dontSaveMe</span><span class="o">;</span>
+   <span class="kd">private</span> <span class="kd">transient</span> <span class="n">String</span> <span class="n">password</span><span class="o">;</span>
+   <span class="c1">//...</span>
+ <span class="o">}</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>See also:</p> 
+<ul> 
+ <li>Java language specification reference: <a rel="nofollow" class="external text" href="http://java.sun.com/docs/books/jls/third_edition/html/classes.html#8.3.1.3">jls</a></li> 
+ <li>Serializable Interface. <a class="external text" href="http://en.wikipedia.org/wiki/Serialization#Java">Serializable</a></li> 
+</ul>

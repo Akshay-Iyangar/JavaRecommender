@@ -1,0 +1,33 @@
+<p>If a declaration of a type (such as a member variable or a parameter name) in a particular scope (such as an inner class or a method definition) has the same name as another declaration in the enclosing scope, then the declaration <em>shadows</em> the declaration of the enclosing scope. You cannot refer to a shadowed declaration by its name alone. The following example, <a class="SourceLink" target="_blank" href="examples/ShadowTest.java" onclick="showCode('https://docs.oracle.com/javase/tutorial/displayCode.html', 'examples/ShadowTest.java'); return false;"><code>ShadowTest</code></a>, demonstrates this:</p> 
+<pre class="codeblock">
+ 
+public class ShadowTest {
+
+    public int x = 0;
+
+    class FirstLevel {
+
+        public int x = 1;
+
+        void methodInFirstLevel(int x) {
+            System.out.println("x = " + x);
+            System.out.println("this.x = " + this.x);
+            System.out.println("ShadowTest.this.x = " + ShadowTest.this.x);
+        }
+    }
+
+    public static void main(String... args) {
+        ShadowTest st = new ShadowTest();
+        ShadowTest.FirstLevel fl = st.new FirstLevel();
+        fl.methodInFirstLevel(23);
+    }
+}
+</pre> 
+<p>The following is the output of this example:</p> 
+<pre class="codeblock">x = 23
+this.x = 1
+ShadowTest.this.x = 0</pre> 
+<p>This example defines three variables named <code>x</code>: the member variable of the class <code>ShadowTest</code>, the member variable of the inner class <code>FirstLevel</code>, and the parameter in the method <code>methodInFirstLevel</code>. The variable <code>x</code> defined as a parameter of the method <code>methodInFirstLevel</code> shadows the variable of the inner class <code>FirstLevel</code>. Consequently, when you use the variable <code>x</code> in the method <code>methodInFirstLevel</code>, it refers to the method parameter. To refer to the member variable of the inner class <code>FirstLevel</code>, use the keyword <code>this</code> to represent the enclosing scope:</p> 
+<pre class="codeblock">System.out.println("this.x = " + this.x);</pre> 
+<p>Refer to member variables that enclose larger scopes by the class name to which they belong. For example, the following statement accesses the member variable of the class <code>ShadowTest</code> from the method <code>methodInFirstLevel</code>:</p> 
+<pre class="codeblock">System.out.println("ShadowTest.this.x = " + ShadowTest.this.x);</pre>

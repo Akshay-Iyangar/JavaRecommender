@@ -1,0 +1,21 @@
+<p>Annotations that apply to other annotations are called <em>meta-annotations</em>. There are several meta-annotation types defined in <code>java.lang.annotation</code>.</p> 
+<p><b>@Retention</b> <a class="APILink" target="_blank" href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Retention.html"><code>@Retention</code></a> annotation specifies how the marked annotation is stored:</p> 
+<ul> 
+ <li><code>RetentionPolicy.SOURCE</code> – The marked annotation is retained only in the source level and is ignored by the compiler.</li> 
+ <li><code>RetentionPolicy.CLASS</code> – The marked annotation is retained by the compiler at compile time, but is ignored by the Java Virtual Machine (JVM).</li> 
+ <li><code>RetentionPolicy.RUNTIME</code> – The marked annotation is retained by the JVM so it can be used by the runtime environment.</li> 
+</ul> 
+<p><b>@Documented</b> <a class="APILink" target="_blank" href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Documented.html"><code>@Documented</code></a> annotation indicates that whenever the specified annotation is used those elements should be documented using the Javadoc tool. (By default, annotations are not included in Javadoc.) For more information, see the <a class="OutsideLink" target="_blank" href="https://docs.oracle.com/javase/8/docs/technotes/guides/javadoc/index.html">Javadoc tools page</a>.</p> 
+<p><b>@Target</b> <a class="APILink" target="_blank" href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Target.html"><code>@Target</code></a> annotation marks another annotation to restrict what kind of Java elements the annotation can be applied to. A target annotation specifies one of the following element types as its value:</p> 
+<ul> 
+ <li><code>ElementType.ANNOTATION_TYPE</code> can be applied to an annotation type.</li> 
+ <li><code>ElementType.CONSTRUCTOR</code> can be applied to a constructor.</li> 
+ <li><code>ElementType.FIELD</code> can be applied to a field or property.</li> 
+ <li><code>ElementType.LOCAL_VARIABLE</code> can be applied to a local variable.</li> 
+ <li><code>ElementType.METHOD</code> can be applied to a method-level annotation.</li> 
+ <li><code>ElementType.PACKAGE</code> can be applied to a package declaration.</li> 
+ <li><code>ElementType.PARAMETER</code> can be applied to the parameters of a method.</li> 
+ <li><code>ElementType.TYPE</code> can be applied to any element of a class.</li> 
+</ul> 
+<p><b>@Inherited</b> <a class="APILink" target="_blank" href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Inherited.html"><code>@Inherited</code></a> annotation indicates that the annotation type can be inherited from the super class. (This is not true by default.) When the user queries the annotation type and the class has no annotation for this type, the class' superclass is queried for the annotation type. This annotation applies only to class declarations.</p> 
+<p><b>@Repeatable</b> <a class="APILink" target="_blank" href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Repeatable.html"><code>@Repeatable</code></a> annotation, introduced in Java SE 8, indicates that the marked annotation can be applied more than once to the same declaration or type use. For more information, see <a class="TutorialLink" target="_top" href="repeating.html">Repeating Annotations</a>. </p>

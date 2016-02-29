@@ -1,0 +1,103 @@
+<p>A generic type can be defined for just a method:</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><span id="code-section-37"><b>Code section 4.37: Generic method.</b></span> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno">1 </span><span class="hll"><span class="kd">public</span> <span class="o">&lt;</span><span class="n">D</span><span class="o">&gt;</span> <span class="n">D</span> <span class="nf">assign</span><span class="o">(</span><span class="n">Collection</span><span class="o">&lt;</span><span class="n">D</span><span class="o">&gt;</span> <span class="n">generic</span><span class="o">,</span> <span class="n">D</span> <span class="n">obj</span><span class="o">)</span> <span class="o">{</span>
+</span><span class="lineno">2 </span>  <span class="n">generic</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">obj</span><span class="o">);</span>
+<span class="lineno">3 </span>  <span class="k">return</span> <span class="n">obj</span><span class="o">;</span>
+<span class="lineno">4 </span><span class="o">}</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>Here a new identifier (<i>D</i>) has been chosen at the beginning of the method declaration. The type is <i>specific to a method call</i> and different types can be used for the same object instance:</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><span id="code-section-38"><b>Code section 4.38: Generic method call.</b></span> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno">1 </span><span class="n">Collection</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">numbers</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;();</span>
+<span class="lineno">2 </span><span class="n">Integer</span> <span class="n">number</span> <span class="o">=</span> <span class="n">assign</span><span class="o">(</span><span class="n">numbers</span><span class="o">,</span> <span class="k">new</span> <span class="n">Integer</span><span class="o">(</span><span class="mi">1</span><span class="o">));</span>
+<span class="lineno">3 </span><span class="n">Collection</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">texts</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;();</span>
+<span class="lineno">4 </span><span class="n">String</span> <span class="n">text</span> <span class="o">=</span> <span class="n">assign</span><span class="o">(</span><span class="n">texts</span><span class="o">,</span> <span class="s">"Store it."</span><span class="o">);</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>The actual type will be defined by the type of the method parameter. Hence, the generic type can't be defined only for the return value as it wouldn't be resolved. See the <a href="#Class.3CT.3E">Class&lt;T&gt;</a> section for a solution.</p> 
+<div class="collapsible" style="width:100%; clear:both; border:none;"> 
+ <div class="title" style="background:transparent; text-align:left; background:#cedff2;border:1px solid lightgrey;">
+   Test your knowledge 
+ </div> 
+ <div class="body" style="background:transparent; text-align:left; background:#e7eff9;border:solid 1px lightgrey;padding:8px;"> 
+  <p><b>Question 4.8</b>: Consider the following class.</p> 
+  <table style="padding:2px; margin:2px;"> 
+   <tbody> 
+    <tr valign="top"> 
+     <td style="width:32px;"><img alt="Computer code" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/32px-Gnome-settings-accessibility-keyboard.svg.png" title="Computer code" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/48px-Gnome-settings-accessibility-keyboard.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/64px-Gnome-settings-accessibility-keyboard.svg.png 2x" data-file-width="60" data-file-height="60" /></td> 
+     <td style="background-color:#ffeee0; border-left: 4px solid orange; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><span id="question-8"><b>Question 4.8: Question8.java</b></span> 
+      <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+       <pre>
+<span class="lineno"> 1 </span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Question8</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="o">{</span>
+<span class="lineno"> 2 </span>  <span class="kd">public</span> <span class="n">T</span> <span class="n">item</span><span class="o">;</span>
+<span class="lineno"> 3 </span> 
+<span class="lineno"> 4 </span>  <span class="kd">public</span> <span class="n">T</span> <span class="nf">getItem</span><span class="o">()</span> <span class="o">{</span>
+<span class="lineno"> 5 </span>    <span class="k">return</span> <span class="n">item</span><span class="o">;</span>
+<span class="lineno"> 6 </span>  <span class="o">}</span>
+<span class="lineno"> 7 </span> 
+<span class="lineno"> 8 </span>  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setItem</span><span class="o">(</span><span class="n">T</span> <span class="n">newItem</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno"> 9 </span>    <span class="n">item</span> <span class="o">=</span> <span class="n">newItem</span><span class="o">;</span>
+<span class="lineno">10 </span>  <span class="o">}</span>
+<span class="lineno">11 </span>
+<span class="lineno">12 </span>  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno">13 </span>    <span class="n">Question8</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">aQuestion</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Question8</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;();</span>
+<span class="lineno">14 </span>    <span class="n">aQuestion</span><span class="o">.</span><span class="na">setItem</span><span class="o">(</span><span class="s">"Open your mind."</span><span class="o">);</span>
+<span class="lineno">15 </span>    <span class="n">aQuestion</span><span class="o">.</span><span class="na">display</span><span class="o">(</span><span class="n">aQuestion</span><span class="o">.</span><span class="na">getItem</span><span class="o">());</span>
+<span class="lineno">16 </span>  <span class="o">}</span>
+<span class="lineno">17 </span>
+<span class="lineno">18 </span>  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">display</span><span class="o">(</span><span class="n">String</span> <span class="n">parameter</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno">19 </span>    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Here is the text: "</span> <span class="o">+</span> <span class="n">parameter</span><span class="o">);</span>
+<span class="lineno">20 </span>  <span class="o">}</span>
+<span class="lineno">21 </span>
+<span class="lineno">22 </span>  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">display</span><span class="o">(</span><span class="n">Integer</span> <span class="n">parameter</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno">23 </span>    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Here is the number: "</span> <span class="o">+</span> <span class="n">parameter</span><span class="o">);</span>
+<span class="lineno">24 </span>  <span class="o">}</span>
+<span class="lineno">25 </span>
+<span class="lineno">26 </span>  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">display</span><span class="o">(</span><span class="n">Object</span> <span class="n">parameter</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno">27 </span>    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Here is the object: "</span> <span class="o">+</span> <span class="n">parameter</span><span class="o">);</span>
+<span class="lineno">28 </span>  <span class="o">}</span>
+<span class="lineno">29 </span><span class="o">}</span>
+</pre> 
+      </div> </td> 
+    </tr> 
+   </tbody> 
+  </table> 
+  <p>What will be displayed on the console?</p> 
+  <div class="collapsible" style="width:100%; clear:both; border:none;"> 
+   <div class="title" style="background:transparent; text-align:left; background:#cedff2;border:1px solid lightgrey;">
+     Answer 
+   </div> 
+   <div class="body" style="background:transparent; text-align:left; background:#e7eff9;border:solid 1px lightgrey;padding:8px;"> 
+    <table style="padding:2px; margin:2px; width:100%;"> 
+     <tbody> 
+      <tr valign="top"> 
+       <td style="width:32px;"><img alt="Standard input or output" src="//upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/32px-Nuvola_apps_display.png" title="Standard input or output" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/48px-Nuvola_apps_display.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/64px-Nuvola_apps_display.png 2x" data-file-width="128" data-file-height="128" /></td> 
+       <td style="background-color:#f0f0ff; border-left: 4px solid blue; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><b>Console for Answer 4.8</b> <pre style="background-color:#000; color:#fff;">
+Here is the text: Open your mind.
+</pre></td> 
+      </tr> 
+     </tbody> 
+    </table> 
+    <p><code>aQuestion.getItem()</code> is typed as a string.</p> 
+   </div> 
+  </div> 
+ </div> 
+</div>

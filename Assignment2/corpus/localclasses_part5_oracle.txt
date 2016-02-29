@@ -1,0 +1,35 @@
+<p>Local classes are similar to inner classes because they cannot define or declare any static members. Local classes in static methods, such as the class <code>PhoneNumber</code>, which is defined in the static method <code>validatePhoneNumber</code>, can only refer to static members of the enclosing class. For example, if you do not define the member variable <code>regularExpression</code> as static, then the Java compiler generates an error similar to "non-static variable <code>regularExpression</code> cannot be referenced from a static context."</p> 
+<p>Local classes are non-static because they have access to instance members of the enclosing block. Consequently, they cannot contain most kinds of static declarations.</p> 
+<p>You cannot declare an interface inside a block; interfaces are inherently static. For example, the following code excerpt does not compile because the interface <code>HelloThere</code> is defined inside the body of the method <code>greetInEnglish</code>:</p> 
+<pre class="codeblock">    public void greetInEnglish() {
+        interface HelloThere {
+           public void greet();
+        }
+        class EnglishHelloThere implements HelloThere {
+            public void greet() {
+                System.out.println("Hello " + name);
+            }
+        }
+        HelloThere myGreeting = new EnglishHelloThere();
+        myGreeting.greet();
+    }</pre> 
+<p>You cannot declare static initializers or member interfaces in a local class. The following code excerpt does not compile because the method <code>EnglishGoodbye.sayGoodbye</code> is declared <code>static</code>. The compiler generates an error similar to "modifier 'static' is only allowed in constant variable declaration" when it encounters this method definition:</p> 
+<pre class="codeblock">    public void sayGoodbyeInEnglish() {
+        class EnglishGoodbye {
+            public static void sayGoodbye() {
+                System.out.println("Bye bye");
+            }
+        }
+        EnglishGoodbye.sayGoodbye();
+    }</pre> 
+<p>A local class can have static members provided that they are constant variables. (A <em>constant variable</em> is a variable of primitive type or type <code>String</code> that is declared final and initialized with a compile-time constant expression. A compile-time constant expression is typically a string or an arithmetic expression that can be evaluated at compile time. See <a class="TutorialLink" target="_top" href="classvars.html">Understanding Class Members</a> for more information.) The following code excerpt compiles because the static member <code>EnglishGoodbye.farewell</code> is a constant variable:</p> 
+<pre class="codeblock">    public void sayGoodbyeInEnglish() {
+        class EnglishGoodbye {
+            public static final String farewell = "Bye bye";
+            public void sayGoodbye() {
+                System.out.println(farewell);
+            }
+        }
+        EnglishGoodbye myEnglishGoodbye = new EnglishGoodbye();
+        myEnglishGoodbye.sayGoodbye();
+    }</pre>

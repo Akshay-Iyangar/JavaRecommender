@@ -1,0 +1,62 @@
+<p>Here is the sample code for a possible implementation of a <code>Bicycle</code> class that was presented in the Classes and Objects lesson: </p> 
+<div class="codeblock"> 
+ <pre>
+public class Bicycle {
+        
+    // <b>the Bicycle class has three <i>fields</i></b>
+    public int cadence;
+    public int gear;
+    public int speed;
+        
+    // <b>the Bicycle class has one <i>constructor</i></b>
+    public Bicycle(int startCadence, int startSpeed, int startGear) {
+        gear = startGear;
+        cadence = startCadence;
+        speed = startSpeed;
+    }
+        
+    // <b>the Bicycle class has four <i>methods</i></b>
+    public void setCadence(int newValue) {
+        cadence = newValue;
+    }
+        
+    public void setGear(int newValue) {
+        gear = newValue;
+    }
+        
+    public void applyBrake(int decrement) {
+        speed -= decrement;
+    }
+        
+    public void speedUp(int increment) {
+        speed += increment;
+    }
+        
+}
+</pre> 
+</div> 
+<p>A class declaration for a <code>MountainBike</code> class that is a subclass of <code>Bicycle</code> might look like this:</p> 
+<div class="codeblock"> 
+ <pre>
+public class MountainBike extends Bicycle {
+        
+    // <b>the MountainBike subclass adds one <i>field</i></b>
+    public int seatHeight;
+
+    // <b>the MountainBike subclass has one <i>constructor</i></b>
+    public MountainBike(int startHeight,
+                        int startCadence,
+                        int startSpeed,
+                        int startGear) {
+        super(startCadence, startSpeed, startGear);
+        seatHeight = startHeight;
+    }   
+        
+    // <b>the MountainBike subclass adds one <i>method</i></b>
+    public void setHeight(int newValue) {
+        seatHeight = newValue;
+    }   
+}
+</pre> 
+</div> 
+<p><code>MountainBike</code> inherits all the fields and methods of <code>Bicycle</code> and adds the field <code>seatHeight</code> and a method to set it. Except for the constructor, it is as if you had written a new <code>MountainBike</code> class entirely from scratch, with four fields and five methods. However, you didn't have to do all the work. This would be especially valuable if the methods in the <code>Bicycle</code> class were complex and had taken substantial time to debug.</p>

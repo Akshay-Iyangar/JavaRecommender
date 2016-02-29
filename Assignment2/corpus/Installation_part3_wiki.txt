@@ -1,0 +1,20 @@
+<p>On a machine using the Windows operating system, one can invoke the Registry Editor utility by typing <code>REGEDIT</code> in the Run dialog. In the window that opens subsequently, if you traverse through the hierarchy <code><a href="//en.wikipedia.org/wiki/HKEY_LOCAL_MACHINE#HKEY_LOCAL_MACHINE" class="extiw" title="w:HKEY LOCAL MACHINE">HKEY_LOCAL_MACHINE</a> &gt; SOFTWARE &gt; JavaSoft &gt; Java Development Kit</code> on the left-hand.</p> 
+<p>The resultant would be similar to <a href="#figure-2">figure 1.2</a>, with the only exception being the version entries for the Java Development Kit. At the time of writing this manuscript, the latest version for the Java Development Kit available from the Internet was 1.7 as seen in the Registry entry. If you see a resultant window that resembles the one presented above, it would prove that you have Java installed on your system, otherwise it is not.</p> 
+<div class="center"> 
+ <div class="thumb tnone"> 
+  <div class="thumbinner" style="width:683px;"> 
+   <a href="/wiki/File:Java_Programming_Regedit_Av.png" class="image"><img alt="" src="//upload.wikimedia.org/wikibooks/en/4/47/Java_Programming_Regedit_Av.png" width="681" height="227" class="thumbimage" data-file-width="681" data-file-height="227" /></a> 
+   <div class="thumbcaption"> 
+    <span id="figure-2">Figure 1.2: Registry Editor</span> 
+   </div> 
+  </div> 
+ </div> 
+</div> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td><a href="/wiki/File:Bombilla_amarilla_-_yellow_Edison_lamp.svg" class="image" title="Note"><img alt="Note" src="//upload.wikimedia.org/wikipedia/commons/thumb/1/15/Bombilla_amarilla_-_yellow_Edison_lamp.svg/30px-Bombilla_amarilla_-_yellow_Edison_lamp.svg.png" width="30" height="30" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/1/15/Bombilla_amarilla_-_yellow_Edison_lamp.svg/45px-Bombilla_amarilla_-_yellow_Edison_lamp.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/1/15/Bombilla_amarilla_-_yellow_Edison_lamp.svg/60px-Bombilla_amarilla_-_yellow_Edison_lamp.svg.png 2x" data-file-width="200" data-file-height="200" /></a></td> 
+   <td style="background-color:#fffff0; border-left: 4px solid yellow; padding-left: 6px;">Caution should be exercised when traversing through the Registry Editor. Any changes to the keys and other entries may change the way your Windows operating system normally works. Even minor changes may result into catastrophic failures of the normal working of your machine. Better that you don't modify or tend to modify anything whilst you are in the Registry Editor.</td> 
+  </tr> 
+ </tbody> 
+</table>

@@ -1,0 +1,21 @@
+<p>These inner classes, also called <i>local classes</i>, cannot have access modifiers, like local variables, since the class is 'private' to the method. The inner class can be only <code><a href="/wiki/Java_Programming/Keywords/abstract" title="Java Programming/Keywords/abstract"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">abstract</font></a></code> or <code><a href="/wiki/Java_Programming/Keywords/final" title="Java Programming/Keywords/final"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">final</font></a></code>.</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Computer code" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/32px-Gnome-settings-accessibility-keyboard.svg.png" title="Computer code" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/48px-Gnome-settings-accessibility-keyboard.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/64px-Gnome-settings-accessibility-keyboard.svg.png 2x" data-file-width="60" data-file-height="60" /></td> 
+   <td style="background-color:#ffeee0; border-left: 4px solid orange; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><span id="code-listing-11"><b>Code listing 4.11: OuterClass.java</b></span> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno">1 </span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">OuterClass</span> <span class="o">{</span>
+<span class="lineno">2 </span>   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">method</span><span class="o">()</span> <span class="o">{</span>
+<span class="lineno">3 </span><span class="hll">      <span class="kd">class</span> <span class="nc">InnerClass</span> <span class="o">{</span>
+</span><span class="lineno">4 </span><span class="hll"> 
+</span><span class="lineno">5 </span><span class="hll">      <span class="o">}</span>
+</span><span class="lineno">6 </span>   <span class="o">}</span>
+<span class="lineno">7 </span><span class="o">}</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>In addition to instance variables of the enclosing class, local classes can also access local variables of the enclosing method, but only ones that are declared <code>final</code>. This is because the local class instance might outlive the invocation of the method, and so needs its own copy of the variable. To avoid problems with having two different copies of a mutable variable with the same name in the same scope, it is required to be <code>final</code>, so it cannot be changed.</p>

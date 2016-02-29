@@ -1,0 +1,181 @@
+<p>Programming may not be as trivial or boring as just crunching huge numbers any more. However, huge chunks of code written in any programming language today, let alone Java, obsessively deal with numbers. Be it churning out huge prime numbers,<sup id="cite_ref-note-1_1-0" class="reference"><a href="#cite_note-note-1-1">[1]</a></sup> or just calculating a cost of emission from your scooter. In 1965, <a href="//en.wikipedia.org/wiki/Gemini_5" class="extiw" title="w:Gemini 5">Gemini V</a> space mission escaped a near-fatal accident because of a programming error.<sup id="cite_ref-note-2_2-0" class="reference"><a href="#cite_note-note-2-2">[2]</a></sup> And again in 1979, a computer program calculated the ability of five nuclear reactors to withstand earthquakes as overestimated; this caused the plants to be shut down temporarily.<sup id="cite_ref-note-3_3-0" class="reference"><a href="#cite_note-note-3-3">[3]</a></sup> There is one thing common to both these programming errors: the subject data, being computed at the time the errors occurred, was numeric. Out of past experience, Java came bundled with revised type checking for numeric data and puts lots of emphasis on correctly identifying different types of it. So you must recognise the importance of numeric data when it comes to programming.</p> 
+<p>Numbers are stored in memory using a binary system. The memory is like a grid of cells:</p> 
+<p>Each cell can contain a <i>binary digit</i> (shortened to <i>bit</i>), that is to say, zero or one:</p> 
+<p>Actually, each cell <b>does</b> contain a binary digit, as one bit is roughly equivalent to <code>1</code> and an empty cell in the memory signifies <code>0</code>. A single binary digit can only hold two possible values: a zero or a one.</p> 
+<p>Multiple bits held together can hold multiple permutations — 2 bits can hold 4 possible values, 3 can hold 8, and so on. For instance, the maximum number 8 bits can hold (<code>11111111</code> in binary) is <code>255</code> in the decimal system. So, the numbers from 0 to 255 can fit within 8 bits.</p> 
+<p>It is all good, but this way, we can only host positive numbers (or unsigned integers). They are called <i>unsigned integers</i>. Unsigned integers are whole number values that are all positive and do not attribute to negative values. For this very reason, we would ask one of the 8 bits to hold information about the sign of the number (positive or negative). This leaves us with just 7 bits to actually count out a number. The maximum number that these 7 bits can hold (<code>1111111</code>) is <code>127</code> in the decimal system.</p> 
+<table style="width: 100%;"> 
+ <tbody> 
+  <tr> 
+   <td style="border: 0px; background-color: white; text-align: center; font-size:200%;"><i>Positive numbers</i></td> 
+   <td style="border: 0px; background-color: white; text-align: center; font-size:200%;"><i>Negative numbers</i></td> 
+  </tr> 
+  <tr> 
+   <td> 
+    <table class="wikitable" style="margin: auto; border: 0px;"> 
+     <tbody> 
+      <tr> 
+       <td colspan="9" style="border: 0px; background-color: white; text-align: center;"><i>Memory state</i></td> 
+       <td style="border: 0px; background-color: white;"></td> 
+       <td style="border: 0px; background-color: white; text-align: center;"><i>Gives</i></td> 
+      </tr> 
+      <tr> 
+       <td>&nbsp;<code>0</code>&nbsp;</td> 
+       <td style="border: 0px; background-color: white;"></td> 
+       <td>&nbsp;<code>0</code>&nbsp;</td> 
+       <td>&nbsp;<code>0</code>&nbsp;</td> 
+       <td>&nbsp;<code>0</code>&nbsp;</td> 
+       <td>&nbsp;<code>0</code>&nbsp;</td> 
+       <td>&nbsp;<code>0</code>&nbsp;</td> 
+       <td>&nbsp;<code>0</code>&nbsp;</td> 
+       <td>&nbsp;<code>0</code>&nbsp;</td> 
+       <td style="border: 0px; background-color: white; text-align: center;">→</td> 
+       <td style="border: 0px; background-color: white; text-align: center;">0</td> 
+      </tr> 
+      <tr> 
+       <td>&nbsp;<code>0</code>&nbsp;</td> 
+       <td style="border: 0px; background-color: white;"></td> 
+       <td>&nbsp;<code>0</code>&nbsp;</td> 
+       <td>&nbsp;<code>0</code>&nbsp;</td> 
+       <td>&nbsp;<code>0</code>&nbsp;</td> 
+       <td>&nbsp;<code>0</code>&nbsp;</td> 
+       <td>&nbsp;<code>0</code>&nbsp;</td> 
+       <td>&nbsp;<code>0</code>&nbsp;</td> 
+       <td>&nbsp;<code>1</code>&nbsp;</td> 
+       <td style="border: 0px; background-color: white; text-align: center;">→</td> 
+       <td style="border: 0px; background-color: white; text-align: center;">1</td> 
+      </tr> 
+      <tr> 
+       <td>&nbsp;<code>0</code>&nbsp;</td> 
+       <td style="border: 0px; background-color: white;"></td> 
+       <td>&nbsp;<code>0</code>&nbsp;</td> 
+       <td>&nbsp;<code>0</code>&nbsp;</td> 
+       <td>&nbsp;<code>0</code>&nbsp;</td> 
+       <td>&nbsp;<code>0</code>&nbsp;</td> 
+       <td>&nbsp;<code>0</code>&nbsp;</td> 
+       <td>&nbsp;<code>1</code>&nbsp;</td> 
+       <td>&nbsp;<code>0</code>&nbsp;</td> 
+       <td style="border: 0px; background-color: white; text-align: center;">→</td> 
+       <td style="border: 0px; background-color: white; text-align: center;">2</td> 
+      </tr> 
+      <tr> 
+       <td>&nbsp;<code>0</code>&nbsp;</td> 
+       <td style="border: 0px; background-color: white;"></td> 
+       <td>&nbsp;<code>0</code>&nbsp;</td> 
+       <td>&nbsp;<code>0</code>&nbsp;</td> 
+       <td>&nbsp;<code>0</code>&nbsp;</td> 
+       <td>&nbsp;<code>0</code>&nbsp;</td> 
+       <td>&nbsp;<code>0</code>&nbsp;</td> 
+       <td>&nbsp;<code>1</code>&nbsp;</td> 
+       <td>&nbsp;<code>1</code>&nbsp;</td> 
+       <td style="border: 0px; background-color: white; text-align: center;">→</td> 
+       <td style="border: 0px; background-color: white; text-align: center;">3</td> 
+      </tr> 
+      <tr> 
+       <td style="text-align: center;"><br> ...<br /></br></td> 
+       <td style="border: 0px; background-color: white;"></td> 
+       <td colspan="7" style="text-align: center;"><br> ...<br /></br></td> 
+       <td style="border: 0px; background-color: white; text-align: center;">...</td> 
+      </tr> 
+      <tr> 
+       <td>&nbsp;<code>0</code>&nbsp;</td> 
+       <td style="border: 0px; background-color: white;"></td> 
+       <td>&nbsp;<code>1</code>&nbsp;</td> 
+       <td>&nbsp;<code>1</code>&nbsp;</td> 
+       <td>&nbsp;<code>1</code>&nbsp;</td> 
+       <td>&nbsp;<code>1</code>&nbsp;</td> 
+       <td>&nbsp;<code>1</code>&nbsp;</td> 
+       <td>&nbsp;<code>1</code>&nbsp;</td> 
+       <td>&nbsp;<code>1</code>&nbsp;</td> 
+       <td style="border: 0px; background-color: white; text-align: center;">→</td> 
+       <td style="border: 0px; background-color: white; text-align: center;">127</td> 
+      </tr> 
+     </tbody> 
+    </table> </td> 
+   <td> 
+    <table class="wikitable" style="margin: auto; border: 0px;"> 
+     <tbody> 
+      <tr> 
+       <td colspan="9" style="border: 0px; background-color: white; text-align: center;"><i>Memory state</i></td> 
+       <td style="border: 0px; background-color: white;"></td> 
+       <td style="border: 0px; background-color: white; text-align: center;"><i>Gives</i></td> 
+      </tr> 
+      <tr> 
+       <td>&nbsp;<code>1</code>&nbsp;</td> 
+       <td style="border: 0px; background-color: white;"></td> 
+       <td>&nbsp;<code>0</code>&nbsp;</td> 
+       <td>&nbsp;<code>0</code>&nbsp;</td> 
+       <td>&nbsp;<code>0</code>&nbsp;</td> 
+       <td>&nbsp;<code>0</code>&nbsp;</td> 
+       <td>&nbsp;<code>0</code>&nbsp;</td> 
+       <td>&nbsp;<code>0</code>&nbsp;</td> 
+       <td>&nbsp;<code>0</code>&nbsp;</td> 
+       <td style="border: 0px; background-color: white; text-align: center;">→</td> 
+       <td style="border: 0px; background-color: white; text-align: center;">-128</td> 
+      </tr> 
+      <tr> 
+       <td>&nbsp;<code>1</code>&nbsp;</td> 
+       <td style="border: 0px; background-color: white;"></td> 
+       <td>&nbsp;<code>0</code>&nbsp;</td> 
+       <td>&nbsp;<code>0</code>&nbsp;</td> 
+       <td>&nbsp;<code>0</code>&nbsp;</td> 
+       <td>&nbsp;<code>0</code>&nbsp;</td> 
+       <td>&nbsp;<code>0</code>&nbsp;</td> 
+       <td>&nbsp;<code>0</code>&nbsp;</td> 
+       <td>&nbsp;<code>1</code>&nbsp;</td> 
+       <td style="border: 0px; background-color: white; text-align: center;">→</td> 
+       <td style="border: 0px; background-color: white; text-align: center;">-127</td> 
+      </tr> 
+      <tr> 
+       <td>&nbsp;<code>1</code>&nbsp;</td> 
+       <td style="border: 0px; background-color: white;"></td> 
+       <td>&nbsp;<code>0</code>&nbsp;</td> 
+       <td>&nbsp;<code>0</code>&nbsp;</td> 
+       <td>&nbsp;<code>0</code>&nbsp;</td> 
+       <td>&nbsp;<code>0</code>&nbsp;</td> 
+       <td>&nbsp;<code>0</code>&nbsp;</td> 
+       <td>&nbsp;<code>1</code>&nbsp;</td> 
+       <td>&nbsp;<code>0</code>&nbsp;</td> 
+       <td style="border: 0px; background-color: white; text-align: center;">→</td> 
+       <td style="border: 0px; background-color: white; text-align: center;">-126</td> 
+      </tr> 
+      <tr> 
+       <td>&nbsp;<code>1</code>&nbsp;</td> 
+       <td style="border: 0px; background-color: white;"></td> 
+       <td>&nbsp;<code>0</code>&nbsp;</td> 
+       <td>&nbsp;<code>0</code>&nbsp;</td> 
+       <td>&nbsp;<code>0</code>&nbsp;</td> 
+       <td>&nbsp;<code>0</code>&nbsp;</td> 
+       <td>&nbsp;<code>0</code>&nbsp;</td> 
+       <td>&nbsp;<code>1</code>&nbsp;</td> 
+       <td>&nbsp;<code>1</code>&nbsp;</td> 
+       <td style="border: 0px; background-color: white; text-align: center;">→</td> 
+       <td style="border: 0px; background-color: white; text-align: center;">-125</td> 
+      </tr> 
+      <tr> 
+       <td style="text-align: center;"><br> ...<br /></br></td> 
+       <td style="border: 0px; background-color: white;"></td> 
+       <td colspan="7" style="text-align: center;"><br> ...<br /></br></td> 
+       <td style="border: 0px; background-color: white; text-align: center;">...</td> 
+      </tr> 
+      <tr> 
+       <td>&nbsp;<code>1</code>&nbsp;</td> 
+       <td style="border: 0px; background-color: white;"></td> 
+       <td>&nbsp;<code>1</code>&nbsp;</td> 
+       <td>&nbsp;<code>1</code>&nbsp;</td> 
+       <td>&nbsp;<code>1</code>&nbsp;</td> 
+       <td>&nbsp;<code>1</code>&nbsp;</td> 
+       <td>&nbsp;<code>1</code>&nbsp;</td> 
+       <td>&nbsp;<code>1</code>&nbsp;</td> 
+       <td>&nbsp;<code>1</code>&nbsp;</td> 
+       <td style="border: 0px; background-color: white; text-align: center;">→</td> 
+       <td style="border: 0px; background-color: white; text-align: center;">-1</td> 
+      </tr> 
+     </tbody> 
+    </table> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>Altogether, using this method, 8 bits can hold numbers ranging from <code>-128</code> to <code>127</code> (including zero) — a total of 256 numbers. Not a bad pay-off one might presume. The opposite to an unsigned integer is a <i>signed integer</i> that have the capability of holding both positive and negative values.</p> 
+<p>But, what about larger numbers. You would need significantly more bits to hold larger numbers. That's where Java's numeric types come into play. Java has multiple numeric types — their size dependant on the number of bits that are at play.</p> 
+<p>In Java, numbers are dealt with using data types specially formulated to host numeric data. But before we dive into these types, we must first set some concepts in stone. Just like you did in high school (or even primary school), numbers in Java are placed in clearly distinct groups and systems. As you'd already know by now, number systems includes groups like the <i>integer</i> numbers (0, 1, 2 ... ∞); <i>negative integers</i> (0, -1, -2 ... -∞) or even <i>real</i> and <i>rational</i> numbers (<a href="//en.wikipedia.org/wiki/Pi" class="extiw" title="w:Pi">value of Pi</a>, ¾, 0.333~, etcetera). Java simply tends to place these numbers in two distinct groups, <b>integers</b> (-∞ ... 0 ... ∞) and <b>floating point</b> numbers (any number with decimal points or fractional representation). For the moment, we would only look into integer values as they are easier to understand and work with.</p>

@@ -1,0 +1,180 @@
+<p>The object references are passed by value. It means that:</p> 
+<ul> 
+ <li>There is no more link between the reference inside the method and the source reference,</li> 
+ <li>The source object itself and the object itself inside the method are still the same.</li> 
+</ul> 
+<p>You must understand the difference between the reference of an object and the object itself. A <i>object reference</i> is the link between a variable name and an instance of object:</p> 
+<table style="margin: auto;"> 
+ <tbody> 
+  <tr> 
+   <td><code>Object object</code> ⇔ <code>new Object()</code></td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>An object reference is a pointer, an address to the object instance.</p> 
+<p>The object itself is the value of its attributes inside the object instance:</p> 
+<table style="margin: auto;"> 
+ <tbody> 
+  <tr> 
+   <td>object.firstName</td> 
+   <td>⇒</td> 
+   <td>"James"</td> 
+  </tr> 
+  <tr> 
+   <td>object.lastName</td> 
+   <td>⇒</td> 
+   <td>"Gosling"</td> 
+  </tr> 
+  <tr> 
+   <td>object.birthDay</td> 
+   <td>⇒</td> 
+   <td>"May 19"</td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>Take a look at the example above:</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><span id="code-section-71"><b>Code section 3.71: A method modifying an object.</b></span> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno">1 </span><span class="kd">private</span> <span class="kt">void</span> <span class="nf">modifyObject</span><span class="o">(</span><span class="n">FirstClass</span> <span class="n">anObject</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno">2 </span>  <span class="n">anObject</span><span class="o">.</span><span class="na">setName</span><span class="o">(</span><span class="s">"Susan"</span><span class="o">);</span>
+<span class="lineno">3 </span><span class="o">}</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<table style="width: 100%;"> 
+ <tbody> 
+  <tr> 
+   <td valign="top"> 
+    <table style="padding:2px; margin:2px;"> 
+     <tbody> 
+      <tr valign="top"> 
+       <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+       <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><span id="code-section-72"><b>Code section 3.72: Parameter by reference.</b></span> 
+        <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+         <pre>
+<span class="lineno">1 </span><span class="n">FirstClass</span> <span class="n">object</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FirstClass</span><span class="o">();</span>
+<span class="lineno">2 </span><span class="n">object</span><span class="o">.</span><span class="na">setName</span><span class="o">(</span><span class="s">"Christin"</span><span class="o">);</span>
+<span class="lineno">3 </span>
+<span class="lineno">4 </span><span class="hll"><span class="n">modifyObject</span><span class="o">(</span><span class="n">object</span><span class="o">);</span>
+</span><span class="lineno">5 </span>
+<span class="lineno">6 </span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">object</span><span class="o">.</span><span class="na">getName</span><span class="o">());</span>
+</pre> 
+        </div> </td> 
+      </tr> 
+     </tbody> 
+    </table> </td> 
+   <td valign="top"> 
+    <table style="padding:2px; margin:2px; width:100%;"> 
+     <tbody> 
+      <tr valign="top"> 
+       <td style="width:32px;"><img alt="Standard input or output" src="//upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/32px-Nuvola_apps_display.png" title="Standard input or output" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/48px-Nuvola_apps_display.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/64px-Nuvola_apps_display.png 2x" data-file-width="128" data-file-height="128" /></td> 
+       <td style="background-color:#f0f0ff; border-left: 4px solid blue; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><b>Output for Code section 3.72</b> <pre style="background-color:#000; color:#fff;">
+Susan
+</pre></td> 
+      </tr> 
+     </tbody> 
+    </table> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>The name has changed because the method has changed the object itself and not the reference. Now take a look at the other example:</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><span id="code-section-73"><b>Code section 3.73: A method modifying an object reference.</b></span> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno">1 </span><span class="kd">private</span> <span class="kt">void</span> <span class="nf">modifyObject</span><span class="o">(</span><span class="n">FirstClass</span> <span class="n">anObject</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno">2 </span>  <span class="n">anObject</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FirstClass</span><span class="o">();</span>
+<span class="lineno">3 </span>  <span class="n">anObject</span><span class="o">.</span><span class="na">setName</span><span class="o">(</span><span class="s">"Susan"</span><span class="o">);</span>
+<span class="lineno">4 </span><span class="o">}</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<table style="width: 100%;"> 
+ <tbody> 
+  <tr> 
+   <td valign="top"> 
+    <table style="padding:2px; margin:2px;"> 
+     <tbody> 
+      <tr valign="top"> 
+       <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+       <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><span id="code-section-74"><b>Code section 3.74: Parameter by reference.</b></span> 
+        <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+         <pre>
+<span class="lineno">1 </span><span class="n">FirstClass</span> <span class="n">object</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FirstClass</span><span class="o">();</span>
+<span class="lineno">2 </span><span class="n">object</span><span class="o">.</span><span class="na">setName</span><span class="o">(</span><span class="s">"Christin"</span><span class="o">);</span>
+<span class="lineno">3 </span>
+<span class="lineno">4 </span><span class="hll"><span class="n">modifyObject</span><span class="o">(</span><span class="n">object</span><span class="o">);</span>
+</span><span class="lineno">5 </span>
+<span class="lineno">6 </span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">object</span><span class="o">.</span><span class="na">getName</span><span class="o">());</span>
+</pre> 
+        </div> </td> 
+      </tr> 
+     </tbody> 
+    </table> </td> 
+   <td valign="top"> 
+    <table style="padding:2px; margin:2px; width:100%;"> 
+     <tbody> 
+      <tr valign="top"> 
+       <td style="width:32px;"><img alt="Standard input or output" src="//upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/32px-Nuvola_apps_display.png" title="Standard input or output" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/48px-Nuvola_apps_display.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/64px-Nuvola_apps_display.png 2x" data-file-width="128" data-file-height="128" /></td> 
+       <td style="background-color:#f0f0ff; border-left: 4px solid blue; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><b>Output for Code section 3.74</b> <pre style="background-color:#000; color:#fff;">
+Christin
+</pre></td> 
+      </tr> 
+     </tbody> 
+    </table> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>The name has not changed because the method has changed the reference and not the object itself. The behavior is the same as if the method was in-lined and the parameters were assigned to new variable names:</p> 
+<table style="width: 100%;"> 
+ <tbody> 
+  <tr> 
+   <td valign="top"> 
+    <table style="padding:2px; margin:2px;"> 
+     <tbody> 
+      <tr valign="top"> 
+       <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+       <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><span id="code-section-75"><b>Code section 3.75: In-lined method.</b></span> 
+        <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+         <pre>
+<span class="lineno"> 1 </span><span class="n">FirstClass</span> <span class="n">object</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FirstClass</span><span class="o">();</span>
+<span class="lineno"> 2 </span><span class="n">object</span><span class="o">.</span><span class="na">setName</span><span class="o">(</span><span class="s">"Christin"</span><span class="o">);</span>
+<span class="lineno"> 3 </span>
+<span class="lineno"> 4 </span><span class="c1">// Start of the method</span>
+<span class="lineno"> 5 </span><span class="hll"><span class="n">FirstClass</span> <span class="n">anObject</span> <span class="o">=</span> <span class="n">object</span><span class="o">;</span>
+</span><span class="lineno"> 6 </span><span class="hll"><span class="n">anObject</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FirstClass</span><span class="o">();</span>
+</span><span class="lineno"> 7 </span><span class="hll"><span class="n">anObject</span><span class="o">.</span><span class="na">setName</span><span class="o">(</span><span class="s">"Susan"</span><span class="o">);</span>
+</span><span class="lineno"> 8 </span><span class="c1">// End of the method</span>
+<span class="lineno"> 9 </span>
+<span class="lineno">10 </span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">object</span><span class="o">.</span><span class="na">getName</span><span class="o">());</span>
+</pre> 
+        </div> </td> 
+      </tr> 
+     </tbody> 
+    </table> </td> 
+   <td valign="top"> 
+    <table style="padding:2px; margin:2px; width:100%;"> 
+     <tbody> 
+      <tr valign="top"> 
+       <td style="width:32px;"><img alt="Standard input or output" src="//upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/32px-Nuvola_apps_display.png" title="Standard input or output" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/48px-Nuvola_apps_display.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/64px-Nuvola_apps_display.png 2x" data-file-width="128" data-file-height="128" /></td> 
+       <td style="background-color:#f0f0ff; border-left: 4px solid blue; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><b>Output for Code section 3.75</b> <pre style="background-color:#000; color:#fff;">
+Christin
+</pre></td> 
+      </tr> 
+     </tbody> 
+    </table> </td> 
+  </tr> 
+ </tbody> 
+</table>

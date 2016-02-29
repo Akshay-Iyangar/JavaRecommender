@@ -1,0 +1,97 @@
+<p>A generic class does not hard code the type of a field, a return value or a parameter. The class only indicates that a generic type should be the same, for a given object instance. The generic type is not specified in the class definition. It is specified during object instantiation. This allows the generic type to be different from an instance to another. So we should write our class this way:</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Computer code" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/32px-Gnome-settings-accessibility-keyboard.svg.png" title="Computer code" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/48px-Gnome-settings-accessibility-keyboard.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/64px-Gnome-settings-accessibility-keyboard.svg.png 2x" data-file-width="60" data-file-height="60" /></td> 
+   <td style="background-color:#ffeee0; border-left: 4px solid orange; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><span id="code-listing-36"><b>Code listing 4.36: Repository.java</b></span> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno"> 1 </span><span class="hll"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Repository</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="o">{</span>
+</span><span class="lineno"> 2 </span>
+<span class="lineno"> 3 </span><span class="hll">   <span class="kd">public</span> <span class="n">T</span> <span class="n">item</span><span class="o">;</span>
+</span><span class="lineno"> 4 </span>
+<span class="lineno"> 5 </span><span class="hll">   <span class="kd">public</span> <span class="n">T</span> <span class="nf">getItem</span><span class="o">()</span> <span class="o">{</span>
+</span><span class="lineno"> 6 </span>      <span class="k">return</span> <span class="n">item</span><span class="o">;</span>
+<span class="lineno"> 7 </span>   <span class="o">}</span>
+<span class="lineno"> 8 </span>
+<span class="lineno"> 9 </span><span class="hll">   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setItem</span><span class="o">(</span><span class="n">T</span> <span class="n">newItem</span><span class="o">)</span> <span class="o">{</span>
+</span><span class="lineno">10 </span>      <span class="n">item</span> <span class="o">=</span> <span class="n">newItem</span><span class="o">;</span>
+<span class="lineno">11 </span>   <span class="o">}</span>
+<span class="lineno">12 </span><span class="o">}</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>Here, the generic type is defined after the name of the class. Any new identifier can be chosen. Here, we have chosen <i>T</i>, which is the most common choice. The actual type is defined at the object instantiation:</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><span id="code-section-35"><b>Code section 4.35: Instantiation.</b></span> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno">1 </span><span class="hll"><span class="n">Repository</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">arithmeticRepository</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Repository</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;();</span>
+</span><span class="lineno">2 </span><span class="n">arithmeticRepository</span><span class="o">.</span><span class="na">setItem</span><span class="o">(</span><span class="k">new</span> <span class="n">Integer</span><span class="o">(</span><span class="mi">1</span><span class="o">));</span>
+<span class="lineno">3 </span><span class="n">Integer</span> <span class="n">number</span> <span class="o">=</span> <span class="n">arithmeticRepository</span><span class="o">.</span><span class="na">getItem</span><span class="o">();</span>
+<span class="lineno">4 </span>
+<span class="lineno">5 </span><span class="hll"><span class="n">Repository</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">textualRepository</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Repository</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;();</span>
+</span><span class="lineno">6 </span><span class="n">textualRepository</span><span class="o">.</span><span class="na">setItem</span><span class="o">(</span><span class="s">"Hello!"</span><span class="o">);</span>
+<span class="lineno">7 </span><span class="n">String</span> <span class="n">message</span> <span class="o">=</span> <span class="n">textualRepository</span><span class="o">.</span><span class="na">getItem</span><span class="o">();</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>Although each object instance has its own type, each object instance is still strongly typed:</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td><a href="/wiki/File:Nuvola_apps_important.svg" class="image" title="Warning"><img alt="Warning" src="//upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Nuvola_apps_important.svg/32px-Nuvola_apps_important.svg.png" width="32" height="27" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Nuvola_apps_important.svg/48px-Nuvola_apps_important.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Nuvola_apps_important.svg/64px-Nuvola_apps_important.svg.png 2x" data-file-width="600" data-file-height="500" /></a></td> 
+   <td style="background-color:#fff0f0; border-left: 4px solid red; padding-left: 6px;"><span id="code-section-36" style="color: red;"><b>Code section 4.36: Compile error.</b></span> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno">1 </span><span class="n">Repository</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">arithmeticRepository</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Repository</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;();</span>
+<span class="lineno">2 </span><span class="hll"><span class="n">arithmeticRepository</span><span class="o">.</span><span class="na">setItem</span><span class="o">(</span><span class="s">"Hello!"</span><span class="o">);</span>
+</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>A class can define as many generic types as you like. Choose a different identifier for each generic type and separate them by a comma:</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Computer code" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/32px-Gnome-settings-accessibility-keyboard.svg.png" title="Computer code" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/48px-Gnome-settings-accessibility-keyboard.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/64px-Gnome-settings-accessibility-keyboard.svg.png 2x" data-file-width="60" data-file-height="60" /></td> 
+   <td style="background-color:#ffeee0; border-left: 4px solid orange; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><span id="code-listing-37"><b>Code listing 4.37: Repository.java</b></span> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno"> 1 </span><span class="hll"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Repository</span><span class="o">&lt;</span><span class="n">T</span><span class="o">,</span> <span class="n">U</span><span class="o">&gt;</span> <span class="o">{</span>
+</span><span class="lineno"> 2 </span>
+<span class="lineno"> 3 </span>   <span class="kd">public</span> <span class="n">T</span> <span class="n">item</span><span class="o">;</span>
+<span class="lineno"> 4 </span>
+<span class="lineno"> 5 </span><span class="hll">   <span class="kd">public</span> <span class="n">U</span> <span class="n">anotherItem</span><span class="o">;</span>
+</span><span class="lineno"> 6 </span>
+<span class="lineno"> 7 </span>   <span class="kd">public</span> <span class="n">T</span> <span class="nf">getItem</span><span class="o">()</span> <span class="o">{</span>
+<span class="lineno"> 8 </span>      <span class="k">return</span> <span class="n">item</span><span class="o">;</span>
+<span class="lineno"> 9 </span>   <span class="o">}</span>
+<span class="lineno">10 </span>
+<span class="lineno">11 </span>   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setItem</span><span class="o">(</span><span class="n">T</span> <span class="n">newItem</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno">12 </span>      <span class="n">item</span> <span class="o">=</span> <span class="n">newItem</span><span class="o">;</span>
+<span class="lineno">13 </span>   <span class="o">}</span>
+<span class="lineno">14 </span>
+<span class="lineno">15 </span>   <span class="kd">public</span> <span class="n">U</span> <span class="nf">getAnotherItem</span><span class="o">()</span> <span class="o">{</span>
+<span class="lineno">16 </span>      <span class="k">return</span> <span class="n">anotherItem</span><span class="o">;</span>
+<span class="lineno">17 </span>   <span class="o">}</span>
+<span class="lineno">18 </span>
+<span class="lineno">19 </span>   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setAnotherItem</span><span class="o">(</span><span class="n">U</span> <span class="n">newItem</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno">20 </span>      <span class="n">anotherItem</span> <span class="o">=</span> <span class="n">newItem</span><span class="o">;</span>
+<span class="lineno">21 </span>   <span class="o">}</span>
+<span class="lineno">22 </span><span class="o">}</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>When a type that is defined with generic (for example, <code>Collection&lt;T&gt;</code>) is not used with generics (for example, <code>Collection</code>) is called a <i>raw type</i>.</p>

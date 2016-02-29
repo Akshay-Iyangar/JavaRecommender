@@ -1,0 +1,24 @@
+<p>The <code>if-then</code> statement is the most basic of all the control flow statements. It tells your program to execute a certain section of code <i>only if</i> a particular test evaluates to <code>true</code>. For example, the <code>Bicycle</code> class could allow the brakes to decrease the bicycle's speed <i>only if</i> the bicycle is already in motion. One possible implementation of the <code>applyBrakes</code> method could be as follows:</p> 
+<div class="codeblock"> 
+ <pre>
+void applyBrakes() {
+    // the "if" clause: bicycle must be moving
+    if (isMoving){ 
+        // the "then" clause: decrease current speed
+        currentSpeed--;
+    }
+}
+</pre> 
+</div> 
+<p>If this test evaluates to <code>false</code> (meaning that the bicycle is not in motion), control jumps to the end of the <code>if-then</code> statement.</p> 
+<p>In addition, the opening and closing braces are optional, provided that the "then" clause contains only one statement:</p> 
+<div class="codeblock"> 
+ <pre>
+void applyBrakes() {
+    // same as above, but without braces 
+    if (isMoving)
+        currentSpeed--;
+}
+</pre> 
+</div> 
+<p>Deciding when to omit the braces is a matter of personal taste. Omitting them can make the code more brittle. If a second statement is later added to the "then" clause, a common mistake would be forgetting to add the newly required braces. The compiler cannot catch this sort of error; you'll just get the wrong results.</p>

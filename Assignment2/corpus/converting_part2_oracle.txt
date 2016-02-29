@@ -1,0 +1,63 @@
+<p>Frequently, a program ends up with numeric data in a string objecta value entered by the user, for example.</p> 
+<p>The <code>Number</code> subclasses that wrap primitive numeric types ( <a class="APILink" target="_blank" href="https://docs.oracle.com/javase/8/docs/api/java/lang/Byte.html"><code>Byte</code></a>, <a class="APILink" target="_blank" href="https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html"><code>Integer</code></a>, <a class="APILink" target="_blank" href="https://docs.oracle.com/javase/8/docs/api/java/lang/Double.html"><code>Double</code></a>, <a class="APILink" target="_blank" href="https://docs.oracle.com/javase/8/docs/api/java/lang/Float.html"><code>Float</code></a>, <a class="APILink" target="_blank" href="https://docs.oracle.com/javase/8/docs/api/java/lang/Long.html"><code>Long</code></a>, and <a class="APILink" target="_blank" href="https://docs.oracle.com/javase/8/docs/api/java/lang/Short.html"><code>Short</code></a>) each provide a class method named <code>valueOf</code> that converts a string to an object of that type. Here is an example, <a class="SourceLink" target="_blank" href="examples/ValueOfDemo.java" onclick="showCode('https://docs.oracle.com/javase/tutorial/displayCode.html', 'examples/ValueOfDemo.java'); return false;"><code>ValueOfDemo</code></a> , that gets two strings from the command line, converts them to numbers, and performs arithmetic operations on the values:</p> 
+<div class="codeblock"> 
+ <pre>
+
+public class ValueOfDemo {
+    public static void main(String[] args) {
+
+        // this program requires two 
+        // arguments on the command line 
+        if (args.length == 2) {
+            // convert strings to numbers
+            float a = (Float.valueOf(args[0])).floatValue(); 
+            float b = (Float.valueOf(args[1])).floatValue();
+
+            // do some arithmetic
+            System.out.println("a + b = " +
+                               (a + b));
+            System.out.println("a - b = " +
+                               (a - b));
+            System.out.println("a * b = " +
+                               (a * b));
+            System.out.println("a / b = " +
+                               (a / b));
+            System.out.println("a % b = " +
+                               (a % b));
+        } else {
+            System.out.println("This program " +
+                "requires two command-line arguments.");
+        }
+    }
+}
+</pre> 
+</div> 
+<p>The following is the output from the program when you use <code>4.5</code> and <code>87.2</code> for the command-line arguments:</p> 
+<div class="codeblock"> 
+ <pre>
+a + b = 91.7
+a - b = -82.7
+a * b = 392.4
+a / b = 0.0516055
+a % b = 4.5
+</pre> 
+</div> 
+<div class="note"> 
+ <hr> 
+  <strong>Note:</strong>&nbsp;Each of the 
+  <code>Number</code> subclasses that wrap primitive numeric types also provides a 
+  <code>parseXXXX()</code> method (for example, 
+  <code>parseFloat()</code>) that can be used to convert strings to primitive numbers. Since a primitive type is returned instead of an object, the 
+  <code>parseFloat()</code> method is more direct than the 
+  <code>valueOf()</code> method. For example, in the 
+  <code>ValueOfDemo</code> program, we could use: 
+  <div class="codeblock"> 
+   <pre>
+float a = Float.parseFloat(args[0]);
+float b = Float.parseFloat(args[1]);
+</pre> 
+  </div> 
+  <hr> 
+  </hr>
+ </hr>
+</div>

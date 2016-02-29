@@ -1,0 +1,24 @@
+<div id="PageContent"> 
+ <p> The <a class="TutorialLink" target="_top" href="upperBounded.html">Upper Bounded Wildcards</a> section shows that an upper bounded wildcard restricts the unknown type to be a specific type or a subtype of that type and is represented using the <tt>extends</tt> keyword. In a similar way, a <em>lower bounded</em> wildcard restricts the unknown type to be a specific type or a <em>super type</em> of that type.</p> 
+ <p> A lower bounded wildcard is expressed using the wildcard character ('<tt>?</tt>'), following by the <tt>super</tt> keyword, followed by its <em>lower bound</em>: <tt>&lt;? super A&gt;</tt>.</p> 
+ <div class="note"> 
+  <hr> 
+   <strong>Note:</strong>&nbsp;You can specify an upper bound for a wildcard, or you can specify a lower bound, but you cannot specify both. 
+   <hr> 
+   </hr>
+  </hr>
+ </div> 
+ <p> Say you want to write a method that puts <tt>Integer</tt> objects into a list. To maximize flexibility, you would like the method to work on <tt>List&lt;Integer&gt;</tt>, <tt>List&lt;Number&gt;</tt>, and <tt>List&lt;Object&gt;</tt> — anything that can hold <tt>Integer</tt> values.</p> 
+ <p> To write the method that works on lists of <tt>Integer</tt> and the supertypes of <tt>Integer</tt>, such as <tt>Integer</tt>, <tt>Number</tt>, and <tt>Object</tt>, you would specify <tt>List&lt;? super Integer&gt;</tt>. The term <tt>List&lt;Integer&gt;</tt> is more restrictive than <tt>List&lt;? super Integer&gt;</tt> because the former matches a list of type <tt>Integer</tt> only, whereas the latter matches a list of any type that is a supertype of <tt>Integer</tt>.</p> 
+ <p> The following code adds the numbers 1 through 10 to the end of a list:</p> 
+ <div class="codeblock"> 
+  <pre>
+public static void addNumbers(List&lt;? super Integer&gt; list) {
+    for (int i = 1; i &lt;= 10; i++) {
+        list.add(i);
+    }
+}
+</pre> 
+ </div> 
+ <p> The <a class="TutorialLink" target="_top" href="wildcardGuidelines.html">Guidelines for Wildcard Use</a> section provides guidance on when to use upper bounded wildcards and when to use lower bounded wildcards.</p> 
+</div>

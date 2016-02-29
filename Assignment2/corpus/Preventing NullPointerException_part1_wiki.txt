@@ -1,0 +1,28 @@
+<div> 
+ <p>The reason we need it is because many times, we need to create an object reference before the object itself is created. Object references cannot exist without a value, so we assign the <a href="/wiki/Java_Programming/Literals#null" title="Java Programming/Literals"><code>null</code></a> value to it.</p> 
+ <table style="padding:2px; margin:2px;"> 
+  <tbody> 
+   <tr valign="top"> 
+    <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+    <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><span id="code-section-14"><b>Code section 6.14: Non-instantiated declared object.</b></span> 
+     <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+      <pre>
+<span class="lineno">1 </span><span class="kd">public</span> <span class="n">Person</span> <span class="nf">getPerson</span><span class="o">(</span><span class="kt">boolean</span> <span class="n">isWoman</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno">2 </span><span class="hll">  <span class="n">Person</span> <span class="n">person</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+</span><span class="lineno">3 </span>  <span class="k">if</span> <span class="o">(</span><span class="n">isWoman</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno">4 </span>    <span class="n">person</span> <span class="o">=</span> <span class="n">createWoman</span><span class="o">();</span>
+<span class="lineno">5 </span>  <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+<span class="lineno">6 </span>    <span class="n">person</span> <span class="o">=</span> <span class="n">createMan</span><span class="o">();</span>
+<span class="lineno">7 </span>  <span class="o">}</span>
+<span class="lineno">8 </span>  <span class="k">return</span> <span class="n">person</span><span class="o">;</span>
+<span class="lineno">9 </span><span class="o">}</span>
+</pre> 
+     </div> </td> 
+   </tr> 
+  </tbody> 
+ </table> 
+ <p>In the <a href="#code-section-14">code section 6.14</a> we want to create the <code>Person</code> inside the if-else, but we also want to return the object reference to the caller, so we need to create the object reference outside of the if-else, because of the <a href="/wiki/Java_Programming/Scope" title="Java Programming/Scope">scoping rule</a> in Java. Incorrect error-handling and poor contract design can be a pitfall with any programming language. This is also true for Java.</p> 
+ <p>Now we will describe how to prevent <code>NullPointerException</code>. It does not describe general techniques for how you should program Java. It is of some use, to make you more aware of null values, and to be more careful about generating them yourself.</p> 
+ <p>This list is not complete — there are no rules for preventing <code>NullPointerException</code> entirely in Java, because the standard libraries have to be used, and they can cause <code>NullPointerException</code>s. Also, it is possible to observe an uninitialized final field in Java, so you can't even treat a final field as being completely trusted during the object's creation.</p> 
+ <p>A good approach is to learn how to deal with <code>NullPointerException</code>s first, and become competent with that. These suggestions will help you to cause less <code>NullPointerException</code>s, but they don't replace the need to know about <code>NullPointerException</code>s.</p> 
+</div>

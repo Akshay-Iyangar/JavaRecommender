@@ -1,0 +1,216 @@
+<p>Default methods enable you to add new functionality to existing interfaces and ensure binary compatibility with code written for older versions of those interfaces. In particular, default methods enable you to add methods that accept lambda expressions as parameters to existing interfaces. This section demonstrates how the <a class="APILink" target="_blank" href="https://docs.oracle.com/javase/8/docs/api/java/util/Comparator.html"><code>Comparator</code></a> interface has been enhanced with default and static methods.</p> 
+<p>Consider the <code>Card</code> and <code>Deck</code> classes as described in <a class="TutorialLink" target="_top" href="https://docs.oracle.com/javase/tutorial/java/javaOO/QandE/creating-questions.html">Questions and Exercises: Classes</a>. This example rewrites the <a class="SourceLink" target="_blank" href="examples/defaultmethods/Card.java" onclick="showCode('https://docs.oracle.com/javase/tutorial/displayCode.html', 'examples/defaultmethods/Card.java'); return false;"><code>Card</code></a> and <a class="SourceLink" target="_blank" href="examples/defaultmethods/Deck.java" onclick="showCode('https://docs.oracle.com/javase/tutorial/displayCode.html', 'examples/defaultmethods/Deck.java'); return false;"><code>Deck</code></a> classes as interfaces. The <code>Card</code> interface contains two <code>enum</code> types (<code>Suit</code> and <code>Rank</code>) and two abstract methods (<code>getSuit</code> and <code>getRank</code>):</p> 
+<div class="codeblock"> 
+ <pre>
+
+package defaultmethods;
+
+public interface Card extends Comparable&lt;Card&gt; {
+    
+    public enum Suit { 
+        DIAMONDS (1, "Diamonds"), 
+        CLUBS    (2, "Clubs"   ), 
+        HEARTS   (3, "Hearts"  ), 
+        SPADES   (4, "Spades"  );
+        
+        private final int value;
+        private final String text;
+        Suit(int value, String text) {
+            this.value = value;
+            this.text = text;
+        }
+        public int value() {return value;}
+        public String text() {return text;}
+    }
+    
+    public enum Rank { 
+        DEUCE  (2 , "Two"  ),
+        THREE  (3 , "Three"), 
+        FOUR   (4 , "Four" ), 
+        FIVE   (5 , "Five" ), 
+        SIX    (6 , "Six"  ), 
+        SEVEN  (7 , "Seven"),
+        EIGHT  (8 , "Eight"), 
+        NINE   (9 , "Nine" ), 
+        TEN    (10, "Ten"  ), 
+        JACK   (11, "Jack" ),
+        QUEEN  (12, "Queen"), 
+        KING   (13, "King" ),
+        ACE    (14, "Ace"  );
+        private final int value;
+        private final String text;
+        Rank(int value, String text) {
+            this.value = value;
+            this.text = text;
+        }
+        public int value() {return value;}
+        public String text() {return text;}
+    }
+    
+    public Card.Suit getSuit();
+    public Card.Rank getRank();
+}
+</pre> 
+</div> 
+<p>The <code>Deck</code> interface contains various methods that manipulate cards in a deck:</p> 
+<div class="codeblock"> 
+ <pre>
+
+package defaultmethods; 
+ 
+import java.util.*;
+import java.util.stream.*;
+import java.lang.*;
+ 
+public interface Deck {
+    
+    List&lt;Card&gt; getCards();
+    Deck deckFactory();
+    int size();
+    void addCard(Card card);
+    void addCards(List&lt;Card&gt; cards);
+    void addDeck(Deck deck);
+    void shuffle();
+    void sort();
+    void sort(Comparator&lt;Card&gt; c);
+    String deckToString();
+
+    Map&lt;Integer, Deck&gt; deal(int players, int numberOfCards)
+        throws IllegalArgumentException;
+
+}
+</pre> 
+</div> 
+<p>The class <a class="SourceLink" target="_blank" href="examples/defaultmethods/PlayingCard.java" onclick="showCode('https://docs.oracle.com/javase/tutorial/displayCode.html', 'examples/defaultmethods/PlayingCard.java'); return false;"><code>PlayingCard</code></a> implements the interface <code>Card</code>, and the class <a class="SourceLink" target="_blank" href="examples/defaultmethods/StandardDeck.java" onclick="showCode('https://docs.oracle.com/javase/tutorial/displayCode.html', 'examples/defaultmethods/StandardDeck.java'); return false;"><code>StandardDeck</code></a> implements the interface <code>Deck</code>.</p> 
+<p>The class <code>StandardDeck</code> implements the abstract method <code>Deck.sort</code> as follows:</p> 
+<div class="codeblock"> 
+ <pre>
+public class StandardDeck implements Deck {
+    
+    private List&lt;Card&gt; entireDeck;
+    
+    // ...
+    
+    public void sort() {
+        Collections.sort(entireDeck);
+    }
+    
+    // ...
+}
+</pre> 
+</div> 
+<p>The method <code>Collections.sort</code> sorts an instance of <code>List</code> whose element type implements the interface <a class="APILink" target="_blank" href="https://docs.oracle.com/javase/8/docs/api/java/lang/Comparable.html"><code>Comparable</code></a>. The member <code>entireDeck</code> is an instance of <code>List</code> whose elements are of the type <code>Card</code>, which extends <code>Comparable</code>. The class <code>PlayingCard</code> implements the <a class="APILink" target="_blank" href="https://docs.oracle.com/javase/8/docs/api/java/lang/Comparable.html#compareTo-T-"><code>Comparable.compareTo</code></a> method as follows:</p> 
+<div class="codeblock"> 
+ <pre>
+public int hashCode() {
+    return ((suit.value()-1)*13)+rank.value();
+}
+
+public int compareTo(Card o) {
+    return this.hashCode() - o.hashCode();
+}
+</pre> 
+</div> 
+<p>The method <code>compareTo</code> causes the method <code>StandardDeck.sort()</code> to sort the deck of cards first by suit, and then by rank.</p> 
+<p>What if you want to sort the deck first by rank, then by suit? You would need to implement the <a class="APILink" target="_blank" href="https://docs.oracle.com/javase/8/docs/api/java/util/Comparator.html"><code>Comparator</code></a> interface to specify new sorting criteria, and use the method <a class="APILink" target="_blank" href="https://docs.oracle.com/javase/8/docs/api/java/util/Collections.html#sort-java.util.List-java.util.Comparator-"><code>sort(List&lt;T&gt; list, Comparator&lt;? super T&gt; c)</code></a> (the version of the <code>sort</code> method that includes a <code>Comparator</code> parameter). You can define the following method in the class <code>StandardDeck</code>:</p> 
+<div class="codeblock"> 
+ <pre>
+public void sort(Comparator&lt;Card&gt; c) {
+    Collections.sort(entireDeck, c);
+}  
+</pre> 
+</div> 
+<p>With this method, you can specify how the method <code>Collections.sort</code> sorts instances of the <code>Card</code> class. One way to do this is to implement the <code>Comparator</code> interface to specify how you want the cards sorted. The example <a class="SourceLink" target="_blank" href="examples/defaultmethods/SortByRankThenSuit.java" onclick="showCode('https://docs.oracle.com/javase/tutorial/displayCode.html', 'examples/defaultmethods/SortByRankThenSuit.java'); return false;"><code>SortByRankThenSuit</code></a> does this: </p> 
+<div class="codeblock"> 
+ <pre>
+
+package defaultmethods;
+
+import java.util.*;
+import java.util.stream.*;
+import java.lang.*;
+
+public class SortByRankThenSuit implements Comparator&lt;Card&gt; {
+    public int compare(Card firstCard, Card secondCard) {
+        int compVal =
+            firstCard.getRank().value() - secondCard.getRank().value();
+        if (compVal != 0)
+            return compVal;
+        else
+            return firstCard.getSuit().value() - secondCard.getSuit().value(); 
+    }
+}
+</pre> 
+</div> 
+<p>The following invocation sorts the deck of playing cards first by rank, then by suit:</p> 
+<div class="codeblock"> 
+ <pre>
+StandardDeck myDeck = new StandardDeck();
+myDeck.shuffle();
+myDeck.sort(new SortByRankThenSuit());
+</pre> 
+</div> 
+<p>However, this approach is too verbose; it would be better if you could specify <em>what</em> you want to sort, not <em>how</em> you want to sort. Suppose that you are the developer who wrote the <code>Comparator</code> interface. What default or static methods could you add to the <code>Comparator</code> interface to enable other developers to more easily specify sort criteria?</p> 
+<p>To start, suppose that you want to sort the deck of playing cards by rank, regardless of suit. You can invoke the <code>StandardDeck.sort</code> method as follows:</p> 
+<div class="codeblock"> 
+ <pre>
+StandardDeck myDeck = new StandardDeck();
+myDeck.shuffle();
+myDeck.sort(
+    (firstCard, secondCard) -&gt;
+        firstCard.getRank().value() - secondCard.getRank().value()
+); 
+</pre> 
+</div> 
+<p>Because the interface <code>Comparator</code> is a <a class="TutorialLink" target="_top" href="https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html#approach6">functional interface</a>, you can use a lambda expression as an argument for the <code>sort</code> method. In this example, the lambda expression compares two integer values.</p> 
+<p>It would be simpler for your developers if they could create a <code>Comparator</code> instance by invoking the method <code>Card.getRank</code> only. In particular, it would be helpful if your developers could create a <code>Comparator</code> instance that compares any object that can return a numerical value from a method such as <code>getValue</code> or <code>hashCode</code>. The <code>Comparator</code> interface has been enhanced with this ability with the static method <a class="APILink" target="_blank" href="https://docs.oracle.com/javase/8/docs/api/java/util/Comparator.html#comparing-java.util.function.Function-java.util.Comparator-"><code>comparing</code></a>:</p> 
+<div class="codeblock"> 
+ <pre>
+myDeck.sort(Comparator.comparing((card) -&gt; card.getRank()));  
+</pre> 
+</div> 
+<p>In this example, you can use a <a class="TutorialLink" target="_top" href="https://docs.oracle.com/javase/tutorial/java/javaOO/methodreferences.html">method reference</a> instead:</p> 
+<div class="codeblock"> 
+ <pre>
+myDeck.sort(Comparator.comparing(Card::getRank));  
+</pre> 
+</div> 
+<p>This invocation better demonstrates <em>what</em> to sort rather than <em>how</em> to do it.</p> 
+<p>The <code>Comparator</code> interface has been enhanced with other versions of the static method <code>comparing</code> such as <a class="APILink" target="_blank" href="https://docs.oracle.com/javase/8/docs/api/java/util/Comparator.html#comparingDouble-java.util.function.ToDoubleFunction-java.util.Comparator-"><code>comparingDouble</code></a> and <a class="APILink" target="_blank" href="https://docs.oracle.com/javase/8/docs/api/java/util/Comparator.html#comparingLong-java.util.function.ToLongFunction-"><code>comparingLong</code></a> that enable you to create <code>Comparator</code> instances that compare other data types.</p> 
+<p>Suppose that your developers would like to create a <code>Comparator</code> instance that could compare objects with more than one criteria. For example, how would you sort the deck of playing cards first by rank, and then by suit? As before, you could use a lambda expression to specify these sort criteria:</p> 
+<div class="codeblock"> 
+ <pre>
+StandardDeck myDeck = new StandardDeck();
+myDeck.shuffle();
+myDeck.sort(
+    (firstCard, secondCard) -&gt; {
+        int compare =
+            firstCard.getRank().value() - secondCard.getRank().value();
+        if (compare != 0)
+            return compare;
+        else
+            return firstCard.getSuit().value() - secondCard.getSuit().value();
+    }      
+); 
+</pre> 
+</div> 
+<p>It would be simpler for your developers if they could build a <code>Comparator</code> instance from a series of <code>Comparator</code> instances. The <code>Comparator</code> interface has been enhanced with this ability with the default method <a class="APILink" target="_blank" href="https://docs.oracle.com/javase/8/docs/api/java/util/Comparator.html#thenComparing-java.util.Comparator-"><code>thenComparing</code></a>:</p> 
+<div class="codeblock"> 
+ <pre>
+myDeck.sort(
+    Comparator
+        .comparing(Card::getRank)
+        .thenComparing(Comparator.comparing(Card::getSuit)));
+</pre> 
+</div> 
+<p>The <code>Comparator</code> interface has been enhanced with other versions of the default method <code>thenComparing</code> (such as <a class="APILink" target="_blank" href="https://docs.oracle.com/javase/8/docs/api/java/util/Comparator.html#thenComparingDouble-java.util.function.ToDoubleFunction-"><code>thenComparingDouble</code></a> and <a class="APILink" target="_blank" href="https://docs.oracle.com/javase/8/docs/api/java/util/Comparator.html#thenComparingLong-java.util.function.ToLongFunction-"><code>thenComparingLong</code></a>) that enable you to build <code>Comparator</code> instances that compare other data types.</p> 
+<p>Suppose that your developers would like to create a <code>Comparator</code> instance that enables them to sort a collection of objects in reverse order. For example, how would you sort the deck of playing cards first by descending order of rank, from Ace to Two (instead of from Two to Ace)? As before, you could specify another lambda expression. However, it would be simpler for your developers if they could reverse an existing <code>Comparator</code> by invoking a method. The <code>Comparator</code> interface has been enhanced with this ability with the default method <a class="APILink" target="_blank" href="https://docs.oracle.com/javase/8/docs/api/java/util/Comparator.html#reversed--"><code>reversed</code></a>:</p> 
+<div class="codeblock"> 
+ <pre>
+myDeck.sort(
+    Comparator.comparing(Card::getRank)
+        .reversed()
+        .thenComparing(Comparator.comparing(Card::getSuit)));
+</pre> 
+</div> 
+<p>This example demonstrates how the <code>Comparator</code> interface has been enhanced with default methods, static methods, lambda expressions, and method references to create more expressive library methods whose functionality programmers can quickly deduce by looking at how they are invoked. Use these constructs to enhance the interfaces in your libraries.</p>

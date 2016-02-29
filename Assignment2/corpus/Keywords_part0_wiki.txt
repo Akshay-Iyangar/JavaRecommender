@@ -1,0 +1,78 @@
+<p><span id="displaytitle" title=""></span></p> 
+<table style="width:100%; border:solid 1px #71c837; background:#c6e9af; color:#2d5016;" class="noprint"> 
+ <tbody> 
+  <tr> 
+   <td style="text-align:left; width:33%; font-size:90%;"><img alt="" src="//upload.wikimedia.org/wikibooks/en/thumb/d/df/Navigation_Left_Arrow.svg/18px-Navigation_Left_Arrow.svg.png" width="18" height="14" srcset="//upload.wikimedia.org/wikibooks/en/thumb/d/df/Navigation_Left_Arrow.svg/27px-Navigation_Left_Arrow.svg.png 1.5x, //upload.wikimedia.org/wikibooks/en/thumb/d/df/Navigation_Left_Arrow.svg/36px-Navigation_Left_Arrow.svg.png 2x" data-file-width="165" data-file-height="130"> <a href="/wiki/Java_Programming/Classes,_Objects_and_Types" title="Java Programming/Classes, Objects and Types">Objects</a></img></td> 
+   <td style="text-align:center; width:34%;"><a href="/wiki/Java_Programming" title="Java Programming">Java Programming</a><br> <b>Keywords</b></br></td> 
+   <td style="text-align:right; width:33%; font-size:90%;"><a href="/wiki/Java_Programming/Packages" title="Java Programming/Packages">Packages</a> <img alt="" src="//upload.wikimedia.org/wikibooks/en/thumb/e/ea/Navigation_Right_Arrow.svg/18px-Navigation_Right_Arrow.svg.png" width="18" height="14" srcset="//upload.wikimedia.org/wikibooks/en/thumb/e/ea/Navigation_Right_Arrow.svg/27px-Navigation_Right_Arrow.svg.png 1.5x, //upload.wikimedia.org/wikibooks/en/thumb/e/ea/Navigation_Right_Arrow.svg/36px-Navigation_Right_Arrow.svg.png 2x" data-file-width="165" data-file-height="130" /></td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p><b>Keywords</b> are special tokens in the language which have reserved use in the language. Keywords may not be used as identifiers in Java — you cannot declare a field whose name is a keyword, for instance.</p> 
+<p>Examples of keywords are the primitive types, <code><a href="/wiki/Java_Programming/Keywords/int" title="Java Programming/Keywords/int"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">int</font></a></code> and <code><a href="/wiki/Java_Programming/Keywords/boolean" title="Java Programming/Keywords/boolean"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">boolean</font></a></code>; the control flow statements <code><a href="/wiki/Java_Programming/Keywords/for" title="Java Programming/Keywords/for"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">for</font></a></code> and <code><a href="/wiki/Java_Programming/Keywords/if" title="Java Programming/Keywords/if"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">if</font></a></code>; access modifiers such as <code><a href="/wiki/Java_Programming/Keywords/public" title="Java Programming/Keywords/public"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">public</font></a></code>, and special words which mark the declaration and definition of Java classes, packages, and interfaces: <code><a href="/wiki/Java_Programming/Keywords/class" title="Java Programming/Keywords/class"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">class</font></a></code>, <code><a href="/wiki/Java_Programming/Keywords/package" title="Java Programming/Keywords/package"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">package</font></a></code>, <code><a href="/wiki/Java_Programming/Keywords/interface" title="Java Programming/Keywords/interface"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">interface</font></a></code>.</p> 
+<p>Below are all the Java language keywords:</p> 
+<div class="references-small" style="column-count:3;-moz-column-count:3;"> 
+ <ul> 
+  <li><code><a href="/wiki/Java_Programming/Keywords/abstract" title="Java Programming/Keywords/abstract"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">abstract</font></a></code></li> 
+  <li><code><a href="/wiki/Java_Programming/Keywords/assert" title="Java Programming/Keywords/assert"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">assert</font></a></code> (since Java 1.4)</li> 
+  <li><code><a href="/wiki/Java_Programming/Keywords/boolean" title="Java Programming/Keywords/boolean"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">boolean</font></a></code></li> 
+  <li><code><a href="/wiki/Java_Programming/Keywords/break" title="Java Programming/Keywords/break"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">break</font></a></code></li> 
+  <li><code><a href="/wiki/Java_Programming/Keywords/byte" title="Java Programming/Keywords/byte"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">byte</font></a></code></li> 
+  <li><code><a href="/wiki/Java_Programming/Keywords/case" title="Java Programming/Keywords/case"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">case</font></a></code></li> 
+  <li><code><a href="/wiki/Java_Programming/Keywords/catch" title="Java Programming/Keywords/catch"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">catch</font></a></code></li> 
+  <li><code><a href="/wiki/Java_Programming/Keywords/char" title="Java Programming/Keywords/char"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">char</font></a></code></li> 
+  <li><code><a href="/wiki/Java_Programming/Keywords/class" title="Java Programming/Keywords/class"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">class</font></a></code></li> 
+  <li><code><a href="/wiki/Java_Programming/Keywords/const" title="Java Programming/Keywords/const"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">const</font></a></code> (not used)</li> 
+  <li><code><a href="/wiki/Java_Programming/Keywords/continue" title="Java Programming/Keywords/continue"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">continue</font></a></code></li> 
+  <li><code><a href="/wiki/Java_Programming/Keywords/default" title="Java Programming/Keywords/default"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">default</font></a></code></li> 
+  <li><code><a href="/wiki/Java_Programming/Keywords/do" title="Java Programming/Keywords/do"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">do</font></a></code></li> 
+  <li><code><a href="/wiki/Java_Programming/Keywords/double" title="Java Programming/Keywords/double"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">double</font></a></code></li> 
+  <li><code><a href="/wiki/Java_Programming/Keywords/else" title="Java Programming/Keywords/else"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">else</font></a></code></li> 
+  <li><code><a href="/wiki/Java_Programming/Keywords/enum" title="Java Programming/Keywords/enum"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">enum</font></a></code> (since Java 5.0)</li> 
+  <li><code><a href="/wiki/Java_Programming/Keywords/extends" title="Java Programming/Keywords/extends"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">extends</font></a></code></li> 
+  <li><code><a href="/wiki/Java_Programming/Keywords/final" title="Java Programming/Keywords/final"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">final</font></a></code></li> 
+  <li><code><a href="/wiki/Java_Programming/Keywords/finally" title="Java Programming/Keywords/finally"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">finally</font></a></code></li> 
+  <li><code><a href="/wiki/Java_Programming/Keywords/float" title="Java Programming/Keywords/float"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">float</font></a></code></li> 
+  <li><code><a href="/wiki/Java_Programming/Keywords/for" title="Java Programming/Keywords/for"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">for</font></a></code></li> 
+  <li><code><a href="/wiki/Java_Programming/Keywords/goto" title="Java Programming/Keywords/goto"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">goto</font></a></code> (not used)</li> 
+  <li><code><a href="/wiki/Java_Programming/Keywords/if" title="Java Programming/Keywords/if"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">if</font></a></code></li> 
+  <li><code><a href="/wiki/Java_Programming/Keywords/implements" title="Java Programming/Keywords/implements"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">implements</font></a></code></li> 
+  <li><code><a href="/wiki/Java_Programming/Keywords/import" title="Java Programming/Keywords/import"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">import</font></a></code></li> 
+  <li><code><a href="/wiki/Java_Programming/Keywords/instanceof" title="Java Programming/Keywords/instanceof"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">instanceof</font></a></code></li> 
+  <li><code><a href="/wiki/Java_Programming/Keywords/int" title="Java Programming/Keywords/int"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">int</font></a></code></li> 
+  <li><code><a href="/wiki/Java_Programming/Keywords/interface" title="Java Programming/Keywords/interface"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">interface</font></a></code></li> 
+  <li><code><a href="/wiki/Java_Programming/Keywords/long" title="Java Programming/Keywords/long"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">long</font></a></code></li> 
+  <li><code><a href="/wiki/Java_Programming/Keywords/native" title="Java Programming/Keywords/native"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">native</font></a></code></li> 
+  <li><code><a href="/wiki/Java_Programming/Keywords/new" title="Java Programming/Keywords/new"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">new</font></a></code></li> 
+  <li><code><a href="/wiki/Java_Programming/Keywords/package" title="Java Programming/Keywords/package"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">package</font></a></code></li> 
+  <li><code><a href="/wiki/Java_Programming/Keywords/private" title="Java Programming/Keywords/private"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">private</font></a></code></li> 
+  <li><code><a href="/wiki/Java_Programming/Keywords/protected" title="Java Programming/Keywords/protected"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">protected</font></a></code></li> 
+  <li><code><a href="/wiki/Java_Programming/Keywords/public" title="Java Programming/Keywords/public"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">public</font></a></code></li> 
+  <li><code><a href="/wiki/Java_Programming/Keywords/return" title="Java Programming/Keywords/return"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">return</font></a></code></li> 
+  <li><code><a href="/wiki/Java_Programming/Keywords/short" title="Java Programming/Keywords/short"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">short</font></a></code></li> 
+  <li><code><a href="/wiki/Java_Programming/Keywords/static" title="Java Programming/Keywords/static"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">static</font></a></code></li> 
+  <li><code><a href="/wiki/Java_Programming/Keywords/strictfp" title="Java Programming/Keywords/strictfp"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">strictfp</font></a></code> (since Java 1.2)</li> 
+  <li><code><a href="/wiki/Java_Programming/Keywords/super" title="Java Programming/Keywords/super"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">super</font></a></code></li> 
+  <li><code><a href="/wiki/Java_Programming/Keywords/switch" title="Java Programming/Keywords/switch"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">switch</font></a></code></li> 
+  <li><code><a href="/wiki/Java_Programming/Keywords/synchronized" title="Java Programming/Keywords/synchronized"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">synchronized</font></a></code></li> 
+  <li><code><a href="/wiki/Java_Programming/Keywords/this" title="Java Programming/Keywords/this"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">this</font></a></code></li> 
+  <li><code><a href="/wiki/Java_Programming/Keywords/throw" title="Java Programming/Keywords/throw"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">throw</font></a></code></li> 
+  <li><code><a href="/wiki/Java_Programming/Keywords/throws" title="Java Programming/Keywords/throws"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">throws</font></a></code></li> 
+  <li><code><a href="/wiki/Java_Programming/Keywords/transient" title="Java Programming/Keywords/transient"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">transient</font></a></code></li> 
+  <li><code><a href="/wiki/Java_Programming/Keywords/try" title="Java Programming/Keywords/try"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">try</font></a></code></li> 
+  <li><code><a href="/wiki/Java_Programming/Keywords/void" title="Java Programming/Keywords/void"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">void</font></a></code></li> 
+  <li><code><a href="/wiki/Java_Programming/Keywords/volatile" title="Java Programming/Keywords/volatile"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">volatile</font></a></code></li> 
+  <li><code><a href="/wiki/Java_Programming/Keywords/while" title="Java Programming/Keywords/while"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">while</font></a></code></li> 
+ </ul> 
+</div> 
+<table cellspacing="0" cellpadding="0" style="clear: right; margin-bottom: .5em; float: right; padding: .5em 0 .8em 1.4em; background: none; width: auto;"> 
+ <tbody> 
+  <tr> 
+   <td> 
+    <div id="toc" class="toc"> 
+     <div id="toctitle"> 
+     </div>
+    </div></td>
+  </tr>
+ </tbody>
+</table>

@@ -1,0 +1,7 @@
+<p>As programs grow large and complex, programmers need ways to track changes and to understand the code better at each step of its evolution. For decades, programmers have been employing the use of special programming constructs called comments — regions that help declare user definitions for a code snippet within the source code. But comments are prone to be verbose and incomprehensible, let alone be difficult to read in applications having hundreds of lines of code.</p> 
+<ul> 
+ <li><code>javadoc</code> — Java provides the user with a way to easily publish documentation about the code using a special commenting system and the javadoc tool. The javadoc tool generates documentation about the Application Programming Interface (API) of a set of user-created Java classes. javadoc reads source file comments from the <code>.java</code> source files and generates HTML documents that are easier to read and understand without looking at the code itself.</li> 
+</ul> 
+<ul> 
+ <li><code>javap</code> — Where Javadoc provide a detailed view into the API and documentation of a Java class, the javap tool prints information regarding members (constructors, methods and variables) in a class. In other words, it lists the class' API and/or the compiled instructions of the class. javap is a formatting disassembler for Java bytecode.</li> 
+</ul>

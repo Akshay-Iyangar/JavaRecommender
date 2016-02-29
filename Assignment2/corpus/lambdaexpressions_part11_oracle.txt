@@ -1,0 +1,36 @@
+<p>The following example uses aggregate operations to print the e-mail addresses of those members contained in the collection <code>roster</code> who are eligible for Selective Service:</p> 
+<pre class="codeblock">roster
+    .stream()
+    .filter(
+        p -&gt; p.getGender() == Person.Sex.MALE
+            &amp;&amp; p.getAge() &gt;= 18
+            &amp;&amp; p.getAge() &lt;= 25)
+    .map(p -&gt; p.getEmailAddress())
+    .forEach(email -&gt; System.out.println(email));</pre> 
+<p>The following table maps each of the operations the method <code>processElements</code> performs with the corresponding aggregate operation:</p> 
+<table border="1" summary="Mapping of each of the actions the method processElements performs with the corresponding aggregate operation"> 
+ <tbody> 
+  <tr> 
+   <th id="h101"><code>processElements</code> Action</th> 
+   <th id="h102">Aggregate Operation</th> 
+  </tr> 
+  <tr> 
+   <td headers="h101">Obtain a source of objects</td> 
+   <td headers="h102"><code>Stream&lt;E&gt; <strong>stream</strong>()</code></td> 
+  </tr> 
+  <tr> 
+   <td headers="h101">Filter objects that match a <code>Predicate</code> object</td> 
+   <td headers="h102"><code>Stream&lt;T&gt; <strong>filter</strong>(Predicate&lt;? super T&gt; predicate)</code></td> 
+  </tr> 
+  <tr> 
+   <td headers="h101">Map objects to another value as specified by a <code>Function</code> object</td> 
+   <td headers="h102"><code>&lt;R&gt; Stream&lt;R&gt; <strong>map</strong>(Function&lt;? super T,? extends R&gt; mapper)</code></td> 
+  </tr> 
+  <tr> 
+   <td headers="h101">Perform an action as specified by a <code>Consumer</code> object</td> 
+   <td headers="h102"><code>void <strong>forEach</strong>(Consumer&lt;? super T&gt; action)</code></td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>The operations <code>filter</code>, <code>map</code>, and <code>forEach</code> are <em>aggregate operations</em>. Aggregate operations process elements from a stream, not directly from a collection (which is the reason why the first method invoked in this example is <code>stream</code>). A <em>stream</em> is a sequence of elements. Unlike a collection, it is not a data structure that stores elements. Instead, a stream carries values from a source, such as collection, through a pipeline. A <em>pipeline</em> is a sequence of stream operations, which in this example is <code>filter</code>- <code>map</code>-<code>forEach</code>. In addition, aggregate operations typically accept lambda expressions as parameters, enabling you to customize how they behave.</p> 
+<p>For a more thorough discussion of aggregate operations, see the <a class="TutorialLink" target="_top" href="https://docs.oracle.com/javase/tutorial/collections/streams/index.html">Aggregate Operations</a> lesson.</p>

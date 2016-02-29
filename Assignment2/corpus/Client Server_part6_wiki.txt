@@ -1,0 +1,53 @@
+<dl> 
+ <dt>
+   COM_DATA&nbsp; 
+ </dt> 
+ <dd>
+   is data structure class that is transmitted through the network. The class contains only data. 
+ </dd> 
+</dl> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Computer code" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/32px-Gnome-settings-accessibility-keyboard.svg.png" title="Computer code" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/48px-Gnome-settings-accessibility-keyboard.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/64px-Gnome-settings-accessibility-keyboard.svg.png 2x" data-file-width="60" data-file-height="60" /></td> 
+   <td style="background-color:#ffeee0; border-left: 4px solid orange; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><b>Code listing 1.4: COM_DATA</b> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+ <span class="cm">/**</span>
+<span class="cm">  * COM_DATA data structure </span>
+<span class="cm">  */</span>
+ <span class="kd">public</span> <span class="kd">class</span> <span class="nc">COM_DATA</span> <span class="kd">implements</span> <span class="n">Serializable</span>
+ <span class="o">{</span>
+  <span class="kd">public</span> <span class="n">String</span>  <span class="n">comData</span><span class="o">;</span>
+  <span class="kd">public</span> <span class="kt">boolean</span> <span class="n">bExit</span><span class="o">;</span>
+  <span class="kd">public</span> <span class="kt">int</span>     <span class="n">iRet</span><span class="o">;</span>
+    <span class="cm">/**</span>
+<span class="cm">     * --- Constants values can be passed in in iRet to the Server ---</span>
+<span class="cm">     */</span>
+    <span class="kd">static</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">WAIT_FOR_RESPONSE</span>    <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+    <span class="kd">static</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">NOWAIT_FOR_RESPONSE</span>  <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+   <span class="cm">/**</span>
+<span class="cm">    * Initialize the data structure</span>
+<span class="cm">    */</span>
+   <span class="kd">public</span> <span class="nf">COM_DATA</span><span class="o">()</span>
+   <span class="o">{</span>
+      <span class="n">comData</span>     <span class="o">=</span> <span class="s">""</span><span class="o">;</span>
+      <span class="n">bExit</span>       <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+      <span class="n">iRet</span>        <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+   <span class="o">}</span> <span class="c1">// -- End of COM_DATA() Constructor --   </span>
+   <span class="cm">/**</span>
+<span class="cm">    * Copy over it contents </span>
+<span class="cm">    */</span>
+   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">copy</span><span class="o">(</span> <span class="n">COM_DATA</span> <span class="n">tSrc</span> <span class="o">)</span>
+   <span class="o">{</span>
+      <span class="k">this</span><span class="o">.</span><span class="na">comData</span>     <span class="o">=</span> <span class="n">tSrc</span><span class="o">.</span><span class="na">comData</span><span class="o">;</span>
+      <span class="k">this</span><span class="o">.</span><span class="na">bExit</span>       <span class="o">=</span> <span class="n">tSrc</span><span class="o">.</span><span class="na">bExit</span><span class="o">;</span>
+      <span class="k">this</span><span class="o">.</span><span class="na">iRet</span>        <span class="o">=</span> <span class="n">tSrc</span><span class="o">.</span><span class="na">iRet</span><span class="o">;</span>
+    <span class="k">return</span><span class="o">;</span>
+   <span class="o">}</span> 
+ <span class="o">}</span> <span class="c1">// -- End of COM_DATA class --</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table>

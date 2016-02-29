@@ -1,0 +1,20 @@
+<p>A local class has access to the members of its enclosing class. In the previous example, the <code>PhoneNumber</code> constructor accesses the member <code>LocalClassExample.regularExpression</code>.</p> 
+<p>In addition, a local class has access to local variables. However, a local class can only access local variables that are declared final. When a local class accesses a local variable or parameter of the enclosing block, it <em>captures</em> that variable or parameter. For example, the <code>PhoneNumber</code> constructor can access the local variable <code>numberLength</code> because it is declared final; <code>numberLength</code> is a <em>captured variable</em>.</p> 
+<p>However, starting in Java SE 8, a local class can access local variables and parameters of the enclosing block that are final or <em>effectively final</em>. A variable or parameter whose value is never changed after it is initialized is effectively final. For example, suppose that the variable <code>numberLength</code> is not declared final, and you add the highlighted assignment statement in the <code>PhoneNumber</code> constructor:</p> 
+<pre class="codeblock">PhoneNumber(String phoneNumber) {
+    <strong>numberLength = 7;</strong>
+    String currentNumber = phoneNumber.replaceAll(
+        regularExpression, "");
+    if (currentNumber.length() == numberLength)
+        formattedPhoneNumber = currentNumber;
+    else
+        formattedPhoneNumber = null;
+}</pre> 
+<p>Because of this assignment statement, the variable <code>numberLength</code> is not effectively final anymore. As a result, the Java compiler generates an error message similar to "local variables referenced from an inner class must be final or effectively final" where the inner class <code>PhoneNumber</code> tries to access the <code>numberLength</code> variable:</p> 
+<pre class="codeblock">if (currentNumber.length() == numberLength)</pre> 
+<p>Starting in Java SE 8, if you declare the local class in a method, it can access the method's parameters. For example, you can define the following method in the <code>PhoneNumber</code> local class:</p> 
+<pre class="codeblock">public void printOriginalNumbers() {
+    System.out.println("Original numbers are " + phoneNumber1 +
+        " and " + phoneNumber2);
+}</pre> 
+<p>The method <code>printOriginalNumbers</code> accesses the parameters <code>phoneNumber1</code> and <code>phoneNumber2</code> of the method <code>validatePhoneNumber</code>.</p>

@@ -1,0 +1,53 @@
+<!-- ======================================================================= --> 
+<p>The Java compiler takes advantage of target typing to infer the type parameters of a generic method invocation. The <em>target type</em> of an expression is the data type that the Java compiler expects depending on where the expression appears. Consider the method <code>Collections.emptyList</code>, which is declared as follows:</p> 
+<div class="codeblock"> 
+ <pre>
+static &lt;T&gt; List&lt;T&gt; emptyList();
+</pre> 
+</div> 
+<p>Consider the following assignment statement:</p> 
+<div class="codeblock"> 
+ <pre>
+List&lt;String&gt; listOne = Collections.emptyList();
+</pre> 
+</div> 
+<p>This statement is expecting an instance of <code>List&lt;String&gt;</code>; this data type is the target type. Because the method <code>emptyList</code> returns a value of type <code>List&lt;T&gt;</code>, the compiler infers that the type argument <code>T</code> must be the value <code>String</code>. This works in both Java SE 7 and 8. Alternatively, you could use a type witness and specify the value of <code>T</code> as follows:</p> 
+<div class="codeblock"> 
+ <pre>
+List&lt;String&gt; listOne = Collections.&lt;String&gt;emptyList();
+</pre> 
+</div> 
+<p>However, this is not necessary in this context. It was necessary in other contexts, though. Consider the following method:</p> 
+<div class="codeblock"> 
+ <pre>
+void processStringList(List&lt;String&gt; stringList) {
+    // process stringList
+}
+</pre> 
+</div> 
+<p>Suppose you want to invoke the method <code>processStringList</code> with an empty list. In Java SE 7, the following statement does not compile:</p> 
+<div class="codeblock"> 
+ <pre>
+processStringList(Collections.emptyList());
+</pre> 
+</div> 
+<p>The Java SE 7 compiler generates an error message similar to the following:</p> 
+<div class="codeblock"> 
+ <pre>
+List&lt;Object&gt; cannot be converted to List&lt;String&gt;
+</pre> 
+</div> 
+<p>The compiler requires a value for the type argument <code>T</code> so it starts with the value <code>Object</code>. Consequently, the invocation of <code>Collections.emptyList</code> returns a value of type <code>List&lt;Object&gt;</code>, which is incompatible with the method <code>processStringList</code>. Thus, in Java SE 7, you must specify the value of the value of the type argument as follows:</p> 
+<div class="codeblock"> 
+ <pre>
+processStringList(Collections.&lt;String&gt;emptyList());
+</pre> 
+</div> 
+<p>This is no longer necessary in Java SE 8. The notion of what is a target type has been expanded to include method arguments, such as the argument to the method <code>processStringList</code>. In this case, <code>processStringList</code> requires an argument of type <code>List&lt;String&gt;</code>. The method <code>Collections.emptyList</code> returns a value of <code>List&lt;T&gt;</code>, so using the target type of <code>List&lt;String&gt;</code>, the compiler infers that the type argument <code>T</code> has a value of <code>String</code>. Thus, in Java SE 8, the following statement compiles:</p> 
+<div class="codeblock"> 
+ <pre>
+processStringList(Collections.emptyList());
+</pre> 
+</div> 
+<p>See <a class="TutorialLink" target="_top" href="https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html#target-typing">Target Typing</a> in <a class="TutorialLink" target="_top" href="https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html">Lambda Expressions</a> for more information.</p> 
+<!-- ======================================================================= -->

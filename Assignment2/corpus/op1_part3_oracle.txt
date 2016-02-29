@@ -1,0 +1,97 @@
+<p>The Java programming language provides operators that perform addition, subtraction, multiplication, and division. There's a good chance you'll recognize them by their counterparts in basic mathematics. The only symbol that might look new to you is "<code>%</code>", which divides one operand by another and returns the remainder as its result.</p> 
+<table border="1" summary="Arithmetic operators"> 
+ <tbody> 
+  <tr> 
+   <th id="h1">Operator</th> 
+   <th id="h2">Description</th> 
+  </tr> 
+  <tr> 
+   <td headers="h1"><code>+</code></td> 
+   <td>Additive operator (also used for String concatenation)</td> 
+  </tr> 
+  <tr> 
+   <td headers="h1"><code>-</code></td> 
+   <td>Subtraction operator</td> 
+  </tr> 
+  <tr> 
+   <td headers="h1"><code>*</code></td> 
+   <td>Multiplication operator</td> 
+  </tr> 
+  <tr> 
+   <td headers="h1"><code>/</code></td> 
+   <td>Division operator</td> 
+  </tr> 
+  <tr> 
+   <td headers="h1"><code>%</code></td> 
+   <td>Remainder operator</td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>The following program, <a class="SourceLink" target="_blank" href="examples/ArithmeticDemo.java" onclick="showCode('https://docs.oracle.com/javase/tutorial/displayCode.html', 'examples/ArithmeticDemo.java'); return false;"><code>ArithmeticDemo</code></a>, tests the arithmetic operators.</p> 
+<div class="codeblock"> 
+ <pre>
+
+class ArithmeticDemo {
+
+    public static void main (String[] args) {
+
+        int result = 1 + 2;
+        // result is now 3
+        System.out.println("1 + 2 = " + result);
+        int original_result = result;
+
+        result = result - 1;
+        // result is now 2
+        System.out.println(original_result + " - 1 = " + result);
+        original_result = result;
+
+        result = result * 2;
+        // result is now 4
+        System.out.println(original_result + " * 2 = " + result);
+        original_result = result;
+
+        result = result / 2;
+        // result is now 2
+        System.out.println(original_result + " / 2 = " + result);
+        original_result = result;
+
+        result = result + 8;
+        // result is now 10
+        System.out.println(original_result + " + 8 = " + result);
+        original_result = result;
+
+        result = result % 7;
+        // result is now 3
+        System.out.println(original_result + " % 7 = " + result);
+    }
+}
+
+</pre> 
+</div> 
+<p>This program prints the following:</p> 
+<div class="codeblock"> 
+ <pre>
+1 + 2 = 3
+3 - 1 = 2
+2 * 2 = 4
+4 / 2 = 2
+2 + 8 = 10
+10 % 7 = 3
+</pre> 
+</div> 
+<p>You can also combine the arithmetic operators with the simple assignment operator to create <i>compound assignments</i>. For example, <code>x+=1;</code> and <code>x=x+1;</code> both increment the value of <code>x</code> by 1.</p> 
+<p>The <code>+</code> operator can also be used for concatenating (joining) two strings together, as shown in the following <a class="SourceLink" target="_blank" href="examples/ConcatDemo.java" onclick="showCode('https://docs.oracle.com/javase/tutorial/displayCode.html', 'examples/ConcatDemo.java'); return false;"><code>ConcatDemo</code></a> program:</p> 
+<div class="codeblock"> 
+ <pre>
+
+class ConcatDemo {
+    public static void main(String[] args){
+        String firstString = "This is";
+        String secondString = " a concatenated string.";
+        String thirdString = firstString+secondString;
+        System.out.println(thirdString);
+    }
+}
+</pre> 
+</div> 
+<p>By the end of this program, the variable <code>thirdString</code> contains "This is a concatenated string.", which gets printed to standard output.</p>

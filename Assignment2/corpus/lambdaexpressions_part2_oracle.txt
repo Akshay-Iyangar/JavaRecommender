@@ -1,0 +1,66 @@
+<p>Suppose that you are creating a social networking application. You want to create a feature that enables an administrator to perform any kind of action, such as sending a message, on members of the social networking application that satisfy certain criteria. The following table describes this use case in detail:</p> 
+<table border="1" summary="Use case for social networking application"> 
+ <tbody> 
+  <tr> 
+   <th id="h1">Field</th> 
+   <th id="h2">Description</th> 
+  </tr> 
+  <tr> 
+   <td headers="h1">Name</td> 
+   <td headers="h2">Perform action on selected members</td> 
+  </tr> 
+  <tr> 
+   <td headers="h1">Primary Actor</td> 
+   <td headers="h2">Administrator</td> 
+  </tr> 
+  <tr> 
+   <td headers="h1">Preconditions</td> 
+   <td headers="h2">Administrator is logged in to the system.</td> 
+  </tr> 
+  <tr> 
+   <td headers="h1">Postconditions</td> 
+   <td headers="h2">Action is performed only on members that fit the specified criteria.</td> 
+  </tr> 
+  <tr> 
+   <td headers="h1">Main Success Scenario</td> 
+   <td headers="h2"> 
+    <ol> 
+     <li>Administrator specifies criteria of members on which to perform a certain action.</li> 
+     <li>Administrator specifies an action to perform on those selected members.</li> 
+     <li>Administrator selects the <strong>Submit</strong> button.</li> 
+     <li>The system finds all members that match the specified criteria.</li> 
+     <li>The system performs the specified action on all matching members.</li> 
+    </ol> </td> 
+  </tr> 
+  <tr> 
+   <td headers="h1">Extensions</td> 
+   <td headers="h2"> <p>1a. Administrator has an option to preview those members who match the specified criteria before he or she specifies the action to be performed or before selecting the <strong>Submit</strong> button.</p> </td> 
+  </tr> 
+  <tr> 
+   <td headers="h1">Frequency of Occurrence</td> 
+   <td headers="h2">Many times during the day.</td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>Suppose that members of this social networking application are represented by the following <a class="SourceLink" target="_blank" href="examples/Person.java" onclick="showCode('https://docs.oracle.com/javase/tutorial/displayCode.html', 'examples/Person.java'); return false;"><code>Person</code></a> class:</p> 
+<pre class="codeblock">public class Person {
+
+    public enum Sex {
+        MALE, FEMALE
+    }
+
+    String name;
+    LocalDate birthday;
+    Sex gender;
+    String emailAddress;
+
+    public int getAge() {
+        // ...
+    }
+
+    public void printPerson() {
+        // ...
+    }
+}</pre> 
+<p>Suppose that the members of your social networking application are stored in a <code>List&lt;Person&gt;</code> instance.</p> 
+<p>This section begins with a naive approach to this use case. It improves upon this approach with local and anonymous classes, and then finishes with an efficient and concise approach using lambda expressions. Find the code excerpts described in this section in the example <a class="SourceLink" target="_blank" href="examples/RosterTest.java" onclick="showCode('https://docs.oracle.com/javase/tutorial/displayCode.html', 'examples/RosterTest.java'); return false;"><code>RosterTest</code></a>. </p>

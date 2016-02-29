@@ -1,0 +1,138 @@
+<dl> 
+ <dt> 
+  <span style="color: grey;">java.util.</span>Map 
+  <span style="color: grey;">&lt;K,V&gt;</span>&nbsp; 
+ </dt> 
+ <dd>
+   maps keys to values. A map cannot contain duplicate keys; each key can map to at most one value. The Map interface provides three collection views, which allow a map's contents to be viewed as a set of keys, collection of values, or set of key-value mappings. The key is usually a non-mutable object. The value object however can be a mutable object. 
+ </dd> 
+ <dt> 
+  <span style="color: grey;">java.util.</span>SortedMap 
+  <span style="color: grey;">&lt;K,V&gt;</span>&nbsp; 
+ </dt> 
+ <dd>
+   same as the Map interface, plus the keys in the Map are sorted. 
+ </dd> 
+</dl> 
+<p>In the above example, the same operations are made with two different map implementations:</p> 
+<table style="width: 100%;"> 
+ <tbody> 
+  <tr> 
+   <td valign="top"> 
+    <table style="padding:2px; margin:2px;"> 
+     <tbody> 
+      <tr valign="top"> 
+       <td style="width:32px;"><img alt="Computer code" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/32px-Gnome-settings-accessibility-keyboard.svg.png" title="Computer code" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/48px-Gnome-settings-accessibility-keyboard.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/64px-Gnome-settings-accessibility-keyboard.svg.png 2x" data-file-width="60" data-file-height="60" /></td> 
+       <td style="background-color:#ffeee0; border-left: 4px solid orange; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><span id="code-listing-4"><b>Code listing 5.4: MapImplementations.java</b></span> 
+        <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+         <pre>
+<span class="lineno"> 1 </span><span class="kn">import</span> <span class="nn">java.util.LinkedHashMap</span><span class="o">;</span>
+<span class="lineno"> 2 </span><span class="kn">import</span> <span class="nn">java.util.Map</span><span class="o">;</span>
+<span class="lineno"> 3 </span><span class="kn">import</span> <span class="nn">java.util.TreeMap</span><span class="o">;</span>
+<span class="lineno"> 4 </span>
+<span class="lineno"> 5 </span><span class="cm">/**</span>
+<span class="lineno"> 6 </span><span class="cm"> * Compare the map implementations.</span>
+<span class="lineno"> 7 </span><span class="cm"> *</span>
+<span class="lineno"> 8 </span><span class="cm"> * @author xxx</span>
+<span class="lineno"> 9 </span><span class="cm"> */</span>
+<span class="lineno">10 </span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MapImplementations</span> <span class="o">{</span>
+<span class="lineno">11 </span>
+<span class="lineno">12 </span>  <span class="cm">/**</span>
+<span class="lineno">13 </span><span class="cm">   * Compare the map implementations.</span>
+<span class="lineno">14 </span><span class="cm">   * @param args The execution parameters.</span>
+<span class="lineno">15 </span><span class="cm">   */</span>
+<span class="lineno">16 </span>  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno">17 </span><span class="hll">    <span class="n">processMap</span><span class="o">(</span><span class="k">new</span> <span class="n">LinkedHashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Integer</span><span class="o">&gt;());</span>
+</span><span class="lineno">18 </span>
+<span class="lineno">19 </span><span class="hll">    <span class="n">processMap</span><span class="o">(</span><span class="k">new</span> <span class="n">TreeMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Integer</span><span class="o">&gt;());</span>
+</span><span class="lineno">20 </span>  <span class="o">}</span>
+<span class="lineno">21 </span>
+<span class="lineno">22 </span>  <span class="cm">/**</span>
+<span class="lineno">23 </span><span class="cm">   * Use a map:</span>
+<span class="lineno">24 </span><span class="cm">   * 1. Fill the map with key-&gt; value.</span>
+<span class="lineno">25 </span><span class="cm">   * 2. Print all the keys.</span>
+<span class="lineno">26 </span><span class="cm">   *</span>
+<span class="lineno">27 </span><span class="cm">   * @param map The used map.</span>
+<span class="lineno">28 </span><span class="cm">   */</span>
+<span class="lineno">29 </span>  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">processMap</span><span class="o">(</span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Integer</span><span class="o">&gt;</span> <span class="n">map</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno">30 </span>    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Process the map"</span><span class="o">);</span>
+<span class="lineno">31 </span>    <span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"3"</span><span class="o">,</span> <span class="k">new</span> <span class="n">Integer</span><span class="o">(</span><span class="mi">3</span><span class="o">));</span>
+<span class="lineno">32 </span>    <span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"2"</span><span class="o">,</span> <span class="k">new</span> <span class="n">Integer</span><span class="o">(</span><span class="mi">2</span><span class="o">));</span>
+<span class="lineno">33 </span>    <span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"1"</span><span class="o">,</span> <span class="k">new</span> <span class="n">Integer</span><span class="o">(</span><span class="mi">1</span><span class="o">));</span>
+<span class="lineno">34 </span>
+<span class="lineno">35 </span>    <span class="k">for</span> <span class="o">(</span><span class="n">String</span> <span class="n">key</span> <span class="o">:</span> <span class="n">map</span><span class="o">.</span><span class="na">keySet</span><span class="o">())</span> <span class="o">{</span>
+<span class="lineno">36 </span>      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">key</span><span class="o">);</span>
+<span class="lineno">37 </span>    <span class="o">}</span>
+<span class="lineno">38 </span>  <span class="o">}</span>
+<span class="lineno">39 </span><span class="o">}</span>
+</pre> 
+        </div> </td> 
+      </tr> 
+     </tbody> 
+    </table> </td> 
+   <td valign="top"> 
+    <table style="padding:2px; margin:2px; width:100%;"> 
+     <tbody> 
+      <tr valign="top"> 
+       <td style="width:32px;"><img alt="Standard input or output" src="//upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/32px-Nuvola_apps_display.png" title="Standard input or output" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/48px-Nuvola_apps_display.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/64px-Nuvola_apps_display.png 2x" data-file-width="128" data-file-height="128" /></td> 
+       <td style="background-color:#f0f0ff; border-left: 4px solid blue; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><b>Console for Code listing 5.4</b> <pre style="background-color:black; color:white;">
+Process the map
+3
+2
+1
+Process the map
+1
+2
+3
+</pre></td> 
+      </tr> 
+     </tbody> 
+    </table> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>We see that only the <code>TreeMap</code> has sorted the keys. Beware of the generics. The Map interface is tricky. The methods <code>get()</code> and <code>remove()</code> are not generic. This means that you must be careful of the type of the key:</p> 
+<table style="width: 100%;"> 
+ <tbody> 
+  <tr> 
+   <td valign="top"> 
+    <table style="padding:2px; margin:2px;"> 
+     <tbody> 
+      <tr valign="top"> 
+       <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+       <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><span id="code-section-8"><b>Code section 5.18: Tricky generics.</b></span> 
+        <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+         <pre>
+<span class="lineno"> 1 </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">map</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TreeMap</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;();</span>
+<span class="lineno"> 2 </span>
+<span class="lineno"> 3 </span><span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="k">new</span> <span class="n">Integer</span><span class="o">(</span><span class="mi">1</span><span class="o">),</span> <span class="s">"Watch"</span><span class="o">);</span>
+<span class="lineno"> 4 </span><span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="k">new</span> <span class="n">Integer</span><span class="o">(</span><span class="mi">2</span><span class="o">),</span> <span class="s">"out"</span><span class="o">);</span>
+<span class="lineno"> 5 </span><span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="k">new</span> <span class="n">Integer</span><span class="o">(</span><span class="mi">3</span><span class="o">),</span> <span class="s">"!"</span><span class="o">);</span>
+<span class="lineno"> 6 </span>
+<span class="lineno"> 7 </span><span class="hll"><span class="n">map</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="s">"2"</span><span class="o">);</span>
+</span><span class="lineno"> 8 </span>
+<span class="lineno"> 9 </span><span class="k">for</span> <span class="o">(</span><span class="n">String</span> <span class="n">value</span> <span class="o">:</span> <span class="n">map</span><span class="o">.</span><span class="na">values</span><span class="o">())</span> <span class="o">{</span>
+<span class="lineno">10 </span>  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">value</span><span class="o">);</span>
+<span class="lineno">11 </span><span class="o">}</span>
+</pre> 
+        </div> </td> 
+      </tr> 
+     </tbody> 
+    </table> </td> 
+   <td valign="top"> 
+    <table style="padding:2px; margin:2px; width:100%;"> 
+     <tbody> 
+      <tr valign="top"> 
+       <td style="width:32px;"><img alt="Standard input or output" src="//upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/32px-Nuvola_apps_display.png" title="Standard input or output" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/48px-Nuvola_apps_display.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/64px-Nuvola_apps_display.png 2x" data-file-width="128" data-file-height="128" /></td> 
+       <td style="background-color:#f0f0ff; border-left: 4px solid blue; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><b>Console for Code section 5.18</b> <pre style="background-color:black; color:white;">
+Watch
+out
+!
+</pre></td> 
+      </tr> 
+     </tbody> 
+    </table> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>The <code>remove()</code> call has done nothing because <code>"2"</code> is a <code>String</code>, not an <code>Integer</code> so no key and value has been found and removed.</p>

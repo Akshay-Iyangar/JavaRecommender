@@ -1,0 +1,149 @@
+<dl> 
+ <dt>
+   ComServerThread&nbsp; 
+ </dt> 
+ <dd>
+   This class extended from a Thread; Responsible to service one client. The Socket connection will be open between the client and server. A simple protocol has to be defined between the client and server, the server has to understand what the client wants from the server. The client will send a 
+  <i>terminate</i> command, for which the server will terminate the socket connection. The ComServerThread class is responsible to handle a client request, until the client sends a 
+  <i>terminate</i> command. 
+ </dd> 
+</dl> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Computer code" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/32px-Gnome-settings-accessibility-keyboard.svg.png" title="Computer code" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/48px-Gnome-settings-accessibility-keyboard.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/64px-Gnome-settings-accessibility-keyboard.svg.png 2x" data-file-width="60" data-file-height="60" /></td> 
+   <td style="background-color:#ffeee0; border-left: 4px solid orange; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><b>Code listing 1.2: ComServerThread</b> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+ <span class="cm">/**</span>
+<span class="cm">  * -- A class extended from a Thread; Responsible to service one client --</span>
+<span class="cm">  */</span>
+ <span class="kd">class</span> <span class="err">'''</span><span class="nc">ComServerThread</span><span class="sc">'''</span> <span class="kd">extends</span> <span class="n">Thread</span>
+ <span class="o">{</span>
+    <span class="kd">private</span> <span class="n">Socket</span> <span class="n">clientSocket</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+    <span class="n">COM_DATA</span> <span class="n">tDataFromClient</span><span class="o">;</span>
+    <span class="n">COM_DATA</span> <span class="n">tDataToClient</span><span class="o">;</span> 
+    <span class="n">ObjectInputStream</span> <span class="n">oIn</span><span class="o">;</span>
+    <span class="n">ObjectOutputStream</span> <span class="n">oOut</span><span class="o">;</span>
+    <span class="cm">/**</span>
+<span class="cm">     * -- Constructor --</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="nf">ComServerThread</span><span class="o">(</span> <span class="n">Socket</span> <span class="n">socket</span> <span class="o">)</span>
+    <span class="o">{</span>
+       <span class="kd">super</span><span class="o">(</span> <span class="s">"ComServerThread"</span> <span class="o">);</span>
+       <span class="k">this</span><span class="o">.</span><span class="na">clientSocket</span> <span class="o">=</span> <span class="n">socket</span><span class="o">;</span>
+    <span class="o">}</span> <span class="c1">// -- End of ComServerThread() constructor --</span>
+    <span class="cm">/**</span>
+<span class="cm">     * -- Overrun from the Thread (super) class --</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span>
+    <span class="o">{</span>
+       <span class="k">try</span> <span class="o">{</span>
+          <span class="c1">// --- Create the Writer; will be used to send data to client ---</span>
+          <span class="n">oOut</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ObjectOutputStream</span><span class="o">(</span> <span class="n">clientSocket</span><span class="o">.</span><span class="na">getOutputStream</span><span class="o">()</span> <span class="o">);</span>
+          <span class="c1">// --- Create the Reader; will be used to get data from client ---</span>
+          <span class="n">oIn</span>  <span class="o">=</span> <span class="k">new</span> <span class="n">ObjectInputStream</span><span class="o">(</span> <span class="n">clientSocket</span><span class="o">.</span><span class="na">getInputStream</span><span class="o">()</span> <span class="o">);</span>
+          <span class="c1">// --- Create a new protocol object ---</span>
+          <span class="n">ComProtocol</span> <span class="n">comp</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ComProtocol</span><span class="o">();</span>
+          <span class="c1">// --- Send something to client to indicate that server is ready ---</span>
+          <span class="n">tDataToClient</span>  <span class="o">=</span> <span class="sc">'''</span><span class="n">comp</span><span class="o">.</span><span class="na">processInput</span><span class="o">(</span> <span class="kc">null</span> <span class="o">);</span><span class="sc">'''</span>
+          <span class="sc">'''</span><span class="n">sendDataToClient</span><span class="sc">'''</span><span class="o">(</span> <span class="n">tDataToClient</span><span class="o">,</span> <span class="n">oOut</span> <span class="o">);</span>
+          <span class="c1">// --- Get the data from the client ---</span>
+          <span class="k">while</span> <span class="o">(</span> <span class="kc">true</span> <span class="o">)</span>
+          <span class="o">{</span>
+             <span class="k">try</span> <span class="o">{</span>
+                <span class="n">tDataFromClient</span> <span class="o">=</span> <span class="sc">'''</span><span class="n">getDataFromClient</span><span class="o">(</span> <span class="n">oIn</span> <span class="o">)</span><span class="sc">'''</span><span class="o">;</span>
+                <span class="c1">// --- Parse the request and get the reply ---</span>
+                <span class="n">tDataToClient</span> <span class="o">=</span> <span class="sc">'''</span><span class="n">comp</span><span class="o">.</span><span class="na">processInput</span><span class="o">(</span> <span class="n">tDataFromClient</span> <span class="o">);</span><span class="sc">'''</span>
+                <span class="c1">// --- Send data to the Client ---</span>
+                <span class="sc">'''</span><span class="n">sendDataToClient</span><span class="sc">'''</span><span class="o">(</span> <span class="n">tDataToClient</span><span class="o">,</span> <span class="n">oOut</span> <span class="o">);</span>
+             <span class="o">}</span>
+             <span class="k">catch</span> <span class="o">(</span> <span class="n">EOFException</span> <span class="n">e</span> <span class="o">)</span> <span class="o">{</span>
+                <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span> <span class="s">"Client Disconnected, Bye, Bye"</span> <span class="o">);</span>
+                <span class="k">break</span><span class="o">;</span>
+             <span class="o">}</span>
+             <span class="c1">// --- See if the Client wanted to terminate the connection ---</span>
+             <span class="k">if</span> <span class="o">(</span> <span class="n">tDataToClient</span><span class="o">.</span><span class="na">bExit</span> <span class="o">)</span>
+             <span class="o">{</span>
+                <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span> <span class="s">"Client said Bye. Bye"</span> <span class="o">);</span>
+                <span class="k">break</span><span class="o">;</span>
+             <span class="o">}</span>
+          <span class="o">}</span>
+          <span class="c1">// --- Close resources;  This client is gone ---</span>
+          <span class="n">comp</span><span class="o">.</span><span class="na">Final</span><span class="o">();</span>
+          <span class="n">oOut</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+          <span class="n">oIn</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+          <span class="n">clientSocket</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+       <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span> <span class="n">IOException</span> <span class="n">e</span> <span class="o">)</span> <span class="o">{</span>
+        <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+       <span class="o">}</span>
+    <span class="o">}</span> <span class="c1">// -- End of run() Method --</span>
+    <span class="cm">/**</span>
+<span class="cm">     * Get data from Client </span>
+<span class="cm">     */</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="n">COM_DATA</span> <span class="sc">'''</span><span class="n">getDataFromClient</span><span class="sc">'''</span><span class="o">(</span> <span class="n">ObjectInputStream</span> <span class="n">oIn</span> <span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span>                                                                         
+    <span class="o">{</span>
+        <span class="n">COM_DATA</span>  <span class="n">tDataFromClient</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>         
+        <span class="c1">// --- Initialize variables ---</span>
+        <span class="c1">//   tDataFromClient = new COM_DATA();</span>
+        <span class="k">while</span> <span class="o">(</span> <span class="n">tDataFromClient</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">)</span>
+        <span class="o">{</span>
+           <span class="k">try</span> <span class="o">{</span>
+              <span class="c1">// --- Read Line Number first --</span>
+              <span class="n">tDataFromClient</span> <span class="o">=</span> <span class="o">(</span><span class="n">COM_DATA</span><span class="o">)</span> <span class="n">oIn</span><span class="o">.</span><span class="na">readObject</span><span class="o">();</span>
+           <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span> <span class="n">ClassNotFoundException</span> <span class="n">e</span> <span class="o">)</span> <span class="o">{</span>
+               <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span> <span class="s">"ClassNotFound"</span> <span class="o">);</span>
+           <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span> <span class="s">"Get: "</span> <span class="o">+</span> <span class="n">tDataFromClient</span><span class="o">.</span><span class="na">comData</span> <span class="o">);</span>
+     <span class="k">return</span> <span class="n">tDataFromClient</span><span class="o">;</span>
+    <span class="o">}</span> <span class="c1">// --- getDataFromClient() Method --- </span>
+    <span class="cm">/**</span>
+<span class="cm">     * Send data to Client </span>
+<span class="cm">     */</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">void</span> <span class="sc">'''</span><span class="n">sendDataToClient</span><span class="sc">'''</span><span class="o">(</span> <span class="n">COM_DATA</span> <span class="n">tDataToClient</span><span class="o">,</span>
+                                           <span class="n">ObjectOutputStream</span>  <span class="n">oOut</span> <span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span>
+    <span class="o">{</span>         
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span> <span class="s">"Sent: "</span> <span class="o">+</span> <span class="n">tDataToClient</span><span class="o">.</span><span class="na">comData</span> <span class="o">);</span>
+        <span class="n">oOut</span><span class="o">.</span><span class="na">writeObject</span><span class="o">(</span> <span class="n">tDataToClient</span> <span class="o">);</span>
+      <span class="k">return</span><span class="o">;</span>
+    <span class="o">}</span> <span class="c1">// -- End of sendDataToClient() Method --</span>
+ <span class="o">}</span> <span class="c1">// --- End of ComServerThread class ---</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<dl> 
+ <dt>
+   COM_DATA tDataFromClient&nbsp; 
+ </dt> 
+ <dd>
+   This variable will contain the data object from the client. 
+ </dd> 
+ <dt>
+   COM_DATA tDataToClient&nbsp; 
+ </dt> 
+ <dd>
+   This variable will contain the data object to be sent to the client. 
+ </dd> 
+ <dt>
+   sendDataToClient&nbsp; 
+ </dt> 
+ <dd>
+   This method sends the data object to the client. 
+ </dd> 
+ <dt>
+   getDataFromClient&nbsp; 
+ </dt> 
+ <dd>
+   This method gets the data object from the client. 
+ </dd> 
+ <dt>
+   processInput( tDataFromClient )&nbsp; 
+ </dt> 
+ <dd>
+   This method of the class 
+  <code>ComProtocol</code> interprets the client commands and returns the data object that will be sent back to the client. 
+ </dd> 
+</dl>

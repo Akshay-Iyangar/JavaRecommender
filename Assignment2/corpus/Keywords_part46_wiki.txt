@@ -1,0 +1,38 @@
+<p><code><a href="/wiki/Java_Programming/Keywords/public" title="Java Programming/Keywords/public"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">public</font></a></code> is a Java <strong class="selflink">keyword</strong> which declares a member's <a href="/wiki/Java_Programming/Scope" title="Java Programming/Scope">access</a> as public. Public members are visible to all other classes. This means that any other class can access a <code><a href="/wiki/Java_Programming/Keywords/public" title="Java Programming/Keywords/public"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">public</font></a></code> field or method. Further, other classes can modify <code><a href="/wiki/Java_Programming/Keywords/public" title="Java Programming/Keywords/public"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">public</font></a></code> fields unless the field is declared as <code><a href="/wiki/Java_Programming/Keywords/final" title="Java Programming/Keywords/final"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">final</font></a></code>.</p> 
+<p>A best practice is to give fields <code><a href="/wiki/Java_Programming/Keywords/private" title="Java Programming/Keywords/private"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">private</font></a></code> access and reserve <code><a href="/wiki/Java_Programming/Keywords/public" title="Java Programming/Keywords/public"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">public</font></a></code> access to only the set of methods and <code><a href="/wiki/Java_Programming/Keywords/final" title="Java Programming/Keywords/final"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">final</font></a></code> fields that define the class' public constants. This helps with encapsulation and information hiding, since it allows you to change the implementation of a class without affecting the consumers who use only the public API of the class.</p> 
+<p>Below is an example of an immutable <code><a href="/wiki/Java_Programming/Keywords/public" title="Java Programming/Keywords/public"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">public</font></a></code> class named <code>Length</code> which maintains <code><a href="/wiki/Java_Programming/Keywords/private" title="Java Programming/Keywords/private"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">private</font></a></code> instance fields named <code>units</code> and <code>magnitude</code> but provides a <code><a href="/wiki/Java_Programming/Keywords/public" title="Java Programming/Keywords/public"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">public</font></a></code> constructor and two <code><a href="/wiki/Java_Programming/Keywords/public" title="Java Programming/Keywords/public"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">public</font></a></code> accessor methods.</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Computer code" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/32px-Gnome-settings-accessibility-keyboard.svg.png" title="Computer code" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/48px-Gnome-settings-accessibility-keyboard.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/64px-Gnome-settings-accessibility-keyboard.svg.png 2x" data-file-width="60" data-file-height="60" /></td> 
+   <td style="background-color:#ffeee0; border-left: 4px solid orange; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><span id="code-listing-1"><b>Code listing: Length.java</b></span> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno"> 1 </span><span class="kn">package</span> <span class="nn">org.wikibooks.java</span><span class="o">;</span>
+<span class="lineno"> 2 </span>
+<span class="lineno"> 3 </span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Length</span> <span class="o">{</span>
+<span class="lineno"> 4 </span><span class="hll">   <span class="kd">private</span> <span class="kt">double</span> <span class="n">magnitude</span><span class="o">;</span>
+</span><span class="lineno"> 5 </span><span class="hll">   <span class="kd">private</span> <span class="n">String</span> <span class="n">units</span><span class="o">;</span>
+</span><span class="lineno"> 6 </span>
+<span class="lineno"> 7 </span>   <span class="kd">public</span> <span class="nf">Length</span><span class="o">(</span><span class="kt">double</span> <span class="n">magnitude</span><span class="o">,</span> <span class="n">String</span> <span class="n">units</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno"> 8 </span>      <span class="k">if</span> <span class="o">((</span><span class="n">units</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">||</span> <span class="o">(</span><span class="n">units</span><span class="o">.</span><span class="na">trim</span><span class="o">().</span><span class="na">length</span><span class="o">()</span> <span class="o">==</span> <span class="mi">0</span><span class="o">))</span> <span class="o">{</span>
+<span class="lineno"> 9 </span>          <span class="k">throw</span> <span class="k">new</span> <span class="n">IllegalArgumentException</span><span class="o">(</span><span class="s">"non-null, non-empty units required."</span><span class="o">);</span>
+<span class="lineno">10 </span>      <span class="o">}</span>
+<span class="lineno">11 </span>
+<span class="lineno">12 </span>      <span class="k">this</span><span class="o">.</span><span class="na">magnitude</span> <span class="o">=</span> <span class="n">magnitude</span><span class="o">;</span>
+<span class="lineno">13 </span>      <span class="k">this</span><span class="o">.</span><span class="na">units</span> <span class="o">=</span> <span class="n">units</span><span class="o">;</span>
+<span class="lineno">14 </span>   <span class="o">}</span>
+<span class="lineno">15 </span>
+<span class="lineno">16 </span><span class="hll">   <span class="kd">public</span> <span class="kt">double</span> <span class="nf">getMagnitude</span><span class="o">()</span> <span class="o">{</span>
+</span><span class="lineno">17 </span><span class="hll">      <span class="k">return</span> <span class="n">magnitude</span><span class="o">;</span>
+</span><span class="lineno">18 </span><span class="hll">   <span class="o">}</span>
+</span><span class="lineno">19 </span>
+<span class="lineno">20 </span><span class="hll">   <span class="kd">public</span> <span class="n">String</span> <span class="nf">getUnits</span><span class="o">()</span> <span class="o">{</span>
+</span><span class="lineno">21 </span><span class="hll">      <span class="k">return</span> <span class="n">units</span><span class="o">;</span>
+</span><span class="lineno">22 </span><span class="hll">   <span class="o">}</span>
+</span><span class="lineno">23 </span><span class="o">}</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table>

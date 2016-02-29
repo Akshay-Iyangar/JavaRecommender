@@ -1,0 +1,248 @@
+<p>The <code><a href="/wiki/Java_Programming/Keywords/switch" title="Java Programming/Keywords/switch"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">switch</font></a></code> conditional statement is basically a shorthand version of writing many <code><a href="/wiki/Java_Programming/Keywords/if" title="Java Programming/Keywords/if"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">if</font></a></code>...<code><a href="/wiki/Java_Programming/Keywords/else" title="Java Programming/Keywords/else"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">else</font></a></code> statements. The <code><a href="/wiki/Java_Programming/Keywords/switch" title="Java Programming/Keywords/switch"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">switch</font></a></code> block evaluates a <code><a href="/wiki/Java_Programming/Keywords/char" title="Java Programming/Keywords/char"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">char</font></a></code>, <code><a href="/wiki/Java_Programming/Keywords/byte" title="Java Programming/Keywords/byte"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">byte</font></a></code>, <code><a href="/wiki/Java_Programming/Keywords/short" title="Java Programming/Keywords/short"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">short</font></a></code>, or <code><a href="/wiki/Java_Programming/Keywords/int" title="Java Programming/Keywords/int"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">int</font></a></code> (or <code><a href="/wiki/Java_Programming/Keywords/enum" title="Java Programming/Keywords/enum"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">enum</font></a></code>, starting in J2SE 5.0; or <code><a href="/wiki/Java_Programming/API/java.lang.String" title="Java Programming/API/java.lang.String">String</a></code>, starting in J2SE 7.0), and, based on the value provided, jumps to a specific <code><a href="/wiki/Java_Programming/Keywords/case" title="Java Programming/Keywords/case"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">case</font></a></code> within the switch block and executes code until the <code><a href="/wiki/Java_Programming/Keywords/break" title="Java Programming/Keywords/break"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">break</font></a></code> command is encountered or the end of the block. If the switch value does not match any of the case values, execution will jump to the optional <code><a href="/wiki/Java_Programming/Keywords/default" title="Java Programming/Keywords/default"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">default</font></a></code> case.</p> 
+<p>The structure of a <code>switch</code> statement is as follows:</p> 
+<table style="margin: auto"> 
+ <tbody> 
+  <tr> 
+   <td>switch (<i><b>int<sub>1</sub> or char<sub>1</sub> or short<sub>1</sub> or byte<sub>1</sub> or enum<sub>1</sub> or String value<sub>1</sub></b></i>) { 
+    <dl> 
+     <dd>
+       case 
+      <i><b>case value<sub>1</sub></b></i>: 
+      <dl> 
+       <dd> 
+        <i><b>statement<sub>1.1</sub></b></i> 
+       </dd> 
+       <dd>
+         ... 
+       </dd> 
+       <dd> 
+        <i><b>statement<sub>1.n</sub></b></i> 
+       </dd> 
+       <dd>
+         break; 
+       </dd> 
+      </dl> 
+     </dd> 
+     <dd>
+       case 
+      <i><b>case value<sub>2</sub></b></i>: 
+      <dl> 
+       <dd> 
+        <i><b>statement<sub>2.1</sub></b></i> 
+       </dd> 
+       <dd>
+         ... 
+       </dd> 
+       <dd> 
+        <i><b>statement<sub>2.n</sub></b></i> 
+       </dd> 
+       <dd>
+         break; 
+       </dd> 
+      </dl> 
+     </dd> 
+     <dd>
+       default: 
+      <dl> 
+       <dd> 
+        <i><b>statement<sub>n.1</sub></b></i> 
+       </dd> 
+       <dd>
+         ... 
+       </dd> 
+       <dd> 
+        <i><b>statement<sub>n.n</sub></b></i> 
+       </dd> 
+      </dl> 
+     </dd> 
+    </dl> <p>}</p> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>Here is an example to illustrate:</p> 
+<table style="width: 100%;"> 
+ <tbody> 
+  <tr> 
+   <td valign="top"> 
+    <table style="padding:2px; margin:2px;"> 
+     <tbody> 
+      <tr valign="top"> 
+       <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+       <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><b>Code section 3.26: A switch block.</b> 
+        <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+         <pre>
+<span class="lineno"> 1 </span><span class="hll"><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>
+</span><span class="lineno"> 2 </span><span class="hll"><span class="k">switch</span><span class="o">(</span><span class="n">i</span><span class="o">)</span> <span class="o">{</span>
+</span><span class="lineno"> 3 </span><span class="hll">    <span class="k">case</span> <span class="mi">1</span><span class="o">:</span>
+</span><span class="lineno"> 4 </span>        <span class="c1">// i doesn't equal 1, so this code won't execute</span>
+<span class="lineno"> 5 </span>        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"i equals 1"</span><span class="o">);</span>
+<span class="lineno"> 6 </span>        <span class="k">break</span><span class="o">;</span>
+<span class="lineno"> 7 </span><span class="hll">    <span class="k">case</span> <span class="mi">2</span><span class="o">:</span>
+</span><span class="lineno"> 8 </span>        <span class="c1">// i doesn't equal 2, so this code won't execute</span>
+<span class="lineno"> 9 </span>        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"i equals 2"</span><span class="o">);</span>
+<span class="lineno">10 </span>        <span class="k">break</span><span class="o">;</span>
+<span class="lineno">11 </span><span class="hll">    <span class="k">default</span><span class="o">:</span>
+</span><span class="lineno">12 </span>        <span class="c1">// i has not been handled so far, so this code will execute</span>
+<span class="lineno">13 </span><span class="hll">        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"i equals something other than 1 or 2"</span><span class="o">);</span>
+</span><span class="lineno">14 </span><span class="o">}</span>
+</pre> 
+        </div> </td> 
+      </tr> 
+     </tbody> 
+    </table> </td> 
+   <td valign="top"> 
+    <table style="padding:2px; margin:2px;"> 
+     <tbody> 
+      <tr valign="top"> 
+       <td style="width:32px;"><img alt="Computer code" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/32px-Gnome-settings-accessibility-keyboard.svg.png" title="Computer code" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/48px-Gnome-settings-accessibility-keyboard.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/64px-Gnome-settings-accessibility-keyboard.svg.png 2x" data-file-width="60" data-file-height="60" /></td> 
+       <td style="background-color:#ffeee0; border-left: 4px solid orange; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><b>Output for code section 3.26</b> <pre style="background-color:#000; color:#fff;">
+i equals something other than 1 or 2
+</pre></td> 
+      </tr> 
+     </tbody> 
+    </table> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>If a case does not end with the <code>break</code> statement, then the next case will be checked, otherwise the execution will jump to the end of the <code>switch</code> statement.</p> 
+<p>Look at this example to see how it's done:</p> 
+<table style="width: 100%;"> 
+ <tbody> 
+  <tr> 
+   <td valign="top"> 
+    <table style="padding:2px; margin:2px;"> 
+     <tbody> 
+      <tr valign="top"> 
+       <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+       <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><b>Code section 3.27: A switch block containing a case without break.</b> 
+        <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+         <pre>
+<span class="lineno"> 1 </span><span class="hll"><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
+</span><span class="lineno"> 2 </span><span class="hll"><span class="k">switch</span><span class="o">(</span><span class="n">i</span><span class="o">)</span> <span class="o">{</span>
+</span><span class="lineno"> 3 </span><span class="hll">    <span class="k">case</span> <span class="o">-</span><span class="mi">1</span><span class="o">:</span>
+</span><span class="lineno"> 4 </span><span class="hll">    <span class="k">case</span> <span class="mi">1</span><span class="o">:</span>
+</span><span class="lineno"> 5 </span>        <span class="c1">// i is -1, so it will fall through to this case and execute this code</span>
+<span class="lineno"> 6 </span><span class="hll">        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"i is 1 or -1"</span><span class="o">);</span>
+</span><span class="lineno"> 7 </span><span class="hll">        <span class="k">break</span><span class="o">;</span>
+</span><span class="lineno"> 8 </span>    <span class="k">case</span> <span class="mi">0</span><span class="o">:</span>
+<span class="lineno"> 9 </span>        <span class="c1">// The break command is used before this case, so if i is 1 or -1, this will not execute</span>
+<span class="lineno">10 </span>        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"i is 0"</span><span class="o">);</span>
+<span class="lineno">11 </span><span class="o">}</span>
+</pre> 
+        </div> </td> 
+      </tr> 
+     </tbody> 
+    </table> </td> 
+   <td valign="top"> 
+    <table style="padding:2px; margin:2px;"> 
+     <tbody> 
+      <tr valign="top"> 
+       <td style="width:32px;"><img alt="Computer code" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/32px-Gnome-settings-accessibility-keyboard.svg.png" title="Computer code" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/48px-Gnome-settings-accessibility-keyboard.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/64px-Gnome-settings-accessibility-keyboard.svg.png 2x" data-file-width="60" data-file-height="60" /></td> 
+       <td style="background-color:#ffeee0; border-left: 4px solid orange; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><b>Output for code section 3.27</b> <pre style="background-color:#000; color:#fff;">
+i is 1 or -1
+</pre></td> 
+      </tr> 
+     </tbody> 
+    </table> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>Starting in J2SE 5.0, the <code>switch</code> statement can also be used with an <code><a href="/wiki/Java_Programming/Keywords/enum" title="Java Programming/Keywords/enum"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">enum</font></a></code> value instead of an integer.</p> 
+<p>Though <code>enums</code> have not been covered yet, here is an example so you can see how it's done (note that the enum constants in the cases do not need to be qualified with the type:</p> 
+<table style="width: 100%;"> 
+ <tbody> 
+  <tr> 
+   <td valign="top"> 
+    <table style="padding:2px; margin:2px;"> 
+     <tbody> 
+      <tr valign="top"> 
+       <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+       <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><b>Code section 3.28: A switch block with an enum type.</b> 
+        <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+         <pre>
+<span class="lineno"> 1 </span><span class="hll"><span class="n">Day</span> <span class="n">day</span> <span class="o">=</span> <span class="n">Day</span><span class="o">.</span><span class="na">MONDAY</span><span class="o">;</span> <span class="c1">// Day is a fictional enum type containing the days of the week</span>
+</span><span class="lineno"> 2 </span><span class="hll"><span class="k">switch</span><span class="o">(</span><span class="n">day</span><span class="o">)</span> <span class="o">{</span>
+</span><span class="lineno"> 3 </span><span class="hll">    <span class="k">case</span> <span class="n">MONDAY</span><span class="o">:</span>
+</span><span class="lineno"> 4 </span>        <span class="c1">// Since day == Day.MONDAY, this statement will execute</span>
+<span class="lineno"> 5 </span><span class="hll">        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Mondays are the worst!"</span><span class="o">);</span>
+</span><span class="lineno"> 6 </span><span class="hll">        <span class="k">break</span><span class="o">;</span>
+</span><span class="lineno"> 7 </span>    <span class="k">case</span> <span class="n">TUESDAY</span><span class="o">:</span>
+<span class="lineno"> 8 </span>    <span class="k">case</span> <span class="n">WEDNESDAY</span><span class="o">:</span>
+<span class="lineno"> 9 </span>    <span class="k">case</span> <span class="n">THURSDAY</span><span class="o">:</span>
+<span class="lineno">10 </span>        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Weekdays are so-so."</span><span class="o">);</span>
+<span class="lineno">11 </span>        <span class="k">break</span><span class="o">;</span>
+<span class="lineno">12 </span>    <span class="k">case</span> <span class="n">FRIDAY</span><span class="o">:</span>
+<span class="lineno">13 </span>    <span class="k">case</span> <span class="n">SATURDAY</span><span class="o">:</span>
+<span class="lineno">14 </span>    <span class="k">case</span> <span class="n">SUNDAY</span><span class="o">:</span>
+<span class="lineno">15 </span>        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Weekends are the best!"</span><span class="o">);</span>
+<span class="lineno">16 </span>        <span class="k">break</span><span class="o">;</span>
+<span class="lineno">17 </span><span class="o">}</span>
+</pre> 
+        </div> </td> 
+      </tr> 
+     </tbody> 
+    </table> </td> 
+   <td valign="top"> 
+    <table style="padding:2px; margin:2px;"> 
+     <tbody> 
+      <tr valign="top"> 
+       <td style="width:32px;"><img alt="Computer code" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/32px-Gnome-settings-accessibility-keyboard.svg.png" title="Computer code" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/48px-Gnome-settings-accessibility-keyboard.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/64px-Gnome-settings-accessibility-keyboard.svg.png 2x" data-file-width="60" data-file-height="60" /></td> 
+       <td style="background-color:#ffeee0; border-left: 4px solid orange; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><b>Output for code section 3.28</b> <pre style="background-color:#000; color:#fff;">
+Mondays are the worst!
+</pre></td> 
+      </tr> 
+     </tbody> 
+    </table> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>Starting in J2SE 7.0, the <code>switch</code> statement can also be used with an <code><a href="/wiki/Java_Programming/API/java.lang.String" title="Java Programming/API/java.lang.String">String</a></code> value instead of an integer.</p> 
+<table style="width: 100%;"> 
+ <tbody> 
+  <tr> 
+   <td valign="top"> 
+    <table style="padding:2px; margin:2px;"> 
+     <tbody> 
+      <tr valign="top"> 
+       <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+       <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><b>Code section 3.29: A switch block with a String type.</b> 
+        <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+         <pre>
+<span class="lineno"> 1 </span><span class="hll"><span class="n">String</span> <span class="n">day</span> <span class="o">=</span> <span class="s">"Monday"</span><span class="o">;</span>
+</span><span class="lineno"> 2 </span><span class="hll"><span class="k">switch</span><span class="o">(</span><span class="n">day</span><span class="o">)</span> <span class="o">{</span>
+</span><span class="lineno"> 3 </span><span class="hll">    <span class="k">case</span> <span class="s">"Monday"</span><span class="o">:</span>
+</span><span class="lineno"> 4 </span>        <span class="c1">// Since day == "Monday", this statement will execute</span>
+<span class="lineno"> 5 </span><span class="hll">        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Mondays are the worst!"</span><span class="o">);</span>
+</span><span class="lineno"> 6 </span><span class="hll">        <span class="k">break</span><span class="o">;</span>
+</span><span class="lineno"> 7 </span>    <span class="k">case</span> <span class="s">"Tuesday"</span><span class="o">:</span>
+<span class="lineno"> 8 </span>    <span class="k">case</span> <span class="s">"Wednesday"</span><span class="o">:</span>
+<span class="lineno"> 9 </span>    <span class="k">case</span> <span class="s">"Thursday"</span><span class="o">:</span>
+<span class="lineno">10 </span>        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Weekdays are so-so."</span><span class="o">);</span>
+<span class="lineno">11 </span>        <span class="k">break</span><span class="o">;</span>
+<span class="lineno">12 </span>    <span class="k">case</span> <span class="s">"Friday"</span><span class="o">:</span>
+<span class="lineno">13 </span>    <span class="k">case</span> <span class="s">"Saturday"</span><span class="o">:</span>
+<span class="lineno">14 </span>    <span class="k">case</span> <span class="s">"Sunday"</span><span class="o">:</span>
+<span class="lineno">15 </span>        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Weekends are the best!"</span><span class="o">);</span>
+<span class="lineno">16 </span>        <span class="k">break</span><span class="o">;</span>
+<span class="lineno">17 </span>    <span class="k">default</span><span class="o">:</span>
+<span class="lineno">18 </span>        <span class="k">throw</span> <span class="k">new</span> <span class="n">IllegalArgumentException</span><span class="o">(</span><span class="s">"Invalid day of the week: "</span> <span class="o">+</span> <span class="n">day</span><span class="o">);</span>
+<span class="lineno">19 </span><span class="o">}</span>
+</pre> 
+        </div> </td> 
+      </tr> 
+     </tbody> 
+    </table> </td> 
+   <td valign="top"> 
+    <table style="padding:2px; margin:2px;"> 
+     <tbody> 
+      <tr valign="top"> 
+       <td style="width:32px;"><img alt="Computer code" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/32px-Gnome-settings-accessibility-keyboard.svg.png" title="Computer code" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/48px-Gnome-settings-accessibility-keyboard.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/64px-Gnome-settings-accessibility-keyboard.svg.png 2x" data-file-width="60" data-file-height="60" /></td> 
+       <td style="background-color:#ffeee0; border-left: 4px solid orange; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><b>Output for code section 3.29</b> <pre style="background-color:#000; color:#fff;">
+Mondays are the worst!
+</pre></td> 
+      </tr> 
+     </tbody> 
+    </table> </td> 
+  </tr> 
+ </tbody> 
+</table>

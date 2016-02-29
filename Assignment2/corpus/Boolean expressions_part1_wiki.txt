@@ -1,0 +1,58 @@
+<p>Java has several operators that can be used to compare variables. For example, how would you tell if one variable has a greater value than another? The answer: use the "greater-than" operator.</p> 
+<p>Here is a list of the comparative operators in Java:</p> 
+<ul> 
+ <li><code>&gt;</code>&nbsp;: Greater than</li> 
+ <li><code>&lt;</code>&nbsp;: Less than</li> 
+ <li><code>&gt;=</code>&nbsp;: Greater than or equal to</li> 
+ <li><code>&lt;=</code>&nbsp;: Less than or equal to</li> 
+ <li><code>==</code>&nbsp;: Equal to</li> 
+ <li><code>!=</code>&nbsp;: Not equal to</li> 
+</ul> 
+<p>To see how these operators are used, look at this example:</p> 
+<table style="width: 100%;"> 
+ <tbody> 
+  <tr> 
+   <td valign="top"> 
+    <table style="padding:2px; margin:2px;"> 
+     <tbody> 
+      <tr valign="top"> 
+       <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+       <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><span id="code-section-37"><b>Code section 3.37: Comparisons.</b></span> 
+        <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+         <pre>
+<span class="lineno">1 </span><span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">5</span><span class="o">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>
+<span class="lineno">2 </span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span><span class="o">);</span> <span class="c1">// Value is true because a is greater than b</span>
+<span class="lineno">3 </span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">a</span> <span class="o">==</span> <span class="n">b</span><span class="o">);</span> <span class="c1">// Value is false because a does not equal b</span>
+<span class="lineno">4 </span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">a</span> <span class="o">!=</span> <span class="n">b</span><span class="o">);</span> <span class="c1">// Value is true because a does not equal b</span>
+<span class="lineno">5 </span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">b</span> <span class="o">&lt;=</span> <span class="n">a</span><span class="o">);</span> <span class="c1">// Value is true because b is less than a</span>
+</pre> 
+        </div> </td> 
+      </tr> 
+     </tbody> 
+    </table> </td> 
+   <td valign="top"> 
+    <table style="padding:2px; margin:2px;"> 
+     <tbody> 
+      <tr valign="top"> 
+       <td style="width:32px;"><img alt="Computer code" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/32px-Gnome-settings-accessibility-keyboard.svg.png" title="Computer code" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/48px-Gnome-settings-accessibility-keyboard.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/64px-Gnome-settings-accessibility-keyboard.svg.png 2x" data-file-width="60" data-file-height="60" /></td> 
+       <td style="background-color:#ffeee0; border-left: 4px solid orange; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><b>Output for code section 3.37</b> <pre style="background-color:#000; color:#fff;">
+true
+false
+true
+true
+</pre></td> 
+      </tr> 
+     </tbody> 
+    </table> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>Comparative operators can be used on any primitive types (except <code>boolean</code>), but only the "equals" and "does not equal" operators work on objects. This is because the less-than/greater-than operators cannot be applied to objects, but the equivalency operators can.</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td><a href="/wiki/File:Bombilla_amarilla_-_yellow_Edison_lamp.svg" class="image" title="Note"><img alt="Note" src="//upload.wikimedia.org/wikipedia/commons/thumb/1/15/Bombilla_amarilla_-_yellow_Edison_lamp.svg/30px-Bombilla_amarilla_-_yellow_Edison_lamp.svg.png" width="30" height="30" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/1/15/Bombilla_amarilla_-_yellow_Edison_lamp.svg/45px-Bombilla_amarilla_-_yellow_Edison_lamp.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/1/15/Bombilla_amarilla_-_yellow_Edison_lamp.svg/60px-Bombilla_amarilla_-_yellow_Edison_lamp.svg.png 2x" data-file-width="200" data-file-height="200" /></a></td> 
+   <td style="background-color:#fffff0; border-left: 4px solid yellow; padding-left: 6px;">Specifically, the <code>==</code> and <code>!=</code> operators test whether both variables point to the same object. Objects will be covered later in the tutorial, in the "<a href="/wiki/Java_Programming/Classes,_Objects_and_Types" title="Java Programming/Classes, Objects and Types">Classes, Objects, and Types</a>" module.</td> 
+  </tr> 
+ </tbody> 
+</table>

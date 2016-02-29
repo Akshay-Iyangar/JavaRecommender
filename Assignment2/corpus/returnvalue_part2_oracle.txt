@@ -1,0 +1,30 @@
+<p>If this section confuses you, skip it and return to it after you have finished the lesson on interfaces and inheritance.</p> 
+<p>When a method uses a class name as its return type, such as <code>whosFastest</code> does, the class of the type of the returned object must be either a subclass of, or the exact class of, the return type. Suppose that you have a class hierarchy in which <code>ImaginaryNumber</code> is a subclass of <code>java.lang.Number</code>, which is in turn a subclass of <code>Object</code>, as illustrated in <span id="figure:classes-hierarchy.gif">the following figure</span>.</p> 
+<center> 
+ <img src="https://docs.oracle.com/javase/tutorial/figures/java/classes-hierarchy.gif" width="130" height="136" align="bottom" alt="The class hierarchy for ImaginaryNumber"> <p></p> <p class="FigureCaption">The class hierarchy for ImaginaryNumber</p> </img>
+</center> 
+<p>Now suppose that you have a method declared to return a <code>Number</code>:</p> 
+<div class="codeblock"> 
+ <pre>
+public Number returnANumber() {
+    ...
+}
+</pre> 
+</div> 
+<p>The <code>returnANumber</code> method can return an <code>ImaginaryNumber</code> but not an <code>Object</code>. <code>ImaginaryNumber</code> is a <code>Number</code> because it's a subclass of <code>Number</code>. However, an <code>Object</code> is not necessarily a <code>Number</code>  it could be a <code>String</code> or another type.</p> 
+<p>You can override a method and define it to return a subclass of the original method, like this:</p> 
+<div class="codeblock"> 
+ <pre>
+public ImaginaryNumber returnANumber() {
+    ...
+}
+</pre> 
+</div> 
+<p>This technique, called <em>covariant return type</em>, means that the return type is allowed to vary in the same direction as the subclass.</p> 
+<div class="note"> 
+ <hr> 
+  <strong>Note:</strong>&nbsp;You also can use interface names as return types. In this case, the object returned must implement the specified interface. 
+  <hr> 
+  </hr>
+ </hr>
+</div>

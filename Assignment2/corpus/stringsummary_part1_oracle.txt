@@ -1,0 +1,16 @@
+<div id="PageContent"> 
+ <!-- Summary of Characters and Strings --> 
+ <p>Most of the time, if you are using a single character value, you will use the primitive <code>char</code> type. There are times, however, when you need to use a char as an objectfor example, as a method argument where an object is expected. The Java programming language provides a <i>wrapper</i> class that "wraps" the <code>char</code> in a <code>Character</code> object for this purpose. An object of type <code>Character</code> contains a single field whose type is <code>char</code>. This <a class="SourceLink" target="_blank" href="https://docs.oracle.com/javase/8/docs/api/java/lang/Character.html" onclick="showCode('https://docs.oracle.com/javase/tutorial/displayCode.html', 'https://docs.oracle.com/javase/8/docs/api/java/lang/Character.html'); return false;"><code>Character</code></a> class also offers a number of useful class (i.e., static) methods for manipulating characters.</p> 
+ <p>Strings are a sequence of characters and are widely used in Java programming. In the Java programming language, strings are objects. The <a class="APILink" target="_blank" href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html"><code>String</code> </a> class has over 60 methods and 13 constructors.</p> 
+ <p>Most commonly, you create a string with a statement like</p> 
+ <div class="codeblock"> 
+  <pre>
+String s = "Hello world!";
+</pre> 
+ </div> 
+ <p>rather than using one of the <code>String</code> constructors.</p> 
+ <p>The <code>String</code> class has many methods to find and retrieve substrings; these can then be easily reassembled into new strings using the <code style="font-weight: bold">+</code> concatenation operator.</p> 
+ <p>The <code>String</code> class also includes a number of utility methods, among them <code>split()</code>, <code>toLowerCase()</code>, <code>toUpperCase()</code>, and <code>valueOf()</code>. The latter method is indispensable in converting user input strings to numbers. The <code>Number</code> subclasses also have methods for converting strings to numbers and vice versa.</p> 
+ <p>In addition to the <code>String</code> class, there is also a <a class="APILink" target="_blank" href="https://docs.oracle.com/javase/8/docs/api/java/lang/StringBuilder.html"><code>StringBuilder</code> </a> class. Working with <code>StringBuilder</code> objects can sometimes be more efficient than working with strings. The <code>StringBuilder</code> class offers a few methods that can be useful for strings, among them <code>reverse()</code>. In general, however, the <code>String</code> class has a wider variety of methods.</p> 
+ <p>A string can be converted to a string builder using a <code>StringBuilder</code> constructor. A string builder can be converted to a string with the <code>toString()</code> method.</p> 
+</div>

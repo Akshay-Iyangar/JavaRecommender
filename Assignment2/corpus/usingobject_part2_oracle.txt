@@ -1,0 +1,30 @@
+<p>Object fields are accessed by their name. You must use a name that is unambiguous.</p> 
+<p>You may use a simple name for a field within its own class. For example, we can add a statement <i>within</i> the <code>Rectangle</code> class that prints the <code>width</code> and <code>height</code>:</p> 
+<div class="codeblock"> 
+ <pre>
+System.out.println("Width and height are: " + width + ", " + height);
+</pre> 
+</div> 
+<p>In this case, <code>width</code> and <code>height</code> are simple names.</p> 
+<p>Code that is outside the object's class must use an object reference or expression, followed by the dot (.) operator, followed by a simple field name, as in:</p> 
+<div class="codeblock"> 
+ <pre>
+objectReference.fieldName
+</pre> 
+</div> 
+<p>For example, the code in the <tt>CreateObjectDemo</tt> class is outside the code for the <tt>Rectangle</tt> class. So to refer to the <tt>origin</tt>, <tt>width</tt>, and <tt>height</tt> fields within the <tt>Rectangle</tt> object named <tt>rectOne</tt>, the <tt>CreateObjectDemo</tt> class must use the names <tt>rectOne.origin</tt>, <tt>rectOne.width</tt>, and <tt>rectOne.height</tt>, respectively. The program uses two of these names to display the <tt>width</tt> and the <tt>height</tt> of <tt>rectOne</tt>:</p> 
+<div class="codeblock"> 
+ <pre>
+System.out.println("Width of rectOne: "  + rectOne.width);
+System.out.println("Height of rectOne: " + rectOne.height);
+</pre> 
+</div> 
+<p>Attempting to use the simple names <tt>width</tt> and <tt>height</tt> from the code in the <tt>CreateObjectDemo</tt> class doesn't make sense  those fields exist only within an object  and results in a compiler error.</p> 
+<p>Later, the program uses similar code to display information about <tt>rectTwo</tt>. Objects of the same type have their own copy of the same instance fields. Thus, each <tt>Rectangle</tt> object has fields named <tt>origin</tt>, <tt>width</tt>, and <tt>height</tt>. When you access an instance field through an object reference, you reference that particular object's field. The two objects <tt>rectOne</tt> and <tt>rectTwo</tt> in the <tt>CreateObjectDemo</tt> program have different <tt>origin</tt>, <tt>width</tt>, and <tt>height</tt> fields.</p> 
+<p>To access a field, you can use a named reference to an object, as in the previous examples, or you can use any expression that returns an object reference. Recall that the <tt>new</tt> operator returns a reference to an object. So you could use the value returned from new to access a new object's fields:</p> 
+<div class="codeblock"> 
+ <pre>
+int height = new Rectangle().height;
+</pre> 
+</div> 
+<p>This statement creates a new <tt>Rectangle</tt> object and immediately gets its height. In essence, the statement calculates the default height of a <tt>Rectangle</tt>. Note that after this statement has been executed, the program no longer has a reference to the created <tt>Rectangle</tt>, because the program never stored the reference anywhere. The object is unreferenced, and its resources are free to be recycled by the Java Virtual Machine. <a name="methods" id="methods"></a></p>

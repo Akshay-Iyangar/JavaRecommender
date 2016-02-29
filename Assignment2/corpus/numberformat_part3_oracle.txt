@@ -1,0 +1,145 @@
+<p>The following table lists some of the converters and flags that are used in the sample program, <code>TestFormat.java</code>, that follows the table.</p> 
+<table width="70%" border="1" cellpadding="4" cellspacing="3" summary="Converters and flags that are used in the sample program TestFormat.java"> 
+ <caption style="font-weight: bold">
+   Converters and Flags Used in 
+  <code>TestFormat.java</code> 
+ </caption> 
+ <tbody> 
+  <tr> 
+   <th id="h1" width="10%">Converter</th> 
+   <th id="h2" width="10%">Flag</th> 
+   <th id="h3" width="50%">Explanation</th> 
+  </tr> 
+  <tr> 
+   <td headers="h1">d</td> 
+   <td headers="h2">&nbsp;</td> 
+   <td headers="h3">A decimal integer.</td> 
+  </tr> 
+  <tr> 
+   <td headers="h1">f</td> 
+   <td headers="h2">&nbsp;</td> 
+   <td headers="h3">A float.</td> 
+  </tr> 
+  <tr> 
+   <td headers="h1">n</td> 
+   <td headers="h2">&nbsp;</td> 
+   <td headers="h3">A new line character appropriate to the platform running the application. You should always use <code>%n</code>, rather than <code>\n</code>.</td> 
+  </tr> 
+  <tr> 
+   <td headers="h1">tB</td> 
+   <td headers="h2">&nbsp;</td> 
+   <td headers="h3">A date &amp; time conversionlocale-specific full name of month.</td> 
+  </tr> 
+  <tr> 
+   <td headers="h1">td, te</td> 
+   <td headers="h2">&nbsp;</td> 
+   <td headers="h3">A date &amp; time conversion2-digit day of month. td has leading zeroes as needed, te does not.</td> 
+  </tr> 
+  <tr> 
+   <td headers="h1">ty, tY</td> 
+   <td headers="h2">&nbsp;</td> 
+   <td headers="h3">A date &amp; time conversionty = 2-digit year, tY = 4-digit year.</td> 
+  </tr> 
+  <tr> 
+   <td headers="h1">tl</td> 
+   <td headers="h2">&nbsp;</td> 
+   <td headers="h3">A date &amp; time conversionhour in 12-hour clock.</td> 
+  </tr> 
+  <tr> 
+   <td headers="h1">tM</td> 
+   <td headers="h2">&nbsp;</td> 
+   <td headers="h3">A date &amp; time conversionminutes in 2 digits, with leading zeroes as necessary.</td> 
+  </tr> 
+  <tr> 
+   <td headers="h1">tp</td> 
+   <td headers="h2">&nbsp;</td> 
+   <td headers="h3">A date &amp; time conversionlocale-specific am/pm (lower case).</td> 
+  </tr> 
+  <tr> 
+   <td headers="h1">tm</td> 
+   <td headers="h2">&nbsp;</td> 
+   <td headers="h3">A date &amp; time conversionmonths in 2 digits, with leading zeroes as necessary.</td> 
+  </tr> 
+  <tr> 
+   <td headers="h1">tD</td> 
+   <td headers="h2">&nbsp;</td> 
+   <td headers="h3">A date &amp; time conversiondate as %tm%td%ty</td> 
+  </tr> 
+  <tr> 
+   <td headers="h1">&nbsp;</td> 
+   <td headers="h2">08</td> 
+   <td headers="h3">Eight characters in width, with leading zeroes as necessary.</td> 
+  </tr> 
+  <tr> 
+   <td headers="h1">&nbsp;</td> 
+   <td headers="h2">+</td> 
+   <td headers="h3">Includes sign, whether positive or negative.</td> 
+  </tr> 
+  <tr> 
+   <td headers="h1">&nbsp;</td> 
+   <td headers="h2">,</td> 
+   <td headers="h3">Includes locale-specific grouping characters.</td> 
+  </tr> 
+  <tr> 
+   <td headers="h1">&nbsp;</td> 
+   <td headers="h2">-</td> 
+   <td headers="h3">Left-justified..</td> 
+  </tr> 
+  <tr> 
+   <td headers="h1">&nbsp;</td> 
+   <td headers="h2">.3</td> 
+   <td headers="h3">Three places after decimal point.</td> 
+  </tr> 
+  <tr> 
+   <td headers="h1">&nbsp;</td> 
+   <td headers="h2">10.3</td> 
+   <td headers="h3">Ten characters in width, right justified, with three places after decimal point.</td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>The following program shows some of the formatting that you can do with <code>format</code>. The output is shown within double quotes in the embedded comment:</p> 
+<div class="codeblock"> 
+ <pre>
+import java.util.Calendar;
+import java.util.Locale;
+
+public class TestFormat {
+    
+    public static void main(String[] args) {
+      long n = 461012;
+      System.out.format("%d%n", n);      //  --&gt;  "461012"
+      System.out.format("%08d%n", n);    //  --&gt;  "00461012"
+      System.out.format("%+8d%n", n);    //  --&gt;  " +461012"
+      System.out.format("%,8d%n", n);    // --&gt;  " 461,012"
+      System.out.format("%+,8d%n%n", n); //  --&gt;  "+461,012"
+      
+      double pi = Math.PI;
+
+      System.out.format("%f%n", pi);       // --&gt;  "3.141593"
+      System.out.format("%.3f%n", pi);     // --&gt;  "3.142"
+      System.out.format("%10.3f%n", pi);   // --&gt;  "     3.142"
+      System.out.format("%-10.3f%n", pi);  // --&gt;  "3.142"
+      System.out.format(Locale.FRANCE,
+                        "%-10.4f%n%n", pi); // --&gt;  "3,1416"
+
+      Calendar c = Calendar.getInstance();
+      System.out.format("%tB %te, %tY%n", c, c, c); // --&gt;  "May 29, 2006"
+
+      System.out.format("%tl:%tM %tp%n", c, c, c);  // --&gt;  "2:34 am"
+
+      System.out.format("%tD%n", c);    // --&gt;  "https://docs.oracle.com/javase/tutorial/06"
+    }
+}
+</pre> 
+</div> 
+<div class="note"> 
+ <hr> 
+  <strong>Note:</strong>&nbsp; The discussion in this section covers just the basics of the 
+  <code>format</code> and 
+  <code>printf</code> methods. Further detail can be found in the 
+  <a class="TutorialLink" target="_top" href="https://docs.oracle.com/javase/tutorial/essentihttps://docs.oracle.com/javase/tutorial/formatting.html"><code>Basichttps://docs.oracle.com/javase/tutorial/code&gt; </code></a> section of the Essential trail, in the "Formatting" page. 
+  <br> Using <code>String.format</code> to create strings is covered in <a class="TutorialLink" target="_top" href="strings.html">Strings</a>. 
+   <hr> 
+   </hr></br>
+ </hr>
+</div>

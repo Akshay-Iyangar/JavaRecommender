@@ -1,0 +1,99 @@
+<p>The constructor can be overloaded. You can define more than one constructor with different parameters. For example:</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Computer code" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/32px-Gnome-settings-accessibility-keyboard.svg.png" title="Computer code" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/48px-Gnome-settings-accessibility-keyboard.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/64px-Gnome-settings-accessibility-keyboard.svg.png 2x" data-file-width="60" data-file-height="60" /></td> 
+   <td style="background-color:#ffeee0; border-left: 4px solid orange; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><span id="code-listing-12"><b>Code listing 4.12: Constructors.</b></span> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno"> 1 </span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyClass</span> <span class="o">{</span>
+<span class="lineno"> 2 </span>
+<span class="lineno"> 3 </span>  <span class="kd">private</span> <span class="n">String</span> <span class="n">memberField</span><span class="o">;</span>
+<span class="lineno"> 4 </span> 
+<span class="lineno"> 5 </span>  <span class="cm">/**</span>
+<span class="lineno"> 6 </span><span class="cm">   * MyClass Constructor, there is no input parameter</span>
+<span class="lineno"> 7 </span><span class="cm">   */</span>
+<span class="lineno"> 8 </span><span class="hll">  <span class="kd">public</span> <span class="nf">MyClass</span><span class="o">()</span> <span class="o">{</span>
+</span><span class="lineno"> 9 </span><span class="hll">     <span class="o">...</span>
+</span><span class="lineno">10 </span><span class="hll">  <span class="o">}</span>
+</span><span class="lineno">11 </span> 
+<span class="lineno">12 </span>  <span class="cm">/**</span>
+<span class="lineno">13 </span><span class="cm">   * MyClass Constructor, there is one input parameter</span>
+<span class="lineno">14 </span><span class="cm">   */</span>
+<span class="lineno">15 </span><span class="hll">   <span class="kd">public</span> <span class="nf">MyClass</span><span class="o">(</span><span class="n">String</span> <span class="n">param1</span><span class="o">)</span> <span class="o">{</span>
+</span><span class="lineno">16 </span><span class="hll">     <span class="n">memberField</span> <span class="o">=</span> <span class="n">param1</span><span class="o">;</span>
+</span><span class="lineno">17 </span><span class="hll">     <span class="o">...</span>
+</span><span class="lineno">18 </span><span class="hll">  <span class="o">}</span>
+</span><span class="lineno">19 </span><span class="o">}</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>In the <a href="#code-listing-12">code listing 4.12</a>, we defined two constructors, one with no input parameter, and one with one input parameter. You may ask which constructor will be called. Its depends how the object is created with the <code><a href="/wiki/Java_Programming/Keywords/new" title="Java Programming/Keywords/new"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">new</font></a></code> keyword. See below:</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><span id="code-section-29"><b>Code section 4.29: Constructor calls.</b></span> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno">1 </span><span class="c1">// The constructor with no input parameter will be called</span>
+<span class="lineno">2 </span><span class="n">MyClass</span> <span class="n">obj1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MyClass</span><span class="o">();</span>
+<span class="lineno">3 </span>
+<span class="lineno">4 </span><span class="c1">// The constructor with one input param. will be called</span>
+<span class="lineno">5 </span><span class="n">MyClass</span> <span class="n">obj2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MyClass</span><span class="o">(</span><span class="s">"Init Value"</span><span class="o">);</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>In the <a href="#code-section-29">code section 4.29</a>, we created two objects from the same class, or we can also say that <code>obj1</code> and <code>obj2</code> both have the same type. The difference between the two is that in the first one the <code>memberField</code> field is not initialized, in the second one that is initialized to <code>"Init Value"</code>. A constructor may also be called from another constructor, see below:</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Computer code" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/32px-Gnome-settings-accessibility-keyboard.svg.png" title="Computer code" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/48px-Gnome-settings-accessibility-keyboard.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/64px-Gnome-settings-accessibility-keyboard.svg.png 2x" data-file-width="60" data-file-height="60" /></td> 
+   <td style="background-color:#ffeee0; border-left: 4px solid orange; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><span id="code-listing-13"><b>Code listing 4.13: Constructor pooling.</b></span> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno"> 1 </span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyClass</span> <span class="o">{</span>
+<span class="lineno"> 2 </span>
+<span class="lineno"> 3 </span>  <span class="kd">private</span> <span class="n">String</span> <span class="n">memberField</span><span class="o">;</span>
+<span class="lineno"> 4 </span> 
+<span class="lineno"> 5 </span>  <span class="cm">/**</span>
+<span class="lineno"> 6 </span><span class="cm">   * MyClass Constructor, there is no input parameter</span>
+<span class="lineno"> 7 </span><span class="cm">   */</span>
+<span class="lineno"> 8 </span>  <span class="kd">public</span> <span class="nf">MyClass</span><span class="o">()</span> <span class="o">{</span>
+<span class="lineno"> 9 </span><span class="hll">    <span class="n">MyClass</span><span class="o">(</span><span class="s">"Default Value"</span><span class="o">);</span>
+</span><span class="lineno">10 </span>  <span class="o">}</span>
+<span class="lineno">11 </span> 
+<span class="lineno">12 </span>  <span class="cm">/**</span>
+<span class="lineno">13 </span><span class="cm">   * MyClass Constructor, there is one input parameter</span>
+<span class="lineno">14 </span><span class="cm">   */</span>
+<span class="lineno">15 </span>  <span class="kd">public</span> <span class="nf">MyClass</span><span class="o">(</span><span class="n">String</span> <span class="n">param1</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno">16 </span>    <span class="n">memberField</span> <span class="o">=</span> <span class="n">param1</span><span class="o">;</span>
+<span class="lineno">17 </span>    <span class="o">...</span>
+<span class="lineno">18 </span>  <span class="o">}</span>
+<span class="lineno">19 </span><span class="o">}</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>In the <a href="#code-listing-13">code listing 4.13</a>, the constructor with no input parameter calls the other constructor with the default initial value. This call must be the first instruction of a constructor or else a compiler error will occur. The code gives an option to the user, to create the object with the default value or create the object with a specified value. The first constructor could have been written using the <code><a href="/wiki/Java_Programming/Keywords/this" title="Java Programming/Keywords/this"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">this</font></a></code> keyword as well:</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><span id="code-section-30"><b>Code section 4.30: Another constructor pooling.</b></span> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno">1 </span>  <span class="kd">public</span> <span class="nf">MyClass</span><span class="o">()</span> <span class="o">{</span>
+<span class="lineno">2 </span><span class="hll">    <span class="k">this</span><span class="o">(</span><span class="s">"Default Value"</span><span class="o">);</span>
+</span><span class="lineno">3 </span>  <span class="o">}</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>Such a call reduces the code repetition.</p>

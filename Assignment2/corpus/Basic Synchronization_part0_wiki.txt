@@ -1,0 +1,241 @@
+<p><span id="displaytitle" title=""></span></p> 
+<table style="width:100%; border:solid 1px #71c837; background:#c6e9af; color:#2d5016;" class="noprint"> 
+ <tbody> 
+  <tr> 
+   <td style="text-align:left; width:33%; font-size:90%;"><img alt="" src="//upload.wikimedia.org/wikibooks/en/thumb/d/df/Navigation_Left_Arrow.svg/18px-Navigation_Left_Arrow.svg.png" width="18" height="14" srcset="//upload.wikimedia.org/wikibooks/en/thumb/d/df/Navigation_Left_Arrow.svg/27px-Navigation_Left_Arrow.svg.png 1.5x, //upload.wikimedia.org/wikibooks/en/thumb/d/df/Navigation_Left_Arrow.svg/36px-Navigation_Left_Arrow.svg.png 2x" data-file-width="165" data-file-height="130"> <a href="/wiki/Java_Programming/Threads_and_Runnables" title="Java Programming/Threads and Runnables">Threads and Runnables</a></img></td> 
+   <td style="text-align:center; width:34%;"><a href="/wiki/Java_Programming" title="Java Programming">Java Programming</a><br> <b>Basic Synchronization</b></br></td> 
+   <td style="text-align:right; width:33%; font-size:90%;"><a href="/wiki/Java_Programming/Client_Server" title="Java Programming/Client Server">Client Server</a> <img alt="" src="//upload.wikimedia.org/wikibooks/en/thumb/e/ea/Navigation_Right_Arrow.svg/18px-Navigation_Right_Arrow.svg.png" width="18" height="14" srcset="//upload.wikimedia.org/wikibooks/en/thumb/e/ea/Navigation_Right_Arrow.svg/27px-Navigation_Right_Arrow.svg.png 1.5x, //upload.wikimedia.org/wikibooks/en/thumb/e/ea/Navigation_Right_Arrow.svg/36px-Navigation_Right_Arrow.svg.png 2x" data-file-width="165" data-file-height="130" /></td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p><br> In a multi-threaded environment, when more than one thread can access and modify a resource, the outcome could be unpredictable. For example, let's have a counter variable that is incremented by more than one thread.</br></p> 
+<p>Beware! <i>Synchronization</i> is an ambiguous term. It doesn't consist of making all threads executing the same code section at the same time. It is the opposite. It prevents any two threads from executing the same code section at the same time. It synchronizes the end of one processing with the beginning of a second processing.</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><b>Code section 1.1: Counter implementation</b> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="kt">int</span> <span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+<span class="o">...</span>
+<span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span><span class="o">;</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>The above code is built up by the following sub-operations:</p> 
+<ul> 
+ <li><b>Read</b>&nbsp;; read variable <code>counter</code></li> 
+ <li><b>Add</b>&nbsp;; add 1 to the value</li> 
+ <li><b>Save</b>&nbsp;; save the new value to variable <code>counter</code></li> 
+</ul> 
+<p>Let's say that two threads need to execute that code, and if the initial value of the <code>counter</code> variable is zero, we expect after the operations the value to be 2.</p> 
+<table style="margin: auto; padding-top:0px; padding-bottom:0px; padding-left:2px; padding-right:2px; spacing-top:0px; spacing-bottom:0px; spacing-left:2px; spacing-right:2px;"> 
+ <tbody> 
+  <tr> 
+   <td style="border: solid 1px grey" colspan="2">Thread 1</td> 
+   <td>&nbsp;</td> 
+   <td style="border: solid 1px grey" colspan="2">Thread 2</td> 
+  </tr> 
+  <tr> 
+   <td>&nbsp;</td> 
+   <td style="border-left: solid 1px grey">&nbsp;</td> 
+   <td>&nbsp;</td> 
+   <td>&nbsp;</td> 
+   <td style="border-left: solid 1px grey">&nbsp;</td> 
+  </tr> 
+  <tr> 
+   <td style="border: solid 1px grey" colspan="2"><b>Read</b> 0</td> 
+   <td>&nbsp;</td> 
+   <td style="border: solid 1px grey" colspan="2"><b>Read</b> 0</td> 
+  </tr> 
+  <tr> 
+   <td>&nbsp;</td> 
+   <td style="border-left: solid 1px grey">&nbsp;</td> 
+   <td>&nbsp;</td> 
+   <td>&nbsp;</td> 
+   <td style="border-left: solid 1px grey">&nbsp;</td> 
+  </tr> 
+  <tr> 
+   <td style="border: solid 1px grey" colspan="2"><b>Add</b> 1</td> 
+   <td>&nbsp;</td> 
+   <td style="border: solid 1px grey" colspan="2"><b>Add</b> 1</td> 
+  </tr> 
+  <tr> 
+   <td>&nbsp;</td> 
+   <td style="border-left: solid 1px grey">&nbsp;</td> 
+   <td>&nbsp;</td> 
+   <td>&nbsp;</td> 
+   <td style="border-left: solid 1px grey">&nbsp;</td> 
+  </tr> 
+  <tr> 
+   <td style="border: solid 1px grey" colspan="2"><b>Save</b> 1</td> 
+   <td>&nbsp;</td> 
+   <td style="border: solid 1px grey" colspan="2"><b>Save</b> 1</td> 
+  </tr> 
+  <tr> 
+   <td>&nbsp;</td> 
+   <td style="border-left: solid 1px grey">&nbsp;</td> 
+   <td>&nbsp;</td> 
+   <td>&nbsp;</td> 
+   <td style="border-left: solid 1px grey">&nbsp;</td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>In the above case Thread 1 operation is lost, because Thread 2 overwrites its value. We'd like Thread 2 to wait until Thread 1 finishes the operation. See below:</p> 
+<table style="margin: auto; padding-top:0px; padding-bottom:0px; padding-left:2px; padding-right:2px; spacing-top:0px; spacing-bottom:0px; spacing-left:2px; spacing-right:2px;"> 
+ <tbody> 
+  <tr> 
+   <td style="border: solid 1px grey" colspan="2">Thread 1</td> 
+   <td>&nbsp;</td> 
+   <td style="border: solid 1px grey" colspan="2">Thread 2</td> 
+  </tr> 
+  <tr> 
+   <td>&nbsp;</td> 
+   <td style="border-left: solid 1px grey">&nbsp;</td> 
+   <td>&nbsp;</td> 
+   <td>&nbsp;</td> 
+   <td style="border-left: solid 1px grey">&nbsp;</td> 
+  </tr> 
+  <tr> 
+   <td style="border: solid 1px grey" colspan="2"><b>Read</b> 0</td> 
+   <td>&nbsp;</td> 
+   <td style="text-align: center" colspan="2">blocked</td> 
+  </tr> 
+  <tr> 
+   <td>&nbsp;</td> 
+   <td style="border-left: solid 1px grey">&nbsp;</td> 
+   <td>&nbsp;</td> 
+   <td>&nbsp;</td> 
+   <td style="border-left: solid 1px grey">&nbsp;</td> 
+  </tr> 
+  <tr> 
+   <td style="border: solid 1px grey" colspan="2"><b>Add</b> 1</td> 
+   <td>&nbsp;</td> 
+   <td style="text-align: center" colspan="2">blocked</td> 
+  </tr> 
+  <tr> 
+   <td>&nbsp;</td> 
+   <td style="border-left: solid 1px grey">&nbsp;</td> 
+   <td>&nbsp;</td> 
+   <td>&nbsp;</td> 
+   <td style="border-left: solid 1px grey">&nbsp;</td> 
+  </tr> 
+  <tr> 
+   <td style="border: solid 1px grey" colspan="2"><b>Save</b> 1</td> 
+   <td>&nbsp;</td> 
+   <td style="text-align: center" colspan="2">unblocked</td> 
+  </tr> 
+  <tr> 
+   <td>&nbsp;</td> 
+   <td style="border-left: solid 1px grey" rowspan="7">&nbsp;</td> 
+   <td rowspan="7">&nbsp;</td> 
+   <td>&nbsp;</td> 
+   <td style="border-left: solid 1px grey">&nbsp;</td> 
+  </tr> 
+  <tr> 
+   <td>&nbsp;</td> 
+   <td style="border: solid 1px grey" colspan="2"><b>Read</b> 1</td> 
+  </tr> 
+  <tr> 
+   <td>&nbsp;</td> 
+   <td>&nbsp;</td> 
+   <td style="border-left: solid 1px grey">&nbsp;</td> 
+  </tr> 
+  <tr> 
+   <td>&nbsp;</td> 
+   <td style="border: solid 1px grey" colspan="2"><b>Add</b> 1</td> 
+  </tr> 
+  <tr> 
+   <td>&nbsp;</td> 
+   <td>&nbsp;</td> 
+   <td style="border-left: solid 1px grey">&nbsp;</td> 
+  </tr> 
+  <tr> 
+   <td>&nbsp;</td> 
+   <td style="border: solid 1px grey" colspan="2"><b>Save</b> 2</td> 
+  </tr> 
+  <tr> 
+   <td>&nbsp;</td> 
+   <td>&nbsp;</td> 
+   <td style="border-left: solid 1px grey">&nbsp;</td> 
+  </tr> 
+ </tbody> 
+</table> 
+<dl> 
+ <dt>
+   Critical Section&nbsp; 
+ </dt> 
+ <dd>
+   In the above example the code 
+  <code>counter+=1</code> must be executed by one and only one thread at any given time. That is called 
+  <b>critical section</b>. During programming, in a multi-threading environment we have to identify all those pieces of code that belongs to a critical section, and make sure that only one thread can execute those codes at any given time. That is called synchronization. 
+ </dd> 
+</dl> 
+<dl> 
+ <dt>
+   Synchronizing threads&nbsp; 
+ </dt> 
+ <dd>
+   The thread access to a critical section code must be 
+  <b>synchronized</b> among the threads, that is to make sure that only one thread can execute it at any given time. 
+ </dd> 
+</dl> 
+<dl> 
+ <dt>
+   Object monitor&nbsp; 
+ </dt> 
+ <dd>
+   Each object has an 
+  <i>Object monitor</i>. Basically it is a 
+  <i>semaphore</i>, indicating if a critical section code is being executed by a thread or not. Before a critical section can be executed, the thread must obtain an 
+  <i>Object monitor</i>. Only one thread at a time can own 
+  <b>that</b> object's monitor. 
+ </dd> 
+</dl> 
+<dl> 
+ <dt>
+   A thread becomes the owner of the object's monitor in one of three ways&nbsp; 
+ </dt> 
+ <dd> 
+  <ul> 
+   <li>By executing a synchronized instance method of that object. See <code><a href="/wiki/Java_Programming/Keywords/synchronized" title="Java Programming/Keywords/synchronized"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">synchronized</font></a></code> keyword.</li> 
+   <li>By executing the body of a synchronized statement that synchronizes on the object. See <code><a href="/wiki/Java_Programming/Keywords/synchronized" title="Java Programming/Keywords/synchronized"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">synchronized</font></a></code> keyword.</li> 
+   <li>For objects of type Class, by executing a synchronized static method of that class.</li> 
+  </ul> 
+ </dd> 
+</dl> 
+<dl> 
+ <dt>
+   The Object Monitor takes care of the synchronization, so why do we need the "wait() and notify() methods"?&nbsp; 
+ </dt> 
+ <dd>
+   For synchronization we don't really need them, however for certain situations it is nice to use them. A nice and considerate thread will use them. It can happen that during executing a critical section, the thread is stuck, cannot continue. It can be because it's waiting for an IO and other resources. In any case, the thread may need to wait a relatively long time. It would be selfish for the thread to hold on to the object monitor and blocking other threads to do their work. So the thread goes to a 'wait' state, by calling the 
+  <code>wait()</code> method on the object. It has to be the same object the thread obtained its object monitor from. 
+ </dd> 
+ <dd>
+   On the other hand though, a thread should call the 
+  <code>wait()</code> method only if there is at least one other thread out there who will call the 
+  <code>notify()</code> method when the resource is available, otherwise the thread will wait for ever, unless a time interval is specified as parameter. 
+ </dd> 
+</dl> 
+<dl> 
+ <dd>
+   Let's have an analogy. You go in a shop to buy some items. You line up at the counter, you obtain the attention of the sales-clerk - you get her "object-monitor". You ask for the item you want. One item needs to be brought in from a warehouse. It'll take more than five minutes, so you release the sales-clerk (give her back her "object-monitor") so she can serve other customers. You go into a 
+  <b>wait</b> state. Let's say there are five other customers already waiting. There is another sales-clerk, who brings in the items from the warehouse. As she does that, she gets the attention of the first sales-clerk, getting her object-monitor and 
+  <b>notifies</b> one or all waiting customer(s), so the waited customer(s) 
+  <b>wake</b> up and line up again to get the attention of the first sales-clerk. 
+ </dd> 
+</dl> 
+<dl> 
+ <dd>
+   Note the synchronization between the waiting customer and the sales-clerk who brings in the items. This is kind of producer-consumer synchronization. 
+ </dd> 
+ <dd>
+   Also note that there is only one object-monitor, belonging to the first sales-clerk. That object-monitor/the attention of clerk needs to be obtained first before a 
+  <b>wait</b> and a 
+  <b>notify</b> can happen. 
+ </dd> 
+</dl>

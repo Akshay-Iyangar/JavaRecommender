@@ -1,0 +1,135 @@
+<p>A constructor is called to initialize an object immediately after the object has been allocated:</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Computer code" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/32px-Gnome-settings-accessibility-keyboard.svg.png" title="Computer code" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/48px-Gnome-settings-accessibility-keyboard.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/64px-Gnome-settings-accessibility-keyboard.svg.png 2x" data-file-width="60" data-file-height="60" /></td> 
+   <td style="background-color:#ffeee0; border-left: 4px solid orange; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><span id="code-listing-3"><b>Code listing 4.3: Cheese.java</b></span> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno">1 </span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Cheese</span> <span class="o">{</span>
+<span class="lineno">2 </span>  <span class="c1">// This is a constructor</span>
+<span class="lineno">3 </span><span class="hll">  <span class="kd">public</span> <span class="nf">Cheese</span><span class="o">()</span> <span class="o">{</span>
+</span><span class="lineno">4 </span><span class="hll">    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Construct an instance"</span><span class="o">);</span>
+</span><span class="lineno">5 </span><span class="hll">  <span class="o">}</span>
+</span><span class="lineno">6 </span><span class="o">}</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>Typically, a constructor is invoked using the <code><a href="/wiki/Java_Programming/Keywords/new" title="Java Programming/Keywords/new"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">new</font></a></code> keyword:</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><b>Code section 4.1: A constructor call.</b> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno">1 </span><span class="n">Cheese</span> <span class="n">cheese</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Cheese</span><span class="o">();</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>The constructor syntax is close to the method syntax. However, the constructor has the same name as the name of the class (with the same case) and the constructor has no return type. The second point is the most important difference as a method can also have the same name as the class, which is not recommended:</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Computer code" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/32px-Gnome-settings-accessibility-keyboard.svg.png" title="Computer code" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/48px-Gnome-settings-accessibility-keyboard.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/64px-Gnome-settings-accessibility-keyboard.svg.png 2x" data-file-width="60" data-file-height="60" /></td> 
+   <td style="background-color:#ffeee0; border-left: 4px solid orange; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><span id="code-listing-4"><b>Code listing 4.4: Cheese.java</b></span> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno">1 </span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Cheese</span> <span class="o">{</span>
+<span class="lineno">2 </span>  <span class="c1">// This is a method with the same name as the class</span>
+<span class="lineno">3 </span><span class="hll">  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">Cheese</span><span class="o">()</span> <span class="o">{</span>
+</span><span class="lineno">4 </span>    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"A method execution."</span><span class="o">);</span>
+<span class="lineno">5 </span>  <span class="o">}</span>
+<span class="lineno">6 </span><span class="o">}</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>The returned object is always a valid, meaningful object, as opposed to relying on a separate initialization method. A constructor cannot be <code><a href="/wiki/Java_Programming/Keywords/abstract" title="Java Programming/Keywords/abstract"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">abstract</font></a></code>, <code><a href="/wiki/Java_Programming/Keywords/final" title="Java Programming/Keywords/final"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">final</font></a></code>, <code><a href="/wiki/Java_Programming/Keywords/native" title="Java Programming/Keywords/native"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">native</font></a></code>, <code><a href="/wiki/Java_Programming/Keywords/static" title="Java Programming/Keywords/static"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">static</font></a></code>, <code><a href="/wiki/Java_Programming/Keywords/strictfp" title="Java Programming/Keywords/strictfp"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">strictfp</font></a></code> nor <code><a href="/wiki/Java_Programming/Keywords/synchronized" title="Java Programming/Keywords/synchronized"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">synchronized</font></a></code>. However, a constructor, like methods, can be overloaded and take parameters.</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Computer code" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/32px-Gnome-settings-accessibility-keyboard.svg.png" title="Computer code" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/48px-Gnome-settings-accessibility-keyboard.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/64px-Gnome-settings-accessibility-keyboard.svg.png 2x" data-file-width="60" data-file-height="60" /></td> 
+   <td style="background-color:#ffeee0; border-left: 4px solid orange; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><span id="code-listing-5"><b>Code listing 4.5: Cheese.java</b></span> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno"> 1 </span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Cheese</span> <span class="o">{</span>
+<span class="lineno"> 2 </span>     <span class="c1">// This is a constructor</span>
+<span class="lineno"> 3 </span>     <span class="kd">public</span> <span class="nf">Cheese</span><span class="o">()</span> <span class="o">{</span>
+<span class="lineno"> 4 </span>          <span class="n">doStuff</span><span class="o">();</span>
+<span class="lineno"> 5 </span>     <span class="o">}</span>
+<span class="lineno"> 6 </span>
+<span class="lineno"> 7 </span>     <span class="c1">// This is another constructor</span>
+<span class="lineno"> 8 </span><span class="hll">     <span class="kd">public</span> <span class="nf">Cheese</span><span class="o">(</span><span class="kt">int</span> <span class="n">weight</span><span class="o">)</span> <span class="o">{</span>
+</span><span class="lineno"> 9 </span>          <span class="n">doStuff</span><span class="o">();</span>
+<span class="lineno">10 </span>     <span class="o">}</span>
+<span class="lineno">11 </span>
+<span class="lineno">12 </span>     <span class="c1">// This is yet another constructor</span>
+<span class="lineno">13 </span><span class="hll">     <span class="kd">public</span> <span class="nf">Cheese</span><span class="o">(</span><span class="n">String</span> <span class="n">type</span><span class="o">,</span> <span class="kt">int</span> <span class="n">weight</span><span class="o">)</span> <span class="o">{</span>
+</span><span class="lineno">14 </span>          <span class="n">doStuff</span><span class="o">();</span>
+<span class="lineno">15 </span>     <span class="o">}</span>
+<span class="lineno">16 </span><span class="o">}</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>By convention, a constructor that accepts an object of its own type as a parameter and copies the data members is called a <i>copy constructor</i>. One interesting feature of constructors is that if and only if you do not specify a constructor in your class, the compiler will create one for you. This default constructor, if written out would look like:</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Computer code" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/32px-Gnome-settings-accessibility-keyboard.svg.png" title="Computer code" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/48px-Gnome-settings-accessibility-keyboard.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/64px-Gnome-settings-accessibility-keyboard.svg.png 2x" data-file-width="60" data-file-height="60" /></td> 
+   <td style="background-color:#ffeee0; border-left: 4px solid orange; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><span id="code-listing-6"><b>Code listing 4.6: Cheese.java</b></span> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno">1 </span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Cheese</span> <span class="o">{</span>
+<span class="lineno">2 </span><span class="hll">     <span class="kd">public</span> <span class="nf">Cheese</span><span class="o">()</span> <span class="o">{</span>
+</span><span class="lineno">3 </span><span class="hll">           <span class="kd">super</span><span class="o">();</span>
+</span><span class="lineno">4 </span><span class="hll">     <span class="o">}</span>
+</span><span class="lineno">5 </span><span class="o">}</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>The <code>super()</code> command calls the constructor of the superclass. If there is no explicit call to <code>super(...)</code> or <code>this(...)</code>, then the default superclass constructor <code>super();</code> is called before the body of the constructor is executed. That said, there are instances where you need to add in the call manually. For example, if you write even one constructor, no matter what parameters it takes, the compiler will not add a default constructor. The <a href="#code-listing-8">code listing 4.8</a> results in a runtime error:</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Computer code" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/32px-Gnome-settings-accessibility-keyboard.svg.png" title="Computer code" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/48px-Gnome-settings-accessibility-keyboard.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/64px-Gnome-settings-accessibility-keyboard.svg.png 2x" data-file-width="60" data-file-height="60" /></td> 
+   <td style="background-color:#ffeee0; border-left: 4px solid orange; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><span id="code-listing-7"><b>Code listing 4.7: Cheese.java</b></span> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno">1 </span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Cheese</span> <span class="o">{</span>
+<span class="lineno">2 </span>     <span class="kd">public</span> <span class="nf">Cheese</span><span class="o">(</span><span class="kt">int</span> <span class="n">weight</span><span class="o">,</span> <span class="n">String</span> <span class="n">type</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno">3 </span>          <span class="n">doStuff</span><span class="o">();</span>
+<span class="lineno">4 </span>     <span class="o">}</span>
+<span class="lineno">5 </span><span class="o">}</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Computer code" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/32px-Gnome-settings-accessibility-keyboard.svg.png" title="Computer code" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/48px-Gnome-settings-accessibility-keyboard.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/64px-Gnome-settings-accessibility-keyboard.svg.png 2x" data-file-width="60" data-file-height="60" /></td> 
+   <td style="background-color:#ffeee0; border-left: 4px solid orange; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><span id="code-listing-8"><b>Code listing 4.8: Mouse.java</b></span> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno">1 </span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Mouse</span> <span class="o">{</span>
+<span class="lineno">2 </span>     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">eatCheese</span><span class="o">()</span> <span class="o">{</span>
+<span class="lineno">3 </span><span class="hll">             <span class="n">Cheese</span> <span class="n">c</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Cheese</span><span class="o">();</span> <span class="c1">// Oops, compile time error!</span>
+</span><span class="lineno">4 </span>     <span class="o">}</span>
+<span class="lineno">5 </span><span class="o">}</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>This is something to keep in mind when extending existing classes. Either make a default constructor, or make sure every class that inherits your class uses the correct constructor.</p>

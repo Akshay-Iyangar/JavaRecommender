@@ -1,0 +1,56 @@
+<p>When an object is created, a reference to the object is also created. The object can not be accessed directly in Java, only through this object reference. This object reference has a <i>type</i> assigned to it. We need this type when passing the object reference to a method as a parameter. Java does strong type checking.</p> 
+<p>Type is basically a list of features/operations, that can be performed through that object reference. The object reference type is basically a contract that guarantees that those operations will be there at run time.</p> 
+<p>When a car is created, it comes with a list of features/operations listed in the user manual that guarantees that those will be there when the car is used.</p> 
+<p>When you create an object from a class by default its type is the same as its class. It means that all the features/operations the class defined are there and available, and can be used. See below:</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><b>Code section 3.82: Default type.</b> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno">1 </span><span class="o">(</span><span class="k">new</span> <span class="n">ClassName</span><span class="o">()).</span><span class="na">operations</span><span class="o">();</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>You can assign this to a variable having the same type as the class:</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><b>Code section 3.83: A variable having the same type as the class.</b> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno">1 </span><span class="n">ClassName</span> <span class="n">objRefVariable</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ClassName</span><span class="o">();</span>
+<span class="lineno">2 </span><span class="n">objRefVariable</span><span class="o">.</span><span class="na">operations</span><span class="o">();</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>You can assign the created object reference to the class, super class, or to an interface the class implements:</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><b>Code section 3.84: Using the super class.</b> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno">1 </span><span class="n">SuperClass</span> <span class="n">objectRef</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ClassName</span><span class="o">();</span> <span class="c1">// features/operations list are defined by the SuperClass class</span>
+<span class="lineno">2 </span><span class="o">...</span>
+<span class="lineno">3 </span><span class="n">Interface</span> <span class="n">inter</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ClassName</span><span class="o">();</span> <span class="c1">// features/operations list are defined by the interface</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>In the car analogy, the created car may have different <b>Type</b> of drivers. We create separate user manuals for them, Average user manual, Power user manual, Child user manual, or Handicapped user manual. Each type of user manual describes only those features/operations appropriate for the type of driver. The Power driver may have additional gears to switch to higher speeds, that are not available to other type of users...</p> 
+<p>When the car key is passed from an adult to a child we replacing the user manuals, that is called <i>Type Casting</i>.</p> 
+<p>In Java, casts can occur in three ways:</p> 
+<ul> 
+ <li>up casting going up in the inheritance tree, until we reach the <code><a href="/wiki/Java_Programming/API/java.lang.Object" title="Java Programming/API/java.lang.Object">Object</a></code></li> 
+ <li>up casting to an interface the class implements</li> 
+ <li>down casting until we reach the class the object was created from</li> 
+</ul>

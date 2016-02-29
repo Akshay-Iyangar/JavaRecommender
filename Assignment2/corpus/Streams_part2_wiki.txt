@@ -1,0 +1,72 @@
+<p>Output Streams direct streams of bytes outwards to the environment from our program or application. <code>OutputStream</code> is an abstract class which is the destination counterpart of <code>InputStream</code>. <code>OutputStream</code> has a <code>write()</code> method which can be used to write a byte to the stream. The method is overloaded, and can take an array as well. A <code>close()</code> method closes the stream when the application is finished with it, and it has a <code>flush()</code> method. The stream may wait until it has a certain amount before it writes it all at once for efficiency. If the stream object is buffering any data before writing it, the <code>flush()</code> method will force it to write all of this data. Like <code>InputStream</code>, this class cannot be instantiated, but has concrete subclasses that parallel those of <code>InputStream</code>, eg <code>ByteArrayOutputStream</code>, <code>FileOutputStream</code>, etc.</p> 
+<p>In the <a href="#code-listing-2">following example</a>, we store the current time in an already existing file called <code>log.txt</code> located in the same folder than the class.</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Computer code" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/32px-Gnome-settings-accessibility-keyboard.svg.png" title="Computer code" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/48px-Gnome-settings-accessibility-keyboard.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/64px-Gnome-settings-accessibility-keyboard.svg.png 2x" data-file-width="60" data-file-height="60" /></td> 
+   <td style="background-color:#ffeee0; border-left: 4px solid orange; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><span id="code-listing-2"><b>Code listing 9.2: Example of output stream.</b></span> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno"> 1 </span><span class="kn">import</span> <span class="nn">java.io.File</span><span class="o">;</span>
+<span class="lineno"> 2 </span><span class="kn">import</span> <span class="nn">java.io.FileOutputStream</span><span class="o">;</span>
+<span class="lineno"> 3 </span><span class="kn">import</span> <span class="nn">java.util.Date</span><span class="o">;</span>
+<span class="lineno"> 4 </span> 
+<span class="lineno"> 5 </span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">LogTime</span> <span class="o">{</span>
+<span class="lineno"> 6 </span>    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+<span class="lineno"> 7 </span>        <span class="c1">// Generate data</span>
+<span class="lineno"> 8 </span>        <span class="n">String</span> <span class="n">timeInString</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Date</span><span class="o">().</span><span class="na">toString</span><span class="o">();</span>
+<span class="lineno"> 9 </span>
+<span class="lineno">10 </span>        <span class="c1">// Store data</span>
+<span class="lineno">11 </span>        <span class="n">File</span> <span class="n">file</span> <span class="o">=</span> <span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="s">"log.txt"</span><span class="o">);</span>
+<span class="lineno">12 </span>        <span class="n">FileOutputStream</span> <span class="n">stream</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FileOutputStream</span><span class="o">(</span><span class="n">file</span><span class="o">);</span>
+<span class="lineno">13 </span>
+<span class="lineno">14 </span>        <span class="kt">byte</span><span class="o">[]</span> <span class="n">timeInBytes</span> <span class="o">=</span> <span class="n">timeInString</span><span class="o">.</span><span class="na">getBytes</span><span class="o">();</span>
+<span class="lineno">15 </span>
+<span class="lineno">16 </span>        <span class="n">stream</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="n">timeInBytes</span><span class="o">);</span>
+<span class="lineno">17 </span>        <span class="n">stream</span><span class="o">.</span><span class="na">flush</span><span class="o">();</span>
+<span class="lineno">18 </span>        <span class="n">stream</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+<span class="lineno">19 </span>    <span class="o">}</span>
+<span class="lineno">20 </span><span class="o">}</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>This case is more simple as we can put all the data in the stream at the same time. The first part of the code generate a string containing the current time. Then we create a <code>File</code> object identifying the output file and an output stream for this file. We write the data in the stream, flush it and close it. That's all. No try/catch block has been defined for readability but the thrown exceptions should be caught.</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td><a href="/wiki/File:Nuvola_apps_important.svg" class="image" title="Warning"><img alt="Warning" src="//upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Nuvola_apps_important.svg/32px-Nuvola_apps_important.svg.png" width="32" height="27" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Nuvola_apps_important.svg/48px-Nuvola_apps_important.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Nuvola_apps_important.svg/64px-Nuvola_apps_important.svg.png 2x" data-file-width="600" data-file-height="500" /></a></td> 
+   <td style="background-color:#fff0f0; border-left: 4px solid red; padding-left: 6px;">In order to read a text file several times from the beginning, a <code>FileChannel</code> variable should be introduced, only to reposition the reader.</td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>Now let's execute it:</p> 
+<table style="padding:2px; margin:2px; width:100%;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Standard input or output" src="//upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/32px-Nuvola_apps_display.png" title="Standard input or output" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/48px-Nuvola_apps_display.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/64px-Nuvola_apps_display.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0f0ff; border-left: 4px solid blue; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><b>LogTime execution</b> <pre style="background-color:#000; color:#fff;">
+$ java LogTime
+</pre></td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>We should obtain this content:</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Computer code" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/32px-Gnome-settings-accessibility-keyboard.svg.png" title="Computer code" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/48px-Gnome-settings-accessibility-keyboard.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/64px-Gnome-settings-accessibility-keyboard.svg.png 2x" data-file-width="60" data-file-height="60" /></td> 
+   <td style="background-color:#ffeee0; border-left: 4px solid orange; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><b>Code listing 9.4: log.txt</b> <p>Wed Feb 17 7:04:44 CEUTC 2016</p> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td><a href="/wiki/File:Nuvola_apps_important.svg" class="image" title="Warning"><img alt="Warning" src="//upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Nuvola_apps_important.svg/32px-Nuvola_apps_important.svg.png" width="32" height="27" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Nuvola_apps_important.svg/48px-Nuvola_apps_important.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Nuvola_apps_important.svg/64px-Nuvola_apps_important.svg.png 2x" data-file-width="600" data-file-height="500" /></a></td> 
+   <td style="background-color:#fff0f0; border-left: 4px solid red; padding-left: 6px;">If it shows a <code>FileNotFoundException</code> or an <code>IOException</code>, the file should not have been created or it is not placed in the right folder.</td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>There is also <code>Writer</code> which is a character counterpart of <code>OutputStream</code>, and a destination counterpart to Reader, this is also an abstract superclass. Particular implementations parallel those of Reader, eg <code>FileWriter</code>, <code>StringWriter</code>, and <code>OutputStreamWriter</code>, for converting a regular <code>OutputStream</code> into a reader so that it can take character data.</p>

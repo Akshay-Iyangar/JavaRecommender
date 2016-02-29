@@ -1,0 +1,22 @@
+<p>When an object is garbage-collected, the programmer may want to manually perform cleanup, such as closing any open input/output streams. To accomplish this, the <code>finalize()</code> method is used. Note that <code>finalize()</code> should never be manually called, except to call a super class' finalize method from a derived class' finalize method. Also, we can not rely on when the <code>finalize()</code> method will be called. If the java application exits before the object is garbage-collected, the <code>finalize()</code> method may never be called.</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><b>Code section 4.33: Finalization.</b> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno">1 </span><span class="hll"><span class="kd">protected</span> <span class="kt">void</span> <span class="nf">finalize</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">Throwable</span> <span class="o">{</span>
+</span><span class="lineno">2 </span>  <span class="k">try</span> <span class="o">{</span>
+<span class="lineno">3 </span>    <span class="n">doCleanup</span><span class="o">();</span>        <span class="c1">// Perform some cleanup.  If it fails for some reason, it is ignored.</span>
+<span class="lineno">4 </span>  <span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>
+<span class="lineno">5 </span>    <span class="kd">super</span><span class="o">.</span><span class="na">finalize</span><span class="o">();</span> <span class="c1">// Call finalize on the parent object</span>
+<span class="lineno">6 </span>  <span class="o">}</span>
+<span class="lineno">7 </span><span class="o">}</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>The garbage-collector thread runs in a lower priority than the other threads. If the application creates objects faster than the garbage-collector can claim back memory, the program can run out of memory.</p> 
+<p>The finalize method is required only if there are resources beyond the direct control of the Java Virtual Machine that needs to be cleaned up. In particular, there is no need to explicitly close an OutputStream, since the OutputStream will close itself when it gets finalized. Instead, the finalize method is used to release either native or remote resources controlled by the class.</p>

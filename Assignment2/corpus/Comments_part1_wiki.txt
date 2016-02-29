@@ -1,0 +1,166 @@
+<p>The comments in Java use the same syntax as in <a href="/wiki/C%2B%2B_Programming" title="C++ Programming">C++</a>.</p> 
+<p>An end-of-line comment starts with two slashes and ends with the end of the line. This syntax can be used on a single line too.</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><span id="code-section-105"><b>Code section 3.105: Slash-slash comment.</b></span> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno">1 </span><span class="c1">// A comment to give an example</span>
+<span class="lineno">2 </span>
+<span class="lineno">3 </span><span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span> <span class="c1">// 10 articles</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>A comment on several lines is framed with '/' + '*' and '*' + '/'.</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><span id="code-section-106"><b>Code section 3.106: Slash-star comment in multiple lines.</b></span> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno"> 1 </span><span class="cm">/*</span>
+<span class="lineno"> 2 </span><span class="cm"> * This is a comment</span>
+<span class="lineno"> 3 </span><span class="cm"> * on several lines.</span>
+<span class="lineno"> 4 </span><span class="cm"> */</span>
+<span class="lineno"> 5 </span>
+<span class="lineno"> 6 </span><span class="cm">/* This also works; slash-star comments may be on a single line. */</span>
+<span class="lineno"> 7 </span>
+<span class="lineno"> 8 </span><span class="cm">/*</span>
+<span class="lineno"> 9 </span><span class="cm">Disable debugging code:</span>
+<span class="lineno">10 </span>
+<span class="lineno">11 </span><span class="cm">int a = 10;</span>
+<span class="lineno">12 </span><span class="cm">while (a-- &gt; 0) System.out.println("DEBUG: tab["+a+"]=" + tab[a]);</span>
+<span class="lineno">13 </span><span class="cm">*/</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>By convention, subsequent lines of slash-star comments begin with a star aligned under the star in the open comment sequence, but this is not required. Never nest a slash-star comment in another slash-star comment. If you accidentally nest such comments, you will probably get a syntax error from the compiler soon after the first star-slash sequence.</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td><a href="/wiki/File:Nuvola_apps_important.svg" class="image" title="Warning"><img alt="Warning" src="//upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Nuvola_apps_important.svg/32px-Nuvola_apps_important.svg.png" width="32" height="27" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Nuvola_apps_important.svg/48px-Nuvola_apps_important.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Nuvola_apps_important.svg/64px-Nuvola_apps_important.svg.png 2x" data-file-width="600" data-file-height="500" /></a></td> 
+   <td style="background-color:#fff0f0; border-left: 4px solid red; padding-left: 6px;"><span id="code-section-107" style="color: red;"><b>Code section 3.107: Nested slash-star comment.</b></span> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno">1 </span><span class="cm">/* This comment appears to contain /* a nested comment. */</span>
+<span class="lineno">2 </span> <span class="o">*</span> <span class="n">The</span> <span class="n">comment</span> <span class="n">ends</span> <span class="n">after</span> <span class="n">the</span> <span class="n">first</span> <span class="n">star</span><span class="o">-</span><span class="n">slash</span> <span class="n">and</span>
+<span class="lineno">3 </span> <span class="o">*</span> <span class="n">everything</span> <span class="n">after</span> <span class="n">the</span> <span class="n">star</span><span class="o">-</span><span class="n">slash</span> <span class="n">sequence</span> <span class="n">is</span> <span class="n">parsed</span>
+<span class="lineno">4 </span> <span class="o">*</span> <span class="n">as</span> <span class="n">non</span><span class="o">-</span><span class="n">comment</span> <span class="n">source</span><span class="o">.</span>
+<span class="lineno">5 </span> <span class="o">*/</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>If you need to have the sequence */ inside a comment you can use html numeric entities: <code>*&amp;#47;</code>.</p> 
+<p>Slash-star comments may also be placed between any Java tokens, though not recommended:</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><span id="code-section-108"><b>Code section 3.108: Inline slash-star comment.</b></span> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno">1 </span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="cm">/* maximum integer */</span> <span class="n">Integer</span><span class="o">.</span><span class="na">MAX_VALUE</span><span class="o">;</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>However, comments are not parsed as comments when they occur in string literals.</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><span id="code-section-109"><b>Code section 3.109: String literal.</b></span> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno">1 </span><span class="n">String</span> <span class="n">text</span> <span class="o">=</span> <span class="s">"/* This is not a comment. */"</span><span class="o">;</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>It results in a 33 character string.</p> 
+<div class="collapsible" style="width:100%; clear:both; border:none;"> 
+ <div class="title" style="background:transparent; text-align:left; background:#cedff2;border:1px solid lightgrey;">
+   Test your knowledge 
+ </div> 
+ <div class="body" style="background:transparent; text-align:left; background:#e7eff9;border:solid 1px lightgrey;padding:8px;"> 
+  <p><b>Question 3.26</b>: Consider the following code:</p> 
+  <table style="padding:2px; margin:2px;"> 
+   <tbody> 
+    <tr valign="top"> 
+     <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+     <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><span id="question-26"><b>Question 3.26: Commented code.</b></span> <pre>
+int a = 0;
+// a = a + 1;
+a = a + 1;
+/*
+a = a + 1;
+*/
+a = a + 1;
+// /*
+a = a + 1;
+// */
+a = a /*+ 1*/;
+a = a + 1; // a = a + 1;
+System.out.println("a=" + a);
+</pre></td> 
+    </tr> 
+   </tbody> 
+  </table> 
+  <p>What is printed in the standard output?</p> 
+  <div class="collapsible" style="width:100%; clear:both; border:none;"> 
+   <div class="title" style="background:transparent; text-align:left; background:#cedff2;border:1px solid lightgrey;">
+     Answer 
+   </div> 
+   <div class="body" style="background:transparent; text-align:left; background:#e7eff9;border:solid 1px lightgrey;padding:8px;"> 
+    <table style="padding:2px; margin:2px; width:100%;"> 
+     <tbody> 
+      <tr valign="top"> 
+       <td style="width:32px;"><img alt="Standard input or output" src="//upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/32px-Nuvola_apps_display.png" title="Standard input or output" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/48px-Nuvola_apps_display.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/64px-Nuvola_apps_display.png 2x" data-file-width="128" data-file-height="128" /></td> 
+       <td style="background-color:#f0f0ff; border-left: 4px solid blue; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><b>Output for Answer 3.26</b> <pre style="background-color:#000; color:#fff;">
+a=4
+</pre></td> 
+      </tr> 
+     </tbody> 
+    </table> 
+    <table style="padding:2px; margin:2px;"> 
+     <tbody> 
+      <tr valign="top"> 
+       <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+       <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><span id="answer-26"><b>Answer 3.26: Commented code.</b></span> 
+        <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+         <pre>
+<span class="lineno"> 1 </span><span class="hll"><span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+</span><span class="lineno"> 2 </span><span class="c1">// a = a + 1;</span>
+<span class="lineno"> 3 </span><span class="hll"><span class="n">a</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
+</span><span class="lineno"> 4 </span><span class="cm">/*</span>
+<span class="lineno"> 5 </span><span class="cm">a = a + 1;</span>
+<span class="lineno"> 6 </span><span class="cm">*/</span>
+<span class="lineno"> 7 </span><span class="hll"><span class="n">a</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
+</span><span class="lineno"> 8 </span><span class="c1">// /*</span>
+<span class="lineno"> 9 </span><span class="hll"><span class="n">a</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
+</span><span class="lineno">10 </span><span class="c1">// */</span>
+<span class="lineno">11 </span><span class="hll"><span class="n">a</span> <span class="o">=</span> <span class="n">a</span> <span class="cm">/*+ 1*/</span><span class="o">;</span>
+</span><span class="lineno">12 </span><span class="hll"><span class="n">a</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span> <span class="c1">// a = a + 1;</span>
+</span><span class="lineno">13 </span><span class="hll"><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"a="</span> <span class="o">+</span> <span class="n">a</span><span class="o">);</span>
+</span>
+</pre> 
+        </div> </td> 
+      </tr> 
+     </tbody> 
+    </table> 
+    <p>The highlighted lines are code lines but line 11 does nothing and only the first part of line 12 is code.</p> 
+   </div> 
+  </div> 
+ </div> 
+</div>

@@ -1,0 +1,63 @@
+<div id="PageContent"> 
+ <p> As you already know, it is possible to assign an object of one type to an object of another type provided that the types are compatible. For example, you can assign an <tt>Integer</tt> to an <tt>Object</tt>, since <tt>Object</tt> is one of <tt>Integer</tt>'s supertypes:</p> 
+ <div class="codeblock"> 
+  <pre>
+Object someObject = new Object();
+Integer someInteger = new Integer(10);
+someObject = someInteger;   // OK
+</pre> 
+ </div> 
+ <p> In object-oriented terminology, this is called an "is a" relationship. Since an <tt>Integer</tt> <em>is a</em> kind of <tt>Object</tt>, the assignment is allowed. But <tt>Integer</tt> is also a kind of <tt>Number</tt>, so the following code is valid as well:</p> 
+ <div class="codeblock"> 
+  <pre>
+public void someMethod(Number n) { /* ... */ }
+
+someMethod(new Integer(10));   // OK
+someMethod(new Double(10.1));   // OK
+</pre> 
+ </div> 
+ <p> The same is also true with generics. You can perform a generic type invocation, passing <tt>Number</tt> as its type argument, and any subsequent invocation of <tt>add</tt> will be allowed if the argument is compatible with <tt>Number</tt>:</p> 
+ <div class="codeblock"> 
+  <pre>
+Box&lt;Number&gt; box = new Box&lt;Number&gt;();
+box.add(new Integer(10));   // OK
+box.add(new Double(10.1));  // OK
+</pre> 
+ </div> 
+ <p> Now consider the following method:</p> 
+ <div class="codeblock"> 
+  <pre>
+public void boxTest(Box&lt;Number&gt; n) { /* ... */ }
+</pre> 
+ </div> 
+ <p> What type of argument does it accept? By looking at its signature, you can see that it accepts a single argument whose type is <tt>Box&lt;Number&gt;</tt>. But what does that mean? Are you allowed to pass in <tt>Box&lt;Integer&gt;</tt> or <tt>Box&lt;Double&gt;</tt>, as you might expect? The answer is "no", because <tt>Box&lt;Integer&gt;</tt> and <tt>Box&lt;Double&gt;</tt> are not subtypes of <tt>Box&lt;Number&gt;</tt>.</p> 
+ <p> This is a common misunderstanding when it comes to programming with generics, but it is an important concept to learn.</p> 
+ <center> 
+  <img src="https://docs.oracle.com/javase/tutorial/figures/java/generics-subtypeRelationship.gif" width="338" height="225" align="bottom" alt="diagram showing that Box<Integer> is not a subtype of Box<Number>"> </img>
+ </center> 
+ <center> 
+  <tt>Box&lt;Integer&gt;</tt> is not a subtype of 
+  <tt>Box&lt;Number&gt;</tt> even though 
+  <tt>Integer</tt> is a subtype of 
+  <tt>Number</tt>. 
+ </center> 
+ <div class="note"> 
+  <hr> 
+   <strong>Note:</strong>&nbsp;Given two concrete types 
+   <tt>A</tt> and 
+   <tt>B</tt> (for example, 
+   <tt>Number</tt> and 
+   <tt>Integer</tt>), 
+   <tt>MyClass&lt;A&gt;</tt> has no relationship to 
+   <tt>MyClass&lt;B&gt;</tt>, regardless of whether or not 
+   <tt>A</tt> and 
+   <tt>B</tt> are related. The common parent of 
+   <tt>MyClass&lt;A&gt;</tt> and 
+   <tt>MyClass&lt;B&gt;</tt> is 
+   <tt>Object</tt>. 
+   <br> <br> For information on how to create a subtype-like relationship between two generic classes when the type parameters are related, see <a class="TutorialLink" target="_top" href="subtyping.html">Wildcards and Subtyping</a>. 
+     <hr> 
+     </hr></br></br>
+  </hr>
+ </div> 
+</div>

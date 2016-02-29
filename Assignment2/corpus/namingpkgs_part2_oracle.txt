@@ -1,0 +1,28 @@
+<p>Package names are written in all lower case to avoid conflict with the names of classes or interfaces.</p> 
+<p>Companies use their reversed Internet domain name to begin their package namesfor example, <code>com.example.mypackage</code> for a package named <code>mypackage</code> created by a programmer at <code>example.com</code>.</p> 
+<p>Name collisions that occur within a single company need to be handled by convention within that company, perhaps by including the region or the project name after the company name (for example, <code>com.example.region.mypackage</code>).</p> 
+<p>Packages in the Java language itself begin with <code>java.</code> or <code>javax.</code></p> 
+<p>In some cases, the internet domain name may not be a valid package name. This can occur if the domain name contains a hyphen or other special character, if the package name begins with a digit or other character that is illegal to use as the beginning of a Java name, or if the package name contains a reserved Java keyword, such as "int". In this event, the suggested convention is to add an underscore. For example:</p> 
+<table border="1" cellpadding="3" cellspacing="0" summary="This table lists some legal package names"> 
+ <caption style="font-weight: bold">
+   Legalizing Package Names 
+ </caption> 
+ <tbody> 
+  <tr> 
+   <th id="h1">Domain Name</th> 
+   <th id="h2">Package Name Prefix</th> 
+  </tr> 
+  <tr> 
+   <td headers="h1"><code>hyphenated-name.example.org</code></td> 
+   <td headers="h2"><code>org.example.hyphenated_name</code></td> 
+  </tr> 
+  <tr> 
+   <td headers="h1"><code>example.int</code></td> 
+   <td headers="h2"><code>int_.example</code></td> 
+  </tr> 
+  <tr> 
+   <td headers="h1"><code>123name.example.com</code></td> 
+   <td headers="h2"><code>com.example._123name</code></td> 
+  </tr> 
+ </tbody> 
+</table>

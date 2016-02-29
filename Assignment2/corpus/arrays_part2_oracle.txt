@@ -1,0 +1,29 @@
+<p>The preceding program declares an array (named <code>anArray</code>) with the following line of code:</p> 
+<div class="codeblock"> 
+ <pre>
+// declares an array of integers
+int[] anArray;
+</pre> 
+</div> 
+<p>Like declarations for variables of other types, an array declaration has two components: the array's type and the array's name. An array's type is written as <code><em>type</em>[]</code>, where <code><em>type</em></code> is the data type of the contained elements; the brackets are special symbols indicating that this variable holds an array. The size of the array is not part of its type (which is why the brackets are empty). An array's name can be anything you want, provided that it follows the rules and conventions as previously discussed in the <a class="TutorialLink" target="_top" href="variables.html#naming">naming</a> section. As with variables of other types, the declaration does not actually create an array; it simply tells the compiler that this variable will hold an array of the specified type.</p> 
+<p>Similarly, you can declare arrays of other types:</p> 
+<div class="codeblock"> 
+ <pre>
+byte[] anArrayOfBytes;
+short[] anArrayOfShorts;
+long[] anArrayOfLongs;
+float[] anArrayOfFloats;
+double[] anArrayOfDoubles;
+boolean[] anArrayOfBooleans;
+char[] anArrayOfChars;
+String[] anArrayOfStrings;
+</pre> 
+</div> 
+<p>You can also place the brackets after the array's name:</p> 
+<div class="codeblock"> 
+ <pre>
+// this form is discouraged
+float anArrayOfFloats[];
+</pre> 
+</div> 
+<p>However, convention discourages this form; the brackets identify the array type and should appear with the type designation.</p>

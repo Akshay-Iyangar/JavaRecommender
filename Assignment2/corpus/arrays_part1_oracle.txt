@@ -1,0 +1,70 @@
+<div id="PageContent"> 
+ <p>An <i>array</i> is a container object that holds a fixed number of values of a single type. The length of an array is established when the array is created. After creation, its length is fixed. You have seen an example of arrays already, in the <code>main</code> method of the "Hello World!" application. This section discusses arrays in greater detail.</p> 
+ <center> 
+  <img src="https://docs.oracle.com/javase/tutorial/figures/java/objects-tenElementArray.gif" width="335" height="124" align="bottom" alt="Illustration of an array as 10 boxes numbered 0 through 9; an index of 0 indicates the first element in the array"> <p></p> <p class="FigureCaption">An array of 10 elements.</p> </img>
+ </center> 
+ <br> <p>Each item in an array is called an <i>element</i>, and each element is accessed by its numerical <i>index</i>. As shown in the preceding illustration, numbering begins with 0. The 9th element, for example, would therefore be accessed at index 8.</p> <p>The following program, <a class="SourceLink" target="_blank" href="examples/ArrayDemo.java" onclick="showCode('https://docs.oracle.com/javase/tutorial/displayCode.html', 'examples/ArrayDemo.java'); return false;"><code>ArrayDemo</code></a>, creates an array of integers, puts some values in the array, and prints each value to standard output.</p> 
+  <div class="codeblock"> 
+   <pre>
+
+class ArrayDemo {
+    public static void main(String[] args) {
+        // declares an array of integers
+        int[] anArray;
+
+        // allocates memory for 10 integers
+        anArray = new int[10];
+           
+        // initialize first element
+        anArray[0] = 100;
+        // initialize second element
+        anArray[1] = 200;
+        // and so forth
+        anArray[2] = 300;
+        anArray[3] = 400;
+        anArray[4] = 500;
+        anArray[5] = 600;
+        anArray[6] = 700;
+        anArray[7] = 800;
+        anArray[8] = 900;
+        anArray[9] = 1000;
+
+        System.out.println("Element at index 0: "
+                           + anArray[0]);
+        System.out.println("Element at index 1: "
+                           + anArray[1]);
+        System.out.println("Element at index 2: "
+                           + anArray[2]);
+        System.out.println("Element at index 3: "
+                           + anArray[3]);
+        System.out.println("Element at index 4: "
+                           + anArray[4]);
+        System.out.println("Element at index 5: "
+                           + anArray[5]);
+        System.out.println("Element at index 6: "
+                           + anArray[6]);
+        System.out.println("Element at index 7: "
+                           + anArray[7]);
+        System.out.println("Element at index 8: "
+                           + anArray[8]);
+        System.out.println("Element at index 9: "
+                           + anArray[9]);
+    }
+} 
+</pre> 
+  </div> <p>The output from this program is:</p> 
+  <div class="codeblock"> 
+   <pre>
+Element at index 0: 100
+Element at index 1: 200
+Element at index 2: 300
+Element at index 3: 400
+Element at index 4: 500
+Element at index 5: 600
+Element at index 6: 700
+Element at index 7: 800
+Element at index 8: 900
+Element at index 9: 1000
+</pre> 
+  </div> <p>In a real-world programming situation, you would probably use one of the supported <i>looping constructs</i> to iterate through each element of the array, rather than write each line individually as in the preceding example. However, the example clearly illustrates the array syntax. You will learn about the various looping constructs (<code>for</code>, <code>while</code>, and <code>do-while</code>) in the <a class="TutorialLink" target="_top" href="flow.html">Control Flow</a> section.</p> </br>
+</div>

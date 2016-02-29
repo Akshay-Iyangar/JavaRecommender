@@ -1,0 +1,20 @@
+<p><span id="displaytitle" title=""></span></p> 
+<table style="width:100%; border:solid 1px #71c837; background:#c6e9af; color:#2d5016;" class="noprint"> 
+ <tbody> 
+  <tr> 
+   <td style="text-align:left; width:33%; font-size:90%;"><img alt="" src="//upload.wikimedia.org/wikibooks/en/thumb/d/df/Navigation_Left_Arrow.svg/18px-Navigation_Left_Arrow.svg.png" width="18" height="14" srcset="//upload.wikimedia.org/wikibooks/en/thumb/d/df/Navigation_Left_Arrow.svg/27px-Navigation_Left_Arrow.svg.png 1.5x, //upload.wikimedia.org/wikibooks/en/thumb/d/df/Navigation_Left_Arrow.svg/36px-Navigation_Left_Arrow.svg.png 2x" data-file-width="165" data-file-height="130"> <a href="/wiki/Java_Programming/Accessing_Private_Features_with_Reflection" title="Java Programming/Accessing Private Features with Reflection" class="mw-redirect">Accessing Private Features with Reflection</a></img></td> 
+   <td style="text-align:center; width:34%;"><a href="/wiki/Java_Programming" title="Java Programming">Java Programming</a><br> <b>Networking</b></br></td> 
+   <td style="text-align:right; width:33%; font-size:90%;"><a href="/wiki/Java_Programming/Database_Programming" title="Java Programming/Database Programming">Database Programming</a> <img alt="" src="//upload.wikimedia.org/wikibooks/en/thumb/e/ea/Navigation_Right_Arrow.svg/18px-Navigation_Right_Arrow.svg.png" width="18" height="14" srcset="//upload.wikimedia.org/wikibooks/en/thumb/e/ea/Navigation_Right_Arrow.svg/27px-Navigation_Right_Arrow.svg.png 1.5x, //upload.wikimedia.org/wikibooks/en/thumb/e/ea/Navigation_Right_Arrow.svg/36px-Navigation_Right_Arrow.svg.png 2x" data-file-width="165" data-file-height="130" /></td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>Prior to modern networking solutions there existed workstations that were connected to a massive Mainframe computer that was solely responsible for memory management, processes and almost everything. The workstations would just render the information sent in from the Mainframe console.</p> 
+<p>But in the mid 90's, with the prices of Unix servers dropping, the trend was moving away from <a href="//en.wikipedia.org/wiki/Mainframe_computer" class="extiw" title="w:Mainframe computer">Mainframe computing</a> toward Client-Server computing. This would enable <a href="//en.wikipedia.org/wiki/Rich_client" class="extiw" title="w:Rich client">rich clients</a> to be developed on workstations while they would communicate with a centralized <b>server</b>, serving computers connected to it, to either communicate with other workstations also connected to it or it would request for database access or business logic stored on the server itself. The workstations were called <b>clients</b>.</p> 
+<p>This form of computing gave rise to the notion of the <a href="//en.wikipedia.org/wiki/Front-end_and_back-end" class="extiw" title="w:Front-end and back-end">Front-end and Back-end</a> programming. In it's hey-day, Java came up with different ways of making networking between computers possible. In this chapter, we would be looking at some of these ways. Listed below are two of the frameworks that Java uses to enable network programming. We would be exploring both of these in this chapter.</p> 
+<table width="100%" cellpadding="8" cellspacing="0"> 
+ <tbody> 
+  <tr> 
+   <td> </td>
+  </tr>
+ </tbody>
+</table>

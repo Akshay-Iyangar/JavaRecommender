@@ -1,0 +1,39 @@
+<p><span id="displaytitle" title=""></span></p> 
+<table style="width:100%; border:solid 1px #71c837; background:#c6e9af; color:#2d5016;" class="noprint"> 
+ <tbody> 
+  <tr> 
+   <td style="text-align:left; width:33%; font-size:90%;"><img alt="" src="//upload.wikimedia.org/wikibooks/en/thumb/d/df/Navigation_Left_Arrow.svg/18px-Navigation_Left_Arrow.svg.png" width="18" height="14" srcset="//upload.wikimedia.org/wikibooks/en/thumb/d/df/Navigation_Left_Arrow.svg/27px-Navigation_Left_Arrow.svg.png 1.5x, //upload.wikimedia.org/wikibooks/en/thumb/d/df/Navigation_Left_Arrow.svg/36px-Navigation_Left_Arrow.svg.png 2x" data-file-width="165" data-file-height="130"> <a href="/wiki/Java_Programming/Language_Fundamentals" title="Java Programming/Language Fundamentals">Language Fundamentals</a></img></td> 
+   <td style="text-align:center; width:34%;"><a href="/wiki/Java_Programming" title="Java Programming">Java Programming</a><br> <b>Coding conventions</b></br></td> 
+   <td style="text-align:right; width:33%; font-size:90%;"><a href="/wiki/Java_Programming/Statements" title="Java Programming/Statements">Statements</a> <img alt="" src="//upload.wikimedia.org/wikibooks/en/thumb/e/ea/Navigation_Right_Arrow.svg/18px-Navigation_Right_Arrow.svg.png" width="18" height="14" srcset="//upload.wikimedia.org/wikibooks/en/thumb/e/ea/Navigation_Right_Arrow.svg/27px-Navigation_Right_Arrow.svg.png 1.5x, //upload.wikimedia.org/wikibooks/en/thumb/e/ea/Navigation_Right_Arrow.svg/36px-Navigation_Right_Arrow.svg.png 2x" data-file-width="165" data-file-height="130" /></td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p><br> The Java code conventions are defined by Oracle in the <a rel="nofollow" class="external text" href="http://www.oracle.com/technetwork/java/codeconv-138413.html">coding conventions</a> document. In short, these conventions ask the user to use <a href="//en.wikipedia.org/wiki/en:CamelCase" class="extiw" title="w:en:CamelCase">camel case</a> when defining classes, methods, or variables. Classes start with a capital letter and should be nouns, like <code>CalendarDialogView</code>. For methods, the names should be verbs in imperative form, like <code>getBrakeSystemType</code>, and should start with a lowercase letter.</br></p> 
+<p>It is important to get used to and follow coding conventions, so that code written by multiple programmers will appear the same. Projects may re-define the standard code conventions to better fit their needs. Examples include a list of allowed abbreviations, as these can often make the code difficult to understand for other designers. Documentation should always acompany code, .</p> 
+<p>One example from the coding conventions is how to define a constant. Constants should be written with capital letters in Java, where the words are separated by an underscore ('_') character. In the Java coding conventions, a constant is a <code>static final</code> field in a class.</p> 
+<p>The reason for this diversion is that Java is not 100% object-oriented and discerns between "simple" and "complex" types. These will be handled in detail in the following sections. An example for a simple type is the <code>byte</code> type. An example for a complex type is a class. A subset of the complex types are classes that cannot be modified after creation, like a <code>String</code>, which is a concatenation of characters.</p> 
+<p>For instance, consider the following "constants":</p> 
+<div class="mw-highlight mw-content-ltr" dir="ltr"> 
+ <pre>
+<span class="lineno"> 1 </span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MotorVehicle</span> <span class="o">{</span>
+<span class="lineno"> 2 </span>  <span class="cm">/** Number of motors */</span>
+<span class="lineno"> 3 </span>  <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">MOTORS</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+<span class="lineno"> 4 </span>
+<span class="lineno"> 5 </span>  <span class="cm">/** Name of a motor */</span>
+<span class="lineno"> 6 </span>  <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">MOTOR_NAME</span> <span class="o">=</span> <span class="s">"Mercedes V8"</span><span class="o">;</span>
+<span class="lineno"> 7 </span>
+<span class="lineno"> 8 </span>  <span class="cm">/** The motor object */</span>
+<span class="lineno"> 9 </span>  <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">Motor</span> <span class="n">THE_MOTOR</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MercedesMotor</span><span class="o">();</span>
+<span class="lineno">10 </span>
+<span class="lineno">11 </span>  <span class="cm">/**</span>
+<span class="lineno">12 </span><span class="cm">   * Constructor</span>
+<span class="lineno">13 </span><span class="cm">   */</span>
+<span class="lineno">14 </span>  <span class="kd">public</span> <span class="nf">VehicleMotor</span><span class="o">()</span> <span class="o">{</span>
+<span class="lineno">15 </span>    <span class="n">MOTORS</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>                     <span class="c1">// Gives a syntax error as MOTORS has already been assigned a value.</span>
+<span class="lineno">16 </span>    <span class="n">THE_MOTOR</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ToshibaMotor</span><span class="o">();</span> <span class="c1">// Gives a syntax error as THE_MOTOR has already been assigned a value.</span>
+<span class="lineno">17 </span>    <span class="n">MOTOR_NAME</span><span class="o">.</span><span class="na">toLowercase</span><span class="o">();</span>       <span class="c1">// Does not give a syntax error, because it returns a new String rather than editing the MOTOR_NAME variable.</span>
+<span class="lineno">18 </span>    <span class="n">THE_MOTOR</span><span class="o">.</span><span class="na">fillFuel</span><span class="o">(</span><span class="mf">20.5</span><span class="o">);</span>       <span class="c1">// Does not give a syntax error, as it changes a variable in the motor object, not the variable itself.</span>
+<span class="lineno">19 </span>  <span class="o">}</span>
+<span class="lineno">20 </span><span class="o">}</span>
+</pre> 
+</div>

@@ -1,0 +1,26 @@
+<p> A <em>generic class</em> is defined with the following format:</p> 
+<div class="codeblock"> 
+ <pre>
+class name&lt;T1, T2, ..., Tn&gt; { /* ... */ }
+</pre> 
+</div> 
+<p> The type parameter section, delimited by angle brackets (<tt>&lt;&gt;</tt>), follows the class name. It specifies the <em>type parameters</em> (also called <em>type variables</em>) <tt>T1</tt>, <tt>T2</tt>, ..., and <tt>Tn</tt>.</p> 
+<p> To update the <tt>Box</tt> class to use generics, you create a <em>generic type declaration</em> by changing the code "<tt>public class Box</tt>" to "<tt>public class Box&lt;T&gt;</tt>". This introduces the type variable, <tt>T</tt>, that can be used anywhere inside the class.</p> 
+<p> With this change, the <tt>Box</tt> class becomes:</p> 
+<div class="codeblock"> 
+ <pre>
+/**
+ * Generic version of the Box class.
+ * @param &lt;T&gt; the type of the value being boxed
+ */
+public class Box&lt;T&gt; {
+    // T stands for "Type"
+    private T t;
+
+    public void set(T t) { this.t = t; }
+    public T get() { return t; }
+}
+</pre> 
+</div> 
+<p> As you can see, all occurrences of <tt>Object</tt> are replaced by <tt>T</tt>. A type variable can be any <strong>non-primitive</strong> type you specify: any class type, any interface type, any array type, or even another type variable.</p> 
+<p> This same technique can be applied to create generic interfaces.</p>

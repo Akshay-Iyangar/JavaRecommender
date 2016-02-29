@@ -1,0 +1,56 @@
+<p>A character preceded by a backslash (\) is an <i>escape sequence</i> and has special meaning to the compiler. The following table shows the Java escape sequences:</p> 
+<table width="50%" border="1" cellpadding="4" cellspacing="3" summary="This table lists character sequences used for formatting"> 
+ <caption style="font-weight: bold">
+   Escape Sequences 
+ </caption> 
+ <tbody> 
+  <tr> 
+   <th id="h101" width="30%">Escape Sequence</th> 
+   <th id="h102">Description</th> 
+  </tr> 
+  <tr> 
+   <td headers="h101"><code>\t</code></td> 
+   <td headers="h102">Insert a tab in the text at this point.</td> 
+  </tr> 
+  <tr> 
+   <td headers="h101"><code>\b</code></td> 
+   <td headers="h102">Insert a backspace in the text at this point.</td> 
+  </tr> 
+  <tr> 
+   <td headers="h101"><code>\n</code></td> 
+   <td headers="h102">Insert a newline in the text at this point.</td> 
+  </tr> 
+  <tr> 
+   <td headers="h101"><code>\r</code></td> 
+   <td headers="h102">Insert a carriage return in the text at this point.</td> 
+  </tr> 
+  <tr> 
+   <td headers="h101"><code>\f</code></td> 
+   <td headers="h102">Insert a formfeed in the text at this point.</td> 
+  </tr> 
+  <tr> 
+   <td headers="h101"><code>\'</code></td> 
+   <td headers="h102">Insert a single quote character in the text at this point.</td> 
+  </tr> 
+  <tr> 
+   <td headers="h101"><code>\"</code></td> 
+   <td headers="h102">Insert a double quote character in the text at this point.</td> 
+  </tr> 
+  <tr> 
+   <td headers="h101"><code>\\</code></td> 
+   <td headers="h102">Insert a backslash character in the text at this point.</td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>When an escape sequence is encountered in a print statement, the compiler interprets it accordingly. For example, if you want to put quotes within quotes you must use the escape sequence, \", on the interior quotes. To print the sentence</p> 
+<div class="codeblock"> 
+ <pre>
+She said "Hello!" to me.
+</pre> 
+</div> 
+<p>you would write</p> 
+<div class="codeblock"> 
+ <pre>
+System.out.println("She said \"Hello!\" to me.");
+</pre> 
+</div>

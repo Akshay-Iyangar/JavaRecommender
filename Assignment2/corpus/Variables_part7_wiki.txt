@@ -1,0 +1,35 @@
+<p>When naming identifiers, you need to use the following guidelines which ensure that your variables are named accurately. As we discussed earlier, we should always name our variables in a way that tells us what they hold. Consider this example:</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><span id="code-section-46"><b>Code section 3.46: Unknown process.</b></span> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno">1 </span><span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">24</span><span class="o">;</span>
+<span class="lineno">2 </span><span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">365</span><span class="o">;</span>
+<span class="lineno">3 </span><span class="kt">int</span> <span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span><span class="o">;</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>Do you know what this program does? Well, it multiplies two values. That much you guessed right. But, do you know what those values are? Exactly, you don't. Now consider this code:</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><span id="code-section-47"><b>Code section 3.47: Time conversion.</b></span> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno">1 </span><span class="kt">int</span> <span class="n">age</span> <span class="o">=</span> <span class="mi">24</span><span class="o">;</span>
+<span class="lineno">2 </span><span class="kt">int</span> <span class="n">daysInYear</span> <span class="o">=</span> <span class="mi">365</span><span class="o">;</span>
+<span class="lineno">3 </span><span class="kt">int</span> <span class="n">ageInDays</span> <span class="o">=</span> <span class="n">age</span> <span class="o">*</span> <span class="n">daysInYear</span><span class="o">;</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>Now you can tell what's happening, can't you? However, before we continue, notice the <i>case</i> of the variables. If a word contains CAPITAL LETTERS, it is in <b>UPPER CASE</b>. If a word has small letters, it is in <b>lower case</b>. Both cases in a word renders it as <b>mIxEd CaSe</b>.</p> 
+<p>The variables we studied so far had a mixed case. When there are two or more words making up the names of a variable, you need to use a special case called the <i>camel-case</i>. Just like the humps of a camel, your words need to stand out. Using this technique, the words <code>first</code> and <code>name</code> could be written as either <code>firstName</code> or <code>FirstName</code>.</p> 
+<p>The first instance, <code>firstName</code> is what we use as the names of variables. Remember though, <code>firstName</code> is not the same as <code>FirstName</code> because Java is <b>case-sensitive</b>. Case-sensitive basically implies that the case in which you wrote one word is the case you have to call that word in when using them later on. Anything other than that is not the same as you intended. You'll know more as you progress. You can hopefully tell now why the variables you were asked to identify weren't proper.</p>

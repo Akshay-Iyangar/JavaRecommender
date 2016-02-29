@@ -1,0 +1,44 @@
+<p>The <i>Pattern</i> class offers the function <i>matches</i> which returns <i>true</i> if an expression is found into a string.</p> 
+<p>For example, this script returns the unknown word preceding a known word:</p> 
+<div class="mw-highlight mw-content-ltr" dir="ltr"> 
+ <pre>
+<span class="kn">import</span> <span class="nn">java.util.regex.Pattern</span><span class="o">;</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Regex</span> <span class="o">{</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+		<span class="n">String</span> <span class="n">s</span> <span class="o">=</span> <span class="s">"Test Java regex for Wikibooks."</span><span class="o">;</span>
+		<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">Pattern</span><span class="o">.</span><span class="na">matches</span><span class="o">(</span><span class="s">"[a-z]* Wikibooks"</span><span class="o">,</span><span class="n">s</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+<span class="c1">// Displays: "for Wikibooks"</span>
+</pre> 
+</div> 
+<p><br> The <i>Matcher</i> class allows to get all matches for a given expression, with different methods:</br></p> 
+<ol> 
+ <li><i>find()</i>: find the next result.</li> 
+ <li><i>group()</i>: displays the result.</li> 
+</ol> 
+<p>For example, this script displays the HTML <i>b</i> tags contents:</p> 
+<div class="mw-highlight mw-content-ltr" dir="ltr"> 
+ <pre>
+<span class="kn">import</span> <span class="nn">java.util.regex.Pattern</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.regex.Matcher</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Regex</span> <span class="o">{</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+		<span class="n">String</span> <span class="n">s</span> <span class="o">=</span> <span class="s">"Test &lt;i&gt;Java&lt;/i&gt; &lt;b&gt;regex&lt;/b&gt; for &lt;b&gt;Wikibooks&lt;/b&gt;."</span><span class="o">;</span>
+		<span class="n">Pattern</span> <span class="n">p</span> <span class="o">=</span> <span class="n">Pattern</span><span class="o">.</span><span class="na">compile</span><span class="o">(</span><span class="s">"&lt;b&gt;([^&lt;]+)&lt;/b&gt;"</span><span class="o">);</span>
+		<span class="n">Matcher</span> <span class="n">m</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="na">matcher</span><span class="o">(</span><span class="n">s</span><span class="o">);</span>
+		<span class="k">while</span><span class="o">(</span><span class="n">m</span><span class="o">.</span><span class="na">find</span><span class="o">())</span> <span class="o">{</span>
+			<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">m</span><span class="o">.</span><span class="na">group</span><span class="o">());</span>
+			<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">m</span><span class="o">.</span><span class="na">group</span><span class="o">(</span><span class="mi">1</span><span class="o">));</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+<span class="cm">/* Displays:</span>
+<span class="cm"> &lt;b&gt;regex&lt;/b&gt;</span>
+<span class="cm"> regex</span>
+<span class="cm"> &lt;b&gt;Wikibooks&lt;/b&gt;</span>
+<span class="cm"> Wikibooks</span>
+<span class="cm">*/</span>
+</pre> 
+</div>

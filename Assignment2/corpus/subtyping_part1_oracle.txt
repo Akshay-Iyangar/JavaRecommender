@@ -1,0 +1,49 @@
+<div id="PageContent"> 
+ <p> As described in <a class="TutorialLink" target="_top" href="inheritance.html">Generics, Inheritance, and Subtypes</a>, generic classes or interfaces are not related merely because there is a relationship between their types. However, you can use wildcards to create a relationship between generic classes or interfaces.</p> 
+ <p> Given the following two regular (non-generic) classes:</p> 
+ <div class="codeblock"> 
+  <pre>
+class A { /* ... */ }
+class B extends A { /* ... */ }
+</pre> 
+ </div> 
+ <p> It would be reasonable to write the following code:</p> 
+ <div class="codeblock"> 
+  <pre>
+B b = new B();
+A a = b;
+</pre> 
+ </div> 
+ <p> This example shows that inheritance of regular classes follows this rule of subtyping: class <tt>B</tt> is a subtype of class <tt>A</tt> if <tt>B</tt> extends <tt>A</tt>. This rule does not apply to generic types:</p> 
+ <div class="codeblock"> 
+  <pre>
+List&lt;B&gt; lb = new ArrayList&lt;&gt;();
+List&lt;A&gt; la = lb;   // compile-time error
+</pre> 
+ </div> 
+ <p> Given that <tt>Integer</tt> is a subtype of <tt>Number</tt>, what is the relationship between <tt>List&lt;Integer&gt;</tt> and <tt>List&lt;Number&gt;</tt>?</p> 
+ <center> 
+  <img src="https://docs.oracle.com/javase/tutorial/figures/java/generics-listParent.gif" width="335" height="102" align="bottom" alt="diagram showing that the common parent of List<Number> and List<Integer> is the list of unknown type"> </img>
+ </center> 
+ <center>
+   The common parent is 
+  <tt>List&lt;?&gt;</tt>. 
+ </center> 
+ <p> Although <tt>Integer</tt> is a subtype of <tt>Number</tt>, <tt>List&lt;Integer&gt;</tt> is not a subtype of <tt>List&lt;Number&gt;</tt> and, in fact, these two types are not related. The common parent of <tt>List&lt;Number&gt;</tt> and <tt>List&lt;Integer&gt;</tt> is <tt>List&lt;?&gt;</tt>.</p> 
+ <p> In order to create a relationship between these classes so that the code can access <tt>Number</tt>'s methods through <tt>List&lt;Integer&gt;</tt>'s elements, use an upper bounded wildcard:</p> 
+ <div class="codeblock"> 
+  <pre>
+List&lt;? extends Integer&gt; intList = new ArrayList&lt;&gt;();
+List&lt;? extends Number&gt;  numList = intList;  // OK. List&lt;? extends Integer&gt; is a subtype of List&lt;? extends Number&gt;
+</pre> 
+ </div> 
+ <p> Because <tt>Integer</tt> is a subtype of <tt>Number</tt>, and <tt>numList</tt> is a list of <tt>Number</tt> objects, a relationship now exists between <tt>intList</tt> (a list of <tt>Integer</tt> objects) and <tt>numList</tt>. The following diagram shows the relationships between several <tt>List</tt> classes declared with both upper and lower bounded wildcards.</p> 
+ <center> 
+  <img src="https://docs.oracle.com/javase/tutorial/figures/java/generics-wildcardSubtyping.gif" width="335" height="195" align="bottom" alt="diagram showing that List<Integer> is a subtype of both List<? extends Integer> and List<?super Integer>. List<? extends Integer> is a subtype of List<? extends Number> which is a subtype of List<?>. List<Number> is a subtype of List<? super Number> and List>? extends Number>. List<? super Number> is a subtype of List<? super Integer> which is a subtype of List<?>."> </img>
+ </center> 
+ <center>
+   A hierarchy of several generic 
+  <tt>List</tt> class declarations. 
+ </center> 
+ <p> The <a class="TutorialLink" target="_top" href="wildcardGuidelines.html">Guidelines for Wildcard Use</a> section has more information about the ramifications of using upper and lower bounded wildcards.</p> 
+</div>

@@ -1,0 +1,37 @@
+<dl> 
+ <dt> 
+  <code><code><a href="/wiki/Java_Programming/Keywords/final" title="Java Programming/Keywords/final"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">final</font></a></code> void wait()</code> method&nbsp; 
+ </dt> 
+ <dd>
+   The current thread must own this object's monitor. The thread releases ownership of this monitor and waits until another thread notifies the threads waiting on this object's monitor to wake up either through a call to the notify method or to the 
+  <code>notifyAll</code> method. The thread then waits until it can re-obtain ownership of the monitor and resume execution. 
+ </dd> 
+</dl> 
+<dl> 
+ <dt> 
+  <code><code><a href="/wiki/Java_Programming/Keywords/final" title="Java Programming/Keywords/final"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">final</font></a></code> void wait(long time)</code>&nbsp; 
+ </dt> 
+ <dd>
+   The same as wait, but the thread wakes after the specified duration of time passes, regardless of whether there was a notification or not. 
+ </dd> 
+</dl> 
+<dl> 
+ <dt> 
+  <code><code><a href="/wiki/Java_Programming/Keywords/final" title="Java Programming/Keywords/final"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">final</font></a></code> void notify()</code>&nbsp; 
+ </dt> 
+ <dd>
+   This method should only be called by a thread that is the owner of this object's monitor. Wakes up a single thread that is waiting on this object's monitor. If many threads are waiting on this object's monitor, one of them is chosen to be awakened. The choice is arbitrary and occurs at the discretion of the implementation. A thread waits on an object's monitor by calling one of the wait methods. 
+ </dd> 
+ <dd>
+   The awakened thread will not be able to proceed until the current thread relinquishes the lock on this object. The awakened thread will compete in the usual manner with any other threads that might be actively competing to synchronize on this object; for example, the awakened thread enjoys no reliable privilege or disadvantage in being the next thread to lock this object. 
+ </dd> 
+</dl> 
+<dl> 
+ <dt> 
+  <code><code><a href="/wiki/Java_Programming/Keywords/final" title="Java Programming/Keywords/final"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">final</font></a></code> void notifyAll()</code>&nbsp; 
+ </dt> 
+ <dd>
+   Same as 
+  <code>notify()</code>, but it wakes up all threads that are waiting on this object's monitor. 
+ </dd> 
+</dl>

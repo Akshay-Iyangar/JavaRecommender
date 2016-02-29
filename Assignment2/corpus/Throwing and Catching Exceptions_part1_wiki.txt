@@ -1,0 +1,88 @@
+<p>The preceding exception could have been created explicitly by the developer as it is the case in the following code:</p> 
+<table style="width: 100%;"> 
+ <tbody> 
+  <tr> 
+   <td valign="top"> 
+    <table style="padding:2px; margin:2px;"> 
+     <tbody> 
+      <tr valign="top"> 
+       <td style="width:32px;"><img alt="Computer code" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/32px-Gnome-settings-accessibility-keyboard.svg.png" title="Computer code" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/48px-Gnome-settings-accessibility-keyboard.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/64px-Gnome-settings-accessibility-keyboard.svg.png 2x" data-file-width="60" data-file-height="60" /></td> 
+       <td style="background-color:#ffeee0; border-left: 4px solid orange; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><span id="code-listing-2"><b>Code listing 6.2: SimpleDivisionOperation.java</b></span> 
+        <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+         <pre>
+<span class="lineno"> 1 </span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">SimpleDivisionOperation</span> <span class="o">{</span>
+<span class="lineno"> 2 </span>  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno"> 3 </span>    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">divide</span><span class="o">(</span><span class="mi">4</span><span class="o">,</span> <span class="mi">2</span><span class="o">));</span>
+<span class="lineno"> 4 </span>    <span class="k">if</span> <span class="o">(</span><span class="n">args</span><span class="o">.</span><span class="na">length</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno"> 5 </span>      <span class="c1">// Convert a string to an integer</span>
+<span class="lineno"> 6 </span>      <span class="kt">int</span> <span class="n">arg0</span> <span class="o">=</span> <span class="n">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">args</span><span class="o">[</span><span class="mi">0</span><span class="o">]);</span>
+<span class="lineno"> 7 </span>      <span class="kt">int</span> <span class="n">arg1</span> <span class="o">=</span> <span class="n">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">args</span><span class="o">[</span><span class="mi">1</span><span class="o">]);</span>
+<span class="lineno"> 8 </span>      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">divide</span><span class="o">(</span><span class="n">arg0</span><span class="o">,</span> <span class="n">arg1</span><span class="o">));</span>
+<span class="lineno"> 9 </span>    <span class="o">}</span>
+<span class="lineno">10 </span>  <span class="o">}</span>
+<span class="lineno">11 </span>
+<span class="lineno">12 </span>  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">divide</span><span class="o">(</span><span class="kt">int</span> <span class="n">a</span><span class="o">,</span> <span class="kt">int</span> <span class="n">b</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno">13 </span>    <span class="k">if</span> <span class="o">(</span><span class="n">b</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno">14 </span><span class="hll">      <span class="k">throw</span> <span class="k">new</span> <span class="n">ArithmeticException</span><span class="o">(</span><span class="s">"You can\'t divide by zero!"</span><span class="o">);</span>       
+</span><span class="lineno">15 </span>    <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+<span class="lineno">16 </span>      <span class="k">return</span> <span class="n">a</span> <span class="o">/</span> <span class="n">b</span><span class="o">;</span>
+<span class="lineno">17 </span>    <span class="o">}</span>
+<span class="lineno">18 </span>  <span class="o">}</span>
+<span class="lineno">19 </span><span class="o">}</span>
+</pre> 
+        </div> </td> 
+      </tr> 
+     </tbody> 
+    </table> </td> 
+   <td valign="top"> 
+    <table style="padding:2px; margin:2px; width:100%;"> 
+     <tbody> 
+      <tr valign="top"> 
+       <td style="width:32px;"><img alt="Standard input or output" src="//upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/32px-Nuvola_apps_display.png" title="Standard input or output" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/48px-Nuvola_apps_display.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/64px-Nuvola_apps_display.png 2x" data-file-width="128" data-file-height="128" /></td> 
+       <td style="background-color:#f0f0ff; border-left: 4px solid blue; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><b>Output for Code listing 6.2</b> <pre style="background-color:black; color:white;">
+$ java SimpleDivisionOperation 1 0
+2
+Exception in thread "main" java.lang.ArithmeticException: You can't divide by zero!
+at SimpleDivisionOperation.divide(SimpleDivisionOperation.java:14)
+at SimpleDivisionOperation.main(SimpleDivisionOperation.java:7)
+</pre></td> 
+      </tr> 
+     </tbody> 
+    </table> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>Note that when <code>b</code> equals zero, there is no return value. Instead of a <code>java.lang.ArithmeticException</code> generated by the Java interpreter itself, it is an exception created by the coder. The result is the same. It shows you that an exception is an object. Its main particularity is that it can be thrown. An exception object must inherit from <code>java.lang.Exception</code>. Standard exceptions have two constructors:</p> 
+<ol> 
+ <li>The default constructor; and,</li> 
+ <li>A constructor taking a string argument so that you can place pertinent information in the exception.</li> 
+</ol> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><span id="code-section-1"><b>Code section 6.1: Instance of an exception object with the default constructor.</b></span> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno">1 </span><span class="k">new</span> <span class="n">Exception</span><span class="o">();</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><span id="code-section-2"><b>Code section 6.2: Instance of an <code>Exception</code> object by passing string in constructor.</b></span> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno">1 </span><span class="k">new</span> <span class="n">Exception</span><span class="o">(</span><span class="s">"Something unexpected happened"</span><span class="o">);</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>This string can later be extracted using various methods, as you can see in the <a href="#code-listing-2">code listing 6.2</a>.</p> 
+<p>You can throw any type of <b>Throwable</b> object using the keyword <code><a href="/wiki/Java_Programming/Keywords/throw" title="Java Programming/Keywords/throw"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">throw</font></a></code>. It interrupts the method. Anything after the <b>throw</b> statement would not be executed, unless the <i>thrown</i> exception is <a href="#Exception_handlers">handled</a>. The exception object is not <i>returned</i> from the method, it is <i>thrown</i> from the method. That means that the exception object is not the return value of the method and the calling method can be interrupted too and so on and so on...</p> 
+<p>Typically, you'll throw a different class of exception for each different type of error. The information about the error is represented both inside the exception object and implicitly in the name of the exception class, so someone in the bigger context can figure out what to do with your exception. Often, the only information is the type of exception, and nothing meaningful is stored within the exception object.</p>

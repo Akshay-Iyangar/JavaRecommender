@@ -1,0 +1,30 @@
+<div class="thumb tright"> 
+ <div class="thumbinner" style="width:302px;"> 
+  <a href="/wiki/File:Java_Numeric_Types_Memory.png" class="image"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/9/93/Java_Numeric_Types_Memory.png" width="300" height="300" class="thumbimage" data-file-width="300" data-file-height="300" /></a> 
+  <div class="thumbcaption"> 
+   <div class="magnify"> 
+    <a href="/wiki/File:Java_Numeric_Types_Memory.png" class="internal" title="Enlarge"></a> 
+   </div> A graphical representation of computer memory 
+  </div> 
+ </div> 
+</div> 
+<p>Variables and all the information they store are kept in the computer's memory for access. Think of a computer's memory as a table of data — where each cell corresponds to a variable.</p> 
+<p>Upon creating a variable, we basically create a new address space and give it a unique name. Java goes one step further and lets you define what you can place within the variable — in Java parlance you call this a <i>data type</i>. So, you essentially have to do two things in order to create a variable:</p> 
+<ul> 
+ <li>Create a variable by giving it a unique name; and,</li> 
+ <li>Define a data type for the variable.</li> 
+</ul> 
+<p>The following code demonstrates how a simple variable can be created. This process is known as <i>variable declaration</i>.</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><span id="code-section-40"><b>Code section 3.40: A simple variable declaration.</b></span> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno">1 </span><span class="kt">int</span> <span class="n">a</span><span class="o">;</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table>

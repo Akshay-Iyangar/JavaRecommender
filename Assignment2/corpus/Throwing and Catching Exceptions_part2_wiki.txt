@@ -1,0 +1,43 @@
+<p>The box 6.1 below talks about the various exception classes within the <code>java.lang</code> package.</p> 
+<table style="border:solid 1px #2a7fff; background-color:#fdfdfd;"> 
+ <tbody> 
+  <tr> 
+   <td style="padding:8px;"> <p><b>Box 6.1: The Java exception classes</b></p> 
+    <dl> 
+     <dt>
+       Throwable&nbsp; 
+     </dt> 
+     <dd>
+       The Throwable class is the superclass of all errors and exceptions in the Java language. Only objects that are instances of this class (or one of its subclasses) are thrown by the Java Virtual Machine or can be thrown by the Java throw statement. 
+     </dd> 
+     <dd>
+       A throwable contains a snapshot of the execution stack of its thread at the time it was created. It can also contain a message string that gives more information about the error. Finally, it can contain a cause: another throwable that caused this throwable to get thrown. The cause facility was added in release 1.4. It is also known as the chained exception facility, as the cause can, itself, have a cause, and so on, leading to a "chain" of exceptions, each caused by another. 
+     </dd> 
+     <dt>
+       Error&nbsp; 
+     </dt> 
+     <dd>
+       An Error indicates serious problems that a reasonable application should not try to handle. Most such errors are abnormal conditions. 
+     </dd> 
+     <dt>
+       Exception&nbsp; 
+     </dt> 
+     <dd>
+       The class Exception and its subclasses are a form of Throwable that indicates conditions that a reasonable application might want to handle. Also this is the class that a programmer may want to extend when adding business logic exceptions. 
+     </dd> 
+     <dt>
+       RuntimeException&nbsp; 
+     </dt> 
+     <dd>
+       RuntimeException is the superclass of those exceptions that can be thrown during the normal operation of the Java Virtual Machine. A method is not required to declare in its throws clause any subclasses of RuntimeException that might be thrown during the execution of the method but not caught. 
+     </dd> 
+    </dl> </td> 
+   <td style="padding:8px;"><span style="color:#2a7fff;"><b>Figure 6.2:</b> The exception classes and their inheritance model in the JCL.</span><br> 
+     <div class="center"> 
+      <div class="floatnone"> 
+       <a href="/wiki/File:Java_exception_classes.svg" class="image"><img alt="Java exception classes.svg" src="//upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Java_exception_classes.svg/339px-Java_exception_classes.svg.png" width="339" height="226" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Java_exception_classes.svg/509px-Java_exception_classes.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Java_exception_classes.svg/678px-Java_exception_classes.svg.png 2x" data-file-width="339" data-file-height="226" /></a> 
+      </div> 
+     </div> </br></td> 
+  </tr> 
+ </tbody> 
+</table>

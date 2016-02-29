@@ -1,0 +1,26 @@
+<p> To reference the generic <tt>Box</tt> class from within your code, you must perform a <em>generic type invocation</em>, which replaces <tt>T</tt> with some concrete value, such as <tt>Integer</tt>:</p> 
+<div class="codeblock"> 
+ <pre>
+Box&lt;Integer&gt; integerBox;
+</pre> 
+</div> 
+<p> You can think of a generic type invocation as being similar to an ordinary method invocation, but instead of passing an argument to a method, you are passing a <em>type argument</em> — <tt>Integer</tt> in this case — to the <tt>Box</tt> class itself.</p> 
+<div class="note"> 
+ <hr> 
+  <strong>Type Parameter and Type Argument Terminology:</strong>&nbsp;Many developers use the terms "type parameter" and "type argument" interchangeably, but these terms are not the same. When coding, one provides type arguments in order to create a parameterized type. Therefore, the 
+  <tt>T</tt> in 
+  <tt>Foo&lt;T&gt;</tt> is a type parameter and the 
+  <tt>String</tt> in 
+  <tt>Foo&lt;String&gt; f</tt> is a type argument. This lesson observes this definition when using these terms. 
+  <hr> 
+  </hr>
+ </hr>
+</div> 
+<p> Like any other variable declaration, this code does not actually create a new <tt>Box</tt> object. It simply declares that <tt>integerBox</tt> will hold a reference to a "<tt>Box</tt> of <tt>Integer</tt>", which is how <tt>Box&lt;Integer&gt;</tt> is read.</p> 
+<p> An invocation of a generic type is generally known as a <em>parameterized type</em>.</p> 
+<p> To instantiate this class, use the <tt>new</tt> keyword, as usual, but place <tt>&lt;Integer&gt;</tt> between the class name and the parenthesis:</p> 
+<div class="codeblock"> 
+ <pre>
+Box&lt;Integer&gt; integerBox = new Box&lt;Integer&gt;();
+</pre> 
+</div>

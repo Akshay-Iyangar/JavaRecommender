@@ -1,0 +1,108 @@
+<p>Cloning is not automatically available to classes. There is some help though, as all Java objects inherit the <code>protected Object clone()</code> method. This base method would allocate the memory and do the bit by bit copying of the object's states.</p> 
+<p>You may ask why we need this clone method. Couldn't I create a constructor and just passing in the same object, and do the copying variable by variable? Let's see:</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Computer code" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/32px-Gnome-settings-accessibility-keyboard.svg.png" title="Computer code" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/48px-Gnome-settings-accessibility-keyboard.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/64px-Gnome-settings-accessibility-keyboard.svg.png 2x" data-file-width="60" data-file-height="60" /></td> 
+   <td style="background-color:#ffeee0; border-left: 4px solid orange; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><span id="code-listing-14"><b>Code listing 4.14: MyObject.java</b></span> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno">1 </span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyObject</span> <span class="o">{</span>
+<span class="lineno">2 </span>   <span class="kd">private</span> <span class="kt">int</span> <span class="n">memberVar</span><span class="o">;</span>
+<span class="lineno">3 </span><span class="o">...</span>
+<span class="lineno">4 </span>   <span class="n">MyObject</span><span class="o">(</span><span class="n">MyObject</span> <span class="n">obj</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno">5 </span><span class="hll">      <span class="k">this</span><span class="o">.</span><span class="na">memberVar</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="na">memberVar</span><span class="o">;</span>
+</span><span class="lineno">6 </span>    <span class="o">...</span>
+<span class="lineno">7 </span>   <span class="o">}</span>
+<span class="lineno">8 </span><span class="o">...</span>
+<span class="lineno">9 </span><span class="o">}</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>You might think that accessing the private <code>memberVar</code> variable of <code>obj</code> would fail but as this is in the same class this code is legal. The <code>clone()</code> method copies the whole object's memory in one operation. This is much faster than using the new keyword. Object creation with the <code><a href="/wiki/Java_Programming/Keywords/new" title="Java Programming/Keywords/new"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">new</font></a></code> keyword is expensive, so if you need to create lots of objects with the same type, performance will be better if you create one object and clone new ones from it. See below a factory method that will return a new object using cloning.</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><b>Code section 4.31: Object cloning.</b> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno"> 1 </span><span class="n">HashTable</span> <span class="n">cacheTemplate</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashTable</span><span class="o">();</span>
+<span class="lineno"> 2 </span><span class="o">...</span>
+<span class="lineno"> 3 </span><span class="cm">/** Clone Customer object for performance reason */</span>
+<span class="lineno"> 4 </span><span class="kd">public</span> <span class="n">Customer</span> <span class="nf">createCustomerObject</span><span class="o">()</span> <span class="o">{</span>
+<span class="lineno"> 5 </span>   <span class="c1">// See if a template object exists in our cache</span>
+<span class="lineno"> 6 </span>   <span class="n">Customer</span> <span class="n">template</span> <span class="o">=</span> <span class="n">cacheTemplate</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">"Customer"</span><span class="o">);</span>
+<span class="lineno"> 7 </span>   <span class="k">if</span> <span class="o">(</span><span class="n">template</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno"> 8 </span>      <span class="c1">// Create template</span>
+<span class="lineno"> 9 </span>      <span class="n">template</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Customer</span><span class="o">();</span>
+<span class="lineno">10 </span>      <span class="n">cacheTemplate</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"Customer"</span><span class="o">,</span> <span class="n">template</span><span class="o">);</span>
+<span class="lineno">11 </span>   <span class="o">}</span>
+<span class="lineno">12 </span><span class="hll">  <span class="k">return</span> <span class="n">template</span><span class="o">.</span><span class="na">clone</span><span class="o">();</span>
+</span><span class="lineno">13 </span><span class="o">}</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>Now, let's see how to make the Customer object cloneable.</p> 
+<ol> 
+ <li>First the <code>Customer</code> class needs to implement the <code>Cloneable</code> Interface.</li> 
+ <li>Override and make the <code>clone()</code> method <code><a href="/wiki/Java_Programming/Keywords/public" title="Java Programming/Keywords/public"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">public</font></a></code>, as that is <code><a href="/wiki/Java_Programming/Keywords/protected" title="Java Programming/Keywords/protected"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">protected</font></a></code> in the Object class.</li> 
+ <li>Call the <code>super.clone()</code>method at the beginning of your <code>clone</code> method.</li> 
+ <li>Override the <code>clone()</code> method in all the subclasses of <code>Customer</code>.</li> 
+</ol> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Computer code" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/32px-Gnome-settings-accessibility-keyboard.svg.png" title="Computer code" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/48px-Gnome-settings-accessibility-keyboard.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/64px-Gnome-settings-accessibility-keyboard.svg.png 2x" data-file-width="60" data-file-height="60" /></td> 
+   <td style="background-color:#ffeee0; border-left: 4px solid orange; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><span id="code-listing-15"><b>Code listing 4.15: Customer.java</b></span> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno">1 </span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Customer</span> <span class="kd">implements</span> <span class="n">Cloneable</span> <span class="o">{</span>
+<span class="lineno">2 </span> <span class="o">...</span>
+<span class="lineno">3 </span>    <span class="kd">public</span> <span class="n">Object</span> <span class="nf">clone</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">CloneNotSupportedException</span> <span class="o">{</span>
+<span class="lineno">4 </span>       <span class="n">Object</span> <span class="n">obj</span> <span class="o">=</span> <span class="kd">super</span><span class="o">.</span><span class="na">clone</span><span class="o">();</span>
+<span class="lineno">5 </span>
+<span class="lineno">6 </span>       <span class="k">return</span> <span class="n">obj</span><span class="o">;</span>
+<span class="lineno">7 </span>    <span class="o">}</span>
+<span class="lineno">8 </span><span class="o">}</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>In the <a href="#code-listing-15">code listing 4.15</a> we used cloning for speed up object creation. Another use of cloning could be to take a snapshot of an object that can change in time. Let's say we want to store Customer objects in a collection, but we want to disassociate them from the 'live' objects. So before adding the object, we clone them, so if the original object changes from that point forward, the added object won't. Also let's say that the Customer object has a reference to an Activity object that contains the customer activities. Now we are facing a problem, it is not enough to clone the Customer object, we also need to clone the referenced objects. The solution:</p> 
+<ol> 
+ <li>Make the Activity class also cloneable</li> 
+ <li>Make sure that if the Activity class has other 'changeable' object references, those has to be cloned as well, as seen below</li> 
+ <li>Change the Customer class <code>clone()</code> method as follows:</li> 
+</ol> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Computer code" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/32px-Gnome-settings-accessibility-keyboard.svg.png" title="Computer code" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/48px-Gnome-settings-accessibility-keyboard.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/64px-Gnome-settings-accessibility-keyboard.svg.png 2x" data-file-width="60" data-file-height="60" /></td> 
+   <td style="background-color:#ffeee0; border-left: 4px solid orange; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><span id="code-listing-16"><b>Code listing 4.16: Customer.java</b></span> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno"> 1 </span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Customer</span> <span class="kd">implements</span> <span class="n">Cloneable</span> <span class="o">{</span>
+<span class="lineno"> 2 </span>  <span class="n">Activity</span> <span class="n">activity</span><span class="o">;</span>
+<span class="lineno"> 3 </span>  <span class="o">...</span>
+<span class="lineno"> 4 </span>    <span class="kd">public</span> <span class="n">Customer</span> <span class="nf">clone</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">CloneNotSupportedException</span> <span class="o">{</span>
+<span class="lineno"> 5 </span>      <span class="n">Customer</span> <span class="n">clonedCustomer</span> <span class="o">=</span> <span class="o">(</span><span class="n">Customer</span><span class="o">)</span> <span class="kd">super</span><span class="o">.</span><span class="na">clone</span><span class="o">();</span>
+<span class="lineno"> 6 </span>
+<span class="lineno"> 7 </span>      <span class="c1">// Clone the object referenced objects</span>
+<span class="lineno"> 8 </span><span class="hll">      <span class="k">if</span> <span class="o">(</span><span class="n">activity</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+</span><span class="lineno"> 9 </span><span class="hll">         <span class="n">clonedCustomer</span><span class="o">.</span><span class="na">setActivity</span><span class="o">((</span><span class="n">Activity</span><span class="o">)</span> <span class="n">activity</span><span class="o">.</span><span class="na">clone</span><span class="o">());</span>
+</span><span class="lineno">10 </span><span class="hll">      <span class="o">}</span>
+</span><span class="lineno">11 </span>      <span class="k">return</span> <span class="n">clonedCustomer</span><span class="o">;</span>
+<span class="lineno">12 </span>   <span class="o">}</span>
+<span class="lineno">13 </span><span class="o">}</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>Note that only mutable objects needs to be cloned. References to unchangeable objects such as String be used in the cloned object without worry.</p>

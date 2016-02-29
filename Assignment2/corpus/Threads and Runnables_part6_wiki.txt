@@ -1,0 +1,91 @@
+<table class="metadata plainlinks ambox ambox-notice" style=""> 
+ <tbody> 
+  <tr> 
+   <td class="mbox-image"> 
+    <div style="width: 52px;"> 
+     <img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Information_icon4.svg/40px-Information_icon4.svg.png" width="40" height="40" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Information_icon4.svg/60px-Information_icon4.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Information_icon4.svg/80px-Information_icon4.svg.png 2x" data-file-width="620" data-file-height="620"> </img>
+    </div> </td> 
+   <td class="mbox-text" style=""><b>The text in its current form is incomplete.</b></td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>Given below is an example of creating and running multiple threads that behave in a synchronous manner such that when one thread is using a particular resource, the others wait until the resource has been released. We will talk more about this in later sections.</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Computer code" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/32px-Gnome-settings-accessibility-keyboard.svg.png" title="Computer code" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/48px-Gnome-settings-accessibility-keyboard.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/64px-Gnome-settings-accessibility-keyboard.svg.png 2x" data-file-width="60" data-file-height="60" /></td> 
+   <td style="background-color:#ffeee0; border-left: 4px solid orange; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><span id="code-listing-4"><b>Code listing 4: Creation of the multiple <code>Thread</code> objects running synchronously</b></span> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MultiThreadExample</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="n">cthread</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">String</span> <span class="n">stuff</span> <span class="o">=</span> <span class="s">" printing material"</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span> <span class="n">args</span><span class="o">[])</span> <span class="o">{</span>
+        <span class="n">Thread</span> <span class="n">t1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Thread</span><span class="o">(</span><span class="k">new</span> <span class="n">RunnableProcess</span><span class="o">());</span>
+        <span class="n">Thread</span> <span class="n">t2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Thread</span><span class="o">(</span><span class="k">new</span> <span class="n">RunnableProcess</span><span class="o">());</span>
+        <span class="n">t1</span><span class="o">.</span><span class="na">setName</span><span class="o">(</span><span class="s">"Thread-1"</span><span class="o">);</span>
+        <span class="n">t2</span><span class="o">.</span><span class="na">setName</span><span class="o">(</span><span class="s">"Thread-2"</span><span class="o">);</span>
+        <span class="n">t2</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
+        <span class="n">t1</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
+    <span class="o">}</span>
+    <span class="cm">/*</span>
+<span class="cm">     * Prints information about the current thread and the index it is</span>
+<span class="cm">     * on within the RunnableProcess</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">printFor</span><span class="o">(</span><span class="kt">int</span> <span class="n">index</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">StringBuffer</span> <span class="n">sb</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringBuffer</span><span class="o">();</span>
+        <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">Thread</span><span class="o">.</span><span class="na">currentThread</span><span class="o">().</span><span class="na">getName</span><span class="o">()).</span><span class="na">append</span><span class="o">(</span><span class="n">stuff</span><span class="o">);</span>
+        <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">" for the "</span><span class="o">).</span><span class="na">append</span><span class="o">(</span><span class="n">index</span><span class="o">).</span><span class="na">append</span><span class="o">(</span><span class="s">" time."</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">sb</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+<span class="kd">class</span> <span class="nc">RunnableProcess</span> <span class="kd">implements</span> <span class="n">Runnable</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="kd">synchronized</span><span class="o">(</span><span class="n">MultiThreadExample</span><span class="o">.</span><span class="na">stuff</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">MultiThreadExample</span><span class="o">.</span><span class="na">printFor</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
+                <span class="k">try</span> <span class="o">{</span>
+               	    <span class="n">MultiThreadExample</span><span class="o">.</span><span class="na">stuff</span><span class="o">.</span><span class="na">notifyAll</span><span class="o">();</span>
+                    <span class="n">MultiThreadExample</span><span class="o">.</span><span class="na">stuff</span><span class="o">.</span><span class="na">wait</span><span class="o">();</span>
+                <span class="o">}</span> <span class="k">catch</span><span class="o">(</span><span class="n">InterruptedException</span> <span class="n">ex</span><span class="o">)</span> <span class="o">{</span>
+                   <span class="n">ex</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Computer code" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/32px-Gnome-settings-accessibility-keyboard.svg.png" title="Computer code" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/48px-Gnome-settings-accessibility-keyboard.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/64px-Gnome-settings-accessibility-keyboard.svg.png 2x" data-file-width="60" data-file-height="60" /></td> 
+   <td style="background-color:#ffeee0; border-left: 4px solid orange; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><b>Output for <a href="#code-listing-4">code listing 4</a></b> <pre style="background-color:#000; color:#fff;">
+Thread-1 printing material for the 0 time.
+Thread-2 printing material for the 0 time.
+Thread-1 printing material for the 1 time.
+Thread-2 printing material for the 1 time.
+Thread-1 printing material for the 2 time.
+Thread-2 printing material for the 2 time.
+Thread-1 printing material for the 3 time.
+Thread-2 printing material for the 3 time.
+Thread-1 printing material for the 4 time.
+Thread-2 printing material for the 4 time.
+Thread-1 printing material for the 5 time.
+Thread-2 printing material for the 5 time.
+Thread-1 printing material for the 6 time.
+Thread-2 printing material for the 6 time.
+Thread-1 printing material for the 7 time.
+Thread-2 printing material for the 7 time.
+Thread-1 printing material for the 8 time.
+Thread-2 printing material for the 8 time.
+Thread-1 printing material for the 9 time.
+Thread-2 printing material for the 9 time.
+</pre></td> 
+  </tr> 
+ </tbody> 
+</table>

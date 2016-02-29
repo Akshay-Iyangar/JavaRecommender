@@ -1,0 +1,42 @@
+<p>The Java Development Kit (JDK) is necessary to build Java programs. For our purposes, you must use a JDK. First, check to see if a JDK is already installed on your system. To do so, first open a terminal window and execute the command below.</p> 
+<table style="padding:2px; margin:2px; width:100%;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Standard input or output" src="//upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/32px-Nuvola_apps_display.png" title="Standard input or output" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/48px-Nuvola_apps_display.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/64px-Nuvola_apps_display.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0f0ff; border-left: 4px solid blue; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><b>Availability check</b> <pre style="background-color:#000; color:#fff;">
+java -version
+</pre></td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>If the JDK is installed and on your executable path, you should see some output which tells you the command line options. The output will vary depending on which version is installed and which vendor provided the Java installation.</p>   
+<div class="collapsible" style="width:100%; clear:both; border:none;"> 
+ <div class="title" style="background:transparent; text-align:left; background:#cedff2;border:1px solid lightgrey;">
+   Installation instructions for Solaris 
+ </div> 
+ <div class="body" style="background:transparent; text-align:left; background:#e7eff9;border:solid 1px lightgrey;padding:8px;"> 
+  <div style="clear: both"></div> 
+  <table style="background: #ffd; border: 1px solid #aaaaaa; padding: 6pt; margin: 12pt 8%; width: 60%; margin: auto;" class="notice noprint notice-todo"> 
+   <tbody> 
+    <tr> 
+     <td style="width: 58px;"> 
+      <div class="floatleft"> 
+       <img alt="Clipboard" src="//upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Clipboard.svg/45px-Clipboard.svg.png" width="45" height="45" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Clipboard.svg/68px-Clipboard.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Clipboard.svg/90px-Clipboard.svg.png 2x" data-file-width="48" data-file-height="48"> </img>
+      </div> </td> 
+     <td> <p><b>To do:</b><br> Add a section describing the installation of Java onto Solaris machines. Incorporate some of the information provided in the commented section of this page.</br></p> </td> 
+    </tr> 
+   </tbody> 
+  </table> 
+  <div style="clear: both"></div> 
+ </div> 
+</div> 
+<div class="collapsible" style="width:100%; clear:both; border:none;"> 
+ <div class="title" style="background:transparent; text-align:left; background:#cedff2;border:1px solid lightgrey;">
+   No Install Option for Programming Online 
+ </div> 
+ <div class="body" style="background:transparent; text-align:left; background:#e7eff9;border:solid 1px lightgrey;padding:8px;"> 
+  <p>If you already have the JRE installed, you can use the Java Wiki Integrated Development Environment (JavaWIDE) to code directly in your browser, no account or special software required.</p> 
+  <p><a rel="nofollow" class="external text" href="http://sandbox.javawide.org"><b>Click here to visit the JavaWIDE Sandbox to get started.</b></a></p> 
+  <p><a rel="nofollow" class="external text" href="http://www.javawide.org">For more information, click here to visit the JavaWIDE site.</a></p> 
+ </div> 
+</div>

@@ -1,0 +1,48 @@
+<p><code><a href="/wiki/Java_Programming/Keywords/while" title="Java Programming/Keywords/while"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">while</font></a></code> loops are the simplest form of loop. The <code>while</code> loop repeats a block of code while the specified condition is true. Here is the structure of a <code>while</code> loop:</p> 
+<table style="margin: auto;"> 
+ <tbody> 
+  <tr> 
+   <td>while (<i><b>boolean expression<sub>1</sub></b></i>) { 
+    <dl> 
+     <dd> 
+      <i><b>statement<sub>1</sub></b></i> 
+     </dd> 
+     <dd> 
+      <i><b>statement<sub>2</sub></b></i> 
+     </dd> 
+     <dd>
+       ... 
+     </dd> 
+     <dd> 
+      <i><b>statement<sub>n</sub></b></i> 
+     </dd> 
+    </dl> <p>}</p> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>The loop's condition is checked before each iteration of the loop. If the condition is false at the start of the loop, the loop will not be executed at all. The <a href="#code-section-28">code section 3.28</a> sets in <code>squareHigherThan200</code> the smallest integer whose square exceeds 200.</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><span id="code-section-28"><b>Code section 3.28: The smallest integer whose square exceeds 200.</b></span> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno">1 </span><span class="kt">int</span> <span class="n">squareHigherThan200</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+<span class="lineno">2 </span>
+<span class="lineno">3 </span><span class="k">while</span> <span class="o">(</span><span class="n">squareHigherThan200</span> <span class="o">*</span> <span class="n">squareHigherThan200</span> <span class="o">&lt;</span> <span class="mi">200</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno">4 </span>  <span class="n">squareHigherThan200</span> <span class="o">=</span> <span class="n">squareHigherThan200</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
+<span class="lineno">5 </span><span class="o">}</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td><a href="/wiki/File:Bombilla_amarilla_-_yellow_Edison_lamp.svg" class="image" title="Note"><img alt="Note" src="//upload.wikimedia.org/wikipedia/commons/thumb/1/15/Bombilla_amarilla_-_yellow_Edison_lamp.svg/30px-Bombilla_amarilla_-_yellow_Edison_lamp.svg.png" width="30" height="30" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/1/15/Bombilla_amarilla_-_yellow_Edison_lamp.svg/45px-Bombilla_amarilla_-_yellow_Edison_lamp.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/1/15/Bombilla_amarilla_-_yellow_Edison_lamp.svg/60px-Bombilla_amarilla_-_yellow_Edison_lamp.svg.png 2x" data-file-width="200" data-file-height="200" /></a></td> 
+   <td style="background-color:#fffff0; border-left: 4px solid yellow; padding-left: 6px;">If a loop's condition will never become false, such as if the <code><a href="/wiki/Java_Programming/Literals/Boolean_Literals/true" title="Java Programming/Literals/Boolean Literals/true"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">true</font></a></code> constant is used for the condition, said loop is known as an <i>infinite loop</i>. Such a loop will repeat indefinitely unless it is <a href="/wiki/Java_Programming/Keywords/break" title="Java Programming/Keywords/break">broken</a> out of. Infinite loops can be used to perform tasks that need to be repeated over and over again without a definite stopping point, such as updating a graphics display.</td> 
+  </tr> 
+ </tbody> 
+</table>

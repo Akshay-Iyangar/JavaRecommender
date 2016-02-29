@@ -1,0 +1,54 @@
+<p> <a class="TutorialLink" target="_top" href="methods.html">Generic Methods</a> introduced you to type inference, which enables you to invoke a generic method as you would an ordinary method, without specifying a type between angle brackets. Consider the following example, <a class="SourceLink" target="_blank" href="examples/BoxDemo.java" onclick="showCode('https://docs.oracle.com/javase/tutorial/displayCode.html', 'examples/BoxDemo.java'); return false;"><code>BoxDemo</code></a>, which requires the <a class="SourceLink" target="_blank" href="examples/Box.java" onclick="showCode('https://docs.oracle.com/javase/tutorial/displayCode.html', 'examples/Box.java'); return false;"><code>Box</code></a> class:</p> 
+<div class="codeblock"> 
+ <pre>
+public class BoxDemo {
+
+  public static &lt;U&gt; void addBox(U u, 
+      java.util.List&lt;Box&lt;U&gt;&gt; boxes) {
+    Box&lt;U&gt; box = new Box&lt;&gt;();
+    box.set(u);
+    boxes.add(box);
+  }
+
+  public static &lt;U&gt; void outputBoxes(java.util.List&lt;Box&lt;U&gt;&gt; boxes) {
+    int counter = 0;
+    for (Box&lt;U&gt; box: boxes) {
+      U boxContents = box.get();
+      System.out.println("Box #" + counter + " contains [" +
+             boxContents.toString() + "]");
+      counter++;
+    }
+  }
+
+  public static void main(String[] args) {
+    java.util.ArrayList&lt;Box&lt;Integer&gt;&gt; listOfIntegerBoxes =
+      new java.util.ArrayList&lt;&gt;();
+    BoxDemo.&lt;Integer&gt;addBox(Integer.valueOf(10), listOfIntegerBoxes);
+    BoxDemo.addBox(Integer.valueOf(20), listOfIntegerBoxes);
+    BoxDemo.addBox(Integer.valueOf(30), listOfIntegerBoxes);
+    BoxDemo.outputBoxes(listOfIntegerBoxes);
+  }
+}
+</pre> 
+</div> 
+<p>The following is the output from this example:</p> 
+<div class="codeblock"> 
+ <pre>
+Box #0 contains [10]
+Box #1 contains [20]
+Box #2 contains [30]
+</pre> 
+</div> 
+<p>The generic method <code>addBox</code> defines one type parameter named <code>U</code>. Generally, a Java compiler can infer the type parameters of a generic method call. Consequently, in most cases, you do not have to specify them. For example, to invoke the generic method <code>addBox</code>, you can specify the type parameter with a <em>type witness</em> as follows:</p> 
+<div class="codeblock"> 
+ <pre>
+BoxDemo.<strong>&lt;Integer&gt;</strong>addBox(Integer.valueOf(10), listOfIntegerBoxes);
+</pre> 
+</div> 
+<p>Alternatively, if you omit the type witness,a Java compiler automatically infers (from the method's arguments) that the type parameter is <code>Integer</code>:</p> 
+<div class="codeblock"> 
+ <pre>
+BoxDemo.addBox(Integer.valueOf(20), listOfIntegerBoxes);
+</pre> 
+</div> 
+<!-- ************************************************* -->

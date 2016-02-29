@@ -1,0 +1,65 @@
+<p>The next table lists exponential and logarithmic methods of the <code>Math</code> class.</p> 
+<table width="100%" border="1" cellpadding="4" cellspacing="3" summary="This table lists the exponential and logarithmic math methods"> 
+ <caption style="font-weight: bold">
+   Exponential and Logarithmic Methods 
+ </caption> 
+ <tbody> 
+  <tr> 
+   <th id="h101">Method</th> 
+   <th id="h102" width="50%">Description</th> 
+  </tr> 
+  <tr> 
+   <td headers="h101"><code>double exp(double d)</code></td> 
+   <td headers="h102">Returns the base of the natural logarithms, e, to the power of the argument.</td> 
+  </tr> 
+  <tr> 
+   <td headers="h101"><code>double log(double d)</code></td> 
+   <td headers="h102">Returns the natural logarithm of the argument.</td> 
+  </tr> 
+  <tr> 
+   <td headers="h101"><code>double pow(double base, double exponent)</code></td> 
+   <td headers="h102">Returns the value of the first argument raised to the power of the second argument.</td> 
+  </tr> 
+  <tr> 
+   <td headers="h101"><code>double sqrt(double d)</code></td> 
+   <td headers="h102">Returns the square root of the argument.</td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>The following program, <a class="SourceLink" target="_blank" href="examples/ExponentialDemo.java" onclick="showCode('https://docs.oracle.com/javase/tutorial/displayCode.html', 'examples/ExponentialDemo.java'); return false;"><code>ExponentialDemo</code></a>, displays the value of <code>e</code>, then calls each of the methods listed in the previous table on arbitrarily chosen numbers:</p> 
+<div class="codeblock"> 
+ <pre>
+
+public class ExponentialDemo {
+    public static void main(String[] args) {
+        double x = 11.635;
+        double y = 2.76;
+
+        System.out.printf("The value of " + "e is %.4f%n",
+                          Math.E);
+
+        System.out.printf("exp(%.3f) " + "is %.3f%n",
+                          x, Math.exp(x));
+
+        System.out.printf("log(%.3f) is " + "%.3f%n",
+                          x, Math.log(x));
+
+        System.out.printf("pow(%.3f, %.3f) " + "is %.3f%n",
+                          x, y, Math.pow(x, y));
+
+        System.out.printf("sqrt(%.3f) is " + "%.3f%n",
+                          x, Math.sqrt(x));
+    }
+}
+</pre> 
+</div> 
+<p>Here's the output you'll see when you run <code>ExponentialDemo</code>:</p> 
+<div class="codeblock"> 
+ <pre>
+The value of e is 2.7183
+exp(11.635) is 112983.831
+log(11.635) is 2.454
+pow(11.635, 2.760) is 874.008
+sqrt(11.635) is 3.411
+</pre> 
+</div>

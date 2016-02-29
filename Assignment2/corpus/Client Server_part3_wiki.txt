@@ -1,0 +1,84 @@
+<dl> 
+ <dt>
+   ComServer&nbsp; 
+ </dt> 
+ <dd>
+   class is for listening on a port for a client. 
+ </dd> 
+</dl> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Computer code" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/32px-Gnome-settings-accessibility-keyboard.svg.png" title="Computer code" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/48px-Gnome-settings-accessibility-keyboard.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/64px-Gnome-settings-accessibility-keyboard.svg.png 2x" data-file-width="60" data-file-height="60" /></td> 
+   <td style="background-color:#ffeee0; border-left: 4px solid orange; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><b>Code listing 1.1: ComServer</b> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="kn">import</span> <span class="nn">java.net.ServerSocket</span><span class="o">;</span>
+<span class="cm">/**</span>
+<span class="cm"> * -- Main Server Class; Listening on a port for client; If there is a client,</span>
+<span class="cm"> * starts a new Thread and goes back to listening for further clients. --</span>
+<span class="cm"> */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ComServer</span> 
+<span class="o">{</span>
+<span class="kd">static</span> <span class="kt">boolean</span>  <span class="n">GL_listening</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+   <span class="cm">/**</span>
+<span class="cm">    * -- Main program to start the Server --</span>
+<span class="cm">    */</span>
+   <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span>
+   <span class="o">{</span>
+      <span class="n">ComServer</span> <span class="n">srv</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ComServer</span><span class="o">();</span>
+      <span class="n">srv</span><span class="o">.</span><span class="na">listen</span><span class="o">();</span> 
+   <span class="o">}</span> <span class="c1">// --- End of Main Method ---</span>
+
+   <span class="cm">/**</span>
+<span class="cm">    * -- Server method; Listen for client --</span>
+<span class="cm">    */</span>
+   <span class="kd">public</span> <span class="kt">int</span> <span class="nf">listen</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">IOException</span>
+   <span class="o">{</span>
+    <span class="n">ServerSocket</span> <span class="n">serverSocket</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+    <span class="kt">int</span> <span class="n">iPortNumber</span> <span class="o">=</span> <span class="mi">9090</span><span class="o">;</span>
+
+       <span class="c1">// --- Open the Server Socket where this should listen ---</span>
+       <span class="k">try</span> <span class="o">{</span>
+           <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span> <span class="s">"*** Open the listening socket; at:"</span><span class="o">+</span> <span class="n">iPortNumber</span> <span class="o">+</span> <span class="s">" ***"</span> <span class="o">);</span>
+           <span class="n">serverSocket</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ServerSocket</span><span class="o">(</span> <span class="n">iPortNumber</span> <span class="o">);</span>
+       <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">IOException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+           <span class="n">System</span><span class="o">.</span><span class="na">err</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Could not listen on port:"</span><span class="o">+</span><span class="n">iPortNumber</span> <span class="o">);</span>
+           <span class="n">System</span><span class="o">.</span><span class="na">exit</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+       <span class="o">}</span>
+       <span class="k">while</span> <span class="o">(</span> <span class="n">GL_listening</span> <span class="o">)</span>
+       <span class="o">{</span>
+        <span class="n">ComServerThread</span> <span class="n">clientServ</span><span class="o">;</span> 
+           <span class="c1">// --- Listening for client; If there is a client start a Thread -</span>
+           <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span> <span class="s">"*** Listen for a Client; at:"</span><span class="o">+</span> <span class="n">iPortNumber</span> <span class="o">+</span> <span class="s">" ***"</span> <span class="o">);</span>
+           <span class="n">clientServ</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ComServerThread</span><span class="o">(</span> <span class="n">serverSocket</span><span class="o">.</span><span class="na">accept</span><span class="o">()</span> <span class="o">);</span>
+           <span class="c1">// --- Service a Client ---</span>
+           <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span> <span class="s">"*** A Client came; Service it ***"</span> <span class="o">);</span>
+           <span class="n">clientServ</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>   <span class="cm">/* --- Use for multy Threaded --- */</span>
+      <span class="c1">//     clientServ.run();    /* --- Use for Single Threaded --- */</span>
+       <span class="o">}</span>
+
+       <span class="c1">// --- Close the Server socket;  Server exiting ---</span>
+       <span class="n">serverSocket</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="o">;</span>
+   <span class="o">}</span> <span class="c1">// --- End of listen Method --- </span>
+<span class="o">}</span>  <span class="c1">// --- End of ComServer Class ---</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<dl> 
+ <dt>
+   ServerSocket( iPortNumber )&nbsp; 
+ </dt> 
+ <dd>
+   Creates a server socket, bound to the specified port. 
+ </dd> 
+ <dt>
+   serverSocket.accept()&nbsp; 
+ </dt> 
+ <dd>
+   Listens for a connection to be made to this socket and accepts it. The method blocks until a connection is made. It returns a new Socket. 
+ </dd> 
+</dl>

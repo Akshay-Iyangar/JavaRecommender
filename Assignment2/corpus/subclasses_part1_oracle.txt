@@ -1,0 +1,21 @@
+<div id="PageContent"> 
+ <!-- Inheritance --> 
+ <p>In the preceding lessons, you have seen <i>inheritance</i> mentioned several times. In the Java language, classes can be <i>derived</i> from other classes, thereby <i>inheriting</i> fields and methods from those classes.</p> 
+ <div class="note"> 
+  <hr> 
+   <strong>Definitions:</strong>&nbsp;A class that is derived from another class is called a 
+   <i>subclass</i> (also a 
+   <i>derived class</i>, 
+   <i>extended class</i>, or 
+   <i>child class</i>). The class from which the subclass is derived is called a 
+   <i>superclass</i> (also a 
+   <i>base class</i> or a 
+   <i>parent class</i>). 
+   <br> <br> Excepting <code>Object</code>, which has no superclass, every class has one and only one direct superclass (single inheritance). In the absence of any other explicit superclass, every class is implicitly a subclass of <code>Object</code>. <br> <br> Classes can be derived from classes that are derived from classes that are derived from classes, and so on, and ultimately derived from the topmost class, <code>Object</code>. Such a class is said to be <i>descended</i> from all the classes in the inheritance chain stretching back to <code>Object</code>. 
+       <hr> 
+       </hr></br></br></br></br>
+  </hr>
+ </div> 
+ <p>The idea of inheritance is simple but powerful: When you want to create a new class and there is already a class that includes some of the code that you want, you can derive your new class from the existing class. In doing this, you can reuse the fields and methods of the existing class without having to write (and debug!) them yourself.</p> 
+ <p>A subclass inherits all the <i>members</i> (fields, methods, and nested classes) from its superclass. Constructors are not members, so they are not inherited by subclasses, but the constructor of the superclass can be invoked from the subclass.</p> 
+</div>

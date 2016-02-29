@@ -1,0 +1,31 @@
+<p>Reconsider the <code>CheckPerson</code> interface:</p> 
+<pre class="codeblock">interface CheckPerson {
+    boolean test(Person p);
+}</pre> 
+<p>This is a very simple interface. It's a functional interface because it contains only one abstract method. This method takes one parameter and returns a <code>boolean</code> value. The method is so simple that it might not be worth it to define one in your application. Consequently, the JDK defines several standard functional interfaces, which you can find in the package <code>java.util.function</code>.</p> 
+<p>For example, you can use the <code>Predicate&lt;T&gt;</code> interface in place of <code>CheckPerson</code>. This interface contains the method <code>boolean test(T t)</code>:</p> 
+<pre class="codeblock">interface Predicate&lt;T&gt; {
+    boolean test(T t);
+}</pre> 
+<p>The interface <code>Predicate&lt;T&gt;</code> is an example of a generic interface. (For more information about generics, see the <a class="TutorialLink" target="_top" href="https://docs.oracle.com/javase/tutorial/java/generics/index.html">Generics (Updated)</a> lesson.) Generic types (such as generic interfaces) specify one or more type parameters within angle brackets (<code>&lt;&gt;</code>). This interface contains only one type parameter, <code>T</code>. When you declare or instantiate a generic type with actual type arguments, you have a parameterized type. For example, the parameterized type <code>Predicate&lt;Person&gt;</code> is the following:</p> 
+<pre class="codeblock">interface Predicate&lt;<code>Person</code>&gt; {
+    boolean test(<code>Person</code> t);
+}</pre> 
+<p>This parameterized type contains a method that has the same return type and parameters as <code>CheckPerson.boolean test(Person p)</code>. Consequently, you can use <code>Predicate&lt;T&gt;</code> in place of <code>CheckPerson</code> as the following method demonstrates:</p> 
+<pre class="codeblock">public static void printPersonsWithPredicate(
+    List&lt;Person&gt; roster, Predicate&lt;Person&gt; tester) {
+    for (Person p : roster) {
+        if (tester.test(p)) {
+            p.printPerson();
+        }
+    }
+}</pre> 
+<p>As a result, the following method invocation is the same as when you invoked <code>printPersons</code> in <a href="#approach3">Approach 3: Specify Search Criteria Code in a Local Class</a> to obtain members who are eligible for Selective Service:</p> 
+<pre class="codeblock">printPersonsWithPredicate(
+    roster,
+    p -&gt; p.getGender() == Person.Sex.MALE
+        &amp;&amp; p.getAge() &gt;= 18
+        &amp;&amp; p.getAge() &lt;= 25
+);</pre> 
+<p>This is not the only possible place in this method to use a lambda expression. The following approach suggests other ways to use lambda expressions.</p> 
+<!-- ********************************************************************** -->

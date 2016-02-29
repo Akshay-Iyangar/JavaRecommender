@@ -1,0 +1,38 @@
+<p>Data conversion (casting) can happen between two primitive types. There are two kinds of casting:</p> 
+<ul> 
+ <li>Implicit: casting operation is not required; the magnitude of the numeric value is always preserved. However, <i>precision</i> may be lost when converting from integer to floating point types</li> 
+ <li>Explicit: casting operation required; the magnitude of the numeric value may not be preserved</li> 
+</ul> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><span id="code-section-58"><b>Code section 3.58: Implicit casting (int is converted to long,</b> casting <b>is not needed).</b></span> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno">1 </span><span class="kt">int</span>  <span class="n">i</span> <span class="o">=</span> <span class="mi">65</span><span class="o">;</span>
+<span class="lineno">2 </span><span class="hll"><span class="kt">long</span> <span class="n">l</span> <span class="o">=</span> <span class="n">i</span><span class="o">;</span>
+</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><span id="code-section-59"><b>Code section 3.59: Explicit casting (long is converted to int,</b> casting <b>is needed).</b></span> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno">1 </span><span class="kt">long</span> <span class="n">l</span> <span class="o">=</span> <span class="mi">656666L</span><span class="o">;</span>
+<span class="lineno">2 </span><span class="hll"><span class="kt">int</span>  <span class="n">i</span> <span class="o">=</span> <span class="o">(</span><span class="kt">int</span><span class="o">)</span> <span class="n">l</span><span class="o">;</span>
+</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>The following table shows the conversions between primitive types, it shows the casting operation for explicit conversions:</p> 
+<p>Unlike C, C++ and similar languages, Java can't represent <code>false</code> as <code>0</code> or <code>null</code> and can't represent <code>true</code> as non-zero. Java can't cast from boolean to a non-boolean primitive data type, or vice versa.</p> 
+<p><br> For non primitive types:</br></p>

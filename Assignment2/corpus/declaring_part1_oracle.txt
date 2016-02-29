@@ -1,0 +1,78 @@
+<div id="PageContent"> 
+ <p>Many annotations replace comments in code.</p> 
+ <p>Suppose that a software group traditionally starts the body of every class with comments providing important information:</p> 
+ <div class="codeblock"> 
+  <pre>
+public class Generation3List extends Generation2List {
+
+   // Author: John Doe
+   // Date:https://docs.oracle.com/javase/tutorial/2002
+   // Current revision: 6
+   // Last modified:https://docs.oracle.com/javase/tutorial/2004
+   // By: Jane Doe
+   // Reviewers: Alice, Bill, Cindy
+
+   // class code goes here
+
+}
+</pre> 
+ </div> 
+ <p>To add this same metadata with an annotation, you must first define the <i>annotation type</i>. The syntax for doing this is:</p> 
+ <div class="codeblock"> 
+  <pre>
+@interface ClassPreamble {
+   String author();
+   String date();
+   int currentRevision() default 1;
+   String lastModified() default "N/A";
+   String lastModifiedBy() default "N/A";
+   // Note use of array
+   String[] reviewers();
+}
+</pre> 
+ </div> 
+ <p>The annotation type definition looks similar to an interface definition where the keyword <code>interface</code> is preceded by the at sign (<code>@</code>) (@ = AT, as in annotation type). Annotation types are a form of <i>interface</i>, which will be covered in a later lesson. For the moment, you do not need to understand interfaces.</p> 
+ <p>The body of the previous annotation definition contains <i>annotation type element</i> declarations, which look a lot like methods. Note that they can define optional default values.</p> 
+ <p>After the annotation type is defined, you can use annotations of that type, with the values filled in, like this:</p> 
+ <div class="codeblock"> 
+  <pre>
+@ClassPreamble (
+   author = "John Doe",
+   date = https://docs.oracle.com/javase/tutorial/2002",
+   currentRevision = 6,
+   lastModified = https://docs.oracle.com/javase/tutorial/2004",
+   lastModifiedBy = "Jane Doe",
+   // Note array notation
+   reviewers = {"Alice", "Bob", "Cindy"}
+)
+public class Generation3List extends Generation2List {
+
+// class code goes here
+
+}
+</pre> 
+ </div> 
+ <div class="note"> 
+  <hr> 
+   <strong>Note:</strong>&nbsp;To make the information in 
+   <code>@ClassPreamble</code> appear in Javadoc-generated documentation, you must annotate the 
+   <code>@ClassPreamble</code> definition with the 
+   <code>@Documented</code> annotation: 
+   <div class="codeblock"> 
+    <pre>
+// import this to use <code>@Documented</code>
+import java.lang.annotation.*;
+
+@Documented
+@interface ClassPreamble {
+
+   // Annotation element definitions
+   
+}
+</pre> 
+   </div> 
+   <hr> 
+   </hr>
+  </hr>
+ </div> 
+</div>

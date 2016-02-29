@@ -1,0 +1,83 @@
+<p>This class is named <i>Distance</i>, so using your favorite editor or <a href="/wiki/Java_Programming/Java_IDEs" title="Java Programming/Java IDEs">Java IDE</a>, first create a file named <code>Distance.java</code>, then copy the source below, paste it into the file and save the file.</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Computer code" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/32px-Gnome-settings-accessibility-keyboard.svg.png" title="Computer code" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/48px-Gnome-settings-accessibility-keyboard.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/64px-Gnome-settings-accessibility-keyboard.svg.png 2x" data-file-width="60" data-file-height="60" /></td> 
+   <td style="background-color:#ffeee0; border-left: 4px solid orange; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><span id="code-listing-1"><b>Code listing 2.1: Distance.java</b></span> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno"> 1 </span> <span class="kd">public</span> <span class="kd">class</span> <span class="nc">Distance</span> <span class="o">{</span>
+<span class="lineno"> 2 </span>   <span class="kd">private</span> <span class="n">java</span><span class="o">.</span><span class="na">awt</span><span class="o">.</span><span class="na">Point</span> <span class="n">point0</span><span class="o">,</span> <span class="n">point1</span><span class="o">;</span>
+<span class="lineno"> 3 </span> 
+<span class="lineno"> 4 </span>   <span class="kd">public</span> <span class="nf">Distance</span><span class="o">(</span><span class="kt">int</span> <span class="n">x0</span><span class="o">,</span> <span class="kt">int</span> <span class="n">y0</span><span class="o">,</span> <span class="kt">int</span> <span class="n">x1</span><span class="o">,</span> <span class="kt">int</span> <span class="n">y1</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno"> 5 </span>     <span class="n">point0</span> <span class="o">=</span> <span class="k">new</span> <span class="n">java</span><span class="o">.</span><span class="na">awt</span><span class="o">.</span><span class="na">Point</span><span class="o">(</span><span class="n">x0</span><span class="o">,</span> <span class="n">y0</span><span class="o">);</span>
+<span class="lineno"> 6 </span>     <span class="n">point1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">java</span><span class="o">.</span><span class="na">awt</span><span class="o">.</span><span class="na">Point</span><span class="o">(</span><span class="n">x1</span><span class="o">,</span> <span class="n">y1</span><span class="o">);</span>
+<span class="lineno"> 7 </span>   <span class="o">}</span>
+<span class="lineno"> 8 </span> 
+<span class="lineno"> 9 </span>   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">printDistance</span><span class="o">()</span> <span class="o">{</span>
+<span class="lineno">10 </span>     <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Distance between "</span> <span class="o">+</span> <span class="n">point0</span> <span class="o">+</span> <span class="s">" and "</span> <span class="o">+</span> <span class="n">point1</span>
+<span class="lineno">11 </span>                     <span class="o">+</span> <span class="s">" is "</span> <span class="o">+</span> <span class="n">point0</span><span class="o">.</span><span class="na">distance</span><span class="o">(</span><span class="n">point1</span><span class="o">));</span>
+<span class="lineno">12 </span>   <span class="o">}</span>
+<span class="lineno">13 </span> 
+<span class="lineno">14 </span>   <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno">15 </span>     <span class="n">Distance</span> <span class="n">dist</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Distance</span><span class="o">(</span>
+<span class="lineno">16 </span>              <span class="n">intValue</span><span class="o">(</span><span class="n">args</span><span class="o">[</span><span class="mi">0</span><span class="o">]),</span> <span class="n">intValue</span><span class="o">(</span><span class="n">args</span><span class="o">[</span><span class="mi">1</span><span class="o">]),</span>
+<span class="lineno">17 </span>              <span class="n">intValue</span><span class="o">(</span><span class="n">args</span><span class="o">[</span><span class="mi">2</span><span class="o">]),</span> <span class="n">intValue</span><span class="o">(</span><span class="n">args</span><span class="o">[</span><span class="mi">3</span><span class="o">]));</span>
+<span class="lineno">18 </span>     <span class="n">dist</span><span class="o">.</span><span class="na">printDistance</span><span class="o">();</span>
+<span class="lineno">19 </span>   <span class="o">}</span>
+<span class="lineno">20 </span> 
+<span class="lineno">21 </span>   <span class="kd">private</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">intValue</span><span class="o">(</span><span class="n">String</span> <span class="n">data</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno">22 </span>     <span class="k">return</span> <span class="n">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">data</span><span class="o">);</span>
+<span class="lineno">23 </span>   <span class="o">}</span>
+<span class="lineno">24 </span> <span class="o">}</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>At this point, you may wish to review the source to see how much you might be able to understand. While perhaps not being the most literate of programming languages, someone with understanding of other procedural languages such as C, or other object oriented languages such as C++ or C#, will be able to understand most if not all of the sample program.</p> 
+<p>Once you save the file, <a href="/wiki/Java_Programming/Compilation" title="Java Programming/Compilation">compile</a> the program:</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Computer code" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/32px-Gnome-settings-accessibility-keyboard.svg.png" title="Computer code" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/48px-Gnome-settings-accessibility-keyboard.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/64px-Gnome-settings-accessibility-keyboard.svg.png 2x" data-file-width="60" data-file-height="60" /></td> 
+   <td style="background-color:#ffeee0; border-left: 4px solid orange; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><b>Compilation command</b> <pre style="background-color:#000; color:#fff;">
+$ javac Distance.java
+</pre></td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>(If the <code>javac</code> command fails, review the <a href="/wiki/Java_Programming/Installation" title="Java Programming/Installation">installation instructions</a>.)</p> 
+<p>To run the program, you supply it with the <i>x</i> and <i>y</i> coordinates of two points on a plane separated by a space. For this version of Distance, only integer points are supported. The command sequence is <i><code>java Distance &lt;x<sub>0</sub>&gt; &lt;y<sub>0</sub>&gt; &lt;x<sub>1</sub>&gt; &lt;y<sub>1</sub>&gt;</code></i> to compute the distance between the points (<i>x<sub>0</sub>, y<sub>0</sub></i>) and (<i>x<sub>1</sub>, y<sub>1</sub></i>).</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td><a href="/wiki/File:Nuvola_apps_important.svg" class="image" title="Warning"><img alt="Warning" src="//upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Nuvola_apps_important.svg/32px-Nuvola_apps_important.svg.png" width="32" height="27" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Nuvola_apps_important.svg/48px-Nuvola_apps_important.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Nuvola_apps_important.svg/64px-Nuvola_apps_important.svg.png 2x" data-file-width="600" data-file-height="500" /></a></td> 
+   <td style="background-color:#fff0f0; border-left: 4px solid red; padding-left: 6px;">If you get a <code>java.lang.NumberFormatException</code> exception, some arguments are not a number. If you get a <code>java.lang.ArrayIndexOutOfBoundsException</code> exception, you did not provide enough numbers.</td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>Here are two examples:</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Computer code" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/32px-Gnome-settings-accessibility-keyboard.svg.png" title="Computer code" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/48px-Gnome-settings-accessibility-keyboard.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/64px-Gnome-settings-accessibility-keyboard.svg.png 2x" data-file-width="60" data-file-height="60" /></td> 
+   <td style="background-color:#ffeee0; border-left: 4px solid orange; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><b>Output for the distance between the points (0, 3) and (4, 0)</b> <pre style="background-color:#000; color:#fff;">
+$ java Distance 0 3 4 0
+Distance between java.awt.Point[x=0,y=3] and java.awt.Point[x=4,y=0] is 5.0
+</pre></td> 
+  </tr> 
+ </tbody> 
+</table> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Computer code" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/32px-Gnome-settings-accessibility-keyboard.svg.png" title="Computer code" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/48px-Gnome-settings-accessibility-keyboard.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/64px-Gnome-settings-accessibility-keyboard.svg.png 2x" data-file-width="60" data-file-height="60" /></td> 
+   <td style="background-color:#ffeee0; border-left: 4px solid orange; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><b>Output for the distance between the points (-4, 5) and (11, 19)</b> <pre style="background-color:#000; color:#fff;">
+$ java Distance -4 5 11 19
+Distance between java.awt.Point[x=-4,y=5] and java.awt.Point[x=11,y=19] is 20.518284528683193
+</pre></td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>We'll explain this strange looking output, and also show how to improve it, later.</p>

@@ -1,0 +1,41 @@
+<p>Now, that we know how to effectively create a <code>Runnable</code> process block and a <code>Thread</code> object that executes it, we need to understand how to start the created <code>Thread</code> objects. This couldn't be simpler. For this process, we will be calling the <code>start()</code> method on the <code>Thread</code> objects and voilà, our threads will begin executing their individual process tasks.</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Computer code" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/32px-Gnome-settings-accessibility-keyboard.svg.png" title="Computer code" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/48px-Gnome-settings-accessibility-keyboard.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/64px-Gnome-settings-accessibility-keyboard.svg.png 2x" data-file-width="60" data-file-height="60" /></td> 
+   <td style="background-color:#ffeee0; border-left: 4px solid orange; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><span id="code-listing-3"><b>Code listing 3: Starting the <code>Thread</code> objects</b></span> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ThreadLogic</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">Thread</span> <span class="n">t1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Thread</span><span class="o">(</span><span class="k">new</span> <span class="n">RunnableProcess</span><span class="o">(</span><span class="s">"Thread-1"</span><span class="o">));</span>
+        <span class="n">Thread</span> <span class="n">t2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Thread</span><span class="o">(</span><span class="k">new</span> <span class="n">RunnableProcess</span><span class="o">(</span><span class="s">"Thread-2"</span><span class="o">));</span>
+        <span class="n">Thread</span> <span class="n">t3</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Thread</span><span class="o">(</span><span class="k">new</span> <span class="n">RunnableProcess</span><span class="o">(</span><span class="s">"Thread-3"</span><span class="o">));</span>
+
+        <span class="n">t1</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
+        <span class="n">t2</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
+        <span class="n">t3</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>The above code will start all three declared threads. This way, all three threads will begin their execution one-by-one. However, this being concurrent programming and us having declared random times for the halting of the execution, the outputs for every one of us would differ. Following is the output we received when we executed the above program.</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Computer code" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/32px-Gnome-settings-accessibility-keyboard.svg.png" title="Computer code" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/48px-Gnome-settings-accessibility-keyboard.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/64px-Gnome-settings-accessibility-keyboard.svg.png 2x" data-file-width="60" data-file-height="60" /></td> 
+   <td style="background-color:#ffeee0; border-left: 4px solid orange; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><b>Output for <a href="#code-listing-3">code listing 3</a></b> <pre style="background-color:#000; color:#fff;">
+Thread-1 is sleeping for 419
+Thread-3 is sleeping for 876
+Thread-2 is sleeping for 189
+Thread-2 is done
+Thread-1 is done
+Thread-3 is done
+</pre></td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>It should be noted that the execution of the <code>Thread</code> didn't occur in the desired order. Instead of the order <code>t1</code>–<code>t2</code>–<code>t3</code>, the threads executed in the order of <code>t1</code>–<code>t3</code>–<code>t2</code>. The order in which the threads are executed is completely dependant on the operating system and may change for every execution of the program, thus making output of multithreaded application difficult to predict and control. Some people suggest that this is the major reason that adds to the complexity of multithreaded programming and its debugging. However, it should be observed that once the threads were put to sleep using the <code>Thread.sleep(...)</code> function, the execution intervals and order can be predicted quite capably. The thread with the least amount of sleeping time was <code>t2</code> (<code>"Thread-2"</code>) with <code>189</code> milliseconds of sleep hence it got called first. Then <code>t1</code> was called and finally <code>t3</code> was called.</p>

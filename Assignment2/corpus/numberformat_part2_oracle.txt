@@ -1,0 +1,50 @@
+<p>The <code>java.io</code> package includes a <code>PrintStream</code> class that has two formatting methods that you can use to replace <code>print</code> and <code>println</code>. These methods, <code>format</code> and <code>printf</code>, are equivalent to one another. The familiar <code>System.out</code> that you have been using happens to be a <code>PrintStream</code> object, so you can invoke <code>PrintStream</code> methods on <code>System.out</code>. Thus, you can use <code>format</code> or <code>printf</code> anywhere in your code where you have previously been using <code>print</code> or <code>println</code>. For example,</p> 
+<div class="codeblock"> 
+ <pre>
+System.out.format(.....);
+</pre> 
+</div> 
+<p>The syntax for these two <a class="APILink" target="_blank" href="https://docs.oracle.com/javase/8/docs/api/jahttps://docs.oracle.com/javase/tutorial/PrintStream.html"><code>java.io.PrintStream</code> </a> methods is the same:</p> 
+<div class="codeblock"> 
+ <pre>
+public PrintStream format(String format, Object... args)
+</pre> 
+</div> 
+<p>where <code>format</code> is a string that specifies the formatting to be used and <code>args</code> is a list of the variables to be printed using that formatting. A simple example would be</p> 
+<div class="codeblock"> 
+ <pre>
+System.out.format("The value of " + "the float variable is " +
+     "%f, while the value of the " + "integer variable is %d, " +
+     "and the string is %s", floatVar, intVar, stringVar); 
+</pre> 
+</div> 
+<p>The first parameter, <code>format</code>, is a format string specifying how the objects in the second parameter, <code>args</code>, are to be formatted. The format string contains plain text as well as <em>format specifiers</em>, which are special characters that format the arguments of <code>Object... args</code>. (The notation <code>Object... args</code> is called <em>varargs</em>, which means that the number of arguments may vary.)</p> 
+<p>Format specifiers begin with a percent sign (%) and end with a <i>converter</i>. The converter is a character indicating the type of argument to be formatted. In between the percent sign (%) and the converter you can have optional flags and specifiers. There are many converters, flags, and specifiers, which are documented in <a class="APILink" target="_blank" href="https://docs.oracle.com/javase/8/docs/api/java/util/Formatter.html"><code>java.util.Formatter</code> </a></p> 
+<p>Here is a basic example:</p> 
+<div class="codeblock"> 
+ <pre>
+int i = 461012;
+System.out.format("The value of i is: %d%n", i);
+</pre> 
+</div> 
+<p>The <code>%d</code> specifies that the single variable is a decimal integer. The <code>%n</code> is a platform-independent newline character. The output is:</p> 
+<div class="codeblock"> 
+ <pre>
+The value of i is: 461012
+</pre> 
+</div> 
+<p>The <code>printf</code> and <code>format</code> methods are overloaded. Each has a version with the following syntax:</p> 
+<div class="codeblock"> 
+ <pre>
+public PrintStream format(Locale l, String format, Object... args)
+</pre> 
+</div> 
+<p>To print numbers in the French system (where a comma is used in place of the decimal place in the English representation of floating point numbers), for example, you would use:</p> 
+<div class="codeblock"> 
+ <pre>
+System.out.format(Locale.FRANCE,
+    "The value of the float " + "variable is %f, while the " +
+    "value of the integer variable " + "is %d, and the string is %s%n", 
+    floatVar, intVar, stringVar); 
+</pre> 
+</div>

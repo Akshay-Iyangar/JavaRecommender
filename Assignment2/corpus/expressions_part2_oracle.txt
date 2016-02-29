@@ -1,0 +1,40 @@
+<p>An <em>expression</em> is a construct made up of variables, operators, and method invocations, which are constructed according to the syntax of the language, that evaluates to a single value. You've already seen examples of expressions, illustrated in bold below:</p> 
+<div class="codeblock"> 
+ <pre>
+<code>int <strong>cadence = 0</strong>;</code>
+<code><strong>anArray[0] = 100</strong>;</code>
+<code>System.out.println(<strong>"Element 1 at index 0: " + anArray[0]</strong>);</code>
+
+<code>int <strong>result = 1 + 2</strong>; // result is now 3</code>
+<code>if (<strong>value1 == value2</strong>) 
+    System.out.println(<strong>"value1 == value2"</strong>);</code>
+</pre> 
+</div> 
+<p>The data type of the value returned by an expression depends on the elements used in the expression. The expression <code>cadence = 0</code> returns an <code>int</code> because the assignment operator returns a value of the same data type as its left-hand operand; in this case, <code>cadence</code> is an <code>int</code>. As you can see from the other expressions, an expression can return other types of values as well, such as <code>boolean</code> or <code>String</code>.</p> 
+<p>The Java programming language allows you to construct compound expressions from various smaller expressions as long as the data type required by one part of the expression matches the data type of the other. Here's an example of a compound expression:</p> 
+<div class="codeblock"> 
+ <pre> 
+1 * 2 * 3
+</pre> 
+</div> 
+<p>In this particular example, the order in which the expression is evaluated is unimportant because the result of multiplication is independent of order; the outcome is always the same, no matter in which order you apply the multiplications. However, this is not true of all expressions. For example, the following expression gives different results, depending on whether you perform the addition or the division operation first:</p> 
+<div class="codeblock"> 
+ <pre>
+x + y / 100    // ambiguous
+</pre> 
+</div> 
+<p>You can specify exactly how an expression will be evaluated using balanced parenthesis: ( and ). For example, to make the previous expression unambiguous, you could write the following:</p> 
+<div class="codeblock"> 
+ <pre> 
+(x + y) / 100  // unambiguous, recommended
+</pre> 
+</div> 
+<p>If you don't explicitly indicate the order for the operations to be performed, the order is determined by the precedence assigned to the operators in use within the expression. Operators that have a higher precedence get evaluated first. For example, the division operator has a higher precedence than does the addition operator. Therefore, the following two statements are equivalent:</p> 
+<div class="codeblock"> 
+ <pre>
+x + y / 100 <br>
+
+x + (y / 100) // unambiguous, recommended
+</br></pre> 
+</div> 
+<p>When writing compound expressions, be explicit and indicate with parentheses which operators should be evaluated first. This practice makes code easier to read and to maintain.</p>

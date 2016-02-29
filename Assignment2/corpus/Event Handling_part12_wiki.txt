@@ -1,0 +1,112 @@
+<p>Next, let's take a look at applying an adaptor to our design. Adaptors are used to add functionality to the event handling process that:</p> 
+<ul> 
+ <li>is general to the process and not specific to any one listener; or</li> 
+ <li>is not supposed to affect the implementation of specific listeners.</li> 
+</ul> 
+<p>According to the Event Model specification a typical use case for an adaptor is to add routing logic for events. But you can also add filtering or logging. In our case, let's do that: add logging of the numbers as "proof" for the calculations done in the listeners.</p> 
+<p>An adaptor, as explained earlier, is a class that sits between the event source and the listeners. From the point of view of the event source, it masquerades as a listener (so it must implement the listener interface). From the point of view of the listeners it pretends to be the event source (so it should have add and remove methods). In other words, to write an adaptor you have to repeat some code from the event source (to manage listeners) and you have to re-implement the event notification methods to do some extra stuff and then pass the event on to the actual listeners.</p> 
+<p>In our case we need an adaptor that writes the numbers to a log file. Keeping it simple once again, let's settle for an adaptor that:</p> 
+<ul> 
+ <li>Uses a fixed log file name and overwrites that log file with every program run.</li> 
+ <li>Opens a <code>FileWriter</code> in the constructor and just keeps it open.</li> 
+ <li>Implements the <code>numberRead</code> method by writing the number to the <code>FileWriter</code>.</li> 
+ <li>Implements the <code>numberStreamTerminated</code> method by closing the <code>FileWriter</code>.</li> 
+</ul> 
+<p>Also, we can make life easy on ourselves by just copying all the code we need to manage listeners over from the <code>NumberReader</code> class. Again, in a real program you'd want to do this differently. Note that each notification method implementation also passes the event on to all the real listeners:</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Computer code" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/32px-Gnome-settings-accessibility-keyboard.svg.png" title="Computer code" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/48px-Gnome-settings-accessibility-keyboard.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/64px-Gnome-settings-accessibility-keyboard.svg.png 2x" data-file-width="60" data-file-height="60" /></td> 
+   <td style="background-color:#ffeee0; border-left: 4px solid orange; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><b>Code listing 1.6: NumberReaderLoggingAdaptor.</b> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="kn">package</span> <span class="nn">org.wikibooks.en.javaprogramming.example</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.io.BufferedWriter</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.FileWriter</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.HashSet</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Set</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">NumberReaderLoggingAdaptor</span> <span class="kd">implements</span> <span class="n">NumberReadListener</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="n">Set</span><span class="o">&lt;</span><span class="n">NumberReadListener</span><span class="o">&gt;</span> <span class="n">listeners</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="n">BufferedWriter</span> <span class="n">output</span><span class="o">;</span>
+   
+    <span class="kd">public</span> <span class="nf">NumberReaderLoggingAdaptor</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">listeners</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashSet</span><span class="o">&lt;</span><span class="n">NumberReadListener</span><span class="o">&gt;();</span>
+        <span class="k">try</span> <span class="o">{</span>
+            <span class="n">output</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BufferedWriter</span><span class="o">(</span><span class="k">new</span> <span class="n">FileWriter</span><span class="o">(</span><span class="s">"numberLog.log"</span><span class="o">));</span>
+        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">IOException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+            <span class="c1">// TODO Auto-generated catch block</span>
+            <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+   
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">addNumberReadListener</span><span class="o">(</span><span class="n">NumberReadListener</span> <span class="n">listener</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">listeners</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">listener</span><span class="o">);</span>
+    <span class="o">}</span>
+   
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">removeNumberReadListener</span><span class="o">(</span><span class="n">NumberReadListener</span> <span class="n">listener</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">listeners</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="n">listener</span><span class="o">);</span>
+    <span class="o">}</span>
+   
+   
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">numberRead</span><span class="o">(</span><span class="n">NumberReadEvent</span> <span class="n">numberReadEvent</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">try</span> <span class="o">{</span>
+            <span class="n">output</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="n">numberReadEvent</span><span class="o">.</span><span class="na">getNumber</span><span class="o">()</span> <span class="o">+</span> <span class="s">"\n"</span><span class="o">);</span>
+        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+           
+        <span class="o">}</span>
+        <span class="k">for</span> <span class="o">(</span><span class="n">NumberReadListener</span> <span class="n">numberReadListener</span><span class="o">:</span> <span class="n">listeners</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">numberReadListener</span><span class="o">.</span><span class="na">numberRead</span><span class="o">(</span><span class="n">numberReadEvent</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">numberStreamTerminated</span><span class="o">(</span><span class="n">NumberReadEvent</span> <span class="n">numberReadEvent</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">try</span> <span class="o">{</span>
+            <span class="n">output</span><span class="o">.</span><span class="na">flush</span><span class="o">();</span>
+            <span class="n">output</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+           
+        <span class="o">}</span>
+        <span class="k">for</span> <span class="o">(</span><span class="n">NumberReadListener</span> <span class="n">numberReadListener</span><span class="o">:</span> <span class="n">listeners</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">numberReadListener</span><span class="o">.</span><span class="na">numberStreamTerminated</span><span class="o">(</span><span class="n">numberReadEvent</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+<span class="o">}</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>Of course, to make the adaptor work we have to make some changes to the bootstrap code:</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Computer code" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/32px-Gnome-settings-accessibility-keyboard.svg.png" title="Computer code" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/48px-Gnome-settings-accessibility-keyboard.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/64px-Gnome-settings-accessibility-keyboard.svg.png 2x" data-file-width="60" data-file-height="60" /></td> 
+   <td style="background-color:#ffeee0; border-left: 4px solid orange; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><b>Code listing 1.7: Main.</b> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="kn">package</span> <span class="nn">org.wikibooks.en.javaprogramming.example</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Main</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">NumberReader</span> <span class="n">reader</span> <span class="o">=</span> <span class="k">new</span> <span class="n">NumberReader</span><span class="o">();</span>
+        <span class="n">NumberReadListener</span> <span class="n">listener</span> <span class="o">=</span> <span class="k">new</span> <span class="n">NumberReadListenerImpl</span><span class="o">();</span>
+        <span class="n">NumberReaderLoggingAdaptor</span> <span class="n">adaptor</span> <span class="o">=</span> <span class="k">new</span> <span class="n">NumberReaderLoggingAdaptor</span><span class="o">();</span>
+        <span class="n">adaptor</span><span class="o">.</span><span class="na">addNumberReadListener</span><span class="o">(</span><span class="n">listener</span><span class="o">);</span>
+        <span class="n">reader</span><span class="o">.</span><span class="na">addNumberReadListener</span><span class="o">(</span><span class="n">adaptor</span><span class="o">);</span>
+        <span class="n">reader</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>But note how nicely and easily we can re-link the objects in our system. The fact that adaptors and listeners both implement the listener interface and the adaptor and event source both look like event sources means that we can hook the adaptor into the system without having to change a single statement in the classes that we developed earlier.</p> 
+<p>And of course, if we run the same example as given above, the numbers are now recorded in a log file.</p>

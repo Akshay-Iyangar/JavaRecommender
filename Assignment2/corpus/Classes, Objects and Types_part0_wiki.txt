@@ -1,0 +1,38 @@
+<p><span id="displaytitle" title=""></span></p> 
+<table style="width:100%; border:solid 1px #71c837; background:#c6e9af; color:#2d5016;" class="noprint"> 
+ <tbody> 
+  <tr> 
+   <td style="text-align:left; width:33%; font-size:90%;"><img alt="" src="//upload.wikimedia.org/wikibooks/en/thumb/d/df/Navigation_Left_Arrow.svg/18px-Navigation_Left_Arrow.svg.png" width="18" height="14" srcset="//upload.wikimedia.org/wikibooks/en/thumb/d/df/Navigation_Left_Arrow.svg/27px-Navigation_Left_Arrow.svg.png 1.5x, //upload.wikimedia.org/wikibooks/en/thumb/d/df/Navigation_Left_Arrow.svg/36px-Navigation_Left_Arrow.svg.png 2x" data-file-width="165" data-file-height="130"> <a href="/wiki/Java_Programming/API/java.lang.String" title="Java Programming/API/java.lang.String">API/java.lang.String</a></img></td> 
+   <td style="text-align:center; width:34%;"><a href="/wiki/Java_Programming" title="Java Programming">Java Programming</a><br> <b>Classes, Objects and Types</b></br></td> 
+   <td style="text-align:right; width:33%; font-size:90%;"><a href="/wiki/Java_Programming/Keywords" title="Java Programming/Keywords">Keywords</a> <img alt="" src="//upload.wikimedia.org/wikibooks/en/thumb/e/ea/Navigation_Right_Arrow.svg/18px-Navigation_Right_Arrow.svg.png" width="18" height="14" srcset="//upload.wikimedia.org/wikibooks/en/thumb/e/ea/Navigation_Right_Arrow.svg/27px-Navigation_Right_Arrow.svg.png 1.5x, //upload.wikimedia.org/wikibooks/en/thumb/e/ea/Navigation_Right_Arrow.svg/36px-Navigation_Right_Arrow.svg.png 2x" data-file-width="165" data-file-height="130" /></td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p><br> An <b>object</b> is composed of <b>fields</b> and <b>methods</b>. The fields, also called <i>data members</i>, <i>characteristics</i>, <i>attributes</i>, or <i>properties</i>, describe the state of the object. The methods generally describe the actions associated with a particular object. Think of an object as a noun, its fields as adjectives describing that noun, and its methods as the verbs that can be performed by or on that noun.</br></p> 
+<p>For example, a sports car is an object. Some of its fields might be its height, weight, acceleration, and speed. An object's fields just hold data about that object. Some of the methods of the sports car could be "drive", "park", "race", etc. The methods really don't mean much unless associated with the sports car, and the same goes for the fields.</p> 
+<p>The blueprint that lets us build our sports car object is called a <i>class</i>. A class doesn't tell us how fast our sports car goes, or what color it is, but it does tell us that our sports car will have a field representing speed and color, and that they will be say, a number and a word (or hex color code), respectively. The class also lays out the methods for us, telling the car how to park and drive, but these methods can't take any action with just the blueprint — they need an object to have an effect.</p> 
+<p>In Java, a class is located in a file similar to its own name. If you want to have a class called <code>SportsCar</code>, its source file needs to be <code>SportsCar.java</code>. The class is created by placing the following in the source file:</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Computer code" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/32px-Gnome-settings-accessibility-keyboard.svg.png" title="Computer code" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/48px-Gnome-settings-accessibility-keyboard.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/64px-Gnome-settings-accessibility-keyboard.svg.png 2x" data-file-width="60" data-file-height="60" /></td> 
+   <td style="background-color:#ffeee0; border-left: 4px solid orange; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><span id="code-listing-13"><b>Code listing 3.13: SportsCar.java</b></span> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno">1 </span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">SportsCar</span> <span class="o">{</span>
+<span class="lineno">2 </span>   <span class="cm">/* Insert your code here */</span>
+<span class="lineno">3 </span><span class="o">}</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>The class doesn't do anything yet, as you will need to add methods and field variables first.</p> 
+<p>The objects are different from the primitive types because:</p> 
+<ol> 
+ <li>The primitive types are not instantiated.</li> 
+ <li>In the memory, only their value is stored, directly. No reference to an instance is stored.</li> 
+ <li>In the memory, the allocated space is fixed, whatever their value. The allocated space of an object vary, for instance either the object is intantiated or not.</li> 
+ <li>The primitive types don't have methods callable on them.</li> 
+ <li>A primitive type can't be inherited.</li> 
+</ol>

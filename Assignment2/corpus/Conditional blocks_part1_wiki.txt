@@ -1,0 +1,76 @@
+<p>The <code><a href="/wiki/Java_Programming/Keywords/if" title="Java Programming/Keywords/if"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">if</font></a></code> block executes only if the boolean expression associated with it is true. The structure of an <code>if</code> block is as follows:</p> 
+<table style="margin: auto;"> 
+ <tbody> 
+  <tr> 
+   <td>if (<i><b>boolean expression<sub>1</sub></b></i>) { 
+    <dl> 
+     <dd> 
+      <i><b>statement<sub>1</sub></b></i> 
+     </dd> 
+     <dd> 
+      <i><b>statement<sub>2</sub></b></i> 
+     </dd> 
+     <dd>
+       ... 
+     </dd> 
+     <dd> 
+      <i><b>statement<sub>n</sub></b></i> 
+     </dd> 
+    </dl> <p>}</p> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>Here is a double example to illustrate what happens if the condition is true and if the condition is false:</p> 
+<table style="width: 100%;"> 
+ <tbody> 
+  <tr> 
+   <td valign="top"> 
+    <table style="padding:2px; margin:2px;"> 
+     <tbody> 
+      <tr valign="top"> 
+       <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+       <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><b>Code section 3.22: Two <code>if</code> blocks.</b> 
+        <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+         <pre>
+<span class="lineno"> 1 </span><span class="hll"><span class="kt">int</span> <span class="n">age</span> <span class="o">=</span> <span class="mi">6</span><span class="o">;</span>
+</span><span class="lineno"> 2 </span><span class="hll"><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Hello!"</span><span class="o">);</span>
+</span><span class="lineno"> 3 </span>
+<span class="lineno"> 4 </span><span class="hll"><span class="k">if</span> <span class="o">(</span><span class="n">age</span> <span class="o">&lt;</span> <span class="mi">13</span><span class="o">)</span> <span class="o">{</span>
+</span><span class="lineno"> 5 </span><span class="hll">  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"I'm a child."</span><span class="o">);</span>
+</span><span class="lineno"> 6 </span><span class="o">}</span>
+<span class="lineno"> 7 </span>
+<span class="lineno"> 8 </span><span class="hll"><span class="k">if</span> <span class="o">(</span><span class="n">age</span> <span class="o">&gt;</span> <span class="mi">20</span><span class="o">)</span> <span class="o">{</span>
+</span><span class="lineno"> 9 </span>  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"I'm an adult."</span><span class="o">);</span>
+<span class="lineno">10 </span><span class="o">}</span>
+<span class="lineno">11 </span>
+<span class="lineno">12 </span><span class="hll"><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Bye!"</span><span class="o">);</span>
+</span>
+</pre> 
+        </div> </td> 
+      </tr> 
+     </tbody> 
+    </table> </td> 
+   <td valign="top"> 
+    <table style="padding:2px; margin:2px;"> 
+     <tbody> 
+      <tr valign="top"> 
+       <td style="width:32px;"><img alt="Computer code" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/32px-Gnome-settings-accessibility-keyboard.svg.png" title="Computer code" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/48px-Gnome-settings-accessibility-keyboard.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/64px-Gnome-settings-accessibility-keyboard.svg.png 2x" data-file-width="60" data-file-height="60" /></td> 
+       <td style="background-color:#ffeee0; border-left: 4px solid orange; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><b>Output for Code section 3.22</b> <pre style="background-color:#000; color:#fff;">
+Hello!
+I'm a child
+Bye!
+</pre></td> 
+      </tr> 
+     </tbody> 
+    </table> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td><a href="/wiki/File:Bombilla_amarilla_-_yellow_Edison_lamp.svg" class="image" title="Note"><img alt="Note" src="//upload.wikimedia.org/wikipedia/commons/thumb/1/15/Bombilla_amarilla_-_yellow_Edison_lamp.svg/30px-Bombilla_amarilla_-_yellow_Edison_lamp.svg.png" width="30" height="30" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/1/15/Bombilla_amarilla_-_yellow_Edison_lamp.svg/45px-Bombilla_amarilla_-_yellow_Edison_lamp.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/1/15/Bombilla_amarilla_-_yellow_Edison_lamp.svg/60px-Bombilla_amarilla_-_yellow_Edison_lamp.svg.png 2x" data-file-width="200" data-file-height="200" /></a></td> 
+   <td style="background-color:#fffff0; border-left: 4px solid yellow; padding-left: 6px;">If only one statement is to be executed after an <code>if</code> block, it does not have to be enclosed in curly braces. For example, <code>if (i == 0) i = 1;</code> is a perfectly valid portion of Java code. This works for most control structures, such as <code>else</code> and <code>while</code>. However Oracle's <a rel="nofollow" class="external text" href="http://www.oracle.com/technetwork/java/index.html#449">Java Code Conventions</a> explicitly state that the braces should always be used.</td> 
+  </tr> 
+ </tbody> 
+</table>

@@ -1,0 +1,27 @@
+<p>The following method prints members that match search criteria that you specify:</p> 
+<pre class="codeblock">public static void printPersons(
+    List&lt;Person&gt; roster, CheckPerson tester) {
+    for (Person p : roster) {
+        if (tester.test(p)) {
+            p.printPerson();
+        }
+    }
+}</pre> 
+<p>This method checks each <code>Person</code> instance contained in the <code>List</code> parameter <code>roster</code> whether it satisfies the search criteria specified in the <code>CheckPerson</code> parameter <code>tester</code> by invoking the method <code>tester.test</code>. If the method <code>tester.test</code> returns a <code>true</code> value, then the method <code>printPersons</code> is invoked on the <code>Person</code> instance.</p> 
+<p>To specify the search criteria, you implement the <code>CheckPerson</code> interface:</p> 
+<pre class="codeblock">interface CheckPerson {
+    boolean test(Person p);
+}</pre> 
+<p>The following class implements the <code>CheckPerson</code> interface by specifying an implementation for the method <code>test</code>. This method filters members that are eligible for Selective Service in the United States: it returns a <code>true</code> value if its <code>Person</code> parameter is male and between the ages of 18 and 25:</p> 
+<pre class="codeblock">class CheckPersonEligibleForSelectiveService implements CheckPerson {
+    public boolean test(Person p) {
+        return p.gender == Person.Sex.MALE &amp;&amp;
+            p.getAge() &gt;= 18 &amp;&amp;
+            p.getAge() &lt;= 25;
+    }
+}</pre> 
+<p>To use this class, you create a new instance of it and invoke the <code>printPersons</code> method:</p> 
+<pre class="codeblock">printPersons(
+    roster, new CheckPersonEligibleForSelectiveService());</pre> 
+<p>Although this approach is less brittle—you don't have to rewrite methods if you change the structure of the <code>Person</code>—you still have additional code: a new interface and a local class for each search you plan to perform in your application. Because <code>CheckPersonEligibleForSelectiveService</code> implements an interface, you can use an anonymous class instead of a local class and bypass the need to declare a new class for each search.</p> 
+<!-- ********************************************************************** -->

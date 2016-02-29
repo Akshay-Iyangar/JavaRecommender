@@ -1,0 +1,21 @@
+<p>Once we have a <code>Runnable</code> process block, we can create various threads that can then execute the logic encased within such blocks. Multithreading capabilities in Java are utilized and manipulated using the <a rel="nofollow" class="external text" href="http://download.oracle.com/javase/1.5.0/docs/api/java/lang/Thread.html"><code>Thread</code></a> class. A <code>Thread</code> object therefore holds all the necessary logic and devices to create truly multithreaded programs. Consider the following program:</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Computer code" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/32px-Gnome-settings-accessibility-keyboard.svg.png" title="Computer code" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/48px-Gnome-settings-accessibility-keyboard.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/64px-Gnome-settings-accessibility-keyboard.svg.png 2x" data-file-width="60" data-file-height="60" /></td> 
+   <td style="background-color:#ffeee0; border-left: 4px solid orange; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><b>Code listing 2: Creating <code>Thread</code> objects</b> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ThreadLogic</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">Thread</span> <span class="n">t1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Thread</span><span class="o">(</span><span class="k">new</span> <span class="n">RunnableProcess</span><span class="o">(</span><span class="s">"Thread-1"</span><span class="o">));</span>
+        <span class="n">Thread</span> <span class="n">t2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Thread</span><span class="o">(</span><span class="k">new</span> <span class="n">RunnableProcess</span><span class="o">(</span><span class="s">"Thread-2"</span><span class="o">));</span>
+        <span class="n">Thread</span> <span class="n">t3</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Thread</span><span class="o">(</span><span class="k">new</span> <span class="n">RunnableProcess</span><span class="o">(</span><span class="s">"Thread-3"</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>Creating threads is as simple as the above program suggests. You just have to create an object of the <code>Thread</code> class and pass a reference to a <code>Runnable</code> process object. In the case above, we present the <code>Thread</code> constructor with the class object for the <code>RunnableProcess</code> class that we created in <a href="#code-listing-1">code listing 1</a>. But for each object, we give a different name (i.e., <code>"Thread-1"</code> and <code>"Thread-2"</code>, etc.) to differentiate between the three <code>Thread</code> objects. The above example only declares <code>Thread</code> objects and hasn't yet started them for execution.</p>

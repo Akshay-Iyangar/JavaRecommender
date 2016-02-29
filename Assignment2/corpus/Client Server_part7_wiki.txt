@@ -1,0 +1,131 @@
+<p>A client code for a server/service is usually an API that a user application uses to interface to the server. With the help of a client API the user application does not have to know how to connect to the server to get services.</p> 
+<dl> 
+ <dt>
+   ComClient&nbsp; 
+ </dt> 
+ <dd>
+   This class is the client API. The application is using this class to communicate with the server. 
+ </dd> 
+</dl> 
+<p>The following is the client class for the above server:</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Computer code" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/32px-Gnome-settings-accessibility-keyboard.svg.png" title="Computer code" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/48px-Gnome-settings-accessibility-keyboard.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/64px-Gnome-settings-accessibility-keyboard.svg.png 2x" data-file-width="60" data-file-height="60" /></td> 
+   <td style="background-color:#ffeee0; border-left: 4px solid orange; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><b>Code listing 1.5: ComClient</b> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+ <span class="kd">public</span> <span class="kd">class</span> <span class="nc">ComClient</span>
+ <span class="o">{</span>
+  <span class="kd">private</span> <span class="n">Socket</span>         <span class="n">comSocket</span><span class="o">;</span>
+  <span class="kd">private</span> <span class="n">ObjectOutputStream</span> <span class="n">oOut</span><span class="o">;</span>
+  <span class="kd">private</span> <span class="n">ObjectInputStream</span>  <span class="n">oIn</span><span class="o">;</span>
+  <span class="kd">private</span> <span class="kt">boolean</span>         <span class="n">IsItOpen</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>       
+    <span class="cm">/**</span>
+<span class="cm">     * --- Open Socket ---</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">openCom</span><span class="o">(</span> <span class="n">String</span> <span class="n">sServerName</span><span class="o">,</span>
+                         <span class="kt">int</span>    <span class="n">iPortNumber</span> <span class="o">)</span> <span class="kd">throws</span> <span class="n">UnknownHostException</span><span class="o">,</span>
+                                                              <span class="n">IOException</span>  
+    <span class="o">{</span>
+       <span class="k">try</span> <span class="o">{</span>
+          <span class="c1">// --- Open Socket for communication ---</span>
+          <span class="n">comSocket</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Socket</span><span class="o">(</span> <span class="n">sServerName</span><span class="o">,</span> <span class="n">iPortNumber</span> <span class="o">);</span>     
+          <span class="c1">// --- Get Stream to write request to the Server ---</span>
+          <span class="n">oOut</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ObjectOutputStream</span><span class="o">(</span> <span class="n">comSocket</span><span class="o">.</span><span class="na">getOutputStream</span><span class="o">()</span> <span class="o">);</span>     
+          <span class="c1">// --- Get Stream// to read from the Server</span>
+          <span class="n">oIn</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ObjectInputStream</span><span class="o">(</span> <span class="n">comSocket</span><span class="o">.</span><span class="na">getInputStream</span><span class="o">());</span>
+          <span class="c1">// --- Set internal Member variable that the Communication opened ---</span>
+          <span class="n">IsItOpen</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+       <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span> <span class="n">java</span><span class="o">.</span><span class="na">net</span><span class="o">.</span><span class="na">UnknownHostException</span> <span class="n">e</span> <span class="o">)</span> <span class="o">{</span>
+          <span class="n">System</span><span class="o">.</span><span class="na">err</span><span class="o">.</span><span class="na">println</span><span class="o">(</span> <span class="s">"(openCom:)Don't know about host: "</span><span class="o">+</span><span class="n">sServerName</span> <span class="o">);</span>
+          <span class="n">IsItOpen</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+          <span class="k">throw</span><span class="o">(</span> <span class="n">e</span> <span class="o">);</span>                                         
+       <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span> <span class="n">java</span><span class="o">.</span><span class="na">io</span><span class="o">.</span><span class="na">IOException</span> <span class="n">e</span> <span class="o">)</span> <span class="o">{</span>
+          <span class="n">System</span><span class="o">.</span><span class="na">err</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"(openCom:)Couldn't get I/O for the connection to: "</span><span class="o">+</span> <span class="n">sServerName</span> <span class="o">);</span>
+          <span class="n">IsItOpen</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+          <span class="k">throw</span><span class="o">(</span> <span class="n">e</span> <span class="o">);</span>         
+       <span class="o">}</span>               
+    <span class="o">}</span>
+    <span class="cm">/**</span>
+<span class="cm">     * --- Check if Socket is open ---</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isItOpen</span><span class="o">()</span>
+    <span class="o">{</span>
+      <span class="k">return</span> <span class="n">IsItOpen</span><span class="o">;</span>
+    <span class="o">}</span>     
+    <span class="cm">/**</span>
+<span class="cm">     * --- Get data string from the Server ---</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">getServerData</span><span class="o">(</span> <span class="n">COM_DATA</span> <span class="n">tServData</span> <span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span>
+    <span class="o">{</span>
+        <span class="c1">// --- Initialize Variables ---</span>
+        <span class="n">tServData</span><span class="o">.</span><span class="na">comData</span> <span class="o">=</span> <span class="s">""</span><span class="o">;</span>
+        <span class="c1">// --- Get the Response from the Server ---              </span>
+        <span class="k">try</span> <span class="o">{</span>
+           <span class="n">tServData</span><span class="o">.</span><span class="na">copy</span><span class="o">(</span> <span class="o">(</span><span class="n">COM_DATA</span><span class="o">)</span> <span class="n">oIn</span><span class="o">.</span><span class="na">readObject</span><span class="o">()</span> <span class="o">);</span>
+        <span class="o">}</span>   
+        <span class="k">catch</span> <span class="o">(</span> <span class="n">ClassNotFoundException</span> <span class="n">e</span> <span class="o">)</span> <span class="o">{</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span> <span class="s">"Class Not Found"</span> <span class="o">);</span>
+        <span class="o">}</span> 
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span> <span class="s">"Server: "</span> <span class="o">+</span> <span class="n">tServData</span><span class="o">.</span><span class="na">comData</span> <span class="o">);</span>
+        <span class="k">if</span> <span class="o">(</span> <span class="n">tServData</span><span class="o">.</span><span class="na">comData</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="s">"BYE."</span><span class="o">)</span> <span class="o">)</span>
+        <span class="o">{</span>
+            <span class="n">tServData</span><span class="o">.</span><span class="na">bExit</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+        <span class="o">}</span>        
+     <span class="k">return</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="cm">/**</span>
+<span class="cm">     * --- Send data to the Server ---</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">sendDataToServer</span><span class="o">(</span> <span class="n">COM_DATA</span> <span class="n">tServData</span> <span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span>
+    <span class="o">{</span>
+        <span class="c1">// --- Send the data string ---</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span> <span class="s">"Send: "</span> <span class="o">+</span> <span class="n">tServData</span><span class="o">.</span><span class="na">comData</span> <span class="o">);</span>
+        <span class="n">oOut</span><span class="o">.</span><span class="na">writeObject</span><span class="o">(</span> <span class="n">tServData</span> <span class="o">);</span>
+     <span class="k">return</span><span class="o">;</span>
+    <span class="o">}</span> 
+    <span class="cm">/**</span>
+<span class="cm">     * --- Close Socket --- </span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">closeCom</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">IOException</span>
+    <span class="o">{</span>
+        <span class="n">oOut</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+        <span class="n">oIn</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+        <span class="n">comSocket</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+        <span class="n">IsItOpen</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+    <span class="o">}</span>    
+ <span class="o">}</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<dl> 
+ <dt>
+   getServerData( COM_DATA tServData )&nbsp; 
+ </dt> 
+ <dd>
+   This method reads the data from the server and copies the values to 
+  <code>tServData</code> object. 
+ </dd> 
+ <dt>
+   sendDataToServer( COM_DATA tServData )&nbsp; 
+ </dt> 
+ <dd>
+   This method sends the 
+  <code>tServData</code> object through the network to the server. 
+ </dd> 
+ <dt>
+   oIn.readObject()&nbsp; 
+ </dt> 
+ <dd>
+   This method returns the data object sent by the server. 
+ </dd> 
+ <dt>
+   oOut.writeObject( tServData )&nbsp; 
+ </dt> 
+ <dd>
+   This method sends the data object to the server. 
+ </dd> 
+</dl>

@@ -1,0 +1,117 @@
+<p>Actually, there are no two-dimensional arrays in Java. However, an array can contain any class of object, including an array:</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><span id="code-section-56"><b>Code section 3.56: Two-dimensional arrays.</b></span> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno">1 </span><span class="n">String</span><span class="o">[][]</span> <span class="n">twoDimArray</span> <span class="o">=</span> <span class="o">{{</span><span class="s">"a"</span><span class="o">,</span> <span class="s">"b"</span><span class="o">,</span> <span class="s">"c"</span><span class="o">,</span> <span class="s">"d"</span><span class="o">,</span> <span class="s">"e"</span><span class="o">},</span>
+<span class="lineno">2 </span>                          <span class="o">{</span><span class="s">"f"</span><span class="o">,</span> <span class="s">"g"</span><span class="o">,</span> <span class="s">"h"</span><span class="o">,</span> <span class="s">"i"</span><span class="o">,</span> <span class="s">"j"</span><span class="o">},</span>
+<span class="lineno">3 </span>                          <span class="o">{</span><span class="s">"k"</span><span class="o">,</span> <span class="s">"l"</span><span class="o">,</span> <span class="s">"m"</span><span class="o">,</span> <span class="s">"n"</span><span class="o">,</span> <span class="s">"o"</span><span class="o">}};</span>
+<span class="lineno">4 </span>
+<span class="lineno">5 </span><span class="kt">int</span><span class="o">[][]</span> <span class="n">twoDimIntArray</span> <span class="o">=</span> <span class="o">{{</span> <span class="mi">0</span><span class="o">,</span>  <span class="mi">1</span><span class="o">,</span>  <span class="mi">2</span><span class="o">,</span>  <span class="mi">3</span><span class="o">,</span>  <span class="mi">4</span><span class="o">},</span>
+<span class="lineno">6 </span>                          <span class="o">{</span><span class="mi">10</span><span class="o">,</span> <span class="mi">11</span><span class="o">,</span> <span class="mi">12</span><span class="o">,</span> <span class="mi">13</span><span class="o">,</span> <span class="mi">14</span><span class="o">},</span>
+<span class="lineno">7 </span>                          <span class="o">{</span><span class="mi">20</span><span class="o">,</span> <span class="mi">21</span><span class="o">,</span> <span class="mi">22</span><span class="o">,</span> <span class="mi">23</span><span class="o">,</span> <span class="mi">24</span><span class="o">}};</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>It's not exactly equivalent to two-dimensional arrays because the size of the sub-arrays may vary. The sub-array reference can even be null. Consider:</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><span id="code-section-57"><b>Code section 3.57: Weird two-dimensional array.</b></span> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno">1 </span><span class="n">String</span><span class="o">[][]</span> <span class="n">weirdTwoDimArray</span> <span class="o">=</span> <span class="o">{{</span><span class="s">"10"</span><span class="o">,</span> <span class="s">"11"</span><span class="o">,</span> <span class="s">"12"</span><span class="o">},</span>
+<span class="lineno">2 </span>                               <span class="kc">null</span><span class="o">,</span>
+<span class="lineno">3 </span>                               <span class="o">{</span><span class="s">"20"</span><span class="o">,</span> <span class="s">"21"</span><span class="o">,</span> <span class="s">"22"</span><span class="o">,</span> <span class="s">"23"</span><span class="o">,</span> <span class="s">"24"</span><span class="o">}};</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>Note that the length of a two-dimensional array is the number of one-dimensional arrays it contains. In the above example, <code>weirdTwoDimArray.length</code> is 3, whereas <code>weirdTwoDimArray[2].length</code> is 5.</p> 
+<p>In the <a href="#code-section-58">code section 3.58</a>, we defined an array that has three elements, each element contains an array having 5 elements. We could create the array having the 5 elements first and use that one in the initialize block.</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><span id="code-section-58"><b>Code section 3.58: Included array.</b></span> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno">1 </span><span class="n">String</span><span class="o">[]</span> <span class="n">oneDimArray</span> <span class="o">=</span> <span class="o">{</span><span class="s">"00"</span><span class="o">,</span> <span class="s">"01"</span><span class="o">,</span> <span class="s">"02"</span><span class="o">,</span> <span class="s">"03"</span><span class="o">,</span> <span class="s">"04"</span><span class="o">};</span>
+<span class="lineno">2 </span><span class="n">String</span><span class="o">[][]</span> <span class="n">twoDimArray</span> <span class="o">=</span> <span class="o">{</span><span class="n">oneDimArray</span><span class="o">,</span>
+<span class="lineno">3 </span>                          <span class="o">{</span><span class="s">"10"</span><span class="o">,</span> <span class="s">"11"</span><span class="o">,</span> <span class="s">"12"</span><span class="o">,</span> <span class="s">"13"</span><span class="o">,</span> <span class="s">"14"</span><span class="o">},</span>
+<span class="lineno">4 </span>                          <span class="o">{</span><span class="s">"20"</span><span class="o">,</span> <span class="s">"21"</span><span class="o">,</span> <span class="s">"22"</span><span class="o">,</span> <span class="s">"23"</span><span class="o">,</span> <span class="s">"24"</span><span class="o">}};</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<div class="collapsible" style="width:100%; clear:both; border:none;"> 
+ <div class="title" style="background:transparent; text-align:left; background:#cedff2;border:1px solid lightgrey;">
+   Test your knowledge 
+ </div> 
+ <div class="body" style="background:transparent; text-align:left; background:#e7eff9;border:solid 1px lightgrey;padding:8px;"> 
+  <p><b>Question 3.21</b>: Consider the following code:</p> 
+  <table style="padding:2px; margin:2px;"> 
+   <tbody> 
+    <tr valign="top"> 
+     <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+     <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><span id="question-21"><b>Question 3.21: The alphabet.</b></span> 
+      <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+       <pre>
+<span class="lineno">1 </span><span class="n">String</span><span class="o">[][]</span> <span class="n">alphabet</span> <span class="o">=</span> <span class="o">{{</span><span class="s">"a"</span><span class="o">,</span> <span class="s">"b"</span><span class="o">,</span> <span class="s">"c"</span><span class="o">,</span> <span class="s">"d"</span><span class="o">,</span> <span class="s">"e"</span><span class="o">},</span>
+<span class="lineno">2 </span>                          <span class="o">{</span><span class="s">"f"</span><span class="o">,</span> <span class="s">"g"</span><span class="o">,</span> <span class="s">"h"</span><span class="o">,</span> <span class="s">"i"</span><span class="o">,</span> <span class="s">"j"</span><span class="o">},</span>
+<span class="lineno">3 </span>                          <span class="o">{</span><span class="s">"k"</span><span class="o">,</span> <span class="s">"l"</span><span class="o">,</span> <span class="s">"m"</span><span class="o">,</span> <span class="s">"n"</span><span class="o">,</span> <span class="s">"o"</span><span class="o">},</span>
+<span class="lineno">4 </span>                          <span class="o">{</span><span class="s">"p"</span><span class="o">,</span> <span class="s">"q"</span><span class="o">,</span> <span class="s">"r"</span><span class="o">,</span> <span class="s">"s"</span><span class="o">,</span> <span class="s">"t"</span><span class="o">},</span>
+<span class="lineno">5 </span>                          <span class="o">{</span><span class="s">"u"</span><span class="o">,</span> <span class="s">"v"</span><span class="o">,</span> <span class="s">"w"</span><span class="o">,</span> <span class="s">"x"</span><span class="o">,</span> <span class="s">"y"</span><span class="o">},</span>
+<span class="lineno">6 </span>                          <span class="o">{</span><span class="s">"z"</span><span class="o">}};</span>
+</pre> 
+      </div> </td> 
+    </tr> 
+   </tbody> 
+  </table> 
+  <p>Print the whole alphabet in the standard output.</p> 
+  <div class="collapsible" style="width:100%; clear:both; border:none;"> 
+   <div class="title" style="background:transparent; text-align:left; background:#cedff2;border:1px solid lightgrey;">
+     Answer 
+   </div> 
+   <div class="body" style="background:transparent; text-align:left; background:#e7eff9;border:solid 1px lightgrey;padding:8px;"> 
+    <table style="padding:2px; margin:2px;"> 
+     <tbody> 
+      <tr valign="top"> 
+       <td style="width:32px;"><img alt="Computer code" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/32px-Gnome-settings-accessibility-keyboard.svg.png" title="Computer code" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/48px-Gnome-settings-accessibility-keyboard.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/64px-Gnome-settings-accessibility-keyboard.svg.png 2x" data-file-width="60" data-file-height="60" /></td> 
+       <td style="background-color:#ffeee0; border-left: 4px solid orange; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><span id="question-21"><b>Question 3.21: Answer21.java</b></span> 
+        <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+         <pre>
+<span class="lineno"> 1 </span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Answer21</span> <span class="o">{</span>
+<span class="lineno"> 2 </span>  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno"> 3 </span>    <span class="n">String</span><span class="o">[][]</span> <span class="n">alphabet</span> <span class="o">=</span> <span class="o">{{</span><span class="s">"a"</span><span class="o">,</span> <span class="s">"b"</span><span class="o">,</span> <span class="s">"c"</span><span class="o">,</span> <span class="s">"d"</span><span class="o">,</span> <span class="s">"e"</span><span class="o">},</span>
+<span class="lineno"> 4 </span>                          <span class="o">{</span><span class="s">"f"</span><span class="o">,</span> <span class="s">"g"</span><span class="o">,</span> <span class="s">"h"</span><span class="o">,</span> <span class="s">"i"</span><span class="o">,</span> <span class="s">"j"</span><span class="o">},</span>
+<span class="lineno"> 5 </span>                          <span class="o">{</span><span class="s">"k"</span><span class="o">,</span> <span class="s">"l"</span><span class="o">,</span> <span class="s">"m"</span><span class="o">,</span> <span class="s">"n"</span><span class="o">,</span> <span class="s">"o"</span><span class="o">},</span>
+<span class="lineno"> 6 </span>                          <span class="o">{</span><span class="s">"p"</span><span class="o">,</span> <span class="s">"q"</span><span class="o">,</span> <span class="s">"r"</span><span class="o">,</span> <span class="s">"s"</span><span class="o">,</span> <span class="s">"t"</span><span class="o">},</span>
+<span class="lineno"> 7 </span>                          <span class="o">{</span><span class="s">"u"</span><span class="o">,</span> <span class="s">"v"</span><span class="o">,</span> <span class="s">"w"</span><span class="o">,</span> <span class="s">"x"</span><span class="o">,</span> <span class="s">"y"</span><span class="o">},</span>
+<span class="lineno"> 8 </span>                          <span class="o">{</span><span class="s">"z"</span><span class="o">}};</span>
+<span class="lineno"> 9 </span>
+<span class="lineno">10 </span><span class="hll">    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">alphabet</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+</span><span class="lineno">11 </span><span class="hll">      <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">alphabet</span><span class="o">[</span><span class="n">i</span><span class="o">].</span><span class="na">length</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
+</span><span class="lineno">12 </span><span class="hll">        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">alphabet</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]);</span>
+</span><span class="lineno">13 </span><span class="hll">      <span class="o">}</span>
+</span><span class="lineno">14 </span><span class="hll">    <span class="o">}</span>
+</span><span class="lineno">15 </span>  <span class="o">}</span>
+<span class="lineno">16 </span><span class="o">}</span>
+</pre> 
+        </div> </td> 
+      </tr> 
+     </tbody> 
+    </table> 
+    <p><code>i</code> will be the indexes of the main array and <code>j</code> will be the indexes of all the sub-arrays. We have to first iterate on the main array. We have to read the size of the array. Then we iterate on each sub-array. We have to read the size of each array as it may vary. Doing so, we iterate on all the sub-array items using the indexes. All the items will be read in the right order.</p> 
+   </div> 
+  </div> 
+ </div> 
+</div>

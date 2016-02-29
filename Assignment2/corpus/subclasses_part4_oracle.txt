@@ -1,0 +1,12 @@
+<p>A subclass inherits all of the <i>public</i> and <i>protected</i> members of its parent, no matter what package the subclass is in. If the subclass is in the same package as its parent, it also inherits the <i>package-private</i> members of the parent. You can use the inherited members as is, replace them, hide them, or supplement them with new members:</p> 
+<ul> 
+ <li>The inherited fields can be used directly, just like any other fields.</li> 
+ <li>You can declare a field in the subclass with the same name as the one in the superclass, thus <i>hiding</i> it (not recommended).</li> 
+ <li>You can declare new fields in the subclass that are not in the superclass.</li> 
+ <li>The inherited methods can be used directly as they are.</li> 
+ <li>You can write a new <i>instance</i> method in the subclass that has the same signature as the one in the superclass, thus <i>overriding</i> it.</li> 
+ <li>You can write a new <i>static</i> method in the subclass that has the same signature as the one in the superclass, thus <i>hiding</i> it.</li> 
+ <li>You can declare new methods in the subclass that are not in the superclass.</li> 
+ <li>You can write a subclass constructor that invokes the constructor of the superclass, either implicitly or by using the keyword <code>super</code>.</li> 
+</ul> 
+<p>The following sections in this lesson will expand on these topics.</p>

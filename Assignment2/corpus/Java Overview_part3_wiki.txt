@@ -1,0 +1,31 @@
+<p>C++ was built atop the C language and as a result divergent ways of doing the same thing manifested around the language. For instance, creating an object could be done in three different ways in C++. Furthermore, C++ did not come with a standard library bundled with its compilers. Instead, it relied on resources created by other programmers; code which rarely fit together.</p> 
+<p>In Java, standardized libraries are provided to allow access to features of the host machines (such as graphics and networking) in unified ways. The Java language also includes support for multi-threaded programs—a necessity for many networking applications.</p> 
+<p>Platform independent Java is, however, very successful with server side applications, such as web services, servlets, or Enterprise JavaBeans.</p> 
+<div class="thumb tright"> 
+ <div class="thumbinner" style="width:302px;"> 
+  <a href="/wiki/File:Gui-widgets.png" class="image"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Gui-widgets.png/300px-Gui-widgets.png" width="300" height="242" class="thumbimage" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Gui-widgets.png/450px-Gui-widgets.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Gui-widgets.png/600px-Gui-widgets.png 2x" data-file-width="644" data-file-height="519" /></a> 
+  <div class="thumbcaption"> 
+   <div class="magnify"> 
+    <a href="/wiki/File:Gui-widgets.png" class="internal" title="Enlarge"></a> 
+   </div> Swing does not rely on the underlying native user interface. 
+  </div> 
+ </div> 
+</div> 
+<p>Java also made progress on the client side, first it had <a href="//en.wikipedia.org/wiki/Abstract_Window_Toolkit" class="extiw" title="w:Abstract Window Toolkit">Abstract Window Toolkit</a> (AWT), then <a href="/wiki/Java_Swings" title="Java Swings">Swing</a>, and the most recent client side library is the <a href="//en.wikipedia.org/wiki/Standard_Widget_Toolkit" class="extiw" title="w:Standard Widget Toolkit">Standard Widget Toolkit</a> (SWT). It is interesting to see how they tried to handle the two opposing consuming forces. Those are&nbsp;:</p> 
+<dl> 
+ <dt>
+   Efficient, fast code; port to most popular hardware (write once, test anywhere)&nbsp; 
+ </dt> 
+ <dd>
+   Use the underlying native subroutine to create a GUI component. This approach was taken by AWT, and SWT. 
+ </dd> 
+</dl> 
+<dl> 
+ <dt>
+   Portability to any hardware where JVM ported (write once, run anywhere)&nbsp; 
+ </dt> 
+ <dd>
+   To achieve this to the latter, the Java toolkit should not rely on the underlying native user interface. Swing tooks this approach. 
+ </dd> 
+</dl> 
+<p>It is interesting to see how the approach was switched back and forth. AWT → Swing → SWT.<br style="clear:both;" /></p>

@@ -1,0 +1,82 @@
+<p>The <code>break</code> statement has two forms: labeled and unlabeled. You saw the unlabeled form in the previous discussion of the <code>switch</code> statement. You can also use an unlabeled <code>break</code> to terminate a <code>for</code>, <code>while</code>, or <code>do-while</code> loop, as shown in the following <a class="SourceLink" target="_blank" href="examples/BreakDemo.java" onclick="showCode('https://docs.oracle.com/javase/tutorial/displayCode.html', 'examples/BreakDemo.java'); return false;"><code>BreakDemo</code></a> program:</p> 
+<div class="codeblock"> 
+ <pre>
+class BreakDemo {
+    public static void main(String[] args) {
+
+        int[] arrayOfInts = 
+            { 32, 87, 3, 589,
+              12, 1076, 2000,
+              8, 622, 127 };
+        int searchfor = 12;
+
+        int i;
+        boolean foundIt = false;
+
+        for (i = 0; i &lt; arrayOfInts.length; i++) {
+            if (arrayOfInts[i] == searchfor) {
+                foundIt = true;
+                <strong>break;</strong>
+            }
+        }
+
+        if (foundIt) {
+            System.out.println("Found " + searchfor + " at index " + i);
+        } else {
+            System.out.println(searchfor + " not in the array");
+        }
+    }
+}
+</pre> 
+</div> 
+<p>This program searches for the number 12 in an array. The <code>break</code> statement, shown in boldface, terminates the <code>for</code> loop when that value is found. Control flow then transfers to the statement after the <code>for</code> loop. This program's output is:</p> 
+<div class="codeblock"> 
+ <pre>
+Found 12 at index 4
+</pre> 
+</div> 
+<p>An unlabeled <code>break</code> statement terminates the innermost <code>switch</code>, <code>for</code>, <code>while</code>, or <code>do-while</code> statement, but a labeled <code>break</code> terminates an outer statement. The following program, <a class="SourceLink" target="_blank" href="examples/BreakWithLabelDemo.java" onclick="showCode('https://docs.oracle.com/javase/tutorial/displayCode.html', 'examples/BreakWithLabelDemo.java'); return false;"><code>BreakWithLabelDemo</code></a>, is similar to the previous program, but uses nested <code>for</code> loops to search for a value in a two-dimensional array. When the value is found, a labeled <code>break</code> terminates the outer <code>for</code> loop (labeled "search"):</p> 
+<div class="codeblock"> 
+ <pre>
+
+class BreakWithLabelDemo {
+    public static void main(String[] args) {
+
+        int[][] arrayOfInts = { 
+            { 32, 87, 3, 589 },
+            { 12, 1076, 2000, 8 },
+            { 622, 127, 77, 955 }
+        };
+        int searchfor = 12;
+
+        int i;
+        int j = 0;
+        boolean foundIt = false;
+
+    search:
+        for (i = 0; i &lt; arrayOfInts.length; i++) {
+            for (j = 0; j &lt; arrayOfInts[i].length;
+                 j++) {
+                if (arrayOfInts[i][j] == searchfor) {
+                    foundIt = true;
+                    break search;
+                }
+            }
+        }
+
+        if (foundIt) {
+            System.out.println("Found " + searchfor + " at " + i + ", " + j);
+        } else {
+            System.out.println(searchfor + " not in the array");
+        }
+    }
+}
+</pre> 
+</div> 
+<p>This is the output of the program.</p> 
+<div class="codeblock"> 
+ <pre>
+Found 12 at 1, 0
+</pre> 
+</div> 
+<p>The <code>break</code> statement terminates the labeled statement; it does not transfer the flow of control to the label. Control flow is transferred to the statement immediately following the labeled (terminated) statement.</p>

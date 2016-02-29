@@ -1,0 +1,18 @@
+<p>An integer literal is of type <code>long</code> if it ends with the letter <code>L</code> or <code>l</code>; otherwise it is of type <code>int</code>. It is recommended that you use the upper case letter <code>L</code> because the lower case letter <code>l</code> is hard to distinguish from the digit <code>1</code>.</p> 
+<p>Values of the integral types <code>byte</code>, <code>short</code>, <code>int</code>, and <code>long</code> can be created from <code>int</code> literals. Values of type <code>long</code> that exceed the range of <code>int</code> can be created from <code>long</code> literals. Integer literals can be expressed by these number systems:</p> 
+<ul> 
+ <li>Decimal: Base 10, whose digits consists of the numbers 0 through 9; this is the number system you use every day</li> 
+ <li>Hexadecimal: Base 16, whose digits consist of the numbers 0 through 9 and the letters A through F</li> 
+ <li>Binary: Base 2, whose digits consists of the numbers 0 and 1 (you can create binary literals in Java SE 7 and later)</li> 
+</ul> 
+<p>For general-purpose programming, the decimal system is likely to be the only number system you'll ever use. However, if you need to use another number system, the following example shows the correct syntax. The prefix <code>0x</code> indicates hexadecimal and <code>0b</code> indicates binary:</p> 
+<div class="codeblock"> 
+ <pre>
+// The number 26, in decimal
+int decVal = 26;
+//  The number 26, in hexadecimal
+int hexVal = 0x1a;
+// The number 26, in binary
+int binVal = 0b11010;
+</pre> 
+</div>

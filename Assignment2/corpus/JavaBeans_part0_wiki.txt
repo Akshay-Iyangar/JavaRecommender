@@ -1,0 +1,24 @@
+<p><span id="displaytitle" title=""></span></p> 
+<table style="width:100%; border:solid 1px #71c837; background:#c6e9af; color:#2d5016;" class="noprint"> 
+ <tbody> 
+  <tr> 
+   <td style="text-align:left; width:33%; font-size:90%;"><img alt="" src="//upload.wikimedia.org/wikibooks/en/thumb/d/df/Navigation_Left_Arrow.svg/18px-Navigation_Left_Arrow.svg.png" width="18" height="14" srcset="//upload.wikimedia.org/wikibooks/en/thumb/d/df/Navigation_Left_Arrow.svg/27px-Navigation_Left_Arrow.svg.png 1.5x, //upload.wikimedia.org/wikibooks/en/thumb/d/df/Navigation_Left_Arrow.svg/36px-Navigation_Left_Arrow.svg.png 2x" data-file-width="165" data-file-height="130"> <a href="/wiki/Java_Programming/Event_Handling" title="Java Programming/Event Handling">Event Handling</a></img></td> 
+   <td style="text-align:center; width:34%;"><a href="/wiki/Java_Programming" title="Java Programming">Java Programming</a><br> <b>JavaBeans</b></br></td> 
+   <td style="text-align:right; width:33%; font-size:90%;"><a href="/wiki/Java_Programming/Canvas" title="Java Programming/Canvas">Canvas</a> <img alt="" src="//upload.wikimedia.org/wikibooks/en/thumb/e/ea/Navigation_Right_Arrow.svg/18px-Navigation_Right_Arrow.svg.png" width="18" height="14" srcset="//upload.wikimedia.org/wikibooks/en/thumb/e/ea/Navigation_Right_Arrow.svg/27px-Navigation_Right_Arrow.svg.png 1.5x, //upload.wikimedia.org/wikibooks/en/thumb/e/ea/Navigation_Right_Arrow.svg/36px-Navigation_Right_Arrow.svg.png 2x" data-file-width="165" data-file-height="130" /></td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p><br> Reusability comes at the core of any modern computer language's framework. It is often desirable to use components you previously built in recurring environments. In <a href="//en.wikipedia.org/wiki/Rapid_Application_Development" class="extiw" title="w:Rapid Application Development">Rapid Application Development</a>, these prove more helpful as you can drag them off a list of components and use it elsewhere in your project. Such level of reusability is added into the Java Programming language with the help of the JavaBeans architecture.</br></p> 
+<p>JavaBeans are the mainstream Java component model, introduced in 1996 by Sun Microsystems. JavaBeans are defined as follows:</p> 
+<p><i>"A JavaBean is a reusable software component that can be manipulated visually in a builder tool."</i></p> 
+<p>Together with the component model, Sun released a simple visual composition tool, the BeanBox. It is mostly intended for experimenting with Beans rather than offering a professional IDE. For real world applications, one should better deploy on one of the Java IDEs like Visual Age or JBuilder that support the visual composition of JavaBeans.</p> 
+<p>As we will see, JavaBeans do not essentially differ from standard Java classes, which makes the component model quite easy to use. What sets a JavaBean apart from normal Java classes is that a JavaBean follows the <a rel="nofollow" class="external text" href="http://www.oracle.com/technetwork/java/javase/tech/index-jsp-138795.html">Oracle JavaBeans Standard</a> (the term <i>JavaBean</i> or simply <i>bean</i> also refers to the instances of a JavaBean class). There is a set of features and conventions adopted for facilitating reuse:</p> 
+<ul> 
+ <li>Presence of a no argument constructor;</li> 
+ <li>Support for persistence;</li> 
+ <li>Properties manipulated by getter and setter methods;</li> 
+ <li>Support for introspection;</li> 
+ <li>Events as the mechanism of communication between beans;</li> 
+ <li>Support for customization via property editors.</li> 
+</ul> 
+<p>The JavaBeans standard provides a framework for creating objects to be used by GUI tools, including Java development environments. But in more common usage, a bean is a serializable class that follows the JavaBeans naming conventions for its properties. These naming standards make it easy to use Java <a href="/wiki/Java_Programming/Reflection" title="Java Programming/Reflection">introspection</a>.</p>

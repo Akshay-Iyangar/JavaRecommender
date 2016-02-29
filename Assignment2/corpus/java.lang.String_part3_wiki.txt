@@ -1,0 +1,61 @@
+<p>Remember that <code>String</code> objects are immutable objects. Once a <code>String</code> is created, it can not be modified, takes up memory until garbage collected. Be careful of writing a method like this:</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><b>Code section 3.87: Raw concatenation.</b> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno">1 </span><span class="kd">public</span> <span class="n">String</span> <span class="nf">convertToString</span><span class="o">(</span><span class="n">Collection</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">words</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno">2 </span>  <span class="n">String</span> <span class="n">str</span> <span class="o">=</span> <span class="s">""</span><span class="o">;</span>
+<span class="lineno">3 </span>  <span class="c1">// Loops through every element in words collection</span>
+<span class="lineno">4 </span>  <span class="k">for</span> <span class="o">(</span><span class="n">String</span> <span class="n">word</span> <span class="o">:</span> <span class="n">words</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno">5 </span><span class="hll">    <span class="n">str</span> <span class="o">=</span> <span class="n">str</span> <span class="o">+</span> <span class="n">word</span> <span class="o">+</span> <span class="s">" "</span><span class="o">;</span>
+</span><span class="lineno">6 </span>  <span class="o">}</span>
+<span class="lineno">7 </span>  <span class="k">return</span> <span class="n">str</span><span class="o">;</span>
+<span class="lineno">8 </span><span class="o">}</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>On the <code>+</code> operation a new <code><strong class="selflink">String</strong></code> object is created at each iteration. Suppose <code>words</code> contains the elements <code>["Foo", "Bar", "Bam", "Baz"]</code>. At runtime, the method creates thirteen <code>String</code>s:</p> 
+<ol> 
+ <li><code>""</code></li> 
+ <li><code>"Foo"</code></li> 
+ <li><code>" "</code></li> 
+ <li><code>"Foo "</code></li> 
+ <li><code>"Foo Bar"</code></li> 
+ <li><code>" "</code></li> 
+ <li><code>"Foo Bar "</code></li> 
+ <li><code>"Foo Bar Bam"</code></li> 
+ <li><code>" "</code></li> 
+ <li><code>"Foo Bar Bam "</code></li> 
+ <li><code>"Foo Bar Bam Baz"</code></li> 
+ <li><code>" "</code></li> 
+ <li><code>"Foo Bar Bam Baz "</code></li> 
+</ol> 
+<p>Even though only the last one is actually useful.</p> 
+<p>To avoid unnecessary memory use like this, use the <code>StringBuilder</code> class. It provides similar functionality to <code><strong class="selflink">String</strong></code>s, but stores its data in a mutable way. Only one <code>StringBuilder</code> object is created. Also because object creation is time consuming, using <code>StringBuilder</code> produces much faster code.</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><b>Code section 3.88: Concatenation with <code>StringBuilder</code>.</b> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno">1 </span><span class="kd">public</span> <span class="n">String</span> <span class="nf">convertToString</span><span class="o">(</span><span class="n">Collection</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">words</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno">2 </span>  <span class="n">StringBuilder</span> <span class="n">buf</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringBuilder</span><span class="o">();</span>
+<span class="lineno">3 </span>  <span class="c1">// Loops through every element in words collection</span>
+<span class="lineno">4 </span>  <span class="k">for</span> <span class="o">(</span><span class="n">String</span> <span class="n">word</span> <span class="o">:</span> <span class="n">words</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno">5 </span>    <span class="n">buf</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">word</span><span class="o">);</span>
+<span class="lineno">6 </span>    <span class="n">buf</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">" "</span><span class="o">);</span>
+<span class="lineno">7 </span>  <span class="o">}</span>
+<span class="lineno">8 </span>  <span class="k">return</span> <span class="n">buf</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span>
+<span class="lineno">9 </span><span class="o">}</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>As <code>StringBuilder</code> isn't thread safe (see the chapter on <a href="/wiki/Java_Programming/Concurrent_Programming" title="Java Programming/Concurrent Programming">Concurrency</a>). You can't use it in more than one thread. For multi-thread environment, use <code>StringBuffer</code> instead, which does the same and is thread safe. However, as <code>StringBuffer</code> is slower, so only use it when it is required. Moreover, only <code>StringBuffer</code> existed before Java 5.</p>

@@ -1,0 +1,48 @@
+<p>Since Java 1.5, the class <code>java.lang.Class</code> is generic. It is an interesting example of using generics for something other than a container class. For example, the type of String.class is <code>Class&lt;String&gt;</code>, and the type of Serializable.class is <code>Class&lt;Serializable&gt;</code>. This can be used to improve the type safety of your reflection code. In particular, since the <code>newInstance()</code> method in Class now returns T, you can get more precise types when creating objects reflectively. Now we can use the <code>newInstance()</code> method to return a new object with exact type, without casting. An example with generics:</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><span id="code-section-48"><b>Code section 4.48: Automatic cast.</b></span> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno"> 1 </span><span class="n">Customer</span> <span class="n">cust</span> <span class="o">=</span> <span class="n">Utility</span><span class="o">.</span><span class="na">createAnyObject</span><span class="o">(</span><span class="n">Customer</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>  <span class="c1">// No casting</span>
+<span class="lineno"> 2 </span><span class="o">...</span>
+<span class="lineno"> 3 </span><span class="kd">public</span> <span class="kd">static</span> <span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">T</span> <span class="nf">createAnyObject</span><span class="o">(</span><span class="n">Class</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">cls</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno"> 4 </span>    <span class="n">T</span> <span class="n">ret</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+<span class="lineno"> 5 </span>    <span class="k">try</span> <span class="o">{</span>
+<span class="lineno"> 6 </span>        <span class="n">ret</span> <span class="o">=</span> <span class="n">cls</span><span class="o">.</span><span class="na">newInstance</span><span class="o">();</span>
+<span class="lineno"> 7 </span>    <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno"> 8 </span>        <span class="c1">// Exception Handling</span>
+<span class="lineno"> 9 </span>    <span class="o">}</span>
+<span class="lineno">10 </span>    <span class="k">return</span> <span class="n">ret</span><span class="o">;</span>
+<span class="lineno">11 </span><span class="o">}</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>The same code without generics:</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><span id="code-section-49"><b>Code section 4.49: Former version.</b></span> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno"> 1 </span><span class="n">Customer</span> <span class="n">cust</span> <span class="o">=</span> <span class="o">(</span><span class="n">Customer</span><span class="o">)</span> <span class="n">Utility</span><span class="o">.</span><span class="na">createAnyObject</span><span class="o">(</span><span class="n">Customer</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>  <span class="c1">// Casting is needed</span>
+<span class="lineno"> 2 </span><span class="o">...</span>
+<span class="lineno"> 3 </span><span class="kd">public</span> <span class="kd">static</span> <span class="n">Object</span> <span class="nf">createAnyObject</span><span class="o">(</span><span class="n">Class</span> <span class="n">cls</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno"> 4 </span>    <span class="n">Object</span> <span class="n">ret</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+<span class="lineno"> 5 </span>    <span class="k">try</span> <span class="o">{</span>
+<span class="lineno"> 6 </span>        <span class="n">ret</span> <span class="o">=</span> <span class="n">cls</span><span class="o">.</span><span class="na">newInstance</span><span class="o">();</span>
+<span class="lineno"> 7 </span>    <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno"> 8 </span>        <span class="c1">// Exception Handling</span>
+<span class="lineno"> 9 </span>    <span class="o">}</span>
+<span class="lineno">10 </span>    <span class="k">return</span> <span class="n">ret</span><span class="o">;</span>
+<span class="lineno">11 </span><span class="o">}</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table>

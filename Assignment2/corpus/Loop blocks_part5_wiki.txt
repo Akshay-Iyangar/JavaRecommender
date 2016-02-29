@@ -1,0 +1,346 @@
+<p>The <code><a href="/wiki/Java_Programming/Keywords/break" title="Java Programming/Keywords/break"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">break</font></a></code> keyword exits a flow control loop, such as a for loop. It basically <i>breaks</i> the loop.</p> 
+<p>In the <a href="#code-section-34">code section 3.34</a>, the loop would print out all the numbers from 1 to 10, but we have a check for when <code>i</code> equals 5. When the loop reaches its fifth iteration, it will be cut short by the <code>break</code> statement, at which point it will exit the loop.</p> 
+<table style="width: 100%;"> 
+ <tbody> 
+  <tr> 
+   <td valign="top"> 
+    <table style="padding:2px; margin:2px;"> 
+     <tbody> 
+      <tr valign="top"> 
+       <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+       <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><span id="code-section-34"><b>Code section 3.34: An interrupted <code>for</code> loop.</b></span> 
+        <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+         <pre>
+<span class="lineno">1 </span><span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">10</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+<span class="lineno">2 </span>    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
+<span class="lineno">3 </span>    <span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">==</span> <span class="mi">5</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno">4 </span>       <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"STOP!"</span><span class="o">);</span>
+<span class="lineno">5 </span>       <span class="k">break</span><span class="o">;</span>
+<span class="lineno">6 </span>    <span class="o">}</span>
+<span class="lineno">7 </span><span class="o">}</span>
+</pre> 
+        </div> </td> 
+      </tr> 
+     </tbody> 
+    </table> </td> 
+   <td valign="top"> 
+    <table style="padding:2px; margin:2px; width:100%;"> 
+     <tbody> 
+      <tr valign="top"> 
+       <td style="width:32px;"><img alt="Standard input or output" src="//upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/32px-Nuvola_apps_display.png" title="Standard input or output" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/48px-Nuvola_apps_display.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/64px-Nuvola_apps_display.png 2x" data-file-width="128" data-file-height="128" /></td> 
+       <td style="background-color:#f0f0ff; border-left: 4px solid blue; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><b>Output for code section 3.34</b> <pre style="background-color:black; color:white;">
+1
+2
+3
+4
+5
+STOP!
+</pre></td> 
+      </tr> 
+     </tbody> 
+    </table> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>The <code><a href="/wiki/Java_Programming/Keywords/continue" title="Java Programming/Keywords/continue"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">continue</font></a></code> keyword jumps straight to the next iteration of a loop and evaluates the boolean expression controlling the loop. The <a href="#code-section-35">code section 3.35</a> is an example of the <code>continue</code> statement in action:</p> 
+<table style="width: 100%;"> 
+ <tbody> 
+  <tr> 
+   <td valign="top"> 
+    <table style="padding:2px; margin:2px;"> 
+     <tbody> 
+      <tr valign="top"> 
+       <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+       <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><span id="code-section-35"><b>Code section 3.35: A <code>for</code> loop with a skipped iteration.</b></span> 
+        <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+         <pre>
+<span class="lineno">1 </span><span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">10</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+<span class="lineno">2 </span>    <span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">==</span> <span class="mi">5</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno">3 </span>        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Caught i == 5"</span><span class="o">);</span>
+<span class="lineno">4 </span>        <span class="k">continue</span><span class="o">;</span>
+<span class="lineno">5 </span>    <span class="o">}</span>
+<span class="lineno">6 </span>    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
+<span class="lineno">7 </span><span class="o">}</span>
+</pre> 
+        </div> </td> 
+      </tr> 
+     </tbody> 
+    </table> </td> 
+   <td valign="top"> 
+    <table style="padding:2px; margin:2px; width:100%;"> 
+     <tbody> 
+      <tr valign="top"> 
+       <td style="width:32px;"><img alt="Standard input or output" src="//upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/32px-Nuvola_apps_display.png" title="Standard input or output" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/48px-Nuvola_apps_display.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/64px-Nuvola_apps_display.png 2x" data-file-width="128" data-file-height="128" /></td> 
+       <td style="background-color:#f0f0ff; border-left: 4px solid blue; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><b>Output for code section 3.35</b> <pre style="background-color:black; color:white;">
+1
+2
+3
+4
+Caught i == 5
+6
+7
+8
+9
+10
+</pre></td> 
+      </tr> 
+     </tbody> 
+    </table> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>As the <code>break</code> and <code>continue</code> statements reduce the readability of the code, it is recommended to reduce their use or replace them with the use of <code>if</code> and <code>while</code> blocks. Some IDE refactoring operations will fail because of such statements.</p> 
+<div class="collapsible" style="width:100%; clear:both; border:none;"> 
+ <div class="title" style="background:transparent; text-align:left; background:#cedff2;border:1px solid lightgrey;">
+   Test your knowledge 
+ </div> 
+ <div class="body" style="background:transparent; text-align:left; background:#e7eff9;border:solid 1px lightgrey;padding:8px;"> 
+  <p><b>Question 3.2</b>: Consider the following code:</p> 
+  <table style="padding:2px; margin:2px;"> 
+   <tbody> 
+    <tr valign="top"> 
+     <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+     <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><span id="question-2"><b>Question 3.2: Loops and conditions.</b></span> 
+      <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+       <pre>
+<span class="lineno"> 1 </span><span class="kt">int</span> <span class="n">numberOfItems</span> <span class="o">=</span> <span class="mi">5</span><span class="o">;</span>
+<span class="lineno"> 2 </span><span class="kt">int</span> <span class="n">currentItems</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+<span class="lineno"> 3 </span><span class="kt">int</span> <span class="n">currentCandidate</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+<span class="lineno"> 4 </span>
+<span class="lineno"> 5 </span><span class="k">while</span> <span class="o">(</span><span class="n">currentItems</span> <span class="o">&lt;</span> <span class="n">numberOfItems</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno"> 6 </span>  <span class="n">currentCandidate</span> <span class="o">=</span> <span class="n">currentCandidate</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
+<span class="lineno"> 7 </span>  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test with integer: "</span> <span class="o">+</span> <span class="n">currentCandidate</span><span class="o">);</span>
+<span class="lineno"> 8 </span> 
+<span class="lineno"> 9 </span>  <span class="kt">boolean</span> <span class="n">found</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+<span class="lineno">10 </span>  <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">currentCandidate</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span><span class="o">--)</span> <span class="o">{</span>
+<span class="lineno">11 </span>   
+<span class="lineno">12 </span>    <span class="c1">// Test if i is a divisor of currentCandidate</span>
+<span class="lineno">13 </span>    <span class="k">if</span> <span class="o">((</span><span class="n">currentCandidate</span> <span class="o">%</span> <span class="n">i</span><span class="o">)</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno">14 </span>      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Not matching..."</span><span class="o">);</span>
+<span class="lineno">15 </span>      <span class="n">found</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+<span class="lineno">16 </span>      <span class="k">break</span><span class="o">;</span>
+<span class="lineno">17 </span>    <span class="o">}</span>
+<span class="lineno">18 </span>   
+<span class="lineno">19 </span>  <span class="o">}</span>
+<span class="lineno">20 </span> 
+<span class="lineno">21 </span>  <span class="k">if</span> <span class="o">(</span><span class="n">found</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno">22 </span>    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Matching!"</span><span class="o">);</span>
+<span class="lineno">23 </span>    <span class="n">currentItems</span> <span class="o">=</span> <span class="n">currentItems</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
+<span class="lineno">24 </span>  <span class="o">}</span>
+<span class="lineno">25 </span><span class="o">}</span>
+<span class="lineno">26 </span>
+<span class="lineno">27 </span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Find the value: "</span> <span class="o">+</span> <span class="n">currentCandidate</span><span class="o">);</span>
+</pre> 
+      </div> </td> 
+    </tr> 
+   </tbody> 
+  </table> 
+  <p>What will be printed in the standard output?</p> 
+  <div class="collapsible" style="width:100%; clear:both; border:none;"> 
+   <div class="title" style="background:transparent; text-align:left; background:#cedff2;border:1px solid lightgrey;">
+     Answer 
+   </div> 
+   <div class="body" style="background:transparent; text-align:left; background:#e7eff9;border:solid 1px lightgrey;padding:8px;"> 
+    <table style="padding:2px; margin:2px; width:100%;"> 
+     <tbody> 
+      <tr valign="top"> 
+       <td style="width:32px;"><img alt="Standard input or output" src="//upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/32px-Nuvola_apps_display.png" title="Standard input or output" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/48px-Nuvola_apps_display.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/64px-Nuvola_apps_display.png 2x" data-file-width="128" data-file-height="128" /></td> 
+       <td style="background-color:#f0f0ff; border-left: 4px solid blue; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><b>Output for Question 3.2</b> <pre style="background-color:black; color:white;">
+Test with integer: 2
+Matching!
+Test with integer: 3
+Matching!
+Test with integer: 4
+Not matching...
+Test with integer: 5
+Matching!
+Test with integer: 6
+Not matching...
+Test with integer: 7
+Matching!
+Test with integer: 8
+Not matching...
+Test with integer: 9
+Not matching...
+Test with integer: 10
+Not matching...
+Test with integer: 11
+Matching!
+Find the value: 11
+</pre></td> 
+      </tr> 
+     </tbody> 
+    </table> 
+    <p>The snippet is searching the 5<sup>th</sup> <a href="//en.wikipedia.org/wiki/Prime_number" class="extiw" title="w:Prime number">prime number</a>, that is to say: 11. It iterates on each positive integer from 2 (2, 3, 4, 5, 6, 7, 8, 9, 10, 11...), among them, it counts the prime numbers (2, 3, 5, 7, 11) and it stops at the 5<sup>th</sup> one.</p> 
+    <p>So the snippet first iterates on each positive integer from 2 using the <code>while</code> loop:</p> 
+    <table style="padding:2px; margin:2px;"> 
+     <tbody> 
+      <tr valign="top"> 
+       <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+       <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><span id="answer-2-1"><b>Answer 3.2.1: <code>while</code> loop.</b></span> 
+        <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+         <pre>
+<span class="lineno"> 1 </span><span class="kt">int</span> <span class="n">numberOfItems</span> <span class="o">=</span> <span class="mi">5</span><span class="o">;</span>
+<span class="lineno"> 2 </span><span class="kt">int</span> <span class="n">currentItems</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+<span class="lineno"> 3 </span><span class="kt">int</span> <span class="n">currentCandidate</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+<span class="lineno"> 4 </span>
+<span class="lineno"> 5 </span><span class="k">while</span> <span class="o">(</span><span class="n">currentItems</span> <span class="o">&lt;</span> <span class="n">numberOfItems</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno"> 6 </span><span class="hll">  <span class="n">currentCandidate</span> <span class="o">=</span> <span class="n">currentCandidate</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
+</span><span class="lineno"> 7 </span><span class="hll">  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test with integer: "</span> <span class="o">+</span> <span class="n">currentCandidate</span><span class="o">);</span>
+</span><span class="lineno"> 8 </span><span class="hll"> 
+</span><span class="lineno"> 9 </span><span class="hll">  <span class="kt">boolean</span> <span class="n">found</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+</span><span class="lineno">10 </span><span class="hll">  <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">currentCandidate</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span><span class="o">--)</span> <span class="o">{</span>
+</span><span class="lineno">11 </span><span class="hll">   
+</span><span class="lineno">12 </span><span class="hll">    <span class="c1">// Test if i is a divisor of currentCandidate</span>
+</span><span class="lineno">13 </span><span class="hll">    <span class="k">if</span> <span class="o">((</span><span class="n">currentCandidate</span> <span class="o">%</span> <span class="n">i</span><span class="o">)</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+</span><span class="lineno">14 </span><span class="hll">      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Not matching..."</span><span class="o">);</span>
+</span><span class="lineno">15 </span><span class="hll">      <span class="n">found</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+</span><span class="lineno">16 </span><span class="hll">      <span class="k">break</span><span class="o">;</span>
+</span><span class="lineno">17 </span><span class="hll">    <span class="o">}</span>
+</span><span class="lineno">18 </span><span class="hll">   
+</span><span class="lineno">19 </span><span class="hll">  <span class="o">}</span>
+</span><span class="lineno">20 </span><span class="hll"> 
+</span><span class="lineno">21 </span><span class="hll">  <span class="k">if</span> <span class="o">(</span><span class="n">found</span><span class="o">)</span> <span class="o">{</span>
+</span><span class="lineno">22 </span><span class="hll">    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Matching!"</span><span class="o">);</span>
+</span><span class="lineno">23 </span><span class="hll">    <span class="n">currentItems</span> <span class="o">=</span> <span class="n">currentItems</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
+</span><span class="lineno">24 </span><span class="hll">  <span class="o">}</span>
+</span><span class="lineno">25 </span><span class="o">}</span>
+<span class="lineno">26 </span>
+<span class="lineno">27 </span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Find the value: "</span> <span class="o">+</span> <span class="n">currentCandidate</span><span class="o">);</span>
+</pre> 
+        </div> </td> 
+      </tr> 
+     </tbody> 
+    </table> 
+    <p>For each iteration, the current number is either a prime number or not. If it is a prime number, the code at the left will be executed. If it is not a prime number, the code at the right will be executed.</p> 
+    <table style="width: 100%;"> 
+     <tbody> 
+      <tr> 
+       <td> 
+        <table style="padding:2px; margin:2px;"> 
+         <tbody> 
+          <tr valign="top"> 
+           <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+           <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><span id="answer-2-2"><b>Answer 3.2.2: A prime number.</b></span> 
+            <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+             <pre>
+<span class="lineno"> 1 </span><span class="kt">int</span> <span class="n">numberOfItems</span> <span class="o">=</span> <span class="mi">5</span><span class="o">;</span>
+<span class="lineno"> 2 </span><span class="kt">int</span> <span class="n">currentItems</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+<span class="lineno"> 3 </span><span class="kt">int</span> <span class="n">currentCandidate</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+<span class="lineno"> 4 </span>
+<span class="lineno"> 5 </span><span class="k">while</span> <span class="o">(</span><span class="n">currentItems</span> <span class="o">&lt;</span> <span class="n">numberOfItems</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno"> 6 </span><span class="hll">  <span class="n">currentCandidate</span> <span class="o">=</span> <span class="n">currentCandidate</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
+</span><span class="lineno"> 7 </span><span class="hll">  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test with integer: "</span> <span class="o">+</span> <span class="n">currentCandidate</span><span class="o">);</span>
+</span><span class="lineno"> 8 </span><span class="hll"> 
+</span><span class="lineno"> 9 </span><span class="hll">  <span class="kt">boolean</span> <span class="n">found</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+</span><span class="lineno">10 </span><span class="hll">  <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">currentCandidate</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span><span class="o">--)</span> <span class="o">{</span>
+</span><span class="lineno">11 </span><span class="hll">   
+</span><span class="lineno">12 </span><span class="hll">    <span class="c1">// Test if i is a divisor of currentCandidate</span>
+</span><span class="lineno">13 </span><span class="hll">    <span class="k">if</span> <span class="o">((</span><span class="n">currentCandidate</span> <span class="o">%</span> <span class="n">i</span><span class="o">)</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+</span><span class="lineno">14 </span>      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Not matching..."</span><span class="o">);</span>
+<span class="lineno">15 </span>      <span class="n">found</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+<span class="lineno">16 </span>      <span class="k">break</span><span class="o">;</span>
+<span class="lineno">17 </span>    <span class="o">}</span>
+<span class="lineno">18 </span><span class="hll">   
+</span><span class="lineno">19 </span><span class="hll">  <span class="o">}</span>
+</span><span class="lineno">20 </span><span class="hll"> 
+</span><span class="lineno">21 </span><span class="hll">  <span class="k">if</span> <span class="o">(</span><span class="n">found</span><span class="o">)</span> <span class="o">{</span>
+</span><span class="lineno">22 </span><span class="hll">    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Matching!"</span><span class="o">);</span>
+</span><span class="lineno">23 </span><span class="hll">    <span class="n">currentItems</span> <span class="o">=</span> <span class="n">currentItems</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
+</span><span class="lineno">24 </span><span class="hll">  <span class="o">}</span>
+</span><span class="lineno">25 </span><span class="o">}</span>
+<span class="lineno">26 </span>
+<span class="lineno">27 </span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Find the value: "</span> <span class="o">+</span> <span class="n">currentCandidate</span><span class="o">);</span>
+</pre> 
+            </div> </td> 
+          </tr> 
+         </tbody> 
+        </table> </td> 
+       <td> 
+        <table style="padding:2px; margin:2px;"> 
+         <tbody> 
+          <tr valign="top"> 
+           <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+           <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><span id="answer-2-3"><b>Answer 3.2.3: Not a prime number.</b></span> 
+            <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+             <pre>
+<span class="lineno"> 1 </span><span class="kt">int</span> <span class="n">numberOfItems</span> <span class="o">=</span> <span class="mi">5</span><span class="o">;</span>
+<span class="lineno"> 2 </span><span class="kt">int</span> <span class="n">currentItems</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+<span class="lineno"> 3 </span><span class="kt">int</span> <span class="n">currentCandidate</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+<span class="lineno"> 4 </span>
+<span class="lineno"> 5 </span><span class="k">while</span> <span class="o">(</span><span class="n">currentItems</span> <span class="o">&lt;</span> <span class="n">numberOfItems</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno"> 6 </span><span class="hll">  <span class="n">currentCandidate</span> <span class="o">=</span> <span class="n">currentCandidate</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
+</span><span class="lineno"> 7 </span><span class="hll">  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test with integer: "</span> <span class="o">+</span> <span class="n">currentCandidate</span><span class="o">);</span>
+</span><span class="lineno"> 8 </span><span class="hll"> 
+</span><span class="lineno"> 9 </span><span class="hll">  <span class="kt">boolean</span> <span class="n">found</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+</span><span class="lineno">10 </span><span class="hll">  <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">currentCandidate</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span><span class="o">--)</span> <span class="o">{</span>
+</span><span class="lineno">11 </span><span class="hll">   
+</span><span class="lineno">12 </span><span class="hll">    <span class="c1">// Test if i is a divisor of currentCandidate</span>
+</span><span class="lineno">13 </span><span class="hll">    <span class="k">if</span> <span class="o">((</span><span class="n">currentCandidate</span> <span class="o">%</span> <span class="n">i</span><span class="o">)</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+</span><span class="lineno">14 </span><span class="hll">      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Not matching..."</span><span class="o">);</span>
+</span><span class="lineno">15 </span><span class="hll">      <span class="n">found</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+</span><span class="lineno">16 </span><span class="hll">      <span class="k">break</span><span class="o">;</span>
+</span><span class="lineno">17 </span><span class="hll">    <span class="o">}</span>
+</span><span class="lineno">18 </span><span class="hll">   
+</span><span class="lineno">19 </span><span class="hll">  <span class="o">}</span>
+</span><span class="lineno">20 </span><span class="hll"> 
+</span><span class="lineno">21 </span><span class="hll">  <span class="k">if</span> <span class="o">(</span><span class="n">found</span><span class="o">)</span> <span class="o">{</span>
+</span><span class="lineno">22 </span>    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Matching!"</span><span class="o">);</span>
+<span class="lineno">23 </span>    <span class="n">currentItems</span> <span class="o">=</span> <span class="n">currentItems</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
+<span class="lineno">24 </span>  <span class="o">}</span>
+<span class="lineno">25 </span><span class="o">}</span>
+<span class="lineno">26 </span>
+<span class="lineno">27 </span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Find the value: "</span> <span class="o">+</span> <span class="n">currentCandidate</span><span class="o">);</span>
+</pre> 
+            </div> </td> 
+          </tr> 
+         </tbody> 
+        </table> </td> 
+      </tr> 
+     </tbody> 
+    </table> 
+    <p>The prime numbers are counted using <code>currentItems</code>. When <code>currentItems</code> is equal to <code>numberOfItems</code> (5), the program go out of the <code>while</code> loop. <code>currentCandidate</code> contains the last number, that is to say the 5<sup>th</sup> prime number:</p> 
+    <table style="padding:2px; margin:2px;"> 
+     <tbody> 
+      <tr valign="top"> 
+       <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+       <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><span id="answer-2-4"><b>Answer 3.2.4: End of the program.</b></span> 
+        <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+         <pre>
+<span class="lineno"> 1 </span><span class="kt">int</span> <span class="n">numberOfItems</span> <span class="o">=</span> <span class="mi">5</span><span class="o">;</span>
+<span class="lineno"> 2 </span><span class="kt">int</span> <span class="n">currentItems</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+<span class="lineno"> 3 </span><span class="kt">int</span> <span class="n">currentCandidate</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+<span class="lineno"> 4 </span>
+<span class="lineno"> 5 </span><span class="hll"><span class="k">while</span> <span class="o">(</span><span class="n">currentItems</span> <span class="o">&lt;</span> <span class="n">numberOfItems</span><span class="o">)</span> <span class="o">{</span>
+</span><span class="lineno"> 6 </span>  <span class="n">currentCandidate</span> <span class="o">=</span> <span class="n">currentCandidate</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
+<span class="lineno"> 7 </span>  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Test with integer: "</span> <span class="o">+</span> <span class="n">currentCandidate</span><span class="o">);</span>
+<span class="lineno"> 8 </span> 
+<span class="lineno"> 9 </span>  <span class="kt">boolean</span> <span class="n">found</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+<span class="lineno">10 </span>  <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">currentCandidate</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span><span class="o">--)</span> <span class="o">{</span>
+<span class="lineno">11 </span>   
+<span class="lineno">12 </span>    <span class="c1">// Test if i is a divisor of currentCandidate</span>
+<span class="lineno">13 </span>    <span class="k">if</span> <span class="o">((</span><span class="n">currentCandidate</span> <span class="o">%</span> <span class="n">i</span><span class="o">)</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno">14 </span>      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Not matching..."</span><span class="o">);</span>
+<span class="lineno">15 </span>      <span class="n">found</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+<span class="lineno">16 </span>      <span class="k">break</span><span class="o">;</span>
+<span class="lineno">17 </span>    <span class="o">}</span>
+<span class="lineno">18 </span>   
+<span class="lineno">19 </span>  <span class="o">}</span>
+<span class="lineno">20 </span> 
+<span class="lineno">21 </span>  <span class="k">if</span> <span class="o">(</span><span class="n">found</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno">22 </span>    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Matching!"</span><span class="o">);</span>
+<span class="lineno">23 </span>    <span class="n">currentItems</span> <span class="o">=</span> <span class="n">currentItems</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
+<span class="lineno">24 </span>  <span class="o">}</span>
+<span class="lineno">25 </span><span class="o">}</span>
+<span class="lineno">26 </span><span class="hll">
+</span><span class="lineno">27 </span><span class="hll"><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Find the value: "</span> <span class="o">+</span> <span class="n">currentCandidate</span><span class="o">);</span>
+</span>
+</pre> 
+        </div> </td> 
+      </tr> 
+     </tbody> 
+    </table> 
+   </div> 
+  </div> 
+ </div> 
+</div>

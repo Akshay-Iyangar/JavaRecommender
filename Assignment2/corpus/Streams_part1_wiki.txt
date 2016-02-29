@@ -1,0 +1,76 @@
+<p>Input streams acquire bytes for our programmed java application/program (e.g. a file, an array, a keyboard or monitor, etc.). <code>InputStream</code> is an abstract class that represents a source of byte data. It has a <code>read()</code> method, which returns the next byte in the stream and a <code>close()</code> method, which should be called by a program when that program is done with the stream. The <code>read()</code> method is overloaded, and can take a byte array to read to. It has a <code>skip()</code> method that can skip a number of bytes, and an <code>available()</code> method that a program can use to determine the number of bytes immediately available to be read, as not all the data is necessarily ready immediately. As an abstract class, it cannot be instantiated, but describes the general behavior of an input stream. A few examples of concrete subclasses would be <code>ByteArrayInputStream</code>, which reads from a byte array, and <code>FileInputStream</code>, which reads byte data from a file.</p> 
+<p>In the <a href="#code-listing-1">following example</a>, we print "Hello world!" on the screen several times. The number of times the message is printed is stored in a file named <code>source.txt</code>. This file should only contain a integer and should be placed in the same folder of the <code>ConfiguredApplication</code> class.</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Computer code" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/32px-Gnome-settings-accessibility-keyboard.svg.png" title="Computer code" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/48px-Gnome-settings-accessibility-keyboard.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/64px-Gnome-settings-accessibility-keyboard.svg.png 2x" data-file-width="60" data-file-height="60" /></td> 
+   <td style="background-color:#ffeee0; border-left: 4px solid orange; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><span id="code-listing-1"><b>Code listing 9.1: Example of input stream.</b></span> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno"> 1 </span><span class="kn">import</span> <span class="nn">java.io.File</span><span class="o">;</span>
+<span class="lineno"> 2 </span><span class="kn">import</span> <span class="nn">java.io.FileInputStream</span><span class="o">;</span>
+<span class="lineno"> 3 </span> 
+<span class="lineno"> 4 </span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ConfiguredApplication</span> <span class="o">{</span>
+<span class="lineno"> 5 </span> 
+<span class="lineno"> 6 </span>  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+<span class="lineno"> 7 </span> 
+<span class="lineno"> 8 </span>    <span class="c1">// Data reading</span>
+<span class="lineno"> 9 </span>    <span class="n">File</span> <span class="n">file</span> <span class="o">=</span> <span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="s">"source.txt"</span><span class="o">);</span>
+<span class="lineno">10 </span>    <span class="n">FileInputStream</span> <span class="n">stream</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FileInputStream</span><span class="o">(</span><span class="n">file</span><span class="o">);</span>
+<span class="lineno">11 </span> 
+<span class="lineno">12 </span>    <span class="n">StringBuffer</span> <span class="n">buffer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringBuffer</span><span class="o">();</span>
+<span class="lineno">13 </span> 
+<span class="lineno">14 </span>    <span class="kt">int</span> <span class="n">character</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+<span class="lineno">15 </span>    <span class="k">while</span> <span class="o">((</span><span class="n">character</span> <span class="o">=</span> <span class="n">stream</span><span class="o">.</span><span class="na">read</span><span class="o">())</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno">16 </span>      <span class="n">buffer</span><span class="o">.</span><span class="na">append</span><span class="o">((</span><span class="kt">char</span><span class="o">)</span> <span class="n">character</span><span class="o">);</span>
+<span class="lineno">17 </span>    <span class="o">}</span>
+<span class="lineno">18 </span> 
+<span class="lineno">19 </span>    <span class="n">stream</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+<span class="lineno">20 </span> 
+<span class="lineno">21 </span>    <span class="c1">// Data use</span>
+<span class="lineno">22 </span>    <span class="n">Integer</span> <span class="n">readInteger</span> <span class="o">=</span> <span class="n">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">buffer</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
+<span class="lineno">23 </span>    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">readInteger</span> <span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+<span class="lineno">24 </span>      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Hello world!"</span><span class="o">);</span>
+<span class="lineno">25 </span>    <span class="o">}</span>
+<span class="lineno">26 </span>  <span class="o">}</span>
+<span class="lineno">27 </span><span class="o">}</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>The <code>close()</code> method is not always mandatory but can avoid some inter-process concurrency conflicts. However if it occurs before a <code>read()</code> or <code>write()</code> (in the same process) they return the warning <code>Stream closed</code>.</p> 
+<p>The class start to identify the filename with a <code>File</code> object. The <code>File</code> object is used by an input stream as the source of the stream. We create a buffer and a character to prepare the data loading. The buffer will contain all the file content and the character will temporary contain each character present in the file, one after one. This is done <code>while{}</code>in the loop. Each iteration of the loop will copy a character from the stream to the buffer. The loop ends when no more character is present in the stream. Then we close the stream. The last part of the code use the data we have loaded in from the file. It is transformed into string and then into an integer (so the data must be an integer). If it works, the integer is used to determine the number of time we print "Hello world!" on the screen. No try/catch block has been defined for readability but the thrown exceptions should be caught.</p> 
+<p>Let's try with the following source file:</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Computer code" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/32px-Gnome-settings-accessibility-keyboard.svg.png" title="Computer code" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/48px-Gnome-settings-accessibility-keyboard.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/64px-Gnome-settings-accessibility-keyboard.svg.png 2x" data-file-width="60" data-file-height="60" /></td> 
+   <td style="background-color:#ffeee0; border-left: 4px solid orange; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><b>Code listing 9.2: source.txt</b> <p>4</p> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>We should obtain this:</p> 
+<table style="padding:2px; margin:2px; width:100%;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Standard input or output" src="//upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/32px-Nuvola_apps_display.png" title="Standard input or output" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/48px-Nuvola_apps_display.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/64px-Nuvola_apps_display.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0f0ff; border-left: 4px solid blue; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><b>Output for ConfiguredApplication</b> <pre style="background-color:#000; color:#fff;">
+$ java ConfiguredApplication
+Hello world!
+Hello world!
+Hello world!
+Hello world!
+</pre></td> 
+  </tr> 
+ </tbody> 
+</table> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td><a href="/wiki/File:Nuvola_apps_important.svg" class="image" title="Warning"><img alt="Warning" src="//upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Nuvola_apps_important.svg/32px-Nuvola_apps_important.svg.png" width="32" height="27" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Nuvola_apps_important.svg/48px-Nuvola_apps_important.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Nuvola_apps_important.svg/64px-Nuvola_apps_important.svg.png 2x" data-file-width="600" data-file-height="500" /></a></td> 
+   <td style="background-color:#fff0f0; border-left: 4px solid red; padding-left: 6px;">If it shows a <code>FileNotFoundException</code> or an <code>IOException</code>, the source may not be placed in the right folder or its name is badly spelled.<br> If it shows a <code>NumberFormatException</code>, the content of the file may not be an integer.</br></td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>There is also <code>Reader</code> which is an abstract class that represents a source of character data. It is analogous to <code>InputStream</code>, except that it deals with characters instead of bytes (remember that Java uses Unicode, so that a character is 2 bytes, not one). Its methods are generally similar to those of <code>InputStream</code>. Concrete subclasses include classes like <code>FileReader</code>, which reads characters from files, and <code>StringReader</code>, which reads characters from strings. You can also convert an <code>InputStream</code> object to a Reader object with the <code>InputStreamReader</code> class, which can be "wrapped around" an <code>InputStream</code> object (by passing it as an argument in its constructor). It uses a character encoding scheme (which can be changed by the programmer) to translate a byte into a 16-bit Unicode character.</p>

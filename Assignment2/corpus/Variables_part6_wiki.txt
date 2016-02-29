@@ -1,0 +1,36 @@
+<p>Although <a href="//en.wikipedia.org/wiki/Address_space" class="extiw" title="w:Address space">memory spaces</a> have their own addresses — usually a hash number such as <code>0xCAD3</code>, etc. — it is much easier to remember a variable's location in the memory if we can give it a recognizable name. <b>Identifiers</b> are the names we give to our variables. You can name your variable anything like <code>aVariable</code>, <code>someVariable</code>, <code>age</code>, <code>someonesImportantData</code>, etcetera. But notice: none of the names we described here has a space within it. Hence, it is pretty obvious that spaces aren't allowed in variable names. In fact, there are a lot of other things that are not allowed in variable names. The things that <i>are</i> allowed are:</p> 
+<ul> 
+ <li>Characters <code>A</code> to <code>Z</code> and their lower-case counterparts <code>a</code> to <code>z</code>.</li> 
+ <li>Numbers <code>0</code> to <code>9</code>. However, numbers should not come at the beginning of a variable's name.</li> 
+ <li>And finally, special characters that include only <code>$</code> (dollar sign) and <code>_</code> (underscore).</li> 
+</ul> 
+<div class="collapsible" style="width:100%; clear:both; border:none;"> 
+ <div class="title" style="background:transparent; text-align:left; background:#cedff2;border:1px solid lightgrey;">
+   Test your knowledge 
+ </div> 
+ <div class="body" style="background:transparent; text-align:left; background:#e7eff9;border:solid 1px lightgrey;padding:8px;"> 
+  <p><b>Question 3.6</b>: Which of the ones below are proper variable identifiers?</p> 
+  <ol> 
+   <li><code>f_name</code></li> 
+   <li><code>lastname</code></li> 
+   <li><code>someones name</code></li> 
+   <li><code>$SomeoneElsesName</code></li> 
+   <li><code>7days</code></li> 
+   <li><code>TheAnswerIs42</code></li> 
+  </ol> 
+  <div class="collapsible" style="width:100%; clear:both; border:none;"> 
+   <div class="title" style="background:transparent; text-align:left; background:#cedff2;border:1px solid lightgrey;">
+     Answer 
+   </div> 
+   <div class="body" style="background:transparent; text-align:left; background:#e7eff9;border:solid 1px lightgrey;padding:8px;"> 
+    <p>I can tell you that 3 and 5 are not the right way to do things around here, the rest are proper identifiers.</p> 
+   </div> 
+  </div> 
+ </div> 
+</div> 
+<p>Any valid variable names might be correct but they are not always what you should be naming your variables for a few reasons as listed below:</p> 
+<ul> 
+ <li>The name of the variable should reflect the value within them.</li> 
+ <li>The identifier should be named following the naming guidelines or conventions for doing so. We will explain that in a bit.</li> 
+ <li>The identifier shouldn't be a nonsense name like <code>lname</code>, you should always name it properly: <code>lastName</code> is the best way of naming a variable.</li> 
+</ul>

@@ -1,0 +1,52 @@
+<p>The Java Runtime Environment (JRE) is necessary to execute Java programs. To check which version of JRE you have, follow the steps below.</p> 
+<table style="padding-left:1.5em;"> 
+ <tbody> 
+  <tr> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td valign="top">1.</td> 
+   <td>Open the <b>Terminal</b> window.</td> 
+  </tr> 
+  <tr> 
+   <td valign="top">2.</td> 
+   <td>Type the following command: 
+    <table style="padding:2px; margin:2px; width:100%;"> 
+     <tbody> 
+      <tr valign="top"> 
+       <td style="width:32px;"><img alt="Standard input or output" src="//upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/32px-Nuvola_apps_display.png" title="Standard input or output" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/48px-Nuvola_apps_display.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/64px-Nuvola_apps_display.png 2x" data-file-width="128" data-file-height="128" /></td> 
+       <td style="background-color:#f0f0ff; border-left: 4px solid blue; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><b>JRE availability check</b> <pre style="background-color:#000; color:#fff;">
+java -version
+</pre></td> 
+      </tr> 
+     </tbody> 
+    </table> <p>If you get something like this:</p> 
+    <table style="padding:2px; margin:2px; width:100%;"> 
+     <tbody> 
+      <tr valign="top"> 
+       <td style="width:32px;"><img alt="Standard input or output" src="//upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/32px-Nuvola_apps_display.png" title="Standard input or output" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/48px-Nuvola_apps_display.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/64px-Nuvola_apps_display.png 2x" data-file-width="128" data-file-height="128" /></td> 
+       <td style="background-color:#f0f0ff; border-left: 4px solid blue; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><b>Output on a particular Kubuntu 12.10 installation</b> <pre style="background-color:#000; color:#fff;">
+java version "1.7.0_09"
+OpenJDK Runtime Environment (IcedTea7 2.3.3) (7u9-2.3.3-0ubuntu1~12.10.1)
+OpenJDK Client VM (build 23.2-b09, mixed mode, sharing)
+</pre></td> 
+      </tr> 
+     </tbody> 
+    </table> <p>... then a JRE is installed. If you get an error, such as:</p> 
+    <table style="padding:2px; margin:2px; width:100%;"> 
+     <tbody> 
+      <tr valign="top"> 
+       <td style="width:32px;"><img alt="Standard input or output" src="//upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/32px-Nuvola_apps_display.png" title="Standard input or output" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/48px-Nuvola_apps_display.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/64px-Nuvola_apps_display.png 2x" data-file-width="128" data-file-height="128" /></td> 
+       <td style="background-color:#f0f0ff; border-left: 4px solid blue; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><b>Output error</b> <pre style="background-color:#000; color:#fff;">
+java: command not found
+</pre></td> 
+      </tr> 
+     </tbody> 
+    </table> <p>... then the JDK may not be installed or it may not be in your path.</p> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>You may have other versions of Java installed; this command will only show the first in your PATH. You will be made familiar with the PATH environment variable later in this text. For now, if you have no idea what this is all about, read through towards the end and we will provide you with a step-by-step guide on how to set your own environment variables.</p> 
+<p>You can use your system's file search utilities to see if there is a <code>javac</code> executable installed. If it is, and it is a recent enough version, you should put the <code>bin</code> directory that contains <code>javac</code> in your system path. The Java runtime, <code>java</code>, is often in the same <code>bin</code> directory.</p> 
+<p>If the installed version is older (i.e. it is Java 5 and you wish to use the more recent Java 7 release), you should proceed below with downloading and installing a JDK.</p> 
+<p>It is possible that you have the Java runtime (JRE), but not the JDK. In that case the <code>javac</code> program won't be found, but the <code>java -version</code> will print the JRE version number.</p>

@@ -1,0 +1,41 @@
+<p>In the previous section we mentioned that an event notification method usually takes a single argument. This is the preferred convention, but the specification does allow for exceptions to this rule if the application really needs that exception. A typical case for an exception is when the event notification must be sent across the network to a remote system though non-Java means, like the <a href="//en.wikipedia.org/wiki/CORBA" class="extiw" title="w:CORBA">CORBA</a> standard. In this case it is required to have multiple arguments and the Event Model allows for that. However, as a general rule the correct format for a notification method is</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><b>Code section 1.1: Simple notification method</b> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">specificEventDescription</span><span class="o">(</span><span class="n">Event_type</span> <span class="n">evt</span><span class="o">)</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>Another thing we mentioned earlier is that, as a general rule, the Event Model allows many event listeners to register with a single event source for the same event. In this case the event source must broadcast any relevant events to all the registered listeners. However, once again the Event Model specification allows for an exception to the rule. If it is necessary from a design point of view you may limit an event source to registering a single listener; this is called <i>unicast event listener registration</i>. When unicast registration is used, the registration method must be declared to throw the <code>java.util.TooManyListenersException</code> exception if too many listeners are registered:</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><b>Code section 1.2: Listener registration</b> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="kd">public</span> <span class="kt">void</span> <span class="n">add</span><span class="o">&lt;</span><span class="n">Event_type</span><span class="o">&gt;</span><span class="n">Listener</span><span class="o">(&lt;</span><span class="n">Event_type</span><span class="o">&gt;</span><span class="n">Listener</span> <span class="n">listener</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">java</span><span class="o">.</span><span class="na">util</span><span class="o">.</span><span class="na">TooManyListenersException</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<div class="center"> 
+ <div class="thumb tnone"> 
+  <div class="thumbinner" style="width:602px;"> 
+   <a href="/wiki/File:JavaEventModelUsingAnAdaptor.jpg" class="image"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/1/1d/JavaEventModelUsingAnAdaptor.jpg/600px-JavaEventModelUsingAnAdaptor.jpg" width="600" height="291" class="thumbimage" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/1/1d/JavaEventModelUsingAnAdaptor.jpg/900px-JavaEventModelUsingAnAdaptor.jpg 1.5x, //upload.wikimedia.org/wikipedia/commons/1/1d/JavaEventModelUsingAnAdaptor.jpg 2x" data-file-width="1048" data-file-height="508" /></a> 
+   <div class="thumbcaption"> 
+    <div class="magnify"> 
+     <a href="/wiki/File:JavaEventModelUsingAnAdaptor.jpg" class="internal" title="Enlarge"></a> 
+    </div> An event adaptor in between the event source and the event listener. 
+   </div> 
+  </div> 
+ </div> 
+</div> 
+<p>Finally, the specification allows for one more extension: the event adaptor. An event adaptor is an implementation of an event listener interface that can be inserted between an event source and an actual event listener class. This is done by registering the adaptor with the event source object using the regular registration method. Adaptors are used to add additional functionality to the event handling mechanism, such as routing of event objects, event filtering or enriching of the event object before processing by an actual event handler class.</p>

@@ -1,0 +1,22 @@
+<div id="PageContent"> 
+ <p>The Java programming language also provides operators that perform bitwise and bit shift operations on integral types. The operators discussed in this section are less commonly used. Therefore, their coverage is brief; the intent is to simply make you aware that these operators exist.</p> 
+ <p>The unary bitwise complement operator "<code>~</code>" inverts a bit pattern; it can be applied to any of the integral types, making every "0" a "1" and every "1" a "0". For example, a <code>byte</code> contains 8 bits; applying this operator to a value whose bit pattern is "00000000" would change its pattern to "11111111".</p> 
+ <p>The signed left shift operator "<code>&lt;&lt;</code>" shifts a bit pattern to the left, and the signed right shift operator "<code>&gt;&gt;</code>" shifts a bit pattern to the right. The bit pattern is given by the left-hand operand, and the number of positions to shift by the right-hand operand. The unsigned right shift operator "<code>&gt;&gt;&gt;</code>" shifts a zero into the leftmost position, while the leftmost position after <code>"&gt;&gt;"</code> depends on sign extension.</p> 
+ <p>The bitwise <code>&amp;</code> operator performs a bitwise AND operation.</p> 
+ <p>The bitwise <code>^</code> operator performs a bitwise exclusive OR operation.</p> 
+ <p>The bitwise <code>|</code> operator performs a bitwise inclusive OR operation.</p> 
+ <p>The following program, <a class="SourceLink" target="_blank" href="examples/BitDemo.java" onclick="showCode('https://docs.oracle.com/javase/tutorial/displayCode.html', 'examples/BitDemo.java'); return false;"><code>BitDemo</code></a>, uses the bitwise AND operator to print the number "2" to standard output.</p> 
+ <div class="codeblock"> 
+  <pre>
+
+class BitDemo {
+    public static void main(String[] args) {
+        int bitmask = 0x000F;
+        int val = 0x2222;
+        // prints "2"
+        System.out.println(val &amp; bitmask);
+    }
+}
+</pre> 
+ </div> 
+</div>

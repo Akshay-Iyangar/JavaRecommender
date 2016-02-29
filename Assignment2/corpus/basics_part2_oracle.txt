@@ -1,0 +1,56 @@
+<p>In its simplest form, an annotation looks like the following:</p> 
+<div class="codeblock"> 
+ <pre>
+@Entity
+</pre> 
+</div> 
+<p> The at sign character (<code>@</code>) indicates to the compiler that what follows is an annotation. In the following example, the annotation's name is <code>Override</code>:</p> 
+<div class="codeblock"> 
+ <pre>
+@Override
+void mySuperMethod() { ... }
+</pre> 
+</div> 
+<p> The annotation can include <em>elements</em>, which can be named or unnamed, and there are values for those elements:</p> 
+<div class="codeblock"> 
+ <pre>
+@Author(
+   name = "Benjamin Franklin",
+   date = https://docs.oracle.com/javase/tutorial/2003"
+)
+class MyClass() { ... }
+</pre> 
+</div> 
+<p>or</p> 
+<div class="codeblock"> 
+ <pre>
+@SuppressWarnings(value = "unchecked")
+void myMethod() { ... }
+</pre> 
+</div> 
+<p>If there is just one element named <code>value</code>, then the name can be omitted, as in:</p> 
+<div class="codeblock"> 
+ <pre>
+@SuppressWarnings("unchecked")
+void myMethod() { ... }
+</pre> 
+</div> 
+<p> If the annotation has no elements, then the parentheses can be omitted, as shown in the previous <code>@Override</code> example.</p> 
+<p> It is also possible to use multiple annotations on the same declaration:</p> 
+<div class="codeblock"> 
+ <pre>
+@Author(name = "Jane Doe")
+@EBook
+class MyClass { ... }
+</pre> 
+</div> 
+<p> If the annotations have the same type, then this is called a repeating annotation:</p> 
+<div class="codeblock"> 
+ <pre>
+@Author(name = "Jane Doe")
+@Author(name = "John Smith")
+class MyClass { ... }
+</pre> 
+</div> 
+<p> Repeating annotations are supported as of the Java SE 8 release. For more information, see <a class="TutorialLink" target="_top" href="repeating.html">Repeating Annotations</a>.</p> 
+<p> The annotation type can be one of the types that are defined in the <code>java.lang</code> or <code>java.lang.annotation</code> packages of the Java SE API. In the previous examples, <code>Override</code> and <code>SuppressWarnings</code> are <a class="TutorialLink" target="_top" href="predefined.html">predefined Java annotations</a>. It is also possible to define your own annotation type. The <code>Author</code> and <code>Ebook</code> annotations in the previous example are custom annotation types.</p>

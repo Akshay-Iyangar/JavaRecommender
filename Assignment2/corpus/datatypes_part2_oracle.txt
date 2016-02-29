@@ -1,0 +1,47 @@
+<p>It's not always necessary to assign a value when a field is declared. Fields that are declared but not initialized will be set to a reasonable default by the compiler. Generally speaking, this default will be zero or <code>null</code>, depending on the data type. Relying on such default values, however, is generally considered bad programming style.</p> 
+<p>The following chart summarizes the default values for the above data types.</p> 
+<table border="1" summary="Default values for primitive types"> 
+ <tbody> 
+  <tr> 
+   <th id="h1" align="left"><strong>Data Type</strong></th> 
+   <th id="h2" align="left"><strong>Default Value (for fields)</strong></th> 
+  </tr> 
+  <tr> 
+   <td headers="h1">byte</td> 
+   <td headers="h2">0</td> 
+  </tr> 
+  <tr> 
+   <td headers="h1">short</td> 
+   <td headers="h2">0</td> 
+  </tr> 
+  <tr> 
+   <td headers="h1">int</td> 
+   <td headers="h2">0</td> 
+  </tr> 
+  <tr> 
+   <td headers="h1">long</td> 
+   <td headers="h2">0L</td> 
+  </tr> 
+  <tr> 
+   <td headers="h1">float</td> 
+   <td headers="h2">0.0f</td> 
+  </tr> 
+  <tr> 
+   <td headers="h1">double</td> 
+   <td headers="h2">0.0d</td> 
+  </tr> 
+  <tr> 
+   <td headers="h1">char</td> 
+   <td headers="h2">'\u0000'</td> 
+  </tr> 
+  <tr> 
+   <td headers="h1">String (or any object) &nbsp;</td> 
+   <td headers="h2">null</td> 
+  </tr> 
+  <tr> 
+   <td headers="h1">boolean</td> 
+   <td headers="h2">false</td> 
+  </tr> 
+ </tbody> 
+</table> 
+<br> <p>Local variables are slightly different; the compiler never assigns a default value to an uninitialized local variable. If you cannot initialize your local variable where it is declared, make sure to assign it a value before you attempt to use it. Accessing an uninitialized local variable will result in a compile-time error.</p> </br>

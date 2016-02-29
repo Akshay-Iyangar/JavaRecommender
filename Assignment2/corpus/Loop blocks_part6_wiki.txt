@@ -1,0 +1,58 @@
+<p>Labels can be used to give a name to a loop. The reason to do this is so we can break out of or continue with upper-level loops from a nested loop.</p> 
+<p>Here is how to label a loop:</p> 
+<table style="margin: auto;"> 
+ <tbody> 
+  <tr> 
+   <td><i><b>label name</b></i>:<i><b>loop</b></i></td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>To break out of or continue with a loop, use the <code>break</code> or <code>continue</code> keyword followed by the name of the loop.</p> 
+<p>For example:</p> 
+<table style="width: 100%;"> 
+ <tbody> 
+  <tr> 
+   <td valign="top"> 
+    <table style="padding:2px; margin:2px;"> 
+     <tbody> 
+      <tr valign="top"> 
+       <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+       <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><span id="code-section-36"><b>Code section 3.36: A double <code>for</code> loop.</b></span> 
+        <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+         <pre>
+<span class="lineno"> 1 </span><span class="kt">int</span> <span class="n">i</span><span class="o">,</span> <span class="n">j</span><span class="o">;</span>
+<span class="lineno"> 2 </span><span class="kt">int</span><span class="o">[][]</span> <span class="n">nums</span> <span class="o">=</span> <span class="o">{</span>
+<span class="lineno"> 3 </span>    <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">5</span><span class="o">},</span>
+<span class="lineno"> 4 </span>    <span class="o">{</span><span class="mi">6</span><span class="o">,</span> <span class="mi">9</span><span class="o">,</span> <span class="mi">7</span><span class="o">},</span>
+<span class="lineno"> 5 </span>    <span class="o">{</span><span class="mi">8</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">}</span>
+<span class="lineno"> 6 </span><span class="o">};</span>
+<span class="lineno"> 7 </span>
+<span class="lineno"> 8 </span><span class="hll"><span class="nl">Outer:</span>
+</span><span class="lineno"> 9 </span><span class="k">for</span> <span class="o">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+<span class="lineno">10 </span>    <span class="k">for</span> <span class="o">(</span><span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">].</span><span class="na">length</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
+<span class="lineno">11 </span>        <span class="k">if</span> <span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span> <span class="o">==</span> <span class="mi">9</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno">12 </span>            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Found number 9 at ("</span> <span class="o">+</span> <span class="n">i</span> <span class="o">+</span> <span class="s">", "</span> <span class="o">+</span> <span class="n">j</span> <span class="o">+</span> <span class="s">")"</span><span class="o">);</span>
+<span class="lineno">13 </span>            <span class="k">break</span> <span class="n">Outer</span><span class="o">;</span>
+<span class="lineno">14 </span>        <span class="o">}</span>
+<span class="lineno">15 </span>    <span class="o">}</span>
+<span class="lineno">16 </span><span class="o">}</span>
+</pre> 
+        </div> </td> 
+      </tr> 
+     </tbody> 
+    </table> </td> 
+   <td valign="top"> 
+    <table style="padding:2px; margin:2px; width:100%;"> 
+     <tbody> 
+      <tr valign="top"> 
+       <td style="width:32px;"><img alt="Standard input or output" src="//upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/32px-Nuvola_apps_display.png" title="Standard input or output" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/48px-Nuvola_apps_display.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/64px-Nuvola_apps_display.png 2x" data-file-width="128" data-file-height="128" /></td> 
+       <td style="background-color:#f0f0ff; border-left: 4px solid blue; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><b>Output for code section 3.36</b> <pre style="background-color:black; color:white;">
+Found number 9 at (1, 1)
+</pre></td> 
+      </tr> 
+     </tbody> 
+    </table> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>You needn't worry if you don't understand all the code, but look at how the label is used to break out of the outer loop from the inner loop. However, as such a code is hard to read and maintain, it is highly recommended not to use labels.</p>

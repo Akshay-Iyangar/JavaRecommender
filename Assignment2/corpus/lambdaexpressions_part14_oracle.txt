@@ -1,0 +1,60 @@
+<p>Like local and anonymous classes, lambda expressions can <a class="TutorialLink" target="_top" href="localclasses.html#accessing-members-of-an-enclosing-class">capture variables</a>; they have the same access to local variables of the enclosing scope. However, unlike local and anonymous classes, lambda expressions do not have any shadowing issues (see <a class="TutorialLink" target="_top" href="https://docs.oracle.com/javase/tutorial/java/javaOO/nested.html#shadowing">Shadowing</a> for more information). Lambda expressions are lexically scoped. This means that they do not inherit any names from a supertype or introduce a new level of scoping. Declarations in a lambda expression are interpreted just as they are in the enclosing environment. The following example, <a class="SourceLink" target="_blank" href="examples/LambdaScopeTest.java" onclick="showCode('https://docs.oracle.com/javase/tutorial/displayCode.html', 'examples/LambdaScopeTest.java'); return false;"><code>LambdaScopeTest</code></a>, demonstrates this:</p> 
+<pre class="codeblock">
+
+import java.util.function.Consumer;
+
+public class LambdaScopeTest {
+
+    public int x = 0;
+
+    class FirstLevel {
+
+        public int x = 1;
+
+        void methodInFirstLevel(int x) {
+            
+            // The following statement causes the compiler to generate
+            // the error "local variables referenced from a lambda expression
+            // must be final or effectively final" in statement A:
+            //
+            // x = 99;
+            
+            Consumer&lt;Integer&gt; myConsumer = (y) -&gt; 
+            {
+                System.out.println("x = " + x); // Statement A
+                System.out.println("y = " + y);
+                System.out.println("this.x = " + this.x);
+                System.out.println("LambdaScopeTest.this.x = " +
+                    LambdaScopeTest.this.x);
+            };
+
+            myConsumer.accept(x);
+
+        }
+    }
+
+    public static void main(String... args) {
+        LambdaScopeTest st = new LambdaScopeTest();
+        LambdaScopeTest.FirstLevel fl = st.new FirstLevel();
+        fl.methodInFirstLevel(23);
+    }
+}
+</pre> 
+<p>This example generates the following output:</p> 
+<pre class="codeblock">
+x = 23
+y = 23
+this.x = 1
+LambdaScopeTest.this.x = 0</pre> 
+<p>If you substitute the parameter <code>x</code> in place of <code>y</code> in the declaration of the lambda expression <code>myConsumer</code>, then the compiler generates an error:</p> 
+<pre class="codeblock">Consumer&lt;Integer&gt; myConsumer = (x) -&gt; {
+    // ...
+}</pre> 
+<p>The compiler generates the error "variable x is already defined in method methodInFirstLevel(int)" because the lambda expression does not introduce a new level of scoping. Consequently, you can directly access fields, methods, and local variables of the enclosing scope. For example, the lambda expression directly accesses the parameter <code>x</code> of the method <code>methodInFirstLevel</code>. To access variables in the enclosing class, use the keyword <code>this</code>. In this example, <code>this.x</code> refers to the member variable <code>FirstLevel.x</code>.</p> 
+<p>However, like local and anonymous classes, a lambda expression can only access local variables and parameters of the enclosing block that are final or effectively final. For example, suppose that you add the following assignment statement immediately after the <code>methodInFirstLevel</code> definition statement:</p> 
+<pre class="codeblock">void methodInFirstLevel(int x) {
+    <strong>x = 99;</strong>
+    // ...
+}</pre> 
+<p>Because of this assignment statement, the variable <code>FirstLevel.x</code> is not effectively final anymore. As a result, the Java compiler generates an error message similar to "local variables referenced from a lambda expression must be final or effectively final" where the lambda expression <code>myConsumer</code> tries to access the <code>FirstLevel.x</code> variable:</p> 
+<pre class="codeblock">System.out.println("x = " + x);</pre>

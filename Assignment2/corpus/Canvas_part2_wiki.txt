@@ -1,0 +1,56 @@
+<p><a href="#code-listing-1">Code listing 9.1</a> shows the simplicity and power of the syntax for enabling the graphics functions within Java. Lets begin by understanding what a <code style="border-bottom:dashed red 1px;">Canvas</code> class does. A <code style="border-bottom:dashed red 1px;">Canvas</code> class is a derivative or a sub-class of the <code style="border-bottom:dashed red 1px;">Component</code> class and when placed over a <code style="border-bottom:dashed red 1px;">Frame</code>, displays as a blank area.</p> 
+<p>For the purpose of drawing graphics, you may use any other class derived from the <code style="border-bottom:dashed red 1px;">Component</code> class, for instance, <code style="border-bottom:dashed red 1px;">JPanel</code> or even <code style="border-bottom:dashed red 1px;">JTextField</code> or <code style="border-bottom:dashed red 1px;">JButton</code>. Why we use the <code style="border-bottom:dashed red 1px;">Canvas</code> class is purely to grasp the idea of drawing in Java.</p> 
+<table class="notice notice-note noprint" style="background: #f2fff2; border: solid 1px #bfffbf; padding: 0.5em; width: 95%; margin: auto; vertical-align: top; -moz-border-radius:10px;"> 
+ <tbody> 
+  <tr> 
+   <td> <p><b>Note:</b><br> Notice the <code>J</code> before the names of each class. This suggests that the classes are part of the Java Swing library. Swing enables more freedom in drawing expressions in Java than AWT.</br></p> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>Let us refine the above code for the class to be executable and the Canvas to be displayed. For this we will add an entry-point method namely the <code style="border-bottom:dashed green 1px">main(String[])</code> method in its body and calling a <code style="border-bottom:dashed red 1px;">JFrame</code> class to load the canvas on.</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Computer code" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/32px-Gnome-settings-accessibility-keyboard.svg.png" title="Computer code" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/48px-Gnome-settings-accessibility-keyboard.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/64px-Gnome-settings-accessibility-keyboard.svg.png 2x" data-file-width="60" data-file-height="60" /></td> 
+   <td style="background-color:#ffeee0; border-left: 4px solid orange; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><span id="code-listing-2"><b>Code listing 9.2: Displaying a Canvas class atop a JFrame</b></span> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="kn">import</span> <span class="nn">java.awt.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.swing.*</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyCanvas</span> <span class="kd">extends</span> <span class="n">Canvas</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="nf">MyCanvas</span><span class="o">()</span> <span class="o">{</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">paint</span><span class="o">(</span><span class="n">Graphics</span> <span class="n">graphics</span><span class="o">)</span> <span class="o">{</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// We initialize our class here</span>
+        <span class="n">MyCanvas</span> <span class="n">canvas</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MyCanvas</span><span class="o">();</span>
+        <span class="n">JFrame</span> <span class="n">frame</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JFrame</span><span class="o">();</span>
+        <span class="n">frame</span><span class="o">.</span><span class="na">setSize</span><span class="o">(</span><span class="mi">400</span><span class="o">,</span> <span class="mi">400</span><span class="o">);</span>
+        <span class="n">frame</span><span class="o">.</span><span class="na">setDefaultCloseOperation</span><span class="o">(</span><span class="n">JFrame</span><span class="o">.</span><span class="na">EXIT_ON_CLOSE</span><span class="o">);</span>
+        <span class="c1">// Here we add it to the frame</span>
+        <span class="n">frame</span><span class="o">.</span><span class="na">getContentPane</span><span class="o">().</span><span class="na">add</span><span class="o">(</span><span class="n">canvas</span><span class="o">);</span>
+        <span class="n">frame</span><span class="o">.</span><span class="na">setVisible</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>The following code now helps our class to be executable and displays the canvas on top of the frame as it displays. Running this class would result in an empty frame, however it should be clear that the canvas is sitting atop it and is merely not displaying any drawings yet.</p> 
+<div class="center"> 
+ <div class="thumb tnone"> 
+  <div class="thumbinner" style="width:402px;"> 
+   <a href="/wiki/File:Java_programming_graphics_09_01.PNG" class="image"><img alt="" src="//upload.wikimedia.org/wikibooks/en/0/0b/Java_programming_graphics_09_01.PNG" width="400" height="400" class="thumbimage" data-file-width="400" data-file-height="400" /></a> 
+   <div class="thumbcaption"> 
+    <div class="magnify"> 
+     <a href="/wiki/File:Java_programming_graphics_09_01.PNG" class="internal" title="Enlarge"></a> 
+    </div> Figure 9.1: A blank canvas atop a JFrame 
+   </div> 
+  </div> 
+ </div> 
+</div>

@@ -1,0 +1,79 @@
+<p>Generic methods that include vararg input parameters can cause heap pollution.</p> 
+<p> Consider the following <tt>ArrayBuilder</tt> class:</p> 
+<div class="codeblock"> 
+ <pre>
+public class ArrayBuilder {
+
+  public static &lt;T&gt; void addToList (List&lt;T&gt; listArg, T... elements) {
+    for (T x : elements) {
+      listArg.add(x);
+    }
+  }
+
+  public static void faultyMethod(List&lt;String&gt;... l) {
+    Object[] objectArray = l;     // Valid
+    objectArray[0] = Arrays.asList(42);
+    String s = l[0].get(0);       // ClassCastException thrown here
+  }
+
+}
+</pre> 
+</div> 
+<p> The following example, <tt>HeapPollutionExample</tt> uses the <tt>ArrayBuiler</tt> class:</p> 
+<div class="codeblock"> 
+ <pre>
+public class HeapPollutionExample {
+
+  public static void main(String[] args) {
+
+    List&lt;String&gt; stringListA = new ArrayList&lt;String&gt;();
+    List&lt;String&gt; stringListB = new ArrayList&lt;String&gt;();
+
+    ArrayBuilder.addToList(stringListA, "Seven", "Eight", "Nine");
+    ArrayBuilder.addToList(stringListB, "Ten", "Eleven", "Twelve");
+    List&lt;List&lt;String&gt;&gt; listOfStringLists =
+      new ArrayList&lt;List&lt;String&gt;&gt;();
+    ArrayBuilder.addToList(listOfStringLists,
+      stringListA, stringListB);
+
+    ArrayBuilder.faultyMethod(Arrays.asList("Hello!"), Arrays.asList("World!"));
+  }
+}
+</pre> 
+</div> 
+<p> When compiled, the following warning is produced by the definition of the <tt>ArrayBuilder.addToList</tt> method:</p> 
+<div class="codeblock"> 
+ <pre>
+warning: [varargs] Possible heap pollution from parameterized vararg type T
+</pre> 
+</div> 
+<p>When the compiler encounters a varargs method, it translates the varargs formal parameter into an array. However, the Java programming language does not permit the creation of arrays of parameterized types. In the method <code>ArrayBuilder.addToList</code>, the compiler translates the varargs formal parameter <code>T... elements</code> to the formal parameter <code>T[] elements</code>, an array. However, because of type erasure, the compiler converts the varargs formal parameter to <code>Object[] elements</code>. Consequently, there is a possibility of heap pollution.</p> 
+<p> The following statement assigns the varargs formal parameter <code>l</code> to the <code>Object</code> array <code>objectArgs</code>:</p> 
+<div class="codeblock"> 
+ <pre>
+Object[] objectArray = l;
+</pre> 
+</div> 
+<p>This statement can potentially introduce heap pollution. A value that does match the parameterized type of the varargs formal parameter <code>l</code> can be assigned to the variable <code>objectArray</code>, and thus can be assigned to <code>l</code>. However, the compiler does not generate an unchecked warning at this statement. The compiler has already generated a warning when it translated the varargs formal parameter <code>List&lt;String&gt;... l</code> to the formal parameter <code>List[] l</code>. This statement is valid; the variable <code>l</code> has the type <code>List[]</code>, which is a subtype of <code>Object[]</code>.</p> 
+<p>Consequently, the compiler does not issue a warning or error if you assign a <code>List</code> object of any type to any array component of the <code>objectArray</code> array as shown by this statement:</p> 
+<div class="codeblock"> 
+ <pre>
+objectArray[0] = Arrays.asList(42);
+</pre> 
+</div> 
+<p>This statement assigns to the first array component of the <code>objectArray</code> array with a <code>List</code> object that contains one object of type <code>Integer</code>.</p> 
+<p>Suppose you invoke <code>ArrayBuilder.faultyMethod</code> with the following statement:</p> 
+<div class="codeblock"> 
+ <pre>
+ArrayBuilder.faultyMethod(Arrays.asList("Hello!"), Arrays.asList("World!"));
+</pre> 
+</div> 
+<p>At runtime, the JVM throws a <code>ClassCastException</code> at the following statement:</p> 
+<div class="codeblock"> 
+ <pre>
+// ClassCastException thrown here
+String s = l[0].get(0);
+</pre> 
+</div> 
+<p>The object stored in the first array component of the variable <code>l</code> has the type <code>List&lt;Integer&gt;</code>, but this statement is expecting an object of type <code>List&lt;String&gt;</code>.</p> 
+<!-- **************************************** -->

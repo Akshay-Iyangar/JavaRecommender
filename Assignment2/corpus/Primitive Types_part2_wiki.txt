@@ -1,0 +1,34 @@
+<p>With what we have learned so far, we will identify the different types of signed integer values that can be created and manipulated in Java. Following is a table of the most basic numeric types: integers. As we have discussed earlier, the data types in Java for integers caters to both positive and negative values and hence are <b>signed numeric types</b>. The size in bits for a numeric type determines what its minimum and maximum value would be. If in doubt, one can always calculate these values.</p> 
+<p>Lets see how this new found knowledge of the basic integer types in Java fits into the picture. Say, you want to numerically manipulate the days in a year — all 365 days. What type would you use? Since the data type <code>byte</code> only goes up to 127, would you risk giving it a value greater than its allowed maximum. Such decisions might save you from dreaded errors that might occur out of the programmed code. A much more sensible choice for such a numeric operation might be a <code>short</code>. Oh, why couldn't they make just one data type to hold all kinds of numbers? Wouldn't you ask that question? Well, let's explore why.</p> 
+<p>When you tell a program you need to use an integer, say even a <code>byte</code>, the Java program allocates a space in the memory. It allocates whole 8 bits of memory. Where it wouldn't seem to matter for today's memory modules that have place for almost a dozen trillion such bits, it matters in other cases. Once allocated that part of the memory gets used and can only be claimed back after the operation is finished. Consider a complicated Java program where the only data type you'd be using would be <code>long</code> integers. What happens when there's no space for more memory allocation jobs? Ever heard of the <a href="//en.wikipedia.org/wiki/Stack_overflow" class="extiw" title="w:Stack overflow">Stack Overflow errors</a>. That's exactly what happens — your memory gets completely used up and fast. So, choose your data types with extreme caution.</p> 
+<p>Enough talk, let's see how you can create a numeric type. A numeric type begins with the type's name (<code>short</code>, <code>int</code>, etc.) and then provides with a name for the allocated space in the memory. Following is how it's done. Say, we need to create a variable to hold the number of days in a year.</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><span id="code-section-54"><b>Code section 3.54: Days in a year.</b></span> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno">1 </span><span class="kt">short</span> <span class="n">daysInYear</span> <span class="o">=</span> <span class="mi">365</span><span class="o">;</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>Here, <code>daysInYear</code> is the name of the variable that holds <code>365</code> as it's value, while <code>short</code> is the data type for that particular value. Other uses of integer data types in Java might see you write code such as this given below:</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><span id="code-section-55"><b>Code section 3.55: Integer data types in Java.</b></span> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno">1 </span><span class="kt">byte</span> <span class="n">maxByte</span> <span class="o">=</span> <span class="mi">127</span><span class="o">;</span>
+<span class="lineno">2 </span><span class="kt">short</span> <span class="n">maxShort</span> <span class="o">=</span> <span class="mi">32767</span><span class="o">;</span>
+<span class="lineno">3 </span><span class="kt">int</span> <span class="n">maxInt</span> <span class="o">=</span> <span class="mi">2147483647</span><span class="o">;</span>
+<span class="lineno">4 </span><span class="kt">long</span> <span class="n">maxLong</span> <span class="o">=</span> <span class="mi">9223372036854775807</span><span class="o">;</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table>

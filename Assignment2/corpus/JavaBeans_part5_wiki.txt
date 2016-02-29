@@ -1,0 +1,62 @@
+<p>In Java and J2EE programming, you can call a method on an object only if it is casted to a class or an interface that declares it. The structured definition of bean properties is very useful for comparing a single common property across several objects that are not and should not be related by inheritance.</p> 
+<p>For example, a program may contain both a bean representing a company's employees, and another containing a list of buildings that a company occupies. A programmer writing a function called <code>listAssetNames()</code> wants to write a simple way of getting the field "name" from several beans that can get the field from both Employee and Building beans, and that can be easily adapted to get the same field from other types of beans that may not be written yet.</p> 
+<p>While this could be done by rewriting both Employee and Building so that they each inherit from one class named NamedObject, or by creating a NamedObject interface, both methods have their own problems. Using inheritance is limiting, as each child class can only inherit from one parent class, which limits the number of different classes that can share properties, as well as the number of common properties that can be shared. Furthermore, using inheritance to express relationships other than a simple "is-a" relationship can be confusing, as can looking through dozens of class definitions to find where a single "dumb" getter function is implemented. Creating an interface fixes the problems caused by the multiple inheritance rule, as a class can use any number of interfaces, but it still requires every shared property to be explicitly spelled out.</p> 
+<p>The simplest, most elegant way to deal with this type of relationship is to read the bean properties using introspection. The jakarta <a rel="nofollow" class="external text" href="http://jakarta.apache.org/commons/beanutils/">BeanUtils</a> package is a common way of handling objects that need to be related in this way, as it takes advantage of the regularity of JavaBean naming conventions.</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Computer code" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/32px-Gnome-settings-accessibility-keyboard.svg.png" title="Computer code" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/48px-Gnome-settings-accessibility-keyboard.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/64px-Gnome-settings-accessibility-keyboard.svg.png 2x" data-file-width="60" data-file-height="60" /></td> 
+   <td style="background-color:#ffeee0; border-left: 4px solid orange; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><b>Code listing 9.13: Get property from a JavaBean</b> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno"> 1 </span><span class="kd">public</span> <span class="kd">static</span> <span class="n">Object</span> <span class="nf">getProperty</span><span class="o">(</span><span class="n">Object</span> <span class="n">o</span><span class="o">,</span> <span class="n">String</span> <span class="n">propertyName</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno"> 2 </span>   <span class="k">if</span> <span class="o">(</span><span class="n">o</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span>
+<span class="lineno"> 3 </span>       <span class="n">propertyName</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span>
+<span class="lineno"> 4 </span>       <span class="n">propertyName</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno"> 5 </span>      <span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
+<span class="lineno"> 6 </span>   <span class="o">}</span>
+<span class="lineno"> 7 </span>   <span class="c1">// Based on the property name build the getter method name</span>
+<span class="lineno"> 8 </span>   <span class="n">String</span> <span class="n">methodName</span> <span class="o">=</span> <span class="s">"get"</span> <span class="o">+</span>
+<span class="lineno"> 9 </span>                      <span class="n">propertyName</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span><span class="mi">1</span><span class="o">).</span><span class="na">toUpperCase</span><span class="o">()</span> <span class="o">+</span>
+<span class="lineno">10 </span>                      <span class="n">propertyName</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+<span class="lineno">11 </span>   <span class="n">Object</span> <span class="n">property</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+<span class="lineno">12 </span>   <span class="k">try</span> <span class="o">{</span>
+<span class="lineno">13 </span>      <span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">Class</span> <span class="n">c</span> <span class="o">=</span> <span class="n">o</span><span class="o">.</span><span class="na">getClass</span><span class="o">();</span>
+<span class="lineno">14 </span>      <span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">reflect</span><span class="o">.</span><span class="na">Method</span> <span class="n">m</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="na">getMethod</span><span class="o">(</span><span class="n">methodName</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
+<span class="lineno">15 </span>      <span class="n">property</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="na">invoke</span><span class="o">(</span><span class="n">o</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
+<span class="lineno">16 </span>   <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">NoSuchMethodException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno">17 </span>     <span class="c1">// Handle exception</span>
+<span class="lineno">18 </span>   <span class="o">}</span>  <span class="k">catch</span> <span class="o">(</span><span class="n">SecurityException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno">19 </span>     <span class="c1">// No permission; Handle exception</span>
+<span class="lineno">20 </span>   <span class="o">}</span>
+<span class="lineno">21 </span><span class="k">return</span> <span class="n">property</span><span class="o">;</span>
+<span class="lineno">22 </span><span class="o">}</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>or</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Computer code" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/32px-Gnome-settings-accessibility-keyboard.svg.png" title="Computer code" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/48px-Gnome-settings-accessibility-keyboard.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/64px-Gnome-settings-accessibility-keyboard.svg.png 2x" data-file-width="60" data-file-height="60" /></td> 
+   <td style="background-color:#ffeee0; border-left: 4px solid orange; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><b>Code listing 9.14: Use <a rel="nofollow" class="external text" href="http://commons.apache.org/beanutils/">Apache Commons BeanUtils</a></b> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno"> 1 </span><span class="kn">import</span> <span class="nn">org.apache.commons.beanutils.PropertyUtils</span><span class="o">;</span>
+<span class="lineno"> 2 </span>
+<span class="lineno"> 3 </span><span class="k">try</span> <span class="o">{</span>
+<span class="lineno"> 4 </span>  <span class="n">Object</span> <span class="n">myValue</span> <span class="o">=</span> <span class="n">PropertyUtils</span><span class="o">.</span><span class="na">getSimpleProperty</span><span class="o">(</span><span class="n">o</span><span class="o">,</span> <span class="n">propertyName</span><span class="o">);</span>
+<span class="lineno"> 5 </span><span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">IllegalAccessException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno"> 6 </span>  <span class="c1">// Handle exception</span>
+<span class="lineno"> 7 </span><span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">InvocationTargetException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno"> 8 </span>  <span class="c1">// Handle exception</span>
+<span class="lineno"> 9 </span><span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">NoSuchMethodException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno">10 </span>  <span class="c1">// Handle exception</span>
+<span class="lineno">11 </span><span class="o">}</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table>

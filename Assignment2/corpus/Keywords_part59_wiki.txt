@@ -1,0 +1,48 @@
+<p><code><a href="/wiki/Java_Programming/Keywords/throws" title="Java Programming/Keywords/throws"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">throws</font></a></code> is a Java keyword. It is used in a method definition to declare the Exceptions to be thrown by the method.</p> 
+<p>Syntax:</p> 
+<pre>
+public myMethod() <code><a href="/wiki/Java_Programming/Keywords/throws" title="Java Programming/Keywords/throws"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">throws</font></a></code> MyException1, MyException2
+{
+  ...
+}
+</pre> 
+<p>Example:</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Computer code" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/32px-Gnome-settings-accessibility-keyboard.svg.png" title="Computer code" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/48px-Gnome-settings-accessibility-keyboard.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/64px-Gnome-settings-accessibility-keyboard.svg.png 2x" data-file-width="60" data-file-height="60" /></td> 
+   <td style="background-color:#ffeee0; border-left: 4px solid orange; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="kd">class</span> <span class="nc">MyDefinedException</span> <span class="kd">extends</span> <span class="n">Exception</span>
+ <span class="o">{</span>
+  <span class="kd">public</span> <span class="nf">MyDefinedException</span><span class="o">(</span><span class="n">String</span> <span class="n">str</span><span class="o">)</span> 
+  <span class="o">{</span>
+     <span class="kd">super</span><span class="o">(</span><span class="n">str</span><span class="o">);</span>
+  <span class="o">}</span>   
+ <span class="o">}</span>
+
+ <span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyClass</span>
+ <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">showMyName</span><span class="o">(</span><span class="n">String</span> <span class="n">str</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">MyDefinedException</span>
+    <span class="o">{</span>
+          <span class="k">if</span><span class="o">(</span><span class="n">str</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="s">"What is your Name?"</span><span class="o">))</span>
+                <span class="k">throw</span> <span class="k">new</span> <span class="n">MyDefinedException</span><span class="o">(</span><span class="s">"My name is Blah Blah"</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span> <span class="n">a</span><span class="o">[])</span>
+    <span class="o">{</span>
+       <span class="k">try</span>
+       <span class="o">{</span>
+          <span class="n">showMyName</span><span class="o">(</span><span class="s">"What is your Name?"</span><span class="o">);</span>
+       <span class="o">}</span>
+       <span class="k">catch</span><span class="o">(</span><span class="n">MyDefinedException</span> <span class="n">mde</span><span class="o">)</span>
+       <span class="o">{</span>
+          <span class="n">mde</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+       <span class="o">}</span>
+     <span class="o">}</span>
+ <span class="o">}</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table>

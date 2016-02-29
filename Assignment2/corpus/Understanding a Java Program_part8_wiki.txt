@@ -1,0 +1,17 @@
+<div style="border: red solid 3px; background-color: #fcc"> 
+ <p><code>&nbsp;&nbsp;private static int intValue(String data) {</code><br> <code>&nbsp;&nbsp;&nbsp;&nbsp;return Integer.parseInt(data);</code><br> <code>&nbsp;&nbsp;}</code></br></br></p> 
+</div> 
+<p><br> <code>}</code></br></p>  
+<dl> 
+ <dd> 
+  <span id="figure-2">Figure 2.2</span>: Declarations and Definitions. 
+ </dd> 
+</dl> 
+<p>Sequences of tokens are used to construct the next building blocks of Java classes as shown <a href="#figure-2">above</a>: declarations and definitions. A class declaration provides the name and visibility of a class. In our example, <code>public class Distance</code> is the class declaration. It consists (in this case) of two keywords, <code><a href="/wiki/Java_Programming/Keywords/public" title="Java Programming/Keywords/public"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">public</font></a></code> and <code><a href="/wiki/Java_Programming/Keywords/class" title="Java Programming/Keywords/class"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">class</font></a></code> followed by the identifier <code>Distance</code>.</p> 
+<p>This means that we are defining a class named <code>Distance</code>. Other classes, or in our case, the command line, can refer to the class by this name. The <code>public</code> keyword is an <a href="/wiki/Java_Programming/Scope" title="Java Programming/Scope">access modifier</a> which declares that this class and its members may be accessed from other classes. The <code>class</code> keyword, obviously, identifies this declaration as a class. Java also allows declarations of <i><a href="/wiki/Java_Programming/Interfaces" title="Java Programming/Interfaces">interfaces</a></i> and <i><a href="/wiki/Java_Programming/Annotations" title="Java Programming/Annotations">annotations</a></i>.</p> 
+<p>The class declaration is then followed by a block (surrounded by curly braces) which provides the class's definition <span style="color: blue">(in blue in <a href="#figure-2">figure 2.2</a>)</span>. The definition is the implementation of the class – the declaration and definitions of the class's members. This class contains exactly six members, which we will explain in turn.</p> 
+<ol> 
+ <li>Two field declarations, named <code>point0</code> and <code>point1</code> <span style="color: green">(in green)</span></li> 
+ <li>A constructor declaration <span style="color: orange">(in orange)</span></li> 
+ <li>Three method declarations <span style="color: red">(in red)</span></li> 
+</ol>

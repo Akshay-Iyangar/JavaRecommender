@@ -1,0 +1,63 @@
+<p><code><a href="/wiki/Java_Programming/Keywords/this" title="Java Programming/Keywords/this"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">this</font></a></code> is a Java keyword. It contains the current object reference.</p> 
+<ol> 
+ <li>Solves ambiguity between instance variables and parameters .</li> 
+ <li>Used to pass current object as a parameter to another method .</li> 
+</ol> 
+<p>Syntax:</p> 
+<pre>
+<code><a href="/wiki/Java_Programming/Keywords/this" title="Java Programming/Keywords/this"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">this</font></a></code>.method();
+or
+<code><a href="/wiki/Java_Programming/Keywords/this" title="Java Programming/Keywords/this"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">this</font></a></code>.variable;
+
+</pre> 
+<p>Example #1 for case 1:</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Computer code" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/32px-Gnome-settings-accessibility-keyboard.svg.png" title="Computer code" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/48px-Gnome-settings-accessibility-keyboard.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/64px-Gnome-settings-accessibility-keyboard.svg.png 2x" data-file-width="60" data-file-height="60" /></td> 
+   <td style="background-color:#ffeee0; border-left: 4px solid orange; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyClass</span>
+ <span class="o">{</span> 
+    <span class="c1">//...</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">value</span><span class="o">;</span>
+    <span class="c1">//...</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setMemberVar</span><span class="o">(</span> <span class="n">String</span> <span class="n">value</span> <span class="o">)</span>
+    <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">value</span><span class="o">=</span> <span class="n">value</span><span class="o">;</span>
+    <span class="o">}</span>
+ <span class="o">}</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>Example #2 for case 1:</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Computer code" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/32px-Gnome-settings-accessibility-keyboard.svg.png" title="Computer code" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/48px-Gnome-settings-accessibility-keyboard.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/64px-Gnome-settings-accessibility-keyboard.svg.png 2x" data-file-width="60" data-file-height="60" /></td> 
+   <td style="background-color:#ffeee0; border-left: 4px solid orange; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyClass</span>
+ <span class="o">{</span> 
+    <span class="n">MyClass</span><span class="o">(</span><span class="kt">int</span> <span class="n">a</span><span class="o">,</span> <span class="kt">int</span> <span class="n">b</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"int a: "</span> <span class="o">+</span> <span class="n">a</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"int b: "</span> <span class="o">+</span> <span class="n">b</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="n">MyClass</span><span class="o">(</span><span class="kt">int</span> <span class="n">a</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="mi">0</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="c1">//...</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">new</span> <span class="n">MyClass</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">);</span>
+        <span class="k">new</span> <span class="n">MyClass</span><span class="o">(</span><span class="mi">5</span><span class="o">);</span>
+    <span class="o">}</span>
+ <span class="o">}</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table>

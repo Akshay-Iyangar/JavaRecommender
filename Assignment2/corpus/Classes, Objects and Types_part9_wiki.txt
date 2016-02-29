@@ -1,0 +1,21 @@
+<p>The <code>java.lang.Object.hashCode()</code> method returns an integer (<code>int</code>). This integer can be used to distinguish objects although not completely. It quickly separates most of the objects and those with the same <i>hash code</i> are separated later in another way. It is used by the classes that provide associative arrays, for instance, those that implement the <code>java.util.Map</code> interface . They use the <i>hash code</i> to store the object in the associative array. A good <code>hashCode</code> implementation will return a hash code:</p> 
+<ul> 
+ <li>Stable: does not change</li> 
+ <li>Evenly distributed: the hash codes of unequal objects tend to be unequal and the hash codes are evenly distributed across integer values.</li> 
+</ul> 
+<p>The second point means that two different objects can have the same <i>hash code</i> so two objects with the same <i>hash code</i> are <u>not necessarily the same</u>!</p> 
+<p>Since associative arrays depend on both the <code>equals</code> and <code>hashCode</code> methods, there is an important contract between these two methods that must be maintained if the objects are to be inserted into a <code>Map</code>:</p> 
+<dl> 
+ <dd>
+   For two objects 
+  <i>a</i> and 
+  <i>b</i> 
+  <ul> 
+   <li><code>a.equals(b) == b.equals(a)</code></li> 
+   <li>if <code>a.equals(b)</code> then <code>a.hashCode() == b.hashCode()</code></li> 
+   <li>but <del>if <code>a.hashCode() == b.hashCode()</code> then <code>a.equals(b)</code></del></li> 
+  </ul> 
+ </dd> 
+</dl> 
+<p>In order to maintain this contract, a class that overrides the <code>equals</code> method must also override the <code>hashCode</code> method, and vice versa, so that <code>hashCode</code> is based on the same properties (or a subset of the properties) as <code>equals</code>.</p> 
+<p>A further contract that the map has with the object is that the results of the <code>hashCode</code> and <code>equals</code> methods will not change once the object has been inserted into the map. For this reason, it is generally a good practice to base the hash function on immutable properties of the object.</p>

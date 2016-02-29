@@ -1,0 +1,40 @@
+<p> Because the Java compiler erases all type parameters in generic code, you cannot verify which parameterized type for a generic type is being used at runtime:</p> 
+<div class="codeblock"> 
+ <pre>
+public static &lt;E&gt; void rtti(List&lt;E&gt; list) {
+    if (list instanceof ArrayList&lt;Integer&gt;) {  // compile-time error
+        // ...
+    }
+}
+</pre> 
+</div> 
+<p> The set of parameterized types passed to the <tt>rtti</tt> method is:</p> 
+<div class="codeblock"> 
+ <pre>
+S = { ArrayList&lt;Integer&gt;, ArrayList&lt;String&gt; LinkedList&lt;Character&gt;, ... }
+</pre> 
+</div> 
+<p> The runtime does not keep track of type parameters, so it cannot tell the difference between an <tt>ArrayList&lt;Integer&gt;</tt> and an <tt>ArrayList&lt;String&gt;</tt>. The most you can do is to use an unbounded wildcard to verify that the list is an <tt>ArrayList</tt>:</p> 
+<div class="codeblock"> 
+ <pre>
+public static void rtti(List&lt;?&gt; list) {
+    if (list instanceof ArrayList&lt;?&gt;) {  // OK; instanceof requires a reifiable type
+        // ...
+    }
+}
+</pre> 
+</div> 
+<p> Typically, you cannot cast to a parameterized type unless it is parameterized by unbounded wildcards. For example:</p> 
+<div class="codeblock"> 
+ <pre>
+List&lt;Integer&gt; li = new ArrayList&lt;&gt;();
+List&lt;Number&gt;  ln = (List&lt;Number&gt;) li;  // compile-time error
+</pre> 
+</div> 
+<p> However, in some cases the compiler knows that a type parameter is always valid and allows the cast. For example:</p> 
+<div class="codeblock"> 
+ <pre>
+List&lt;String&gt; l1 = ...;
+ArrayList&lt;String&gt; l2 = (ArrayList&lt;String&gt;)l1;  // OK
+</pre> 
+</div>

@@ -1,0 +1,28 @@
+<p>As with instance methods and variables, an inner class is associated with an instance of its enclosing class and has direct access to that object's methods and fields. Also, because an inner class is associated with an instance, it cannot define any static members itself.</p> 
+<p>Objects that are instances of an inner class exist <i>within</i> an instance of the outer class. Consider the following classes:</p> 
+<div class="codeblock"> 
+ <pre>
+class OuterClass {
+    ...
+    class InnerClass {
+        ...
+    }
+}
+
+</pre> 
+</div> 
+<p>An instance of <code>InnerClass</code> can exist only within an instance of <code>OuterClass</code> and has direct access to the methods and fields of its enclosing instance.</p> 
+<p>To instantiate an inner class, you must first instantiate the outer class. Then, create the inner object within the outer object with this syntax:</p> 
+<div class="codeblock"> 
+ <pre>
+OuterClass.InnerClass innerObject = outerObject.new InnerClass();
+</pre> 
+</div> 
+<p>There are two special kinds of inner classes: <a class="TutorialLink" target="_top" href="localclasses.html">local classes</a> and <a class="TutorialLink" target="_top" href="anonymousclasses.html">anonymous classes</a>.</p> 
+<!--
+
+<div class="note"><hr /><strong>Note:</strong>&nbsp;For more information about the taxonomy of the different kinds of classes in the Java programming language (which can be tricky to describe concisely, clearly, and correctly), see Joseph Darcy&#39;s blog:
+<a class="OutsideLink" target="_blank" href="https://blogs.oracle.com/darcy/entry/nested_inner_member_and_top">Nested, Inner, Member, and Top-Level Classes</a>.
+<hhttps://docs.oracle.com/javase/tutorial/div>
+
+-->

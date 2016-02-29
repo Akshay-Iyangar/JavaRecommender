@@ -1,0 +1,49 @@
+<p>If a subclass defines a static method with the same signature as a static method in the superclass, then the method in the subclass <i>hides</i> the one in the superclass.</p> 
+<p>The distinction between hiding a static method and overriding an instance method has important implications:</p> 
+<ul> 
+ <li>The version of the overridden instance method that gets invoked is the one in the subclass.</li> 
+ <li>The version of the hidden static method that gets invoked depends on whether it is invoked from the superclass or the subclass.</li> 
+</ul> 
+<p>Consider an example that contains two classes. The first is <code>Animal</code>, which contains one instance method and one static method:</p> 
+<div class="codeblock"> 
+ <pre>
+public class Animal {
+    public static void testClassMethod() {
+        System.out.println("The static method in Animal");
+    }
+    public void testInstanceMethod() {
+        System.out.println("The instance method in Animal");
+    }
+}
+</pre> 
+</div> 
+<p>The second class, a subclass of <code>Animal</code>, is called <code>Cat</code>:</p> 
+<div class="codeblock"> 
+ <pre>
+public class Cat extends Animal {
+    public static void testClassMethod() {
+        System.out.println("The static method in Cat");
+    }
+    public void testInstanceMethod() {
+        System.out.println("The instance method in Cat");
+    }
+
+    public static void main(String[] args) {
+        Cat myCat = new Cat();
+        Animal myAnimal = myCat;
+        Animal.testClassMethod();
+        myAnimal.testInstanceMethod();
+    }
+}
+</pre> 
+</div> 
+<p>The <code>Cat</code> class overrides the instance method in <code>Animal</code> and hides the static method in <code>Animal</code>. The <code>main</code> method in this class creates an instance of <code>Cat</code> and invokes <code>testClassMethod()</code> on the class and <code>testInstanceMethod()</code> on the instance.</p> 
+<p>The output from this program is as follows:</p> 
+<div class="codeblock"> 
+ <pre>
+The static method in Animal
+The instance method in Cat
+</pre> 
+</div> 
+<p>As promised, the version of the hidden static method that gets invoked is the one in the superclass, and the version of the overridden instance method that gets invoked is the one in the subclass.</p> 
+<!-- *********************************************************************** -->

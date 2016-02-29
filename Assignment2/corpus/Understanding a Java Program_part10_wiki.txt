@@ -1,0 +1,46 @@
+<p>A <i><a href="/wiki/Java_Programming/Methods#Special_method.2C_the_constructor" title="Java Programming/Methods">constructor</a></i> is a special method in a class which is used to construct an instance of the class. The constructor can perform initialization for the object, beyond that which the Java VM does automatically. For example, Java will automatically initialize the fields <code>point0</code> and <code>point1</code> to null.</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><b>Code section 2.4: The constructor for the class</b> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno">1 </span><span class="kd">public</span> <span class="nf">Distance</span><span class="o">(</span><span class="kt">int</span> <span class="n">x0</span><span class="o">,</span> <span class="kt">int</span> <span class="n">y0</span><span class="o">,</span> <span class="kt">int</span> <span class="n">x1</span><span class="o">,</span> <span class="kt">int</span> <span class="n">y1</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno">2 </span>   <span class="n">point0</span> <span class="o">=</span> <span class="k">new</span> <span class="n">java</span><span class="o">.</span><span class="na">awt</span><span class="o">.</span><span class="na">Point</span><span class="o">(</span><span class="n">x0</span><span class="o">,</span> <span class="n">y0</span><span class="o">);</span>
+<span class="lineno">3 </span>   <span class="n">point1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">java</span><span class="o">.</span><span class="na">awt</span><span class="o">.</span><span class="na">Point</span><span class="o">(</span><span class="n">x1</span><span class="o">,</span> <span class="n">y1</span><span class="o">);</span>
+<span class="lineno">4 </span><span class="o">}</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>The constructor above consists of five parts:</p> 
+<ol> 
+ <li>The optional <a href="/wiki/Java_Programming/Scope" title="Java Programming/Scope">access modifier(s)</a>.<br> In this case, the constructor is declared <code>public</code></br></li> 
+ <li>The constructor name, which must match the class name exactly: <code>Distance</code> in this case.</li> 
+ <li>The constructor parameters.<br> The parameter list is required. Even if a constructor does not have any parameters, you must specify the empty list <code>()</code>. The parameter list declares the type and name of each of the method's parameters.</br></li> 
+ <li>An optional <code><a href="/wiki/Java_Programming/Keywords/throws" title="Java Programming/Keywords/throws"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">throws</font></a></code> clause which declares the <a href="/wiki/Java_Programming/Exceptions" title="Java Programming/Exceptions">exceptions</a> that the constructor may throw. This constructor does not declare any exceptions.</li> 
+ <li>The constructor body, which is a Java block (enclosed in <code>{}</code>). This constructor's body contains two statements.</li> 
+</ol> 
+<p>This constructor accepts four parameters, named <code>x0, y0, x1</code> and <code>y1</code>. Each parameter requires a parameter type declaration, which in this example is <code><code><a href="/wiki/Java_Programming/Keywords/int" title="Java Programming/Keywords/int"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">int</font></a></code></code> for all four parameters. The parameters in the parameter list are separated by commas.</p> 
+<p>The two assignments in this constructor use Java's <i><code><a href="/wiki/Java_Programming/Keywords/new" title="Java Programming/Keywords/new"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">new</font></a></code> operator</i> to allocate two <code>java.awt.Point</code> objects. The first allocates an object representing the first point, <code>(x0, y0)</code>, and assigns it to the <code>point0</code> instance variable (replacing the null value that the instance variable was initialized to). The second statement allocates a second <code>java.awt.Point</code> instance with <code>(x1, y1)</code> and assigns it to the <code>point1</code> instance variable.</p> 
+<p>This is the constructor for the Distance class. Distance implicitly extends from <code>java.lang.Object</code>. Java inserts a call to the super constructor as the first executable statement of the constructor if there is not one explicitly coded. The above constructor body is equivalent to the following body with the explicit super constructor call:</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><b>Code section 2.5: Super constructor.</b> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno">1 </span><span class="o">{</span>
+<span class="lineno">2 </span>   <span class="kd">super</span><span class="o">();</span>
+<span class="lineno">3 </span>   <span class="n">point0</span> <span class="o">=</span> <span class="k">new</span> <span class="n">java</span><span class="o">.</span><span class="na">awt</span><span class="o">.</span><span class="na">Point</span><span class="o">(</span><span class="n">x0</span><span class="o">,</span> <span class="n">y0</span><span class="o">);</span>
+<span class="lineno">4 </span>   <span class="n">point1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">java</span><span class="o">.</span><span class="na">awt</span><span class="o">.</span><span class="na">Point</span><span class="o">(</span><span class="n">x1</span><span class="o">,</span> <span class="n">y1</span><span class="o">);</span>
+<span class="lineno">5 </span><span class="o">}</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>While it is true that this class could be implemented in other ways, such as simply storing the coordinates of the two points and computing the distance as <img class="mwe-math-fallback-image-inline tex" alt="\sqrt{(x_1-x_0)^2 + (y_1-y_0)^2}" src="//upload.wikimedia.org/math/5/d/3/5d313d187bb0a1e36ea37560b2c57f42.png">, this class instead uses the existing <code>java.awt.Point</code> class. This choice matches the abstract definition of this class: to print the distance between two points on the plane. We take advantage of existing behavior already implemented in the Java platform rather than implementing it again. We will see later how to make the program more flexible without adding much complexity, because we choose to use object abstractions here. However, the key point is that this class uses information hiding. That is, <i>how</i> the class stores its state or how it computes the distance is hidden. We can change this implementation without altering how clients use and invoke the class.</img></p>

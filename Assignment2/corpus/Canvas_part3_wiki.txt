@@ -1,0 +1,32 @@
+<p>Now that the basic structure of our program has been laid out, we need to explore how drawing is actually done by writing Java code. Move to the next section and try your hand at drawing basic shapes and lines. But whilst you are still fresh to the concept of a Canvas, why not test your knowledge. Try answering these questions below.</p> 
+<div style="background: #f2fff2; border: solid 1px #bfffbf; padding: 0.5em; width: 95%; margin: auto;"> 
+ <p><b>Question 9.1: What classes are used to draw in Java?</b></p> 
+ <ol> 
+  <li>Any class that is derived from the <code style="border-bottom:dashed red 1px;">Object</code> class.</li> 
+  <li>Any class that is derived from the <code style="border-bottom:dashed red 1px;">Component</code> class.</li> 
+  <li>None of the above.</li> 
+ </ol> 
+ <div class="collapsible" style="width:100%; clear:both; border:none;"> 
+  <div class="title" style="background:transparent; text-align:left; background:#cedff2;border:1px solid lightgrey;">
+    Answer 
+  </div> 
+  <div class="body" style="background:transparent; text-align:left; background:#e7eff9;border:solid 1px lightgrey;padding:8px;"> 
+   <p>2<br> A class derived from the <code style="border-bottom:dashed red 1px;">Object</code> class is not viable as a visible component, whereas a class derived from a <code style="border-bottom:dashed red 1px;">Component</code> class is a visible entity atop a <code style="border-bottom:dashed red 1px;">Container</code> hence a likely candidate for displaying drawings.</br></p> 
+  </div> 
+ </div> 
+ <p><b>Question 9.2: What is the method that needs to be overridden in order to enable drawing?</b></p> 
+ <ol> 
+  <li>The <code style="border-bottom:dashed green 1px;">main(String[])</code> method.</li> 
+  <li>The <code style="border-bottom:dashed green 1px;">MyCanvas()</code> method.</li> 
+  <li>The <code style="border-bottom:dashed green 1px;">paint(Graphics)</code> method.</li> 
+  <li>None of the above.</li> 
+ </ol> 
+ <div class="collapsible" style="width:100%; clear:both; border:none;"> 
+  <div class="title" style="background:transparent; text-align:left; background:#cedff2;border:1px solid lightgrey;">
+    Answer 
+  </div> 
+  <div class="body" style="background:transparent; text-align:left; background:#e7eff9;border:solid 1px lightgrey;padding:8px;"> 
+   <p>3<br> As discussed earlier the <code style="border-bottom:dashed green 1px;">paint(Graphics)</code> method is the correct option. The name says it all.</br></p> 
+  </div> 
+ </div> 
+</div>

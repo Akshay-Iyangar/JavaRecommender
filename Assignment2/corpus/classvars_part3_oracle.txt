@@ -1,0 +1,33 @@
+<p>The Java programming language supports static methods as well as static variables. Static methods, which have the <code>static</code> modifier in their declarations, should be invoked with the class name, without the need for creating an instance of the class, as in</p> 
+<div class="codeblock"> 
+ <pre>
+ClassName.methodName(args)
+</pre> 
+</div> 
+<div class="note"> 
+ <hr> 
+  <strong>Note:</strong>&nbsp;You can also refer to static methods with an object reference like 
+  <div class="codeblock"> 
+   <pre>
+instanceName.methodName(args)
+</pre> 
+  </div> but this is discouraged because it does not make it clear that they are class methods. 
+  <hr> 
+  </hr>
+ </hr>
+</div> 
+<p>A common use for static methods is to access static fields. For example, we could add a static method to the <code>Bicycle</code> class to access the <code>numberOfBicycles</code> static field:</p> 
+<div class="codeblock"> 
+ <pre>
+public <b>static</b> int getNumberOfBicycles() {
+    return numberOfBicycles;
+}
+</pre> 
+</div> 
+<p>Not all combinations of instance and class variables and methods are allowed:</p> 
+<ul> 
+ <li>Instance methods can access instance variables and instance methods directly.</li> 
+ <li>Instance methods can access class variables and class methods directly.</li> 
+ <li>Class methods can access class variables and class methods directly.</li> 
+ <li>Class methods <b style="font-style: italic">cannot</b> access instance variables or instance methods directlythey must use an object reference. Also, class methods cannot use the <code>this</code> keyword as there is no instance for <code>this</code> to refer to.</li> 
+</ul>

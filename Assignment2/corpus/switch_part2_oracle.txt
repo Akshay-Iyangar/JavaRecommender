@@ -1,0 +1,78 @@
+<p>In Java SE 7 and later, you can use a <code>String</code> object in the <code>switch</code> statement's expression. The following code example, <a class="SourceLink" target="_blank" href="examples/StringSwitchDemo.java" onclick="showCode('https://docs.oracle.com/javase/tutorial/displayCode.html', 'examples/StringSwitchDemo.java'); return false;"><code>StringSwitchDemo</code></a>, displays the number of the month based on the value of the <code>String</code> named <code>month</code>:</p> 
+<div class="codeblock"> 
+ <pre>
+
+public class StringSwitchDemo {
+
+    public static int getMonthNumber(String month) {
+
+        int monthNumber = 0;
+
+        if (month == null) {
+            return monthNumber;
+        }
+
+        switch (month.toLowerCase()) {
+            case "january":
+                monthNumber = 1;
+                break;
+            case "february":
+                monthNumber = 2;
+                break;
+            case "march":
+                monthNumber = 3;
+                break;
+            case "april":
+                monthNumber = 4;
+                break;
+            case "may":
+                monthNumber = 5;
+                break;
+            case "june":
+                monthNumber = 6;
+                break;
+            case "july":
+                monthNumber = 7;
+                break;
+            case "august":
+                monthNumber = 8;
+                break;
+            case "september":
+                monthNumber = 9;
+                break;
+            case "october":
+                monthNumber = 10;
+                break;
+            case "november":
+                monthNumber = 11;
+                break;
+            case "december":
+                monthNumber = 12;
+                break;
+            default: 
+                monthNumber = 0;
+                break;
+        }
+
+        return monthNumber;
+    }
+
+    public static void main(String[] args) {
+
+        String month = "August";
+
+        int returnedMonthNumber =
+            StringSwitchDemo.getMonthNumber(month);
+
+        if (returnedMonthNumber == 0) {
+            System.out.println("Invalid month");
+        } else {
+            System.out.println(returnedMonthNumber);
+        }
+    }
+}
+</pre> 
+</div> 
+<p>The output from this code is <code>8</code>.</p> 
+<p>The <code>String</code> in the <code>switch</code> expression is compared with the expressions associated with each <code>case</code> label as if the <a class="APILink" target="_blank" href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html#equals-java.lang.Object-"><code>String.equals</code></a> method were being used. In order for the <code>StringSwitchDemo</code> example to accept any month regardless of case, <code>month</code> is converted to lowercase (with the <a class="APILink" target="_blank" href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html#toLowerCase--"><code>toLowerCase</code></a> method), and all the strings associated with the <code>case</code> labels are in lowercase.</p> 
+<p><strong>Note</strong>: This example checks if the expression in the <code>switch</code> statement is <code>null</code>. Ensure that the expression in any <code>switch</code> statement is not null to prevent a <code>NullPointerException</code> from being thrown.</p>

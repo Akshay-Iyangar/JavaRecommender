@@ -1,0 +1,71 @@
+<p>One way to create an array is with the <code>new</code> operator. The next statement in the <code>ArrayDemo</code> program allocates an array with enough memory for 10 integer elements and assigns the array to the <code>anArray</code> variable.</p> 
+<div class="codeblock"> 
+ <pre>
+// create an array of integers
+anArray = new int[10];
+</pre> 
+</div> 
+<p>If this statement is missing, then the compiler prints an error like the following, and compilation fails:</p> 
+<div class="codeblock"> 
+ <pre>
+ArrayDemo.java:4: Variable anArray may not have been initialized.
+</pre> 
+</div> 
+<p>The next few lines assign values to each element of the array:</p> 
+<div class="codeblock"> 
+ <pre>
+anArray[0] = 100; // initialize first element
+anArray[1] = 200; // initialize second element
+anArray[2] = 300; // and so forth
+</pre> 
+</div> 
+<p>Each array element is accessed by its numerical index:</p> 
+<div class="codeblock"> 
+ <pre>
+System.out.println("Element 1 at index 0: " + anArray[0]);
+System.out.println("Element 2 at index 1: " + anArray[1]);
+System.out.println("Element 3 at index 2: " + anArray[2]);
+</pre> 
+</div> 
+<p>Alternatively, you can use the shortcut syntax to create and initialize an array:</p> 
+<div class="codeblock"> 
+ <pre>
+int[] anArray = { 
+    100, 200, 300,
+    400, 500, 600, 
+    700, 800, 900, 1000
+};
+</pre> 
+</div> 
+<p>Here the length of the array is determined by the number of values provided between braces and separated by commas.</p> 
+<p>You can also declare an array of arrays (also known as a <em>multidimensional</em> array) by using two or more sets of brackets, such as <code>String[][] names</code>. Each element, therefore, must be accessed by a corresponding number of index values.</p> 
+<p>In the Java programming language, a multidimensional array is an array whose components are themselves arrays. This is unlike arrays in C or Fortran. A consequence of this is that the rows are allowed to vary in length, as shown in the following <a class="SourceLink" target="_blank" href="examples/MultiDimArrayDemo.java" onclick="showCode('https://docs.oracle.com/javase/tutorial/displayCode.html', 'examples/MultiDimArrayDemo.java'); return false;"><code>MultiDimArrayDemo</code></a> program:</p> 
+<div class="codeblock"> 
+ <pre>
+class MultiDimArrayDemo {
+    public static void main(String[] args) {
+        String[][] names = {
+            {"Mr. ", "Mrs. ", "Ms. "},
+            {"Smith", "Jones"}
+        };
+        // Mr. Smith
+        System.out.println(names[0][0] + names[1][0]);
+        // Ms. Jones
+        System.out.println(names[0][2] + names[1][1]);
+    }
+}
+</pre> 
+</div> 
+<p>The output from this program is:</p> 
+<div class="codeblock"> 
+ <pre>
+Mr. Smith
+Ms. Jones
+</pre> 
+</div> 
+<p>Finally, you can use the built-in <code>length</code> property to determine the size of any array. The following code prints the array's size to standard output:</p> 
+<div class="codeblock"> 
+ <pre>
+ System.out.println(anArray.length);
+</pre> 
+</div>

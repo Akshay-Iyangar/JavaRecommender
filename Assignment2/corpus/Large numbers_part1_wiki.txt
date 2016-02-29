@@ -1,0 +1,48 @@
+<p>The <code>BigInteger</code> class represents integers of almost any size. As with other objects, they need to be constructed. Unlike regular numbers, the <code>BigInteger</code> represents an immutable object - methods in use by the <code>BigInteger</code> class will return a new copy of a <code>BigInteger</code>.</p> 
+<p>To instantiate a <code>BigInteger</code>, you can create it from either byte array, or from a string. For example:</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><b>Code section 3.23: 1 quintillion, or 10^18. Too large to fit in a long.</b> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno">1 </span><span class="n">BigInteger</span> <span class="n">i</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BigInteger</span><span class="o">(</span><span class="s">"1000000000000000000"</span><span class="o">);</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p><code>BigInteger</code> cannot use the normal <a href="/wiki/Java_Programming/Mathematical_functions" title="Java Programming/Mathematical functions">Java operators</a>. They use the methods provided by the class.</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><b>Code section 3.24: Multiplications and an addition.</b> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno">1 </span><span class="n">BigInteger</span> <span class="n">a</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BigInteger</span><span class="o">(</span><span class="s">"3"</span><span class="o">);</span>
+<span class="lineno">2 </span><span class="n">BigInteger</span> <span class="n">b</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BigInteger</span><span class="o">(</span><span class="s">"4"</span><span class="o">);</span>
+<span class="lineno">3 </span>
+<span class="lineno">4 </span><span class="c1">// c = a^2 + b^2</span>
+<span class="lineno">5 </span><span class="n">BigInteger</span> <span class="n">c</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="na">multiply</span><span class="o">(</span><span class="n">a</span><span class="o">).</span><span class="na">add</span><span class="o">(</span><span class="n">b</span><span class="o">.</span><span class="na">multiply</span><span class="o">(</span><span class="n">b</span><span class="o">));</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>It is possible to convert to a <code><a href="/wiki/Java_Programming/Keywords/long" title="Java Programming/Keywords/long"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">long</font></a></code>, but the <code><a href="/wiki/Java_Programming/Keywords/long" title="Java Programming/Keywords/long"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">long</font></a></code> may not be large enough.</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><b>Code section 3.25: Conversion.</b> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno">1 </span><span class="n">BigInteger</span> <span class="n">aBigInteger</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BigInteger</span><span class="o">(</span><span class="s">"3"</span><span class="o">);</span>
+<span class="lineno">2 </span><span class="kt">long</span> <span class="n">aLong</span> <span class="o">=</span> <span class="n">aBigInteger</span><span class="o">.</span><span class="na">longValue</span><span class="o">();</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table>

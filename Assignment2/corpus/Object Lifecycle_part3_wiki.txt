@@ -1,0 +1,58 @@
+<p>When an object is sent through a network, the object needs to be <b>recreated</b> at the receiving host.</p> 
+<dl> 
+ <dt>
+   Object Serialization&nbsp; 
+ </dt> 
+ <dd>
+   The term 
+  <i>Object Serialization</i> refers to the act of converting the object to a byte stream. The byte stream can be stored on the file system, or can be sent through a network. 
+ </dd> 
+ <dd>
+   At the later time the object can be re-created from that stream of bytes. The only requirement is that the same class has to be available at both times, when the object is serialized and also when the object is re-created. If that happens in different servers, then the same class must be available on both servers. Same class means that exactly the same version of the class must be available, otherwise the object won't be able to be re-created. This is a maintenance problem to those applications where java serialization is used to persist object or sent the object through the network. 
+ </dd> 
+ <dd>
+   When a class is modified, there could be a problem re-creating those objects that were serialized using an earlier version of the class. 
+ </dd> 
+</dl> 
+<p>Java has built-in support for serialization, using the <code>Serializable</code> interface; however, a class must first implement the <code>Serializable</code> interface.</p> 
+<p>By default, a class will have all of its fields serialized when converted into a data stream (with <code><a href="/wiki/Java_Programming/Keywords/transient" title="Java Programming/Keywords/transient"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">transient</font></a></code> fields being skipped). If additional handling is required beyond the default of writing all fields, you need to provide an implementation for methods:</p> 
+<dl> 
+ <dd> 
+  <code>private void writeObject(java.io.ObjectOutputStream out) throws IOException;</code> 
+ </dd> 
+</dl> 
+<dl> 
+ <dd> 
+  <code>private void readObject(java.io.ObjectInputStream in) throws IOException, ClassNotFoundException;</code> 
+ </dd> 
+</dl> 
+<dl> 
+ <dd> 
+  <code>private void readObjectNoData() throws ObjectStreamException;</code> 
+ </dd> 
+</dl> 
+<p>If the object needs to write or provide a replacement object during serialization, it needs to implement the following two methods, with any access specifier:</p> 
+<dl> 
+ <dd> 
+  <code>Object writeReplace() throws ObjectStreamException;</code> 
+ </dd> 
+</dl> 
+<dl> 
+ <dd> 
+  <code>Object readResolve() throws ObjectStreamException;</code> 
+ </dd> 
+</dl> 
+<p>Normally, a minor change to the class can cause the serialization to fail. You can still allow the class to be loaded by defining the serialization version id:</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><b>Code section 4.32: Serialization version id.</b> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno">1 </span><span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">long</span> <span class="n">serialVersionUID</span> <span class="o">=</span> <span class="mi">42L</span><span class="o">;</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table>

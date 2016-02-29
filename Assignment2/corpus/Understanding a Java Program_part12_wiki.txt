@@ -1,0 +1,65 @@
+<p>The <code>printDistance()</code> method prints the distance between the two points to the standard output (normally the console).</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><b>Code section 2.6: <code>printDistance()</code> method.</b> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno">1 </span><span class="kd">public</span> <span class="kt">void</span> <span class="nf">printDistance</span><span class="o">()</span> <span class="o">{</span>
+<span class="lineno">2 </span>  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Distance between "</span> <span class="o">+</span> <span class="n">point0</span>
+<span class="lineno">3 </span>    <span class="o">+</span> <span class="s">" and "</span> <span class="o">+</span> <span class="n">point1</span>
+<span class="lineno">4 </span>    <span class="o">+</span> <span class="s">" is "</span> <span class="o">+</span> <span class="n">point0</span><span class="o">.</span><span class="na">distance</span><span class="o">(</span><span class="n">point1</span><span class="o">));</span>
+<span class="lineno">5 </span><span class="o">}</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>This <i>instance method</i> executes within the context of an implicit <code>Distance</code> object. The instance field references, <code>point0</code> and <code>point1</code>, refer to instance fields of that implicit object. You can also use the special variable <code>this</code> to explicitly reference the current object. Within an instance method, Java binds the name <code>this</code> to the object on which the method is executing, and the type of <code>this</code> is that of the current class. The body of the <code>printDistance</code> method could also be coded as</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><b>Code section 2.7: Explicit instance of the current class.</b> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno">1 </span>  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Distance between "</span> <span class="o">+</span> <span class="k">this</span><span class="o">.</span><span class="na">point0</span>
+<span class="lineno">2 </span>    <span class="o">+</span> <span class="s">" and "</span> <span class="o">+</span> <span class="k">this</span><span class="o">.</span><span class="na">point1</span>
+<span class="lineno">3 </span>    <span class="o">+</span> <span class="s">" is "</span> <span class="o">+</span> <span class="k">this</span><span class="o">.</span><span class="na">point0</span><span class="o">.</span><span class="na">distance</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">point1</span><span class="o">));</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>to make the instance field references more explicit.</p> 
+<p>This method both computes the distance and prints it in one statement. The distance is computed with <code>point0.distance(point1)</code>; <code>distance()</code> is an instance method of the <code>java.awt.Point</code> class (of which <code>point0</code> and <code>point1</code> are instances). The method operates on <code>point0</code> (binding <code>this</code> to the object that <code>point0</code> refers to during the execution of the method) and accepting another Point as a parameter. Actually, it is slightly more complicated than that, but we'll explain later. The result of the <code>distance()</code> method is a double precision floating point number.</p> 
+<p>This method uses the syntax</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><b>Code section 2.8: String concatenation.</b> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno">1 </span> <span class="s">"Distance between "</span> <span class="o">+</span> <span class="k">this</span><span class="o">.</span><span class="na">point0</span>
+<span class="lineno">2 </span> <span class="o">+</span> <span class="s">" and "</span> <span class="o">+</span> <span class="k">this</span><span class="o">.</span><span class="na">point1</span>
+<span class="lineno">3 </span> <span class="o">+</span> <span class="s">" is "</span> <span class="o">+</span> <span class="k">this</span><span class="o">.</span><span class="na">point0</span><span class="o">.</span><span class="na">distance</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">point1</span><span class="o">)</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>to construct a String to pass to the <code>System.out.println()</code>. This expression is a series of <i>String concatenation</i> methods which concatenates Strings or the String representation of primitive types (such as doubles) or objects, and returns a long string. For example, the result of this expression for the points (0,3) and (4,0) is the String</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Computer code" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/32px-Gnome-settings-accessibility-keyboard.svg.png" title="Computer code" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/48px-Gnome-settings-accessibility-keyboard.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/64px-Gnome-settings-accessibility-keyboard.svg.png 2x" data-file-width="60" data-file-height="60" /></td> 
+   <td style="background-color:#ffeee0; border-left: 4px solid orange; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><b>Output</b> <pre style="background-color:#000; color:#fff;">
+"Distance between java.awt.Point[x=0,y=3] and java.awt.Point[x=4,y=0] is 5.0"
+</pre></td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>which the method then prints to <code>System.out</code>.</p> 
+<p>In order to print, we invoke the <code>println()</code>. This is an instance method from <code>java.io.PrintStream</code>, which is the type of the static field <code>out</code> in the class <code>java.lang.System</code>. The Java VM binds <code>System.out</code> to the standard output stream when it starts a program.</p>

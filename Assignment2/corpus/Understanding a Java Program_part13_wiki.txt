@@ -1,0 +1,32 @@
+<p>The <code>main()</code> method is the main entry point which Java invokes when you start a Java program from the command line. The command</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Computer code" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/32px-Gnome-settings-accessibility-keyboard.svg.png" title="Computer code" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/48px-Gnome-settings-accessibility-keyboard.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/64px-Gnome-settings-accessibility-keyboard.svg.png 2x" data-file-width="60" data-file-height="60" /></td> 
+   <td style="background-color:#ffeee0; border-left: 4px solid orange; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><b>Output</b> <pre style="background-color:#000; color:#fff;">
+java Distance 0 3 4 0
+</pre></td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>instructs Java to locate the Distance class, put the four command line arguments into an array of String values, then pass those arguments to the <code>public static main(String[])</code> method of the class. We will introduce arrays shortly. Any Java class that you want to invoke from the command line or desktop shortcut must have a main method with this signature or the following signature: <code>public static main(String...)</code>.</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><b>Code section 2.9: <code>main()</code> method.</b> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno">1 </span><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno">2 </span>   <span class="n">Distance</span> <span class="n">dist</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Distance</span><span class="o">(</span>
+<span class="lineno">3 </span>         <span class="n">intValue</span><span class="o">(</span><span class="n">args</span><span class="o">[</span><span class="mi">0</span><span class="o">]),</span> <span class="n">intValue</span><span class="o">(</span><span class="n">args</span><span class="o">[</span><span class="mi">1</span><span class="o">]),</span>
+<span class="lineno">4 </span>         <span class="n">intValue</span><span class="o">(</span><span class="n">args</span><span class="o">[</span><span class="mi">2</span><span class="o">]),</span> <span class="n">intValue</span><span class="o">(</span><span class="n">args</span><span class="o">[</span><span class="mi">3</span><span class="o">]));</span>
+<span class="lineno">5 </span>   <span class="n">dist</span><span class="o">.</span><span class="na">printDistance</span><span class="o">();</span>
+<span class="lineno">6 </span><span class="o">}</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>The <code>main()</code> method invokes the final method, <code>intValue()</code>, four times. The <code>intValue()</code> takes a single string parameter and returns the integer value represented in the string. For example, <code>intValue("3")</code> will return the integer 3.</p> 
+<p>People who do test-first programming or perform regression testing write a main() method in every Java class, and a <a href="/wiki/Python_Programming/Modules_and_how_to_use_them" title="Python Programming/Modules and how to use them">main() function in every Python module</a>, to run automated tests. When a person executes the file directly, the main() method executes and runs the automated tests for that file. When a person executes some other Java file that in turn imports many other Java classes, only one main() method is executed -- the main() method of the directly-executed file.</p>

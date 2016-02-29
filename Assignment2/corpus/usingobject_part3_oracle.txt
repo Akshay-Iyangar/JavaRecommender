@@ -1,0 +1,35 @@
+<p>You also use an object reference to invoke an object's method. You append the method's simple name to the object reference, with an intervening dot operator (.). Also, you provide, within enclosing parentheses, any arguments to the method. If the method does not require any arguments, use empty parentheses.</p> 
+<div class="codeblock"> 
+ <pre>
+objectReference.methodName(argumentList);
+</pre> 
+</div> 
+<p>or:</p> 
+<div class="codeblock"> 
+ <pre>
+objectReference.methodName();
+</pre> 
+</div> 
+<p>The <tt>Rectangle</tt> class has two methods: <tt>getArea()</tt> to compute the rectangle's area and <tt>move()</tt> to change the rectangle's origin. Here's the <tt>CreateObjectDemo</tt> code that invokes these two methods:</p> 
+<div class="codeblock"> 
+ <pre>
+System.out.println("Area of rectOne: " + rectOne.getArea());
+...
+rectTwo.move(40, 72);
+</pre> 
+</div> 
+<p>The first statement invokes <tt>rectOne</tt>'s <code>getArea()</code> method and displays the results. The second line moves <tt>rectTwo</tt> because the <tt>move()</tt> method assigns new values to the object's <tt>origin.x</tt> and <tt>origin.y</tt>.</p> 
+<p>As with instance fields, <em>objectReference</em> must be a reference to an object. You can use a variable name, but you also can use any expression that returns an object reference. The <tt>new</tt> operator returns an object reference, so you can use the value returned from new to invoke a new object's methods:</p> 
+<div class="codeblock"> 
+ <pre>
+new Rectangle(100, 50).getArea()
+</pre> 
+</div> 
+<p>The expression <tt>new Rectangle(100, 50)</tt> returns an object reference that refers to a <tt>Rectangle</tt> object. As shown, you can use the dot notation to invoke the new <tt>Rectangle</tt>'s <tt>getArea()</tt> method to compute the area of the new rectangle.</p> 
+<p>Some methods, such as <tt>getArea()</tt>, return a value. For methods that return a value, you can use the method invocation in expressions. You can assign the return value to a variable, use it to make decisions, or control a loop. This code assigns the value returned by <tt>getArea()</tt> to the variable <code>areaOfRectangle</code>:</p> 
+<div class="codeblock"> 
+ <pre>
+int areaOfRectangle = new Rectangle(100, 50).getArea();
+</pre> 
+</div> 
+<p>Remember, invoking a method on a particular object is the same as sending a message to that object. In this case, the object that <tt>getArea()</tt> is invoked on is the rectangle returned by the constructor.</p>

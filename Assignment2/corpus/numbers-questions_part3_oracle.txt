@@ -1,0 +1,20 @@
+<ol> 
+ <li> <p>Change <a class="SourceLink" target="_blank" href="MaxVariablesDemo.java" onclick="showCode('https://docs.oracle.com/javase/tutorial/../displayCode.html', 'MaxVariablesDemo.java'); return false;"><code>MaxVariablesDemo</code></a> to show minimum values instead of maximum values. You can delete all code related to the variables <code>aChar</code> and <code>aBoolean</code>. What is the output?</p> </li> 
+ <li> <p>Create a program that reads an unspecified number of integer arguments from the command line and adds them together. For example, suppose that you enter the following:</p> 
+  <div class="codeblock"> 
+   <pre>
+java Adder 1 3 2 10
+</pre> 
+  </div> <p>The program should display <code>16</code> and then exit. The program should display an error message if the user enters only one argument. You can base your program on <a class="SourceLink" target="_blank" href="https://docs.oracle.com/javase/tutorial/data/examples/ValueOfDemo.java" onclick="showCode('https://docs.oracle.com/javase/tutorial/../displayCode.html', 'https://docs.oracle.com/javase/tutorial/data/examples/ValueOfDemo.java'); return false;"><code>ValueOfDemo</code></a>.</p> </li> 
+ <li> <p>Create a program that is similar to the previous one but has the following differences:</p> 
+  <ul> 
+   <li>Instead of reading integer arguments, it reads floating-point arguments.</li> 
+   <li>It displays the sum of the arguments, using exactly two digits to the right of the decimal point.</li> 
+  </ul> <p>For example, suppose that you enter the following:</p> 
+  <div class="codeblock"> 
+   <pre>
+java FPAdder 1 1e2 3.0 4.754
+</pre> 
+  </div> <p>The program would display <code>108.75</code>. Depending on your locale, the decimal point might be a comma (<code>,</code>) instead of a period (<code>.</code>).</p> </li> 
+</ol> 
+<p> <a class="TutorialLink" target="_top" href="numbers-answers.html">Check your answers.</a></p>

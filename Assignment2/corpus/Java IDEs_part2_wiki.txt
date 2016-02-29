@@ -1,0 +1,36 @@
+<div class="thumb tright"> 
+ <div class="thumbinner" style="width:202px;"> 
+  <a href="/wiki/File:Eclipse33_Ubuntu.png" class="image"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Eclipse33_Ubuntu.png/200px-Eclipse33_Ubuntu.png" width="200" height="153" class="thumbimage" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Eclipse33_Ubuntu.png/300px-Eclipse33_Ubuntu.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Eclipse33_Ubuntu.png/400px-Eclipse33_Ubuntu.png 2x" data-file-width="1274" data-file-height="976" /></a> 
+  <div class="thumbcaption"> 
+   <div class="magnify"> 
+    <a href="/wiki/File:Eclipse33_Ubuntu.png" class="internal" title="Enlarge"></a> 
+   </div> Eclipse on Ubuntu 
+  </div> 
+ </div> 
+</div> 
+<p>Eclipse is a Free and Open Source IDE, plus a developer tool framework that can be extended for a particular development need. IBM was behind its development, and it replaced IBM VisualAge tool. The idea was to create a standard look and feel that can be extended via plugins. The extensibility distinguishes Eclipse from other IDEs. Eclipse was also meant to compete with Microsoft Visual Studio tools. Microsoft tools give a standard way of developing code in the Microsoft world. Eclipse gives a similar standard way of developing code in the Java world, with a big success so far. With the online error checking only, coding can be sped up by at least 50% (coding does not include programming).</p> 
+<p>The goals for Eclipse are twofold:</p> 
+<ol> 
+ <li>Give a standard IDE for developing code</li> 
+ <li>Give a starting point, and the same look and feel for all other more sophisticated tools built on Eclipse</li> 
+</ol> 
+<p>IBM's WSAD, and later IBM Rational Software Development Platform, are built on Eclipse.</p> 
+<p>Standard Eclipse features:</p> 
+<ul> 
+ <li>Standard window management (perspectives, views, browsers, explorers, ...)</li> 
+ <li>Error checking as you type (immediate error indications, ...)</li> 
+ <li>Help window as you type (type ., or <code>&lt;ctrl&gt;</code> <code>space</code>, ...)</li> 
+ <li>Automatic build (changes in source code are automatically compiled, ...)</li> 
+ <li>Built-in debugger (full featured GUI debugger)</li> 
+ <li>Source code generation (getters and setters, ...)</li> 
+ <li>Searches (for implementation, for references, ...)</li> 
+ <li>Code refactoring (global reference update, ...)</li> 
+ <li>Plugin-based architecture (ability to build tools that integrate seamlessly with the environment, and some other tools)</li> 
+ <li>...</li> 
+</ul> 
+<dl> 
+ <dd> 
+  <i>More info: <a rel="nofollow" class="external text" href="http://www.eclipse.org/">Eclipse</a> and <a rel="nofollow" class="external text" href="http://www.eclipseplugincentral.com/">Plugincentral</a>.</i> 
+ </dd> 
+</dl> 
+<p><br style="clear:both;" /></p>

@@ -1,0 +1,146 @@
+<p>Java language first edition came out in the client-server era. Thick clients were developed with rich GUI interfaces. Java first edition, JSE (Java Standard Edition) had/has the following in its belt:</p> 
+<ul> 
+ <li>GUI capabilities (AWT, Swing)</li> 
+ <li>Network computing capabilities (<a href="//en.wikipedia.org/wiki/Java_remote_method_invocation" class="extiw" title="w:Java remote method invocation">RMI</a>)</li> 
+ <li>Multi-tasking capabilities (Threads)</li> 
+</ul> 
+<p>With JSE the following Java code executions are possible:</p> 
+<div class="thumb tright"> 
+ <div class="thumbinner" style="width:182px;"> 
+  <a href="/wiki/File:Java_stand_alone_appl.jpg" class="image"><img alt="" src="//upload.wikimedia.org/wikibooks/en/7/7c/Java_stand_alone_appl.jpg" width="180" height="190" class="thumbimage" data-file-width="180" data-file-height="190" /></a> 
+  <div class="thumbcaption"> 
+   <div class="magnify"> 
+    <a href="/wiki/File:Java_stand_alone_appl.jpg" class="internal" title="Enlarge"></a> 
+   </div> Figure 1: Stand alone execution 
+  </div> 
+ </div> 
+</div> 
+<dl> 
+ <dt>
+   Stand alone Java application&nbsp; 
+ </dt> 
+ <dd>
+   (Figure 1) Stand alone application refers to a Java program where both the user interface and business modules are running on the same computer. The application may or may not use a database to persist data. The user interface could be either AWT or Swing. 
+ </dd> 
+ <dd>
+   The application would start with a 
+  <code>main()</code> method of a Class. The application stops when the 
+  <code>main()</code> method exits, or if an exception is thrown from the application to the JVM. Classes are loaded to memory and compiled as needed, either from the file system or from a *.jar file, by the JVM. 
+ </dd> 
+ <dd>
+   Invocation of Java programs distributed in this manner requires usage of the command line. Once the user has all the class files, he needs to launch the application by the following command line (where Main is the name of the class containing the main() method.) 
+ </dd> 
+</dl> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Computer code" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/32px-Gnome-settings-accessibility-keyboard.svg.png" title="Computer code" width="32" height="32" data-file-width="60" data-file-height="60" /></td> 
+   <td style="background-color:#ffeee0; border-left: 4px solid orange; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><b>Execution of class</b> <pre style="background-color:#000; color:#fff;">
+java Main
+</pre></td> 
+  </tr> 
+ </tbody> 
+</table> 
+<dl> 
+ <dt>
+   Java 'jar' class libraries&nbsp; 
+ </dt> 
+ <dd>
+   Utility classes, framework classes, and/or third party classes are usually packaged and distributed in Java ' *.jar' files. These 'jar' files need to be put in the CLASSPATH of the java program from which these classes are going to be used. 
+ </dd> 
+ <dd>
+   If a jar file is executable, it can be run from the command line: 
+ </dd> 
+</dl> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Computer code" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/32px-Gnome-settings-accessibility-keyboard.svg.png" title="Computer code" width="32" height="32" data-file-width="60" data-file-height="60" /></td> 
+   <td style="background-color:#ffeee0; border-left: 4px solid orange; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><b>Execution of archive</b> <pre style="background-color:#000; color:#fff;">
+java -jar Application.jar
+</pre></td> 
+  </tr> 
+ </tbody> 
+</table> 
+<div class="thumb tright"> 
+ <div class="thumbinner" style="width:252px;"> 
+  <a href="/wiki/File:Java_applet_appl.jpg" class="image"><img alt="" src="//upload.wikimedia.org/wikibooks/en/thumb/2/2a/Java_applet_appl.jpg/250px-Java_applet_appl.jpg" width="250" height="161" class="thumbimage" data-file-width="313" data-file-height="202" /></a> 
+  <div class="thumbcaption"> 
+   <div class="magnify"> 
+    <a href="/wiki/File:Java_applet_appl.jpg" class="internal" title="Enlarge"></a> 
+   </div> Figure 2: Applet Execution 
+  </div> 
+ </div> 
+</div> 
+<dl> 
+ <dt>
+   Java Applet code&nbsp; 
+ </dt> 
+ <dd>
+   (Figure 2) Java Applets are Java code referenced from 
+  <a href="//en.wikipedia.org/wiki/HTML" class="extiw" title="w:HTML">HTML</a> pages, by the &lt;APPLET&gt; tag. The Java code is downloaded from a server and runs in the client browser JVM. Java has built-in support to render applets in the browser window. 
+ </dd> 
+ <dd>
+   Sophisticated GUI clients were found hard to develop, mostly because of download time, incompatibilities between browser JVM implementations, and communication requirements back to the server. Applets are rarely used today, and are most commonly used as small, separate graphic-like animation applets. The popularity of Java declined when Microsoft withdrew its Java support from 
+  <a href="//en.wikipedia.org/wiki/Internet_Explorer" class="extiw" title="w:Internet Explorer">Internet Explorer</a> default configuration, however, the plugin is still available as a free download from 
+  <a rel="nofollow" class="external text" href="http://java.com/">java.com</a>. 
+ </dd> 
+ <dd>
+   More information can be found about applets at the 
+  <a href="/wiki/Java_Programming/Applets" title="Java Programming/Applets">Applet Chapter</a>, in this book. Also, Wikipedia has an article about 
+  <a href="//en.wikipedia.org/wiki/Java_applet" class="extiw" title="w:Java applet">Java Applets</a>. 
+ </dd> 
+</dl> 
+<dl> 
+ <dt>
+   Client Server applications&nbsp; 
+ </dt> 
+ <dd>
+   The client server applications consist of a front-end, and a back-end part, both running on a separate computer. The idea is that the business logic would be on the back-end part of the program, which would be reused by all the clients. Here the challenge is to achieve a separation between front-end user interface code, and the back-end business logic code. 
+ </dd> 
+ <dd>
+   The communication between the front-end and the back-end can be achieved by two ways. 
+  <dl> 
+   <dd> 
+    <ul> 
+     <li>One way is to define a data communication <a href="//en.wikipedia.org/wiki/Protocol_(computing)" class="extiw" title="w:Protocol (computing)">protocol</a> between the two tiers. The back-end part would listen for an incoming request. Based on the <a href="//en.wikipedia.org/wiki/Protocol_(computing)" class="extiw" title="w:Protocol (computing)">protocol</a> it interprets the request and sends back the result in data form.</li> 
+     <li>The other way is to use <a href="//en.wikipedia.org/wiki/Java_remote_method_invocation" class="extiw" title="w:Java remote method invocation">Java Remote Invocation</a> (RMI). With the use of RMI, a remote object can be created and used by the client. In this case Java objects are transmitted across the network.</li> 
+    </ul> 
+   </dd> 
+  </dl> 
+ </dd> 
+ <dd>
+   More information can be found about client-server programming, with sample code, at the 
+  <a href="/wiki/Java_Programming/Client_Server" title="Java Programming/Client Server">Client Server Chapter</a> in this book. 
+ </dd> 
+</dl> 
+<dl> 
+ <dt>
+   Web Applications&nbsp; 
+ </dt> 
+ <dd>
+   For applications needed by lots of client installations, the client-server model did not work. Maintaining and upgrading the hundreds or thousands of clients caused a problem. It was not practical. The solution to this problem was to create a unified, standard client, for all applications, and that is the 
+  <i><a href="//en.wikipedia.org/wiki/Web_browser" class="extiw" title="w:Web browser">Browser</a></i>. 
+ </dd> 
+ <dd>
+   Having a standard client, it makes sense to create a unified, standard back-end service as well, and that is the 
+  <i><a href="//en.wikipedia.org/wiki/Application_server" class="extiw" title="w:Application server">Application Server</a></i>. 
+ </dd> 
+ <dd> 
+  <b>Web Application</b> is an application that is running in the 
+  <a href="//en.wikipedia.org/wiki/Application_server" class="extiw" title="w:Application server">Application Server</a>, and it can be accessed and used by the 
+  <a href="//en.wikipedia.org/wiki/Web_browser" class="extiw" title="w:Web browser">Browser</a> client. 
+ </dd> 
+ <dd>
+   There are three main area of interest in Web Applications, those are: 
+  <ul> 
+   <li>The <a href="//en.wikipedia.org/wiki/Web_Browser" class="extiw" title="w:Web Browser">Web Browser</a>. This is the container of rendering HTML text, and running client scripts</li> 
+   <li>The <a href="//en.wikipedia.org/wiki/Hypertext_Transfer_Protocol" class="extiw" title="w:Hypertext Transfer Protocol">HTTP</a> <a href="//en.wikipedia.org/wiki/Protocol_(computing)" class="extiw" title="w:Protocol (computing)">protocol</a>. Text data are sent back and forth between Browser and the Server</li> 
+   <li>The <a href="//en.wikipedia.org/wiki/Web_server" class="extiw" title="w:Web server">Web server</a> to serve static content, <a href="//en.wikipedia.org/wiki/Application_server" class="extiw" title="w:Application server">Application server</a> to serve dynamic content and host <a href="//en.wikipedia.org/wiki/Enterprise_JavaBean" class="extiw" title="w:Enterprise JavaBean">EJBs</a>.</li> 
+  </ul> 
+ </dd> 
+ <dd>
+   Wikipedia also has an article about 
+  <a href="//en.wikipedia.org/wiki/Web_application" class="extiw" title="w:Web application">Web application</a>. 
+ </dd> 
+</dl>

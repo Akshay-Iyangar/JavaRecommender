@@ -1,0 +1,137 @@
+<div id="PageContent"> 
+ <p>The section <a class="TutorialLink" target="_top" href="https://docs.oracle.com/javase/tutorial/java/IandI/createinterface.html">Interfaces</a> describes an example that involves manufacturers of computer-controlled cars who publish industry-standard interfaces that describe which methods can be invoked to operate their cars. What if those computer-controlled car manufacturers add new functionality, such as flight, to their cars? These manufacturers would need to specify new methods to enable other companies (such as electronic guidance instrument manufacturers) to adapt their software to flying cars. Where would these car manufacturers declare these new flight-related methods? If they add them to their original interfaces, then programmers who have implemented those interfaces would have to rewrite their implementations. If they add them as static methods, then programmers would regard them as utility methods, not as essential, core methods.</p> 
+ <p>Default methods enable you to add new functionality to the interfaces of your libraries and ensure binary compatibility with code written for older versions of those interfaces.</p> 
+ <p>Consider the following interface, <a class="SourceLink" target="_blank" href="examples/TimeClient.java" onclick="showCode('https://docs.oracle.com/javase/tutorial/displayCode.html', 'examples/TimeClient.java'); return false;"><code>TimeClient</code></a>, as described in <a class="TutorialLink" target="_top" href="https://docs.oracle.com/javase/tutorial/java/IandI/QandE/interfaces-answers.html">Answers to Questions and Exercises: Interfaces</a>:</p> 
+ <div class="codeblock"> 
+  <pre>
+
+import java.time.*; 
+ 
+public interface TimeClient {
+    void setTime(int hour, int minute, int second);
+    void setDate(int day, int month, int year);
+    void setDateAndTime(int day, int month, int year,
+                               int hour, int minute, int second);
+    LocalDateTime getLocalDateTime();
+}
+</pre> 
+ </div> 
+ <p>The following class, <a class="SourceLink" target="_blank" href="examples/defaultmethods/SimpleTimeClient.java" onclick="showCode('https://docs.oracle.com/javase/tutorial/displayCode.html', 'examples/defaultmethods/SimpleTimeClient.java'); return false;"><code>SimpleTimeClient</code></a>, implements <code>TimeClient</code>:</p> 
+ <div class="codeblock"> 
+  <pre>
+
+package defaultmethods;
+
+import java.time.*;
+import java.lang.*;
+import java.util.*;
+
+public class SimpleTimeClient implements TimeClient {
+    
+    private LocalDateTime dateAndTime;
+    
+    public SimpleTimeClient() {
+        dateAndTime = LocalDateTime.now();
+    }
+    
+    public void setTime(int hour, int minute, int second) {
+        LocalDate currentDate = LocalDate.from(dateAndTime);
+        LocalTime timeToSet = LocalTime.of(hour, minute, second);
+        dateAndTime = LocalDateTime.of(currentDate, timeToSet);
+    }
+    
+    public void setDate(int day, int month, int year) {
+        LocalDate dateToSet = LocalDate.of(day, month, year);
+        LocalTime currentTime = LocalTime.from(dateAndTime);
+        dateAndTime = LocalDateTime.of(dateToSet, currentTime);
+    }
+    
+    public void setDateAndTime(int day, int month, int year,
+                               int hour, int minute, int second) {
+        LocalDate dateToSet = LocalDate.of(day, month, year);
+        LocalTime timeToSet = LocalTime.of(hour, minute, second); 
+        dateAndTime = LocalDateTime.of(dateToSet, timeToSet);
+    }
+    
+    public LocalDateTime getLocalDateTime() {
+        return dateAndTime;
+    }
+    
+    public String toString() {
+        return dateAndTime.toString();
+    }
+    
+    public static void main(String... args) {
+        TimeClient myTimeClient = new SimpleTimeClient();
+        System.out.println(myTimeClient.toString());
+    }
+}
+</pre> 
+ </div> 
+ <p>Suppose that you want to add new functionality to the <code>TimeClient</code> interface, such as the ability to specify a time zone through a <a class="APILink" target="_blank" href="https://docs.oracle.com/javase/8/docs/api/java/time/ZonedDateTime.html"><code>ZonedDateTime</code></a> object (which is like a <a class="APILink" target="_blank" href="https://docs.oracle.com/javase/8/docs/api/java/time/LocalDateTime.html"><code>LocalDateTime</code></a> object except that it stores time zone information):</p> 
+ <div class="codeblock"> 
+  <pre>
+public interface TimeClient {
+    void setTime(int hour, int minute, int second);
+    void setDate(int day, int month, int year);
+    void setDateAndTime(int day, int month, int year,
+        int hour, int minute, int second);
+    LocalDateTime getLocalDateTime();                           
+    <strong>ZonedDateTime getZonedDateTime(String zoneString);</strong>
+}
+</pre> 
+ </div> 
+ <p>Following this modification to the <code>TimeClient</code> interface, you would also have to modify the class <code>SimpleTimeClient</code> and implement the method <code>getZonedDateTime</code>. However, rather than leaving <code>getZonedDateTime</code> as <code>abstract</code> (as in the previous example), you can instead define a <em>default implementation</em>. (Remember that an <a class="TutorialLink" target="_top" href="https://docs.oracle.com/javase/tutorial/java/IandI/abstract.html">abstract method</a> is a method declared without an implementation.)</p> 
+ <div class="codeblock"> 
+  <pre>
+
+package defaultmethods;
+ 
+import java.time.*;
+
+public interface TimeClient {
+    void setTime(int hour, int minute, int second);
+    void setDate(int day, int month, int year);
+    void setDateAndTime(int day, int month, int year,
+                               int hour, int minute, int second);
+    LocalDateTime getLocalDateTime();
+    
+    static ZoneId getZoneId (String zoneString) {
+        try {
+            return ZoneId.of(zoneString);
+        } catch (DateTimeException e) {
+            System.err.println("Invalid time zone: " + zoneString +
+                "; using default time zone instead.");
+            return ZoneId.systemDefault();
+        }
+    }
+        
+    default ZonedDateTime getZonedDateTime(String zoneString) {
+        return ZonedDateTime.of(getLocalDateTime(), getZoneId(zoneString));
+    }
+}
+</pre> 
+ </div> 
+ <p>You specify that a method definition in an interface is a default method with the <code>default</code> keyword at the beginning of the method signature. All method declarations in an interface, including default methods, are implicitly <code>public</code>, so you can omit the <code>public</code> modifier.</p> 
+ <p>With this interface, you do not have to modify the class <code>SimpleTimeClient</code>, and this class (and any class that implements the interface <code>TimeClient</code>), will have the method <code>getZonedDateTime</code> already defined. The following example, <a class="SourceLink" target="_blank" href="examples/defaultmethods/TestSimpleTimeClient.java" onclick="showCode('https://docs.oracle.com/javase/tutorial/displayCode.html', 'examples/defaultmethods/TestSimpleTimeClient.java'); return false;"><code>TestSimpleTimeClient</code></a>, invokes the method <code>getZonedDateTime</code> from an instance of <code>SimpleTimeClient</code>:</p> 
+ <div class="codeblock"> 
+  <pre>
+
+package defaultmethods;
+ 
+import java.time.*;
+import java.lang.*;
+import java.util.*;
+
+public class TestSimpleTimeClient {
+    public static void main(String... args) {
+        TimeClient myTimeClient = new SimpleTimeClient();
+        System.out.println("Current time: " + myTimeClient.toString());
+        System.out.println("Time in California: " +
+            myTimeClient.getZonedDateTime("Blah blah").toString());
+    }
+}
+</pre> 
+ </div> 
+ <!-- *********************************************************************** --> 
+</div>

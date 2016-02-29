@@ -1,0 +1,21 @@
+<p>Reference data type parameters, such as objects, are also passed into methods <i>by value</i>. This means that when the method returns, the passed-in reference still references the same object as before. <i>However</i>, the values of the object's fields <i>can</i> be changed in the method, if they have the proper access level.</p> 
+<p>For example, consider a method in an arbitrary class that moves <code>Circle</code> objects:</p> 
+<div class="codeblock"> 
+ <pre>
+public void moveCircle(Circle circle, int deltaX, int deltaY) {
+    // code to move origin of circle to x+deltaX, y+deltaY
+    circle.setX(circle.getX() + deltaX);
+    circle.setY(circle.getY() + deltaY);
+        
+    // code to assign a new reference to circle
+    circle = new Circle(0, 0);
+}
+</pre> 
+</div> 
+<p>Let the method be invoked with these arguments:</p> 
+<div class="codeblock"> 
+ <pre>
+moveCircle(myCircle, 23, 56)
+</pre> 
+</div> 
+<p>Inside the method, <code>circle</code> initially refers to <code>myCircle</code>. The method changes the x and y coordinates of the object that <code>circle</code> references (i.e., <code>myCircle</code>) by 23 and 56, respectively. These changes will persist when the method returns. Then <code>circle</code> is assigned a reference to a new <code>Circle</code> object with <code>x = y = 0</code>. This reassignment has no permanence, however, because the reference was passed in by value and cannot change. Within the method, the object pointed to by <code>circle</code> has changed, but, when the method returns, <code>myCircle</code> still references the same <code>Circle</code> object as before the method was called.</p>

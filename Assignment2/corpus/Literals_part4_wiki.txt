@@ -1,0 +1,44 @@
+<p>Floating point numbers are expressed as decimal fractions or as exponential notation:</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><span id="code-section-63"><b>Code section 3.63: Floating point literals.</b></span> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno">1 </span><span class="kt">double</span> <span class="n">decimalNumber</span> <span class="o">=</span> <span class="mf">5.0</span><span class="o">;</span>
+<span class="lineno">2 </span><span class="n">decimalNumber</span> <span class="o">=</span> <span class="mf">5d</span><span class="o">;</span>
+<span class="lineno">3 </span><span class="n">decimalNumber</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">;</span>
+<span class="lineno">4 </span><span class="n">decimalNumber</span> <span class="o">=</span> <span class="mi">10</span><span class="n">f</span><span class="o">;</span>
+<span class="lineno">5 </span><span class="n">decimalNumber</span> <span class="o">=</span> <span class="mf">3.14159e0</span><span class="o">;</span>
+<span class="lineno">6 </span><span class="n">decimalNumber</span> <span class="o">=</span> <span class="mf">2.718281828459045D</span><span class="o">;</span>
+<span class="lineno">7 </span><span class="n">decimalNumber</span> <span class="o">=</span> <span class="mf">1.0e-6D</span><span class="o">;</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>Floating point numbers consist of:</p> 
+<ol> 
+ <li>an optional leading <code>+</code> or <code>-</code> sign, indicating a positive or negative value; if omitted, the value is positive,</li> 
+ <li>one of the following number formats 
+  <ul> 
+   <li><i>integer digits</i> (must be followed by either an exponent or a suffix or both, to distinguish it from an integer literal)</li> 
+   <li><i>integer digits</i> <code>.</code></li> 
+   <li><i>integer digits</i> <code>.</code> <i>integer digits</i></li> 
+   <li><code>.</code> <i>integer digits</i></li> 
+  </ul> </li> 
+ <li>an optional exponent of the form 
+  <ul> 
+   <li>the exponent indicator <code>e</code> or <code>E</code></li> 
+   <li>an optional exponent sign <code>+</code> or <code>-</code> (the default being a positive exponent)</li> 
+   <li><i>integer digits</i> representing the integer exponent value</li> 
+  </ul> </li> 
+ <li>an optional floating point suffix: 
+  <ul> 
+   <li>either <code>f</code> or <code>F</code> indicating a single precision (4 bytes) floating point number, or</li> 
+   <li><code>d</code> or <code>D</code> indicating the number is a double precision floating point number (by default, thus the double precision (8 bytes) is default).</li> 
+  </ul> </li> 
+</ol> 
+<p>Here, <i>integer digits</i> represents one or more of the digits <code>0</code> through <code>9</code>.</p> 
+<p>Starting in J2SE 7.0, you may insert underscores between digits in a numeric literal. They are ignored but may help readability by allowing the programmer to group digits.</p>

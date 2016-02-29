@@ -1,0 +1,151 @@
+<p>The <code>String</code> class also allows for the modification of cases. The two methods that make this possible are <code>toLowerCase()</code> and <code>toUpperCase()</code>.</p> 
+<table style="width: 100%;"> 
+ <tbody> 
+  <tr> 
+   <td valign="top"> 
+    <table style="padding:2px; margin:2px;"> 
+     <tbody> 
+      <tr valign="top"> 
+       <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+       <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><span id="code-section-96"><b>Code section 3.96: Case modification.</b></span> 
+        <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+         <pre>
+<span class="lineno">1 </span><span class="n">String</span> <span class="n">str</span> <span class="o">=</span> <span class="s">"wIkIbOoKs"</span><span class="o">;</span>
+<span class="lineno">2 </span><span class="hll"><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">str</span><span class="o">.</span><span class="na">toLowerCase</span><span class="o">());</span>
+</span><span class="lineno">3 </span><span class="hll"><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">str</span><span class="o">.</span><span class="na">toUpperCase</span><span class="o">());</span>
+</span>
+</pre> 
+        </div> </td> 
+      </tr> 
+     </tbody> 
+    </table> </td> 
+   <td valign="top"> 
+    <table style="padding:2px; margin:2px; width:100%;"> 
+     <tbody> 
+      <tr valign="top"> 
+       <td style="width:32px;"><img alt="Standard input or output" src="//upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/32px-Nuvola_apps_display.png" title="Standard input or output" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/48px-Nuvola_apps_display.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/64px-Nuvola_apps_display.png 2x" data-file-width="128" data-file-height="128" /></td> 
+       <td style="background-color:#f0f0ff; border-left: 4px solid blue; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><b>Output for Code section 3.96</b> <pre style="background-color:#000; color:#fff;">
+wikibooks
+WIKIBOOKS
+</pre></td> 
+      </tr> 
+     </tbody> 
+    </table> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>These methods are useful to do a search which is not case sensitive:</p> 
+<table style="width: 100%;"> 
+ <tbody> 
+  <tr> 
+   <td valign="top"> 
+    <table style="padding:2px; margin:2px;"> 
+     <tbody> 
+      <tr valign="top"> 
+       <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+       <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><b>Code section 3.97: Text search.</b> 
+        <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+         <pre>
+<span class="lineno"> 1 </span><span class="n">String</span> <span class="n">word</span> <span class="o">=</span> <span class="s">"Integer"</span><span class="o">;</span>
+<span class="lineno"> 2 </span><span class="n">String</span> <span class="n">text</span> <span class="o">=</span> <span class="s">"A number without a decimal part is an integer."</span>
+<span class="lineno"> 3 </span>  <span class="o">+</span> <span class="s">" Integers are a list of digits."</span><span class="o">;</span>
+<span class="lineno"> 4 </span>
+<span class="lineno"> 5 </span><span class="o">...</span>
+<span class="lineno"> 6 </span>
+<span class="lineno"> 7 </span><span class="c1">// Remove the case</span>
+<span class="lineno"> 8 </span><span class="hll"><span class="n">String</span> <span class="n">lowerCaseWord</span> <span class="o">=</span> <span class="n">word</span><span class="o">.</span><span class="na">toLowerCase</span><span class="o">();</span>
+</span><span class="lineno"> 9 </span><span class="hll"><span class="n">String</span> <span class="n">lowerCaseText</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="na">toLowerCase</span><span class="o">();</span>
+</span><span class="lineno">10 </span>
+<span class="lineno">11 </span><span class="c1">// Search</span>
+<span class="lineno">12 </span><span class="hll"><span class="kt">int</span> <span class="n">index</span> <span class="o">=</span> <span class="n">lowerCaseText</span><span class="o">.</span><span class="na">indexOf</span><span class="o">(</span><span class="n">lowerCaseWord</span><span class="o">);</span>
+</span><span class="lineno">13 </span><span class="k">while</span> <span class="o">(</span><span class="n">index</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno">14 </span>  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">word</span>
+<span class="lineno">15 </span>    <span class="o">+</span> <span class="s">" appears at column "</span>
+<span class="lineno">16 </span>    <span class="o">+</span> <span class="o">(</span><span class="n">index</span> <span class="o">+</span> <span class="mi">1</span><span class="o">)</span>
+<span class="lineno">17 </span>    <span class="o">+</span> <span class="s">"."</span><span class="o">);</span>
+<span class="lineno">18 </span><span class="hll">  <span class="n">index</span> <span class="o">=</span> <span class="n">lowerCaseText</span><span class="o">.</span><span class="na">indexOf</span><span class="o">(</span><span class="n">lowerCaseWord</span><span class="o">,</span> <span class="n">index</span> <span class="o">+</span> <span class="mi">1</span><span class="o">);</span>
+</span><span class="lineno">19 </span><span class="o">}</span>
+</pre> 
+        </div> </td> 
+      </tr> 
+     </tbody> 
+    </table> </td> 
+   <td valign="top"> 
+    <table style="padding:2px; margin:2px; width:100%;"> 
+     <tbody> 
+      <tr valign="top"> 
+       <td style="width:32px;"><img alt="Standard input or output" src="//upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/32px-Nuvola_apps_display.png" title="Standard input or output" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/48px-Nuvola_apps_display.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Nuvola_apps_display.png/64px-Nuvola_apps_display.png 2x" data-file-width="128" data-file-height="128" /></td> 
+       <td style="background-color:#f0f0ff; border-left: 4px solid blue; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><b>Output for Code section 3.97</b> <pre style="background-color:#000; color:#fff;">
+Integer appears at column 38.
+Integer appears at column 47.
+</pre></td> 
+      </tr> 
+     </tbody> 
+    </table> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<div class="collapsible" style="width:100%; clear:both; border:none;"> 
+ <div class="title" style="background:transparent; text-align:left; background:#cedff2;border:1px solid lightgrey;">
+   Test your knowledge 
+ </div> 
+ <div class="body" style="background:transparent; text-align:left; background:#e7eff9;border:solid 1px lightgrey;padding:8px;"> 
+  <p><b>Question 3.12</b>: You have mail addresses in the following form: <code><i>&lt;firstName&gt;</i>.<i>&lt;lastName&gt;</i>@<i>&lt;companyName&gt;</i>.org</code></p> 
+  <p>Write the <code>String getDisplayName(String)</code> method that receives the mail string as parameter and returns the readable person name like this: <code>LASTNAME Firstname</code></p> 
+  <div class="collapsible" style="width:100%; clear:both; border:none;"> 
+   <div class="title" style="background:transparent; text-align:left; background:#cedff2;border:1px solid lightgrey;">
+     Answer 
+   </div> 
+   <div class="body" style="background:transparent; text-align:left; background:#e7eff9;border:solid 1px lightgrey;padding:8px;"> 
+    <table style="padding:2px; margin:2px;"> 
+     <tbody> 
+      <tr valign="top"> 
+       <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+       <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><b>Answer 3.12: <code>getDisplayName()</code></b> 
+        <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+         <pre>
+<span class="lineno"> 1 </span><span class="kd">public</span> <span class="kd">static</span> <span class="n">String</span> <span class="nf">getDisplayName</span><span class="o">(</span><span class="n">String</span> <span class="n">mail</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno"> 2 </span>  <span class="n">String</span> <span class="n">displayName</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+<span class="lineno"> 3 </span> 
+<span class="lineno"> 4 </span>  <span class="k">if</span> <span class="o">(</span><span class="n">mail</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno"> 5 </span>    <span class="n">String</span><span class="o">[]</span> <span class="n">mailParts</span> <span class="o">=</span> <span class="n">mail</span><span class="o">.</span><span class="na">split</span><span class="o">(</span><span class="s">"@"</span><span class="o">);</span>
+<span class="lineno"> 6 </span>    <span class="n">String</span> <span class="n">namePart</span> <span class="o">=</span> <span class="n">mailParts</span><span class="o">[</span><span class="mi">0</span><span class="o">];</span>
+<span class="lineno"> 7 </span>    <span class="n">String</span><span class="o">[]</span> <span class="n">namesParts</span> <span class="o">=</span> <span class="n">namePart</span><span class="o">.</span><span class="na">split</span><span class="o">(</span><span class="s">"\\."</span><span class="o">);</span>
+<span class="lineno"> 8 </span>   
+<span class="lineno"> 9 </span>    <span class="c1">// The last name</span>
+<span class="lineno">10 </span>    <span class="n">String</span> <span class="n">lastName</span> <span class="o">=</span> <span class="n">namesParts</span><span class="o">[</span><span class="mi">1</span><span class="o">];</span>
+<span class="lineno">11 </span>    <span class="n">lastName</span> <span class="o">=</span> <span class="n">lastName</span><span class="o">.</span><span class="na">toUpperCase</span><span class="o">();</span>
+<span class="lineno">12 </span>   
+<span class="lineno">13 </span>    <span class="c1">// The first name</span>
+<span class="lineno">14 </span>    <span class="n">String</span> <span class="n">firstName</span> <span class="o">=</span> <span class="n">namesParts</span><span class="o">[</span><span class="mi">0</span><span class="o">];</span>
+<span class="lineno">15 </span>   
+<span class="lineno">16 </span>    <span class="n">String</span> <span class="n">firstNameInitial</span> <span class="o">=</span> <span class="n">firstName</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">);</span>
+<span class="lineno">17 </span>    <span class="n">firstNameInitial</span> <span class="o">=</span> <span class="n">firstNameInitial</span><span class="o">.</span><span class="na">toUpperCase</span><span class="o">();</span>
+<span class="lineno">18 </span>   
+<span class="lineno">19 </span>    <span class="n">String</span> <span class="n">firstNameEnd</span> <span class="o">=</span> <span class="n">firstName</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+<span class="lineno">20 </span>    <span class="n">firstNameEnd</span> <span class="o">=</span> <span class="n">firstNameEnd</span><span class="o">.</span><span class="na">toLowerCase</span><span class="o">();</span>
+<span class="lineno">21 </span>   
+<span class="lineno">22 </span>    <span class="c1">// Concatenation</span>
+<span class="lineno">23 </span>    <span class="n">StringBuilder</span> <span class="n">displayNameBuilder</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringBuilder</span><span class="o">(</span><span class="n">lastName</span><span class="o">).</span><span class="na">append</span><span class="o">(</span><span class="s">" "</span><span class="o">).</span><span class="na">append</span><span class="o">(</span><span class="n">firstNameInitial</span><span class="o">).</span><span class="na">append</span><span class="o">(</span><span class="n">firstNameEnd</span><span class="o">);</span>
+<span class="lineno">24 </span>    <span class="n">displayName</span> <span class="o">=</span> <span class="n">displayNameBuilder</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span>
+<span class="lineno">25 </span>  <span class="o">}</span>
+<span class="lineno">26 </span> 
+<span class="lineno">27 </span>  <span class="k">return</span> <span class="n">displayName</span><span class="o">;</span>
+<span class="lineno">28 </span><span class="o">}</span>
+</pre> 
+        </div> </td> 
+      </tr> 
+     </tbody> 
+    </table> 
+    <ol> 
+     <li>We only process non null strings,</li> 
+     <li>We first split the mail into two parts to separate the personal information from the company information and we keep the name data,</li> 
+     <li>Then we split the name information to separate the first name from the last name. As the <code>split()</code> method use regular expression and <code>.</code> is a wildcard character, we have to escape it (<code>\.</code>). However, in a string, the <code>\</code> is also a special character, so we need to escape it too (<code>\\.</code>),</li> 
+     <li>The last name is just capitalized,</li> 
+     <li>As the case of all the first name characters will not be the same, we have to cut the first name. Only the first name initial will be capitalized,</li> 
+     <li>Now we can concatenate all the fragments. We prefer to use a <code>StringBuilder</code> to do that.</li> 
+    </ol> 
+   </div> 
+  </div> 
+ </div> 
+</div>

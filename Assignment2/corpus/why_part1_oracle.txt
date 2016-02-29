@@ -1,0 +1,23 @@
+<div id="PageContent"> 
+ <p> In a nutshell, generics enable <em>types</em> (classes and interfaces) to be parameters when defining classes, interfaces and methods. Much like the more familiar <em>formal parameters</em> used in method declarations, type parameters provide a way for you to re-use the same code with different inputs. The difference is that the inputs to formal parameters are values, while the inputs to type parameters are types.</p> 
+ <p> Code that uses generics has many benefits over non-generic code:</p> 
+ <ul> 
+  <li>Stronger type checks at compile time.<br> A Java compiler applies strong type checking to generic code and issues errors if the code violates type safety. Fixing compile-time errors is easier than fixing runtime errors, which can be difficult to find.<br><br /></br></br></li> 
+  <li>Elimination of casts.<br> The following code snippet without generics requires casting: 
+    <div class="codeblock"> 
+     <pre>
+List list = new ArrayList();
+list.add("hello");
+String s = <strong>(String)</strong> list.get(0);
+</pre> 
+    </div> When re-written to use generics, the code does not require casting: 
+    <div class="codeblock"> 
+     <pre>
+List&lt;String&gt; list = new ArrayList&lt;String&gt;();
+list.add("hello");
+String s = list.get(0);   // no cast
+</pre> 
+    </div> </br></li> 
+  <li>Enabling programmers to implement generic algorithms.<br> By using generics, programmers can implement generic algorithms that work on collections of different types, can be customized, and are type safe and easier to read.</br></li> 
+ </ul> 
+</div>

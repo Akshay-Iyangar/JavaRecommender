@@ -1,0 +1,80 @@
+<div id="PageContent"> 
+ <!-- Managing Source and Class Files =--> 
+ <p>Many implementations of the Java platform rely on hierarchical file systems to manage source and class files, although <i>The Java Language Specification</i> does not require this. The strategy is as follows.</p> 
+ <p>Put the source code for a class, interface, enumeration, or annotation type in a text file whose name is the simple name of the type and whose extension is <code>.java</code>. For example:</p> 
+ <div class="codeblock"> 
+  <pre>
+//in the Rectangle.java file 
+package graphics;
+public class Rectangle {
+   ... 
+}
+</pre> 
+ </div> 
+ <p>Then, put the source file in a directory whose name reflects the name of the package to which the type belongs:</p> 
+ <div class="codeblock"> 
+  <pre>
+.....\graphics\Rectangle.java
+</pre> 
+ </div> 
+ <p>The qualified name of the package member and the path name to the file are parallel, assuming the Microsoft Windows file name separator backslash (for UNIX, use the forward slash).</p> 
+ <ul> 
+  <li><strong>class name</strong> – <code>graphics.Rectangle</code></li> 
+  <li><strong>pathname to file</strong> – <code>graphics\Rectangle.java</code></li> 
+ </ul> 
+ <p>As you should recall, by convention a company uses its reversed Internet domain name for its package names. The Example company, whose Internet domain name is <code>example.com</code>, would precede all its package names with <code>com.example</code>. Each component of the package name corresponds to a subdirectory. So, if the Example company had a <code>com.example.graphics</code> package that contained a <code>Rectangle.java</code> source file, it would be contained in a series of subdirectories like this:</p> 
+ <div class="codeblock"> 
+  <pre>
+....\com\example\graphics\Rectangle.java
+</pre> 
+ </div> 
+ <p>When you compile a source file, the compiler creates a different output file for each type defined in it. The base name of the output file is the name of the type, and its extension is <code>.class</code>. For example, if the source file is like this</p> 
+ <div class="codeblock"> 
+  <pre>
+//in the Rectangle.java file
+package com.example.graphics;
+public class Rectangle {
+      . . . 
+}
+
+class Helper{
+      . . . 
+}
+</pre> 
+ </div> 
+ <p>then the compiled files will be located at:</p> 
+ <div class="codeblock"> 
+  <pre>
+&lt;path to the parent directory of the output files&gt;\com\example\graphics\Rectangle.class
+&lt;path to the parent directory of the output files&gt;\com\example\graphics\Helper.class
+</pre> 
+ </div> 
+ <p>Like the <code>.java</code> source files, the compiled <code>.class</code> files should be in a series of directories that reflect the package name. However, the path to the <code>.class</code> files does not have to be the same as the path to the <code>.java</code> source files. You can arrange your source and class directories separately, as:</p> 
+ <div class="codeblock"> 
+  <pre>
+&lt;path_one&gt;\sources\com\example\graphics\Rectangle.java
+
+&lt;path_two&gt;\classes\com\example\graphics\Rectangle.class
+</pre> 
+ </div> 
+ <p>By doing this, you can give the <code>classes</code> directory to other programmers without revealing your sources. You also need to manage source and class files in this manner so that the compiler and the Java Virtual Machine (JVM) can find all the types your program uses.</p> 
+ <p>The full path to the <code>classes</code> directory, <code>&lt;path_two&gt;\classes</code>, is called the <i>class path</i>, and is set with the <code>CLASSPATH</code> system variable. Both the compiler and the JVM construct the path to your <code>.class</code> files by adding the package name to the class path. For example, if</p> 
+ <div class="codeblock"> 
+  <pre>
+&lt;path_two&gt;\classes
+</pre> 
+ </div> 
+ <p>is your class path, and the package name is</p> 
+ <div class="codeblock"> 
+  <pre>
+com.example.graphics,
+</pre> 
+ </div> 
+ <p>then the compiler and JVM look for <code>.class files</code> in</p> 
+ <div class="codeblock"> 
+  <pre>
+&lt;path_two&gt;\classes\com\example\graphics.
+</pre> 
+ </div> 
+ <p>A class path may include several paths, separated by a semicolon (Windows) or colon (UNIX). By default, the compiler and the JVM search the current directory and the JAR file containing the Java platform classes so that these directories are automatically in your class path.</p> 
+</div>

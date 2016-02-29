@@ -1,0 +1,16 @@
+<p>The <code>static</code> modifier, in combination with the <code>final</code> modifier, is also used to define constants. The <code>final</code> modifier indicates that the value of this field cannot change.</p> 
+<p>For example, the following variable declaration defines a constant named <code>PI</code>, whose value is an approximation of pi (the ratio of the circumference of a circle to its diameter):</p> 
+<div class="codeblock"> 
+ <pre>
+static final double PI = 3.141592653589793;
+</pre> 
+</div> 
+<p>Constants defined in this way cannot be reassigned, and it is a compile-time error if your program tries to do so. By convention, the names of constant values are spelled in uppercase letters. If the name is composed of more than one word, the words are separated by an underscore (_).</p> 
+<div class="note"> 
+ <hr> 
+  <strong>Note:</strong>&nbsp;If a primitive type or a string is defined as a constant and the value is known at compile time, the compiler replaces the constant name everywhere in the code with its value. This is called a 
+  <i>compile-time constant</i>. If the value of the constant in the outside world changes (for example, if it is legislated that pi actually should be 3.975), you will need to recompile any classes that use this constant to get the current value. 
+  <hr> 
+  </hr>
+ </hr>
+</div>

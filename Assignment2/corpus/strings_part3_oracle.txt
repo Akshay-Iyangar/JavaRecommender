@@ -1,0 +1,50 @@
+<p>Methods used to obtain information about an object are known as <em>accessor methods</em>. One accessor method that you can use with strings is the <code>length()</code> method, which returns the number of characters contained in the string object. After the following two lines of code have been executed, <code>len</code> equals 17:</p> 
+<div class="codeblock"> 
+ <pre>
+String palindrome = "Dot saw I was Tod";
+int len = palindrome.length();
+</pre> 
+</div> 
+<p>A <i>palindrome</i> is a word or sentence that is symmetricit is spelled the same forward and backward, ignoring case and punctuation. Here is a short and inefficient program to reverse a palindrome string. It invokes the <code>String</code> method <code>charAt(i)</code>, which returns the i<sup>th</sup> character in the string, counting from 0.</p> 
+<div class="codeblock"> 
+ <pre>
+
+public class StringDemo {
+    public static void main(String[] args) {
+        String palindrome = "Dot saw I was Tod";
+        int len = palindrome.length();
+        char[] tempCharArray = new char[len];
+        char[] charArray = new char[len];
+        
+        // put original string in an 
+        // array of chars
+        for (int i = 0; i &lt; len; i++) {
+            tempCharArray[i] = 
+                palindrome.charAt(i);
+        } 
+        
+        // reverse array of chars
+        for (int j = 0; j &lt; len; j++) {
+            charArray[j] =
+                tempCharArray[len - 1 - j];
+        }
+        
+        String reversePalindrome =
+            new String(charArray);
+        System.out.println(reversePalindrome);
+    }
+}
+</pre> 
+</div> 
+<p>Running the program produces this output:</p> 
+<div class="codeblock"> 
+ <pre>
+doT saw I was toD
+</pre> 
+</div> 
+<p>To accomplish the string reversal, the program had to convert the string to an array of characters (first <code>for</code> loop), reverse the array into a second array (second <code>for</code> loop), and then convert back to a string. The <a class="APILink" target="_blank" href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html"><code>String</code> </a> class includes a method, <code>getChars()</code>, to convert a string, or a portion of a string, into an array of characters so we could replace the first <code>for</code> loop in the program above with</p> 
+<div class="codeblock"> 
+ <pre>
+palindrome.getChars(0, len, tempCharArray, 0);
+</pre> 
+</div>

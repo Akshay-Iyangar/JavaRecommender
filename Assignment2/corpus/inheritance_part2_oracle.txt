@@ -1,0 +1,31 @@
+<p> You can subtype a generic class or interface by extending or implementing it. The relationship between the type parameters of one class or interface and the type parameters of another are determined by the <tt>extends</tt> and <tt>implements</tt> clauses.</p> 
+<p> Using the <tt>Collections</tt> classes as an example, <tt>ArrayList&lt;E&gt;</tt> implements <tt>List&lt;E&gt;</tt>, and <tt>List&lt;E&gt; extends Collection&lt;E&gt;</tt>. So <tt>ArrayList&lt;String&gt;</tt> is a subtype of <tt>List&lt;String&gt;</tt>, which is a subtype of <tt>Collection&lt;String&gt;</tt>. So long as you do not vary the type argument, the subtyping relationship is preserved between the types.</p> 
+<center> 
+ <img src="https://docs.oracle.com/javase/tutorial/figures/java/generics-sampleHierarchy.gif" width="147" height="116" align="bottom" alt="diagram showing a sample collections hierarchy: ArrayList<String> is a subtype of List<String>, which is a subtype of Collection<String>."> </img>
+</center> 
+<center>
+  A sample 
+ <tt>Collections</tt> hierarchy 
+</center> 
+<p> Now imagine we want to define our own list interface, <tt>PayloadList</tt>, that associates an optional value of generic type <tt>P</tt> with each element. Its declaration might look like:</p> 
+<div class="codeblock"> 
+ <pre>
+interface PayloadList&lt;E,P&gt; extends List&lt;E&gt; {
+  void setPayload(int index, P val);
+  ...
+}
+</pre> 
+</div> 
+<p> The following parameterizations of <tt>PayloadList</tt> are subtypes of <tt>List&lt;String&gt;</tt>:</p> 
+<ul> 
+ <li><tt>PayloadList&lt;String,String&gt;</tt></li> 
+ <li><tt>PayloadList&lt;String,Integer&gt;</tt></li> 
+ <li><tt>PayloadList&lt;String,Exception&gt;</tt></li> 
+</ul> 
+<center> 
+ <img src="https://docs.oracle.com/javase/tutorial/figures/java/generics-payloadListHierarchy.gif" width="566" height="138" align="bottom" alt="diagram showing an example PayLoadList hierarchy: PayloadList<String, String> is a subtype of List<String>, which is a subtype of Collection<String>. At the same level of PayloadList<String,String> is PayloadList<String, Integer> and PayloadList<String, Exceptions>."> </img>
+</center> 
+<center>
+  A sample 
+ <tt>PayloadList</tt> hierarchy 
+</center>

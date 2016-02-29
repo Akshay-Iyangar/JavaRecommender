@@ -1,0 +1,86 @@
+<p>The unary operators require only one operand; they perform various operations such as incrementing/decrementing a value by one, negating an expression, or inverting the value of a boolean.</p> 
+<table border="1" summary="Unary operators"> 
+ <tbody> 
+  <tr> 
+   <th id="h101">Operator</th> 
+   <th id="h102">Description</th> 
+  </tr> 
+  <tr> 
+   <td headers="h101"><code>+</code></td> 
+   <td>Unary plus operator; indicates positive value (numbers are positive without this, however)</td> 
+  </tr> 
+  <tr> 
+   <td headers="h101"><code>-</code></td> 
+   <td>Unary minus operator; negates an expression</td> 
+  </tr> 
+  <tr> 
+   <td headers="h101"><code>++</code></td> 
+   <td>Increment operator; increments a value by 1</td> 
+  </tr> 
+  <tr> 
+   <td headers="h101"><code>--</code></td> 
+   <td>Decrement operator; decrements a value by 1</td> 
+  </tr> 
+  <tr> 
+   <td headers="h101"><code>!</code></td> 
+   <td>Logical complement operator; inverts the value of a boolean</td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>The following program, <a class="SourceLink" target="_blank" href="examples/UnaryDemo.java" onclick="showCode('https://docs.oracle.com/javase/tutorial/displayCode.html', 'examples/UnaryDemo.java'); return false;"><code>UnaryDemo</code></a>, tests the unary operators:</p> 
+<div class="codeblock"> 
+ <pre>
+
+class UnaryDemo {
+
+    public static void main(String[] args) {
+
+        int result = +1;
+        // result is now 1
+        System.out.println(result);
+
+        result--;
+        // result is now 0
+        System.out.println(result);
+
+        result++;
+        // result is now 1
+        System.out.println(result);
+
+        result = -result;
+        // result is now -1
+        System.out.println(result);
+
+        boolean success = false;
+        // false
+        System.out.println(success);
+        // true
+        System.out.println(!success);
+    }
+}
+</pre> 
+</div> 
+<p>The increment/decrement operators can be applied before (prefix) or after (postfix) the operand. The code <code>result++;</code> and <code>++result;</code> will both end in <code>result</code> being incremented by one. The only difference is that the prefix version (<code>++result</code>) evaluates to the incremented value, whereas the postfix version (<code>result++</code>) evaluates to the original value. If you are just performing a simple increment/decrement, it doesn't really matter which version you choose. But if you use this operator in part of a larger expression, the one that you choose may make a significant difference.</p> 
+<p>The following program, <a class="SourceLink" target="_blank" href="examples/PrePostDemo.java" onclick="showCode('https://docs.oracle.com/javase/tutorial/displayCode.html', 'examples/PrePostDemo.java'); return false;"><code>PrePostDemo</code></a>, illustrates the prefix/postfix unary increment operator:</p> 
+<div class="codeblock"> 
+ <pre>
+
+class PrePostDemo {
+    public static void main(String[] args){
+        int i = 3;
+        i++;
+        // prints 4
+        System.out.println(i);
+        ++i;			   
+        // prints 5
+        System.out.println(i);
+        // prints 6
+        System.out.println(++i);
+        // prints 6
+        System.out.println(i++);
+        // prints 7
+        System.out.println(i);
+    }
+}
+</pre> 
+</div>

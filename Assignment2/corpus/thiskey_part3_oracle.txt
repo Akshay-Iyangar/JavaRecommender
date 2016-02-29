@@ -1,0 +1,25 @@
+<p>From within a constructor, you can also use the <code>this</code> keyword to call another constructor in the same class. Doing so is called an <i>explicit constructor invocation</i>. Here's another <code>Rectangle</code> class, with a different implementation from the one in the <a class="TutorialLink" target="_top" href="../javaOO/objects.html">Objects</a> section.</p> 
+<div class="codeblock"> 
+ <pre>
+public class Rectangle {
+    private int x, y;
+    private int width, height;
+        
+    public Rectangle() {
+        <b>this(0, 0, 1, 1);</b>
+    }
+    public Rectangle(int width, int height) {
+        <b>this(0, 0, width, height);</b>
+    }
+    public Rectangle(int x, int y, int width, int height) {
+        this.x = x;
+        this.y = y;
+        this.width = width;
+        this.height = height;
+    }
+    ...
+}
+</pre> 
+</div> 
+<p>This class contains a set of constructors. Each constructor initializes some or all of the rectangle's member variables. The constructors provide a default value for any member variable whose initial value is not provided by an argument. For example, the no-argument constructor creates a 1x1 <code>Rectangle</code> at coordinates 0,0. The two-argument constructor calls the four-argument constructor, passing in the width and height but always using the 0,0 coordinates. As before, the compiler determines which constructor to call, based on the number and the type of arguments.</p> 
+<p>If present, the invocation of another constructor must be the first line in the constructor.</p>

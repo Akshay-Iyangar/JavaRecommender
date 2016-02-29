@@ -1,0 +1,112 @@
+<dl> 
+ <dd> 
+  <i>For comprehensive information about all aspects of Ant, please see the <a href="/wiki/Programming:Apache_Ant" title="Programming:Apache Ant" class="mw-redirect">Ant Wikibook</a>.</i> 
+ </dd> 
+</dl> 
+<p>The best way to build your application is to use a build tool. This checks all the needed dependencies and compiles only the needed class for the build. <a href="/wiki/Java_Programming/Compilation#Ant" title="Java Programming/Compilation">Ant</a> tool is one of the best and the most popular build tools currently available. Ant is a build management tool designed to replace MAKE as the tool for automated builds of large Java applications. Like Java, and unlike MAKE, Ant is designed to be platform independent.</p> 
+<p>Using <a href="/wiki/Java_Programming/Compilation#Ant" title="Java Programming/Compilation">Ant</a> you would build your application from the command line by typing:</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Computer code" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/32px-Gnome-settings-accessibility-keyboard.svg.png" title="Computer code" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/48px-Gnome-settings-accessibility-keyboard.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/64px-Gnome-settings-accessibility-keyboard.svg.png 2x" data-file-width="60" data-file-height="60" /></td> 
+   <td style="background-color:#ffeee0; border-left: 4px solid orange; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><b>Ant building</b> <pre style="background-color:#000; color:#fff;">
+ant build.xml
+</pre></td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>The <code>build.xml</code> file contains all the information needed to build the application.</p> 
+<p>Building a Java application requires certain tasks to be performed defined in a <code>build.xml</code> file. Those tasks may include not only compiling the code, but also copying code, packaging the program to a Jar, creating EJBs, running automated tests, doing ftp for the code to remote site, and so on. For some tasks a condition can be assigned, for example to compile only changed code, or do the task if that was not already done so. Tasks dependency can also be specified, which will make sure that the order of executions of the tasks are in the right order. For example, when compiling the code before packaging it to a jar, the package-to-jar task depends on the compilation task.</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td><a href="/wiki/File:Bombilla_amarilla_-_yellow_Edison_lamp.svg" class="image" title="Note"><img alt="Note" src="//upload.wikimedia.org/wikipedia/commons/thumb/1/15/Bombilla_amarilla_-_yellow_Edison_lamp.svg/30px-Bombilla_amarilla_-_yellow_Edison_lamp.svg.png" width="30" height="30" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/1/15/Bombilla_amarilla_-_yellow_Edison_lamp.svg/45px-Bombilla_amarilla_-_yellow_Edison_lamp.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/1/15/Bombilla_amarilla_-_yellow_Edison_lamp.svg/60px-Bombilla_amarilla_-_yellow_Edison_lamp.svg.png 2x" data-file-width="200" data-file-height="200" /></a></td> 
+   <td style="background-color:#fffff0; border-left: 4px solid yellow; padding-left: 6px;">In rare cases, your code may appear to compile correctly but the program behaves as if you were using an old copy of the source code (or otherwise reports errors during runtime.) When this occurs, you may need to clean your compilation folder by either deleting the class files or using the Clean command from an IDE.</td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>The <code>build.xml</code> file is generally kept in the root directory of the java project. Ant parses this file and executes the tasks therein. Below we give an example <code>build.xml</code> file.</p> 
+<p>Ant tool is written in Java and is open source, so it can be extended if there is a task you'd like to be done during the build that is not in the predefined tasks list. It is very easy to hook your ant task code to the other tasks: your code only needs to be in the classpath, and the Ant tool will load it at runtime. For more information about writing your own Ant tasks, please see the project website at <a rel="nofollow" class="external free" href="http://ant.apache.org/">http://ant.apache.org/</a>.</p> 
+<div class="collapsible" style="border:1px solid #aaaaaa; width:100%; background:#ccccff;"> 
+ <div class="title" style="text-align:left; padding:0.5em; background:#ccccff; color:black;">
+   Example 
+  <code>build.xml</code> file. 
+ </div> 
+ <div class="NavContent" style="margin:0.5em; margin-top:0em; background:white; border:1px solid #aaaaaa;"> 
+  <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+   <pre>
+<span class="cp">&lt;?xml version="1.0"?&gt;</span>
+
+<span class="nt">&lt;project</span> <span class="na">name=</span><span class="s">"ExampleApp"</span> <span class="na">basedir=</span><span class="s">"."</span> <span class="na">default=</span><span class="s">"main"</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"source.dir"</span>    <span class="na">value=</span><span class="s">"source"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"libraries.dir"</span> <span class="na">value=</span><span class="s">"libraries"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"build.dir"</span>     <span class="na">value=</span><span class="s">"build"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"classes.dir"</span>   <span class="na">value=</span><span class="s">"${build.dir}/classes"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"dist.dir"</span>      <span class="na">value=</span><span class="s">"${build.dir}/dist"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"main-class"</span>    <span class="na">value=</span><span class="s">"com.example.ExampleApp"</span><span class="nt">/&gt;</span>
+
+    <span class="nt">&lt;path</span> <span class="na">id=</span><span class="s">"classpath"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;fileset</span> <span class="na">dir=</span><span class="s">"${libraries.dir}"</span> <span class="na">includes=</span><span class="s">"**/*.jar"</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/path&gt;</span>
+
+    <span class="nt">&lt;target</span> <span class="na">name=</span><span class="s">"clean"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;delete</span> <span class="na">dir=</span><span class="s">"${build.dir}"</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/target&gt;</span>
+
+    <span class="nt">&lt;target</span> <span class="na">name=</span><span class="s">"compile"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;mkdir</span> <span class="na">dir=</span><span class="s">"${classes.dir}"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;javac</span> <span class="na">srcdir=</span><span class="s">"${source.dir}"</span> <span class="na">destdir=</span><span class="s">"${classes.dir}"</span> <span class="na">classpathref=</span><span class="s">"classpath"</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;copy</span> <span class="na">todir=</span><span class="s">"${classes.dir}"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;fileset</span> <span class="na">dir=</span><span class="s">"${src.dir}"</span> <span class="na">excludes=</span><span class="s">"**/*.java"</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/copy&gt;</span>
+    <span class="nt">&lt;/target&gt;</span>
+
+    <span class="nt">&lt;target</span> <span class="na">name=</span><span class="s">"build"</span> <span class="na">depends=</span><span class="s">"compile"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;mkdir</span> <span class="na">dir=</span><span class="s">"${dist.dir}"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;copy</span> <span class="na">todir=</span><span class="s">"${dist.dir}/lib"</span> <span class="na">flatten=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;path</span> <span class="na">refid=</span><span class="s">"classpath"</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/copy&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">id=</span><span class="s">"dist.classpath"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;fileset</span> <span class="na">dir=</span><span class="s">"${dist.dir}/lib"</span> <span class="na">includes=</span><span class="s">"*.jar"</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/path&gt;</span>
+        <span class="nt">&lt;manifestclasspath</span> <span class="na">property=</span><span class="s">"dist.manifest.classpath"</span> <span class="na">jarfile=</span><span class="s">"${dist.dir}/${ant.project.name}.jar"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;classpath</span> <span class="na">refid=</span><span class="s">"dist.classpath"</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/manifestclasspath&gt;</span>
+        <span class="nt">&lt;jar</span> <span class="na">destfile=</span><span class="s">"${dist.dir}/${ant.project.name}.jar"</span> <span class="nt">&gt;</span>
+            <span class="nt">&lt;zipfileset</span> <span class="na">dir=</span><span class="s">"${classes.dir}"</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;manifest&gt;</span>
+                <span class="nt">&lt;attribute</span> <span class="na">name=</span><span class="s">"Class-Path"</span> <span class="na">value=</span><span class="s">"${dist.manifest.classpath}"</span><span class="nt">/&gt;</span>
+                <span class="nt">&lt;attribute</span> <span class="na">name=</span><span class="s">"Main-Class"</span> <span class="na">value=</span><span class="s">"${main-class}"</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;/manifest&gt;</span>
+        <span class="nt">&lt;/jar&gt;</span>
+    <span class="nt">&lt;/target&gt;</span>
+
+    <span class="nt">&lt;target</span> <span class="na">name=</span><span class="s">"run-build"</span> <span class="na">depends=</span><span class="s">"build"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;java</span> <span class="na">jar=</span><span class="s">"${dist.dir}/${ant.project.name}.jar"</span> <span class="na">fork=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;classpath&gt;</span>
+                <span class="nt">&lt;path</span> <span class="na">refid=</span><span class="s">"classpath"</span><span class="nt">/&gt;</span>
+                <span class="nt">&lt;path</span> <span class="na">location=</span><span class="s">"${dist.dir}/${ant.project.name}.jar"</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;/classpath&gt;</span>
+        <span class="nt">&lt;/java&gt;</span>
+    <span class="nt">&lt;/target&gt;</span>
+
+    <span class="nt">&lt;target</span> <span class="na">name=</span><span class="s">"run"</span> <span class="na">depends=</span><span class="s">"compile"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;java</span> <span class="na">classname=</span><span class="s">"${main-class}"</span> <span class="nt">&gt;</span>
+            <span class="nt">&lt;classpath&gt;</span>
+                <span class="nt">&lt;path</span> <span class="na">refid=</span><span class="s">"classpath"</span><span class="nt">/&gt;</span>
+                <span class="nt">&lt;pathelement</span> <span class="na">location=</span><span class="s">"${classes.dir}"</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;/classpath&gt;</span>
+        <span class="nt">&lt;/java&gt;</span>
+    <span class="nt">&lt;/target&gt;</span>
+
+    <span class="nt">&lt;target</span> <span class="na">name=</span><span class="s">"clean-build"</span> <span class="na">depends=</span><span class="s">"clean, build"</span><span class="nt">/&gt;</span>
+
+    <span class="nt">&lt;target</span> <span class="na">name=</span><span class="s">"main"</span> <span class="na">depends=</span><span class="s">"clean, run"</span><span class="nt">/&gt;</span>
+
+<span class="nt">&lt;/project&gt;</span>
+</pre> 
+  </div> 
+ </div> 
+</div> 
+<p>The next most popular way to build applications is using an <a href="/wiki/Java_Programming/Java_IDEs" title="Java Programming/Java IDEs">Integrated Development Environment</a> (IDE).</p>

@@ -1,0 +1,72 @@
+<p>By default, when an exception is thrown, the current method is interrupted, the calling method is interrupted too and so on till the <code>main</code> method. A thrown exception can also be caught using a <code>try</code>/<code>catch</code> statement. Below is how a <code>try</code>/<code>catch</code> statement works:</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><span id="code-section-3"><b>Code section 6.3: Division into a <code>try</code> block.</b></span> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno"> 1 </span><span class="hll"><span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">4</span><span class="o">;</span>
+</span><span class="lineno"> 2 </span><span class="hll"><span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
+</span><span class="lineno"> 3 </span><span class="hll"><span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+</span><span class="lineno"> 4 </span><span class="k">try</span> <span class="o">{</span>
+<span class="lineno"> 5 </span><span class="hll">  <span class="kt">int</span> <span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">/</span> <span class="n">b</span><span class="o">;</span>
+</span><span class="lineno"> 6 </span><span class="hll">  <span class="n">result</span> <span class="o">=</span> <span class="n">c</span><span class="o">;</span>
+</span><span class="lineno"> 7 </span><span class="o">}</span> <span class="k">catch</span><span class="o">(</span><span class="n">ArithmeticException</span> <span class="n">ex</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno"> 8 </span>  <span class="n">result</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+<span class="lineno"> 9 </span><span class="o">}</span>
+<span class="lineno">10 </span><span class="hll"><span class="k">return</span> <span class="n">result</span><span class="o">;</span>
+</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>The executed code lines have been highlighted. When no exception is thrown, the method flow executes the <code>try</code> statement and not the <code>catch</code> statement.</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><span id="code-section-4"><b>Code section 6.4: Catching 'division by zero' errors.</b></span> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno"> 1 </span><span class="hll"><span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">4</span><span class="o">;</span>
+</span><span class="lineno"> 2 </span><span class="hll"><span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+</span><span class="lineno"> 3 </span><span class="hll"><span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+</span><span class="lineno"> 4 </span><span class="k">try</span> <span class="o">{</span>
+<span class="lineno"> 5 </span><span class="hll">  <span class="kt">int</span> <span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">/</span> <span class="n">b</span><span class="o">;</span>
+</span><span class="lineno"> 6 </span>  <span class="n">result</span> <span class="o">=</span> <span class="n">c</span><span class="o">;</span>
+<span class="lineno"> 7 </span><span class="o">}</span> <span class="k">catch</span><span class="o">(</span><span class="n">ArithmeticException</span> <span class="n">ex</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno"> 8 </span><span class="hll">  <span class="n">result</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+</span><span class="lineno"> 9 </span><span class="o">}</span>
+<span class="lineno">10 </span><span class="hll"><span class="k">return</span> <span class="n">result</span><span class="o">;</span>
+</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>As there is a thrown exception at line 5, the line 6 is not executed, but the exception is caught by the <code>catch</code> statement so the <code>catch</code> block is executed. The following code is also executed. Note that the <code>catch</code> statement takes an exception as parameter. There is a third case: when the exception is not from the same class as the parameter:</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><span id="code-section-5"><b>Code section 6.5: Uncaught exception.</b></span> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno"> 1 </span><span class="hll"><span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">4</span><span class="o">;</span>
+</span><span class="lineno"> 2 </span><span class="hll"><span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+</span><span class="lineno"> 3 </span><span class="hll"><span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+</span><span class="lineno"> 4 </span><span class="k">try</span> <span class="o">{</span>
+<span class="lineno"> 5 </span><span class="hll">  <span class="kt">int</span> <span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">/</span> <span class="n">b</span><span class="o">;</span>
+</span><span class="lineno"> 6 </span>  <span class="n">result</span> <span class="o">=</span> <span class="n">c</span><span class="o">;</span>
+<span class="lineno"> 7 </span><span class="o">}</span> <span class="k">catch</span><span class="o">(</span><span class="n">NullPointerException</span> <span class="n">ex</span><span class="o">)</span> <span class="o">{</span>
+<span class="lineno"> 8 </span>  <span class="n">result</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+<span class="lineno"> 9 </span><span class="o">}</span>
+<span class="lineno">10 </span><span class="k">return</span> <span class="n">result</span><span class="o">;</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>It is as if there is no <code>try</code>/<code>catch</code> statement. The exception is thrown to the calling method.</p>

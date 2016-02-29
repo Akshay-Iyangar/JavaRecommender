@@ -1,0 +1,49 @@
+<p>Let's examine the following code:</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td><a href="/wiki/File:Nuvola_apps_important.svg" class="image" title="Warning"><img alt="Warning" src="//upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Nuvola_apps_important.svg/32px-Nuvola_apps_important.svg.png" width="32" height="27" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Nuvola_apps_important.svg/48px-Nuvola_apps_important.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Nuvola_apps_important.svg/64px-Nuvola_apps_important.svg.png 2x" data-file-width="600" data-file-height="500" /></a></td> 
+   <td style="background-color:#fff0f0; border-left: 4px solid red; padding-left: 6px;"><span id="code-section-7" style="color: red;"><b>Code section 6.7: Handling exceptions.</b></span> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno"> 1 </span><span class="kd">public</span> <span class="kt">void</span> <span class="nf">methodA</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">SomeException</span> <span class="o">{</span>
+<span class="lineno"> 2 </span>    <span class="c1">// Method body</span>
+<span class="lineno"> 3 </span><span class="o">}</span>
+<span class="lineno"> 4 </span>
+<span class="lineno"> 5 </span><span class="kd">public</span> <span class="kt">void</span> <span class="nf">methodB</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">CustomException</span><span class="o">,</span> <span class="n">AnotherException</span> <span class="o">{</span>
+<span class="lineno"> 6 </span>    <span class="c1">// Method body</span>
+<span class="lineno"> 7 </span><span class="o">}</span>
+<span class="lineno"> 8 </span>
+<span class="lineno"> 9 </span><span class="kd">public</span> <span class="kt">void</span> <span class="nf">methodC</span><span class="o">()</span> <span class="o">{</span>
+<span class="lineno">10 </span><span class="hll">    <span class="n">methodB</span><span class="o">();</span>
+</span><span class="lineno">11 </span><span class="hll">    <span class="n">methodA</span><span class="o">();</span>
+</span><span class="lineno">12 </span><span class="o">}</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>In the <a href="#code-section-7">code section 6.7</a>, <code>methodC</code> is invalid. Because <code>methodA</code> and <code>methodB</code> pass (or throw) exceptions, <code>methodC</code> must be prepared to handle them. This can be handled in two ways: a <code><a href="/wiki/Java_Programming/Keywords/try" title="Java Programming/Keywords/try"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">try</font></a></code>-<code><a href="/wiki/Java_Programming/Keywords/catch" title="Java Programming/Keywords/catch"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">catch</font></a></code> block, which will handle the exception within the method and a <code><a href="/wiki/Java_Programming/Keywords/throws" title="Java Programming/Keywords/throws"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">throws</font></a></code> clause which would in turn throw the exception to the caller to handle. The above example will cause a compilation error, as Java is very strict about exception handling. So the programmer is forced to handle any possible error condition at some point.</p> 
+<p>A method can do two things with an exception: ask the calling method to handle it by the <code><a href="/wiki/Java_Programming/Keywords/throws" title="Java Programming/Keywords/throws"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">throws</font></a></code> declaration or handle the exception inside the method by the <code><a href="/wiki/Java_Programming/Keywords/try" title="Java Programming/Keywords/try"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">try</font></a></code>-<code><a href="/wiki/Java_Programming/Keywords/catch" title="Java Programming/Keywords/catch"><font style="color:DodgerBlue4; text-decoration: none; font-weight: bold;">catch</font></a></code> block.</p> 
+<p>To work correctly, the original code can be modified in multiple ways. For example, the following:</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><span id="code-section-8"><b>Code section 6.8: Catching and throwing exceptions.</b></span> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno">1 </span><span class="hll"><span class="kd">public</span> <span class="kt">void</span> <span class="nf">methodC</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">CustomException</span><span class="o">,</span> <span class="n">SomeException</span> <span class="o">{</span>
+</span><span class="lineno">2 </span><span class="hll">  <span class="k">try</span> <span class="o">{</span>
+</span><span class="lineno">3 </span>    <span class="n">methodB</span><span class="o">();</span>
+<span class="lineno">4 </span><span class="hll">  <span class="o">}</span> <span class="k">catch</span><span class="o">(</span><span class="n">AnotherException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+</span><span class="lineno">5 </span><span class="hll">    <span class="c1">// Handle caught exceptions.</span>
+</span><span class="lineno">6 </span><span class="hll">  <span class="o">}</span>
+</span><span class="lineno">7 </span>  <span class="n">methodA</span><span class="o">();</span>
+<span class="lineno">8 </span><span class="o">}</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>The <code>AnotherException</code> from <code>methodB</code> will be handled locally, while <code>CustomException</code> and <code>SomeException</code> will be thrown to the caller to handle it. Most of the developers are embarrassed when they have to choose between the two options. This type of decision should not be taken at development time. If you are a development team, it should be discussed between all the developers in order to have a common exception handling policy.</p>

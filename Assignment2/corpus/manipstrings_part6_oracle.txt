@@ -1,0 +1,70 @@
+<p>The following class, <a class="SourceLink" target="_blank" href="examples/Filename.java" onclick="showCode('https://docs.oracle.com/javase/tutorial/displayCode.html', 'examples/Filename.java'); return false;"><code>Filename</code></a>, illustrates the use of <code>lastIndexOf()</code> and <code>substring()</code> to isolate different parts of a file name.</p> 
+<div class="note"> 
+ <hr> 
+  <strong>Note:</strong>&nbsp;The methods in the following 
+  <code>Filename</code> class don't do any error checking and assume that their argument contains a full directory path and a filename with an extension. If these methods were production code, they would verify that their arguments were properly constructed. 
+  <hr> 
+  </hr>
+ </hr>
+</div> 
+<div class="codeblock"> 
+ <pre>
+
+public class Filename {
+    private String fullPath;
+    private char pathSeparator, 
+                 extensionSeparator;
+
+    public Filename(String str, char sep, char ext) {
+        fullPath = str;
+        pathSeparator = sep;
+        extensionSeparator = ext;
+    }
+
+    public String extension() {
+        int dot = fullPath.lastIndexOf(extensionSeparator);
+        return fullPath.substring(dot + 1);
+    }
+
+    // gets filename without extension
+    public String filename() {
+        int dot = fullPath.lastIndexOf(extensionSeparator);
+        int sep = fullPath.lastIndexOf(pathSeparator);
+        return fullPath.substring(sep + 1, dot);
+    }
+
+    public String path() {
+        int sep = fullPath.lastIndexOf(pathSeparator);
+        return fullPath.substring(0, sep);
+    }
+}
+</pre> 
+</div> 
+<p>Here is a program, <a class="SourceLink" target="_blank" href="examples/FilenameDemo.java" onclick="showCode('https://docs.oracle.com/javase/tutorial/displayCode.html', 'examples/FilenameDemo.java'); return false;"><code>FilenameDemo</code></a>, that constructs a <code>Filename</code> object and calls all of its methods:</p> 
+<div class="codeblock"> 
+ <pre>
+
+public class FilenameDemo {
+    public static void main(String[] args) {
+        final String FPATH = "/home/user/index.html";
+        Filename myHomePage = new Filename(FPATH, '/', '.');
+        System.out.println("Extension = " + myHomePage.extension());
+        System.out.println("Filename = " + myHomePage.filename());
+        System.out.println("Path = " + myHomePage.path());
+    }
+}
+</pre> 
+</div> 
+<p>And here's the output from the program:</p> 
+<div class="codeblock"> 
+ <pre>
+Extension = html
+Filename = index
+Path = /home/user
+</pre> 
+</div> 
+<p>As shown in the following figure, our <code>extension</code> method uses <code>lastIndexOf</code> to locate the last occurrence of the period (.) in the file name. Then <code>substring</code> uses the return value of <code>lastIndexOf</code> to extract the file name extension  that is, the substring from the period to the end of the string. This code assumes that the file name has a period in it; if the file name does not have a period, <code>lastIndexOf</code> returns -1, and the substring method throws a <code>StringIndexOutOfBoundsException</code>.</p> 
+<center> 
+ <img src="https://docs.oracle.com/javase/tutorial/figures/java/objects-lastIndexOf.gif" width="325" height="127" align="bottom" alt="The use of lastIndexOf and substring in the extension method in the Filename class."> </img>
+</center> 
+<p>Also, notice that the <code>extension</code> method uses <code>dot + 1</code> as the argument to <code>substring</code>. If the period character (.) is the last character of the string, <code>dot + 1</code> is equal to the length of the string, which is one larger than the largest index into the string (because indices start at 0). This is a legal argument to <code>substring</code> because that method accepts an index equal to, but not greater than, the length of the string and interprets it to mean "the end of the string."</p>

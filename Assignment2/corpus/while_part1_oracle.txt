@@ -1,0 +1,56 @@
+<div id="PageContent"> 
+ <p>The <code>while</code> statement continually executes a block of statements while a particular condition is <code>true</code>. Its syntax can be expressed as:</p> 
+ <div class="codeblock"> 
+  <pre>
+while (expression) {
+     statement(s)
+}
+</pre> 
+ </div> 
+ <p>The <code>while</code> statement evaluates <i>expression</i>, which must return a <code>boolean</code> value. If the expression evaluates to <code>true</code>, the <code>while</code> statement executes the <em>statement</em>(s) in the <code>while</code> block. The <code>while</code> statement continues testing the expression and executing its block until the expression evaluates to <code>false</code>. Using the <code>while</code> statement to print the values from 1 through 10 can be accomplished as in the following <a class="SourceLink" target="_blank" href="examples/WhileDemo.java" onclick="showCode('https://docs.oracle.com/javase/tutorial/displayCode.html', 'examples/WhileDemo.java'); return false;"><code>WhileDemo</code></a> program:</p> 
+ <div class="codeblock"> 
+  <pre>
+
+class WhileDemo {
+    public static void main(String[] args){
+        int count = 1;
+        while (count &lt; 11) {
+            System.out.println("Count is: " + count);
+            count++;
+        }
+    }
+}
+</pre> 
+ </div> 
+ <p>You can implement an infinite loop using the <code>while</code> statement as follows:</p> 
+ <div class="codeblock"> 
+  <pre>
+while (true){
+    // your code goes here
+}
+</pre> 
+ </div> 
+ <p>The Java programming language also provides a <code>do-while</code> statement, which can be expressed as follows:</p> 
+ <div class="codeblock"> 
+  <pre>
+do {
+     statement(s)
+} while (expression);
+</pre> 
+ </div> 
+ <p>The difference between <code>do-while</code> and <code>while</code> is that <code>do-while</code> evaluates its expression at the bottom of the loop instead of the top. Therefore, the statements within the <code>do</code> block are always executed at least once, as shown in the following <a class="SourceLink" target="_blank" href="examples/DoWhileDemo.java" onclick="showCode('https://docs.oracle.com/javase/tutorial/displayCode.html', 'examples/DoWhileDemo.java'); return false;"><code>DoWhileDemo</code></a> program:</p> 
+ <div class="codeblock"> 
+  <pre>
+
+class DoWhileDemo {
+    public static void main(String[] args){
+        int count = 1;
+        do {
+            System.out.println("Count is: " + count);
+            count++;
+        } while (count &lt; 11);
+    }
+}
+</pre> 
+ </div> 
+</div>

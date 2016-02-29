@@ -1,0 +1,68 @@
+<ul> 
+ <li>Static variables can be used as data sharing amongst objects of the same class. For example to implement a counter that stores the number of objects created at a given time can be defined as so:</li> 
+</ul> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Computer code" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/32px-Gnome-settings-accessibility-keyboard.svg.png" title="Computer code" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/48px-Gnome-settings-accessibility-keyboard.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/64px-Gnome-settings-accessibility-keyboard.svg.png 2x" data-file-width="60" data-file-height="60" /></td> 
+   <td style="background-color:#ffeee0; border-left: 4px solid orange; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><span id="code-listing-1"><b>Code listing 1: CountedObject.java</b></span> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno"> 1 </span><span class="kd">public</span> <span class="n">CountedObject</span> <span class="o">{</span>
+<span class="lineno"> 2 </span><span class="hll">   <span class="kd">private</span> <span class="kd">static</span> <span class="kt">int</span> <span class="n">counter</span><span class="o">;</span>
+</span><span class="lineno"> 3 </span>   <span class="o">...</span>
+<span class="lineno"> 4 </span>   <span class="kd">public</span> <span class="nf">AClass</span><span class="o">()</span> <span class="o">{</span>
+<span class="lineno"> 5 </span>      <span class="o">...</span>
+<span class="lineno"> 6 </span>      <span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span><span class="o">;</span>
+<span class="lineno"> 7 </span>   <span class="o">}</span>
+<span class="lineno"> 8 </span>   <span class="o">...</span>
+<span class="lineno"> 9 </span>   <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getNumberOfObjectsCreated</span><span class="o">()</span> <span class="o">{</span>
+<span class="lineno">10 </span>      <span class="k">return</span> <span class="n">counter</span><span class="o">;</span>
+<span class="lineno">11 </span>   <span class="o">}</span>
+<span class="lineno">12 </span><span class="o">}</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<p>The <code>counter</code> variable is incremented each time an object is created.</p> 
+<p>Public static variable should not be used, as these become <b>global</b> variables that can be accessed from everywhere in the program. Global constants can be used, however. See below:</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><span id="code-section-3"><b>Code section 3: Constant definition.</b></span> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno">1 </span><span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">CONSTANT_VAR</span> <span class="o">=</span> <span class="s">"Const"</span><span class="o">;</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<ul> 
+ <li>Static methods can be used for utility functions or for functions that do not belong to any particular object. For example:</li> 
+</ul> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Computer code" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/32px-Gnome-settings-accessibility-keyboard.svg.png" title="Computer code" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/48px-Gnome-settings-accessibility-keyboard.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/78/Gnome-settings-accessibility-keyboard.svg/64px-Gnome-settings-accessibility-keyboard.svg.png 2x" data-file-width="60" data-file-height="60" /></td> 
+   <td style="background-color:#ffeee0; border-left: 4px solid orange; padding-left: 6px; font-family: Monaco, Consolas, 'Courier New', Courier; font-size:1.0em; line-height:1.5 !important;"><span id="code-listing-2"><b>Code listing 2: ArithmeticToolbox.java</b></span> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno">1 </span><span class="kd">public</span> <span class="n">ArithmeticToolbox</span> <span class="o">{</span>
+<span class="lineno">2 </span>   <span class="o">...</span>
+<span class="lineno">3 </span><span class="hll">   <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">addTwoNumbers</span><span class="o">(</span><span class="kt">int</span> <span class="n">firstNumber</span><span class="o">,</span> <span class="kt">int</span> <span class="n">secondNumber</span><span class="o">)</span> <span class="o">{</span>
+</span><span class="lineno">4 </span>        <span class="k">return</span> <span class="n">firstNumber</span> <span class="o">+</span> <span class="n">secondNumber</span><span class="o">;</span>
+<span class="lineno">5 </span>   <span class="o">}</span>
+<span class="lineno">6 </span><span class="o">}</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table> 
+<dl> 
+ <dd> 
+  <i>See also <a href="/wiki/Java_Programming/Methods#Static_methods" title="Java Programming/Methods">Static methods</a></i> 
+ </dd> 
+</dl>

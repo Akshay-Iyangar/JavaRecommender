@@ -1,0 +1,20 @@
+<p>As mentioned previously, an anonymous class is an expression. The syntax of an anonymous class expression is like the invocation of a constructor, except that there is a class definition contained in a block of code.</p> 
+<p>Consider the instantiation of the <code>frenchGreeting</code> object:</p> 
+<pre>        HelloWorld frenchGreeting = new HelloWorld() {
+            String name = "tout le monde";
+            public void greet() {
+                greetSomeone("tout le monde");
+            }
+            public void greetSomeone(String someone) {
+                name = someone;
+                System.out.println("Salut " + name);
+            }
+        };</pre> 
+<p>The anonymous class expression consists of the following:</p> 
+<ul> 
+ <li><p>The <code>new</code> operator</p></li> 
+ <li><p>The name of an interface to implement or a class to extend. In this example, the anonymous class is implementing the interface <code>HelloWorld</code>.</p></li> 
+ <li><p>Parentheses that contain the arguments to a constructor, just like a normal class instance creation expression. <strong>Note</strong>: When you implement an interface, there is no constructor, so you use an empty pair of parentheses, as in this example.</p></li> 
+ <li><p>A body, which is a class declaration body. More specifically, in the body, method declarations are allowed but statements are not.</p></li> 
+</ul> 
+<p>Because an anonymous class definition is an expression, it must be part of a statement. In this example, the anonymous class expression is part of the statement that instantiates the <code>frenchGreeting</code> object. (This explains why there is a semicolon after the closing brace.)</p>

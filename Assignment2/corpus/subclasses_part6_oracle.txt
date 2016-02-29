@@ -1,0 +1,45 @@
+<p>We have seen that an object is of the data type of the class from which it was instantiated. For example, if we write</p> 
+<div class="codeblock"> 
+ <pre>
+public MountainBike myBike = new MountainBike();
+</pre> 
+</div> 
+<p>then <code>myBike</code> is of type <code>MountainBike</code>.</p> 
+<p><code>MountainBike</code> is descended from <code>Bicycle</code> and <code>Object</code>. Therefore, a <code>MountainBike</code> is a <code>Bicycle</code> and is also an <code>Object</code>, and it can be used wherever <code>Bicycle</code> or <code>Object</code> objects are called for.</p> 
+<p>The reverse is not necessarily true: a <code>Bicycle</code> <i>may be</i> a <code>MountainBike</code>, but it isn't necessarily. Similarly, an <code>Object</code> <i>may be</i> a <code>Bicycle</code> or a <code>MountainBike</code>, but it isn't necessarily.</p> 
+<p><i>Casting</i> shows the use of an object of one type in place of another type, among the objects permitted by inheritance and implementations. For example, if we write</p> 
+<div class="codeblock"> 
+ <pre>
+Object obj = new MountainBike();
+</pre> 
+</div> 
+<p>then <code>obj</code> is both an <code>Object</code> and a <code>MountainBike</code> (until such time as <code>obj</code> is assigned another object that is <i>not</i> a <code>MountainBike</code>). This is called <i>implicit casting</i>.</p> 
+<p>If, on the other hand, we write</p> 
+<div class="codeblock"> 
+ <pre>
+MountainBike myBike = obj;
+</pre> 
+</div> 
+<p>we would get a compile-time error because <code>obj</code> is not known to the compiler to be a <code>MountainBike</code>. However, we can <i>tell</i> the compiler that we promise to assign a <code>MountainBike</code> to <code>obj</code> by <i>explicit casting:</i></p> 
+<div class="codeblock"> 
+ <pre>
+MountainBike myBike = (MountainBike)obj;
+</pre> 
+</div> 
+<p>This cast inserts a runtime check that <code>obj</code> is assigned a <code>MountainBike</code> so that the compiler can safely assume that <code>obj</code> is a <code>MountainBike</code>. If <code>obj</code> is not a <code>MountainBike</code> at runtime, an exception will be thrown.</p> 
+<div class="note"> 
+ <hr> 
+  <strong>Note:</strong>&nbsp;You can make a logical test as to the type of a particular object using the 
+  <code>instanceof</code> operator. This can save you from a runtime error owing to an improper cast. For example: 
+  <div class="codeblock"> 
+   <pre>
+if (obj instanceof MountainBike) {
+    MountainBike myBike = (MountainBike)obj;
+}
+</pre> 
+  </div> 
+  <p>Here the <code>instanceof</code> operator verifies that <code>obj</code> refers to a <code>MountainBike</code> so that we can make the cast with knowledge that there will be no runtime exception thrown.</p> 
+  <hr> 
+  </hr>
+ </hr>
+</div>

@@ -1,0 +1,32 @@
+<p>String literals consist of the double quote character (<code>"</code>) (ASCII 34, hex 0x22), zero or more characters (including Unicode characters), followed by a terminating double quote character (<code>"</code>), such as: <code><font style="color:DarkGreen; text-decoration: none; font-weight: bold;">"Ceci est une string."</font></code></p> 
+<p>So a string literal follows the following grammar:</p> 
+<pre>
+&lt;STRING :
+        "\""
+        (    (~["\"","\\","\n","\r"])
+        |("\\"
+            ( ["n","t","b","r","f","\\","'","\""]
+            |["0"-"7"](["0"-"7"])?
+            |["0"-"3"]["0"-"7"]["0"-"7"]
+            )
+        )
+        )*
+        "\""&gt;
+</pre> 
+<p>Within string and character literals, the backslash character can be used to escape special characters, such as <a href="/wiki/Java_Programming/Syntax/Unicode_Escape_Sequences" title="Java Programming/Syntax/Unicode Escape Sequences" class="mw-redirect">unicode escape sequences</a>, or the following special characters:</p> 
+<p>String literals may not contain unescaped newline or linefeed characters. However, the Java compiler will evaluate compile time expressions, so the following String expression results in a string with three lines of text:</p> 
+<table style="padding:2px; margin:2px;"> 
+ <tbody> 
+  <tr valign="top"> 
+   <td style="width:32px;"><img alt="Example" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/32px-Nuvola_apps_edu_miscellaneous.svg.png" title="Example" width="32" height="32" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/48px-Nuvola_apps_edu_miscellaneous.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nuvola_apps_edu_miscellaneous.svg/64px-Nuvola_apps_edu_miscellaneous.svg.png 2x" data-file-width="128" data-file-height="128" /></td> 
+   <td style="background-color:#f0fff0; border-left: 4px solid green; padding-left: 6px;"><span id="code-section-64"><b>Code section 3.64: Multi-line string.</b></span> 
+    <div class="mw-highlight mw-content-ltr" dir="ltr"> 
+     <pre>
+<span class="lineno">1 </span><span class="n">String</span> <span class="n">text</span> <span class="o">=</span> <span class="s">"This is a String literal\n"</span>
+<span class="lineno">2 </span>            <span class="o">+</span> <span class="s">"which spans not one and not two\n"</span>
+<span class="lineno">3 </span>            <span class="o">+</span> <span class="s">"but three lines of text.\n"</span><span class="o">;</span>
+</pre> 
+    </div> </td> 
+  </tr> 
+ </tbody> 
+</table>
